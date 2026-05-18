@@ -4,6 +4,26 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.3.0] — 2026-05-18
+
+### Added
+
+- **Ground-ambulance rule and dispute template** (`rules/10_ground_ambulance.md`, `templates/letter_ground_ambulance.md`). The federal No Surprises Act explicitly excludes ground ambulance — the single largest balance-billing gap in federal law. The kit now recognizes ground ambulance as a separate bill type, checks the patient's state against a list of 11 currently-named states with ground-ambulance protections (California, Colorado, Delaware, Georgia, Illinois, Maine, Maryland, New York, Ohio, Vermont, Washington), and routes to one of two letter variants: Variant A cites the state's balance-billing statute and demands reprocessing at in-network cost-sharing; Variant B argues UCC § 2-305 with the Medicare ambulance fee schedule as the floor. ERISA preemption guardrail is built into the variant selection.
+- **IRS § 501(r) Financial Assistance Policy application template** (`templates/letter_financial_assistance_application.md`). For non-profit hospital bills, formally requests the hospital's FAP, Plain Language Summary, application form, Billing and Collections Policy, and the calculation of Amounts Generally Billed (AGB). Triggers the hospital's federal obligation under 26 CFR § 1.501(r)-6 to suspend extraordinary collection action during eligibility review. Includes presumptive-eligibility block (Medicaid/SNAP/WIC enrollment) and escalation pointer to IRS Form 13909 if the hospital is non-responsive.
+- **CMS Hospital Price Transparency complaint template** (`templates/complaint_cms_hpt.md`). For when a hospital has not posted a compliant machine-readable file under 45 CFR Part 180. Files at the federal CMS portal with timestamped screenshots; produces real regulatory pressure because CMS can impose civil monetary penalties up to ~$2 million per year. Most useful as a parallel action to an underlying billing dispute, because forcing a compliant MRF unlocks the hospital's actual negotiated rates as evidence.
+- **Patient-Provider Dispute Resolution walkthrough rule** (`rules/11_ppdr_walkthrough.md`). PPDR is portal-driven, not letter-driven, so it ships as a rule with a checklist rather than a template. Covers the four eligibility conditions (uninsured/self-pay, GFE entitlement, $400-over-GFE threshold, 120-day filing window), the $25 filing fee, the SDR process, and the unique protections that attach during pendency (no collections, no late fees, no credit reporting). Surfaces the parallel CMS complaint for missing-GFE scenarios.
+- **Epic 7 in USER_STORIES.md** — "Cover federally-unprotected bill types." Stories 7.1 (ground ambulance), 7.2 (PPDR), 7.3 (FAP application), 7.4 (HPT complaint) all shipped.
+
+### Changed
+
+- **`schemas/bill.toml`** — `findings` controlled vocabulary extended with `ground_ambulance_state_protected`, `ground_ambulance_unprotected`, `ppdr_eligible`, `501r_eligible_candidate`, `hpt_mrf_noncompliance_evidence`. `next_action` enum extended with `dispute_state_balance_billing`, `dispute_ground_ambulance`, `apply_for_financial_assistance`, `file_cms_hpt_complaint`, `file_irs_501r_complaint`.
+- **`schemas/action.toml`** — `action_type` enum extended with `state_balance_billing_letter_sent`, `ground_ambulance_letter_sent`, `irs_501r_complaint_filed`, `ebsa_intervention_request`.
+- **`BUILD_PLAN.md`** updated: v0.3.0 marked shipped; v0.4.0 backlog reshuffled (state packs CA/TX/NY/FL moved into v0.4.0 to keep v0.3.0 focused on bill-type coverage).
+
+### Known issues
+
+- The 11-state ground-ambulance list in `rules/10_ground_ambulance.md` is current as of this release; legislatures move quickly in this area. Re-verify before relying. The LLM should warn the patient when using the list.
+
 ## [v0.2.0] — 2026-05-18
 
 ### Added
@@ -47,5 +67,6 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 - **License** — MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v0.3.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.3.0
 [v0.2.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.2.0
 [v0.1.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.1.0

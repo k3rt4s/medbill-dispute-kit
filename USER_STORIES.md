@@ -205,8 +205,56 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 - Given a patient outside Tennessee, When the LLM hits a state-specific step, Then it follows `references/laws_state_template.md` to find the equivalent statute, agency, and small-claims process, and warns the patient that the citation should be verified before sending mail.
 
-**Status:** proposed
+**Status:** in progress (Tennessee shipped v0.1.0, Georgia shipped v0.2.0; v0.3.0+ adds CA, TX, NY, FL via contributor PRs)
 **How to apply:** Track contributor PRs that fill in additional states.
+
+---
+
+## Epic 7 — Cover federally-unprotected bill types
+
+### Story 7.1 — Dispute a ground-ambulance balance bill
+
+**As a** patient receiving a balance bill from an out-of-network ground ambulance provider, **I want** the kit to recognize that ground ambulance is excluded from the federal No Surprises Act, route my case based on whether my state has its own protection, and draft the correct dispute letter, **so that** I am not stuck paying a $3,000 surprise bill that the federal Act explicitly leaves unprotected.
+
+**AC:**
+
+- Given a ground-ambulance bill, When the patient's state is on the list in `rules/10_ground_ambulance.md` and the plan is not ERISA-self-funded, Then the LLM uses `templates/letter_ground_ambulance.md` Variant A citing the specific state statute.
+- Given a ground-ambulance bill, When the patient's state has no protection or the plan is ERISA-self-funded, Then the LLM uses `templates/letter_ground_ambulance.md` Variant B arguing UCC § 2-305 with the Medicare ambulance fee schedule as the floor anchor.
+- The LLM asks up-front whether the patient's plan is self-funded ERISA before choosing between variants.
+
+**Status:** shipped (v0.3.0)
+
+### Story 7.2 — File PPDR for a self-pay bill exceeding the Good Faith Estimate
+
+**As a** patient who was uninsured or self-pay for a scheduled service, received (or should have received) a Good Faith Estimate, and is now staring at a final bill more than $400 above the estimate, **I want** the kit to walk me through filing federal Patient-Provider Dispute Resolution within the 120-day window, **so that** I get a binding determination from a neutral arbitrator and the collections-pause / credit-protection benefits that attach during PPDR.
+
+**AC:**
+
+- Given a self-pay patient with a final bill exceeding the GFE by $400+ within 120 days of receipt, When the LLM walks them through `rules/11_ppdr_walkthrough.md`, Then the patient has a complete checklist of evidence to upload to the federal IDR portal and an action logged in their tracker with the appropriate deadline.
+- Given a patient who was entitled to but never received a GFE, When the LLM identifies this, Then it surfaces a parallel CMS complaint at 1-800-985-3059 and notes the failure-to-provide-GFE is itself an NSA violation independent of PPDR.
+
+**Status:** shipped (v0.3.0)
+
+### Story 7.3 — Apply for hospital financial assistance under IRS § 501(r)
+
+**As a** patient with a bill from a non-profit hospital that I cannot afford in full, **I want** the kit to draft a Financial Assistance Policy application request that cites the applicable IRS regulations, triggers the hospital's procedural obligations during pendency, and refuses extraordinary collection action while the application is processed, **so that** I am screened for charity care before any collections clock runs.
+
+**AC:**
+
+- Given a non-profit hospital bill, When the patient uses `templates/letter_financial_assistance_application.md`, Then the letter requests the FAP, Plain Language Summary, application form, Billing & Collections Policy, and AGB calculation; states the patient's eligibility factors; and demands suspension of extraordinary collection action under 26 CFR § 1.501(r)-6.
+- Given a non-responsive hospital after 30 days, When the LLM logs the timeout, Then it surfaces the escalation path (IRS Form 13909 plus state AG complaint).
+
+**Status:** shipped (v0.3.0)
+
+### Story 7.4 — Force a non-compliant hospital to publish a price-transparency MRF
+
+**As a** patient whose hospital has not published a compliant machine-readable file of standard charges, **I want** a CMS complaint that produces regulatory pressure on the hospital, **so that** I gain access to the negotiated rates and cash prices the federal rule entitles me to see and which would anchor my underlying billing dispute.
+
+**AC:**
+
+- Given a hospital without a compliant MRF on its website, When the patient uses `templates/complaint_cms_hpt.md`, Then the complaint cites 45 CFR Part 180, identifies the specific deficiency (no MRF / incomplete MRF / no consumer display / access-barrier), and includes timestamped screenshots as evidence.
+
+**Status:** shipped (v0.3.0)
 
 ---
 
