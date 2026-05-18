@@ -41,7 +41,7 @@ A worked walkthrough lives at [llm/workflow.md](llm/workflow.md).
 
 State packs currently shipped: [Tennessee](references/laws_state_tn.md), [Georgia](references/laws_state_ga.md). For any other state, the LLM uses [`references/laws_state_template.md`](references/laws_state_template.md) to find your state's equivalents (with a warning to verify before mailing). PRs welcome — see [BUILD_PLAN.md](BUILD_PLAN.md) for the full backlog.
 
-Letter templates currently shipped: itemized-bill request, initial dispute, 30-day warning before small claims, No Surprises Act violation, ERISA insurance appeal, state insurance department complaint, **hardship negotiation** (for correctly-billed but unaffordable charges), **FDCPA § 1692g validation request** (for third-party collectors on medical debt).
+Letter templates currently shipped: itemized-bill request, initial dispute, 30-day warning before small claims, No Surprises Act violation, ERISA insurance appeal, state insurance department complaint, **hardship negotiation** (for correctly-billed but unaffordable charges), **FDCPA § 1692g validation request** (for third-party collectors on medical debt), **ground-ambulance dispute** (federal NSA doesn't cover this; two variants based on state law), **IRS § 501(r) Financial Assistance application** (for non-profit hospital bills), and **CMS Hospital Price Transparency complaint** (for hospitals that won't publish their MRF). Process walkthroughs for federal **Patient-Provider Dispute Resolution** (for self-pay bills over the Good Faith Estimate) live in [`rules/`](rules/) alongside the dispute methodology.
 
 ## The methodology in one paragraph
 

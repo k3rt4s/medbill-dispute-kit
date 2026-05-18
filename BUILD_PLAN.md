@@ -4,13 +4,13 @@ The "how" doc, sitting under [USER_STORIES.md](USER_STORIES.md). Story-level "wh
 
 ## Version status
 
-| Version | Status  | Date       | Highlights                                                                                                                                         |
-| ------- | ------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| v0.1.0  | shipped | 2026-05-18 | Initial scaffold: 33 files, full Tennessee worked example, 6 letter templates, 10 rules, federal-law references, schemas, tracker template         |
-| v0.2.0  | shipped | 2026-05-18 | Georgia state pack (incl. ground-ambulance protection), dedicated TN state file, hardship + FDCPA templates, worked example, CHANGELOG, BUILD_PLAN |
-| v0.3.0  | planned | —          | CA + TX + NY state packs, ground-ambulance dispute, financial-assistance template                                                                  |
-| v0.4.0  | planned | —          | Medicare/Medicaid appeal tracks, dental dispute track, schema validator                                                                            |
-| v1.0.0  | planned | —          | 10+ state packs, full appeal coverage across plan types, glossary, FAQ, validated examples                                                         |
+| Version | Status  | Date       | Highlights                                                                                                                                                                                                 |
+| ------- | ------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v0.1.0  | shipped | 2026-05-18 | Initial scaffold: 33 files, full Tennessee worked example, 6 letter templates, 10 rules, federal-law references, schemas, tracker template                                                                 |
+| v0.2.0  | shipped | 2026-05-18 | Georgia state pack (incl. ground-ambulance protection), dedicated TN state file, hardship + FDCPA templates, worked example, CHANGELOG, BUILD_PLAN                                                         |
+| v0.3.0  | shipped | 2026-05-18 | Ground-ambulance rule + dispute template (closes the federal NSA gap), IRS § 501(r) FAP application template, CMS Hospital Price Transparency complaint template, PPDR walkthrough rule, schema extensions |
+| v0.4.0  | planned | —          | CA + TX + NY state packs, Medicare/Medicaid appeal tracks, dental dispute track, schema validator                                                                                                          |
+| v1.0.0  | planned | —          | 10+ state packs, full appeal coverage across plan types, glossary, FAQ, validated examples                                                                                                                 |
 
 ## v0.2.0 backlog (active)
 
@@ -27,22 +27,27 @@ Items listed in shipping order. Each item names the file(s) it touches and the U
 - [x] **`schemas/action.toml`** — extended `action_type` enum to include `fdcpa_validation_request`, `state_ag_complaint_filed`, `cms_hpt_complaint_filed`, `fap_application_submitted`.
 - [x] **USER_STORIES.md** — added stories 4.6 and 4.7 marked shipped (v0.2.0).
 
-## v0.3.0 backlog (next)
+## v0.3.0 backlog (shipped)
 
-State packs and templates with broad coverage.
+Bill-type coverage and federal-process walkthroughs. State packs CA/TX/NY moved to v0.4.0 to keep v0.3.0 focused on coverage of bill types the kit could not previously handle (ground ambulance, charity-care, PPDR, HPT non-compliance).
 
-- [ ] `references/laws_state_ca.md` — California (AB 72 surprise-billing predates NSA; IMR external review; $12,500 small-claims for individuals). Story 6.1.
+- [x] `rules/10_ground_ambulance.md` + `templates/letter_ground_ambulance.md` — federal NSA explicitly excludes ground ambulance; this is the single biggest balance-billing gap. Ships with state-by-state protection table (11 states currently named) and a two-variant letter (state-protected vs. unprotected). New Epic 7. Stories 7.1 shipped.
+- [x] `templates/letter_financial_assistance_application.md` — IRS § 501(r) financial-assistance policy application. Pairs with Dollar For. Story 7.3 shipped.
+- [x] `templates/complaint_cms_hpt.md` — Hospital Price Transparency Rule non-compliance complaint to CMS. Story 7.4 shipped.
+- [x] `rules/11_ppdr_walkthrough.md` — federal Patient-Provider Dispute Resolution is portal-driven; ships as a rule with a checklist, not a letter template. Story 7.2 shipped.
+- [x] `schemas/bill.toml` — extended `findings` controlled vocabulary with `ground_ambulance_state_protected`, `ground_ambulance_unprotected`, `ppdr_eligible`, `501r_eligible_candidate`, `hpt_mrf_noncompliance_evidence`. Extended `next_action` enum with `dispute_state_balance_billing`, `dispute_ground_ambulance`, `apply_for_financial_assistance`, `file_cms_hpt_complaint`, `file_irs_501r_complaint`.
+- [x] `schemas/action.toml` — extended `action_type` enum with `state_balance_billing_letter_sent`, `ground_ambulance_letter_sent`, `irs_501r_complaint_filed`, `ebsa_intervention_request`.
+- [x] `USER_STORIES.md` — added Epic 7 with stories 7.1, 7.2, 7.3, 7.4 all shipped.
+- [x] `CHANGELOG.md` v0.3.0 entry.
+- [x] `README.md` updated to reference new files.
+
+## v0.4.0 backlog (next)
+
+State-pack expansion plus plan-type coverage.
+
+- [ ] `references/laws_state_ca.md` — California (AB 72 surprise-billing predates NSA; IMR external review; $12,500 small-claims for individuals; Health & Safety Code § 1797.225 ground ambulance protection). Story 6.1.
 - [ ] `references/laws_state_tx.md` — Texas (SB 1264 surprise-billing; $20,000 JP small-claims). Story 6.1.
-- [ ] `references/laws_state_ny.md` — New York (Article 49; 2024 medical-debt credit-reporting ban; $5,000 small-claims). Story 6.1.
-- [ ] `rules/10_ground_ambulance.md` + `templates/letter_ground_ambulance.md` — federal NSA explicitly excludes ground ambulance; this is the single biggest balance-billing gap. State-by-state patchwork in template. New Epic 7.
-- [ ] `templates/letter_financial_assistance_application.md` — IRS § 501(r) financial-assistance policy application. Pairs with Dollar For. Story 4.6.
-- [ ] `templates/complaint_cms_hpt.md` — Hospital Price Transparency Rule non-compliance complaint to CMS. Story 3.3 extension.
-- [ ] `rules/11_ppdr_walkthrough.md` — federal Patient-Provider Dispute Resolution is portal-driven; needs a checklist not a letter. Story 4.3 extension.
-
-## v0.4.0 backlog
-
-Plan-type coverage and tooling.
-
+- [ ] `references/laws_state_ny.md` — New York (Article 49; 2024 medical-debt credit-reporting ban; $5,000 small-claims; Pub. Health Law § 4906 ground ambulance). Story 6.1.
 - [ ] `references/laws_state_fl.md` — Florida ($8,000 small-claims). Story 6.1.
 - [ ] `templates/letter_medicare_appeal.md` + `rules/12_medicare_appeals.md` — redetermination → reconsideration → ALJ. Story 4.4 extension.
 - [ ] `templates/letter_medicaid_appeal.md` — state Medicaid managed-care appeals. Story 4.4 extension.
