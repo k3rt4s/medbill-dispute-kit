@@ -4,6 +4,38 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.4.0] — 2026-05-18
+
+### Added
+
+- **California state pack** (`references/laws_state_ca.md`). The most patient-favorable state in the kit. AB 72 surprise billing (codified at Cal. Health & Safety Code § 1371.9 and Cal. Ins. Code § 10112.8 et seq.); IMR external review under the Knox-Keene Act with ~73% favorable-to-enrollee outcomes; Hospital Fair Pricing Act (Health & Safety Code § 127400 et seq.) applies to all California hospitals not just non-profits, with 400% FPL eligibility post-AB 2297; AB 716 (2024) ground ambulance protection (HSC §§ 1371.56, 1797.124, 1797.233, Ins. Code § 10126.66); SB 1061 (2024) medical-debt credit-reporting voidance.
+- **Texas state pack** (`references/laws_state_tx.md`). Headline: Texas is one of the few states with a private right of action under Chapter 541 of the Insurance Code, with treble damages for knowing violations and attorney's fees. Other notables: SB 1264 balance billing (Tex. Ins. Code Chapter 1467); SB 916 (2025) extended ground ambulance protection through Sept 2027; the Texas Constitution Art. XVI § 28 bars wage garnishment for consumer debt; Tex. Civ. Prac. & Rem. Code § 146.002 requires providers to bill within 10 months or forfeit collection.
+- **New York state pack** (`references/laws_state_ny.md`). Three structural patient-side advantages: the Fair Medical Debt Reporting Act (Gen. Bus. Law § 380-j(f)) prohibits medical debt on credit reports; the Consumer Credit Fairness Act sets a 3-year statute of limitations for medical-debt actions under CPLR § 214-i; Hospital Financial Assistance Law (Pub. Health Law § 2807-k(9-a) as amended in 2024) extends FA at 400% FPL across all general hospitals with a 180-day pre-suit moratorium. Bad-faith is common-law-only under Pavia/Bi-Economy; GBL § 349 is the practical substitute with treble damages.
+- **Florida state pack** (`references/laws_state_fl.md`). Headline: Fla. Stat. § 624.155 Civil Remedy Notice as the first-party bad-faith vehicle, filed electronically with the Florida DFS, with a 60-day cure period, damages that can exceed policy limits, and recovery of attorney's fees. Other notables: § 395.301 7-day itemization with "miscellaneous" line items expressly prohibited; HB 7089 (2024) added a 3-year SOL on facility medical debt and a collection-action freeze under § 395.3011; ground ambulance not yet protected (HB 425 died in 2025; successor expected); hospital liens are county-by-county post-Shands.
+- **Medicare appeal track** (`rules/12_medicare_appeals.md` + `templates/letter_medicare_appeal.md`). The five-level Medicare appeal structure (Redetermination by MAC for A/B, Reconsideration by plan for C/D, QIC reconsideration, ALJ hearing at OMHA, DAB review, federal court) with the AIC thresholds ($190 for ALJ, $1,900 for federal court, both 2026), the form numbers, and the parallel routing through SHIP, Medicare Rights Center, and Center for Medicare Advocacy for free help.
+- **Medicaid appeal template** (`templates/letter_medicaid_appeal.md`). Two-step process (MCO internal appeal then state fair hearing) under 42 CFR § 438.402 et seq., with Aid Paid Pending option under § 438.420 and an EPSDT-specific block for under-21 enrollees. Tennessee TennCare worked example including TennCare Solutions contact info (1-800-878-3192) and Tennessee Justice Center as a free-help option.
+- **Dental dispute template** (`templates/letter_dental_dispute.md`). Covers insurer downcoding, bundling, frequency-limit denials, and virtual-credit-card payment objections, plus provider-side disputes when actual charges exceed a signed treatment plan. Hooks into Tennessee § 56-2-305 (HB 949 / SB 677, effective July 1, 2024) as the worked example.
+- **Glossary** (`references/glossary.md`). Plain-English definitions for every acronym and term the kit uses across rules, templates, and references.
+- **FAQ** (`FAQ.md`). 20+ questions covering kit usage, deadlines, escalation, edge cases, and contribution. Each answer cross-references the relevant rule or template.
+- **LLM compatibility notes** (`llm/compatibility.md`). Coverage of Claude (Opus and Sonnet variants), ChatGPT (5 and 5 Pro), Gemini (2.5 Pro and 3), Llama 3.1/3.3 with Ollama and LM Studio, Qwen 2.5/3 with vLLM. Notes on context windows, vision capability, behaviors to watch for, and privacy considerations.
+- **Short-context QUICKSTART** (`llm/QUICKSTART_short_context.md`). Seven-stage staged-load pattern for LLMs with under 32k tokens.
+- **Contribution guidelines** (`CONTRIBUTING.md`). PR guidelines including the 12-section state-pack checklist, template-creation rules, schema-extension rules, coding style for optional helper scripts.
+- **Optional tracker validator** (`scripts/validate_tracker.py` + `scripts/README.md`). Python 3.11+ standard-library-only script that validates a tracker CSV against the TOML schemas. Checks header order, ISO date format, decimal format, boolean format, and all enum / controlled-vocabulary fields. Returns clean exit codes.
+- **Epics 8 and 9 in USER_STORIES.md** — "Plan-type coverage" (stories 8.1 Medicare, 8.2 Medicaid, 8.3 dental) and "Discoverability and contribution" (stories 9.1 glossary, 9.2 FAQ, 9.3 short-context, 9.4 contribution, 9.5 validator). All shipped v0.4.0.
+
+### Changed
+
+- **`schemas/bill.toml`** — `next_action` enum extended with `appeal_medicare`, `appeal_medicaid`, `appeal_dental`, `fdcpa_validation_request`.
+- **`schemas/action.toml`** — `action_type` enum extended with `medicare_redetermination_filed`, `medicare_reconsideration_filed`, `medicare_alj_hearing_filed`, `medicaid_mco_appeal_filed`, `medicaid_fair_hearing_filed`, `dental_appeal_filed`.
+- **`BUILD_PLAN.md`** — v0.4.0 marked shipped; v1.0.0 marked partial (six state packs done, long-tail 44 states open for community PRs).
+- **`README.md`** — state-pack list expanded to six (TN, GA, CA, TX, NY, FL); template list expanded; glossary/FAQ/CONTRIBUTING/scripts/ folder references added.
+
+### Known issues
+
+- Long-tail state coverage (44 states) remains community-contribution territory. Use `references/laws_state_template.md` as the checklist.
+- A future schema revision should add a `state_balance_billing_letter_sent` (already in `action.toml`) variant; the kit currently logs ground-ambulance Variant A as `ground_ambulance_letter_sent` regardless of whether it cited state surprise-billing or ground-ambulance-specific authority. Functionally fine; semantically loose.
+- CPT and CDT descriptors remain paraphrased / cited by code only per AMA / ADA copyright. Patients needing the official full descriptors should use the CMS Physician Fee Schedule Lookup or the ADA's CDT lookup.
+
 ## [v0.3.0] — 2026-05-18
 
 ### Added
@@ -67,6 +99,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 - **License** — MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v0.4.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.4.0
 [v0.3.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.3.0
 [v0.2.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.2.0
 [v0.1.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.1.0
