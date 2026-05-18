@@ -1,0 +1,133 @@
+# Schema: the master tracker CSV the patient carries between sessions
+# This is the canonical "where I am in the dispute process" document.
+# Column order in the CSV must match the order below.
+# Multi-value fields are semicolon-separated strings (so they survive CSV without quoting tricks).
+
+[meta]
+schema = "tracker"
+schema_version = "0.1.0"
+file_format = "csv"
+encoding = "utf-8"
+line_endings = "lf"
+notes = "Each row is one bill. Actions taken against a bill are tracked separately; see schemas/action.toml. The tracker is the persistent state; the action log is append-only history kept in a parallel file or in the notes field."
+
+[[columns]]
+name = "bill_id"
+type = "string"
+required = true
+description = "Matches bill.toml.bill_id. Stable across sessions."
+
+[[columns]]
+name = "encounter_id"
+type = "string"
+required = false
+description = "Matches bill.toml.encounter_id. Links related bills."
+
+[[columns]]
+name = "provider_name"
+type = "string"
+required = true
+
+[[columns]]
+name = "provider_type"
+type = "string"
+required = true
+description = "From bill.toml.provider_type enum."
+
+[[columns]]
+name = "account_number"
+type = "string"
+required = true
+
+[[columns]]
+name = "statement_date"
+type = "date"
+required = true
+
+[[columns]]
+name = "date_of_service_start"
+type = "date"
+required = true
+
+[[columns]]
+name = "date_of_service_end"
+type = "date"
+required = false
+
+[[columns]]
+name = "total_billed"
+type = "decimal"
+required = true
+description = "Last known total billed in USD."
+
+[[columns]]
+name = "current_balance"
+type = "decimal"
+required = true
+description = "Last known patient balance in USD."
+
+[[columns]]
+name = "insurance_carrier"
+type = "string"
+required = false
+
+[[columns]]
+name = "in_network_status"
+type = "string"
+required = false
+
+[[columns]]
+name = "was_emergency"
+type = "boolean"
+required = false
+description = "Render as 'true' or 'false' or empty."
+
+[[columns]]
+name = "findings"
+type = "string"
+required = false
+description = "Semicolon-separated list of finding slugs from bill.toml.findings.controlled_vocabulary."
+
+[[columns]]
+name = "next_action"
+type = "string"
+required = true
+
+[[columns]]
+name = "next_action_due"
+type = "date"
+required = true
+
+[[columns]]
+name = "last_action_taken"
+type = "string"
+required = false
+description = "Slug of the last completed action, from action.toml.action_type."
+
+[[columns]]
+name = "last_action_date"
+type = "date"
+required = false
+
+[[columns]]
+name = "certified_mail_last"
+type = "string"
+required = false
+description = "Most recent certified-mail tracking number used for this bill."
+
+[[columns]]
+name = "status"
+type = "string"
+required = true
+
+[[columns]]
+name = "last_statement_date"
+type = "date"
+required = false
+description = "Updated each time a follow-up statement is detected."
+
+[[columns]]
+name = "notes"
+type = "string"
+required = false
+description = "Free text. Quote in CSV if contains commas/newlines."

@@ -1,0 +1,96 @@
+# Schema: one action taken against a bill
+# Examples: a letter sent, a complaint filed, a phone call made, a payment made, a settlement accepted.
+# The action log is the chronological history; the tracker row holds the current state.
+# Actions are append-only — never edit prior actions, add a new one to correct or supersede.
+
+[meta]
+schema = "action"
+schema_version = "0.1.0"
+
+[fields.action_id]
+type = "string"
+required = true
+description = "Stable identifier. Format: A-YYYY-NNN."
+
+[fields.bill_id]
+type = "string"
+required = true
+description = "The bill this action is against. Matches bill.toml.bill_id."
+
+[fields.action_type]
+type = "string"
+required = true
+enum = [
+  "received_bill",
+  "requested_itemization",
+  "received_itemization",
+  "phone_call_to_billing",
+  "phone_call_to_insurance",
+  "initial_dispute_letter_sent",
+  "no_surprises_letter_sent",
+  "insurance_appeal_internal_sent",
+  "insurance_appeal_external_sent",
+  "30day_warning_sent",
+  "state_doi_complaint_filed",
+  "cms_complaint_filed",
+  "ppdr_filed",
+  "small_claims_filed",
+  "small_claims_hearing",
+  "settlement_offered",
+  "settlement_accepted",
+  "payment_made",
+  "writeoff_received",
+  "sent_to_collections",
+  "credit_report_dispute_filed",
+  "other",
+]
+
+[fields.date]
+type = "date"
+required = true
+description = "Date the action was taken (ISO 8601)."
+
+[fields.recipient]
+type = "string"
+required = false
+description = "Who the action was directed at — billing department, insurance company, CMS, state DOI, court, etc."
+
+[fields.template_used]
+type = "string"
+required = false
+description = "Relative path to the template file used to draft a letter, if applicable."
+example = "templates/letter_initial_dispute.md"
+
+[fields.certified_mail_tracking]
+type = "string"
+required = false
+description = "USPS certified mail tracking number, if mailed."
+
+[fields.response_due_by]
+type = "date"
+required = false
+description = "When the recipient must respond per your letter or per statute."
+
+[fields.amount_disputed]
+type = "decimal"
+required = false
+description = "If applicable, the dollar amount this action contests, in USD."
+
+[fields.amount_paid]
+type = "decimal"
+required = false
+description = "If the action was a payment, the dollar amount, in USD."
+
+[fields.status]
+type = "string"
+required = true
+enum = ["completed", "awaiting_response", "response_received", "superseded"]
+
+[fields.outcome]
+type = "string"
+required = false
+description = "Brief outcome description once response received."
+
+[fields.notes]
+type = "string"
+required = false

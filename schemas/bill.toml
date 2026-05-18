@@ -1,0 +1,204 @@
+# Schema: a single medical bill record
+# The LLM uses this shape when emitting a newly-extracted bill (Phase 1 of the workflow).
+# Fields with `required = true` must be present and non-empty.
+# Fields with an `enum` list must take one of the listed values.
+
+[meta]
+schema = "bill"
+schema_version = "0.1.0"
+
+[fields.bill_id]
+type = "string"
+required = true
+description = "Stable identifier for this bill. Format: B-YYYY-NNN. The LLM mints this when extracting a new bill."
+example = "B-2026-001"
+
+[fields.encounter_id]
+type = "string"
+required = false
+description = "Identifier linking multiple bills from the same healthcare encounter. Bills sharing a date of service and facility name should share an encounter_id. Format: E-YYYY-NNN."
+example = "E-2026-001"
+
+[fields.provider_name]
+type = "string"
+required = true
+description = "The name of the billing entity exactly as it appears on the statement."
+example = "Example General Hospital"
+
+[fields.provider_type]
+type = "string"
+required = true
+enum = ["hospital", "physician_group", "anesthesiology", "radiology", "pathology", "lab", "emergency_physician", "ambulance", "dental", "pharmacy", "device_supplier", "other"]
+description = "Category of provider, used by the dedup and No Surprises Act rules."
+
+[fields.provider_tax_id]
+type = "string"
+required = false
+description = "Provider's Tax ID / EIN if visible on the statement. Helpful for deduplication."
+
+[fields.account_number]
+type = "string"
+required = true
+description = "The provider's internal account number for this bill. Often the strongest deduplication key."
+
+[fields.patient_account_id]
+type = "string"
+required = false
+description = "Patient-level identifier sometimes shown separately from account_number."
+
+[fields.statement_number]
+type = "string"
+required = false
+description = "Invoice or statement number if shown."
+
+[fields.statement_date]
+type = "date"
+required = true
+description = "The date this specific statement was issued (ISO 8601: YYYY-MM-DD)."
+
+[fields.date_of_service_start]
+type = "date"
+required = true
+description = "First date of the service or admission (ISO 8601)."
+
+[fields.date_of_service_end]
+type = "date"
+required = false
+description = "Last date of service for multi-day encounters; omit for single-day."
+
+[fields.total_billed]
+type = "decimal"
+required = true
+description = "Total amount the provider charged before any insurance adjustment, in USD."
+
+[fields.total_insurance_paid]
+type = "decimal"
+required = false
+description = "Amount insurance has paid against this bill so far, in USD."
+
+[fields.total_insurance_adjustment]
+type = "decimal"
+required = false
+description = "Contractual write-off the provider applied per the insurance contract, in USD."
+
+[fields.total_patient_paid]
+type = "decimal"
+required = false
+description = "Amount the patient has already paid on this bill, in USD."
+
+[fields.current_balance]
+type = "decimal"
+required = true
+description = "What the bill currently shows as owed by the patient, in USD."
+
+[fields.payment_due_date]
+type = "date"
+required = false
+description = "The 'pay by' date on the statement. Note this is the provider's preferred date, not a legal deadline."
+
+[fields.insurance_carrier]
+type = "string"
+required = false
+description = "Name of the insurance plan shown on the bill, if any."
+
+[fields.in_network_status]
+type = "string"
+required = false
+enum = ["in_network", "out_of_network", "unknown", "uninsured", "self_pay"]
+description = "Network status of this provider for the patient's plan, if known."
+
+[fields.was_emergency]
+type = "boolean"
+required = false
+description = "True if the service was emergency-room or otherwise emergent care. Drives No Surprises Act analysis."
+
+[fields.contact_phone]
+type = "string"
+required = false
+description = "Billing department phone number from the statement."
+
+[fields.contact_address]
+type = "string"
+required = false
+description = "Mailing address for disputes / payment."
+
+[fields.payment_url]
+type = "string"
+required = false
+description = "Online portal URL for this bill, if shown."
+
+[fields.cpt_codes]
+type = "array<string>"
+required = false
+description = "List of CPT/HCPCS codes visible on the itemized portion of the bill."
+example = ["99284", "71046", "85025"]
+
+[fields.line_items]
+type = "array<table>"
+required = false
+description = "Optional structured line items if the bill was itemized. Each item has: description, cpt_code, charge, units, date."
+
+[fields.findings]
+type = "array<string>"
+required = false
+description = "List of findings emitted in Phase 2 (Diagnosis). Each is a short slug from the controlled vocabulary below."
+controlled_vocabulary = [
+  "no_itemization",
+  "possible_upcoding_99285",
+  "possible_upcoding_99284",
+  "possible_upcoding_99215",
+  "possible_upcoding_99214",
+  "no_surprises_emergency",
+  "no_surprises_ancillary_oon",
+  "no_surprises_air_ambulance",
+  "no_good_faith_estimate",
+  "duplicate_line",
+  "service_not_received_suspected",
+  "price_above_fair_market",
+  "denied_by_insurance",
+  "balance_due_before_insurance_paid",
+  "follow_up_statement_only",
+  "no_findings",
+]
+
+[fields.next_action]
+type = "string"
+required = true
+enum = [
+  "request_itemization",
+  "appeal_insurance_denial",
+  "dispute_no_surprises_violation",
+  "initial_dispute",
+  "negotiate",
+  "30day_warning",
+  "file_state_complaint",
+  "file_cms_complaint",
+  "file_ppdr",
+  "small_claims",
+  "monitor",
+  "closed_resolved",
+  "closed_paid",
+  "closed_written_off",
+]
+description = "The single next action the patient should take on this bill."
+
+[fields.next_action_due]
+type = "date"
+required = true
+description = "Date by which the next action should be taken, ISO 8601."
+
+[fields.status]
+type = "string"
+required = true
+enum = ["open", "awaiting_response", "in_dispute", "settled", "closed"]
+description = "High-level status of this bill."
+
+[fields.last_statement_date]
+type = "date"
+required = false
+description = "Most recent statement date received. Updated when a follow-up statement comes in for the same bill (see schemas/deduplication_rules.toml)."
+
+[fields.notes]
+type = "string"
+required = false
+description = "Free-text notes from the patient or LLM. Keep short."
