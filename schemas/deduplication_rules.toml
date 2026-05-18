@@ -1,0 +1,85 @@
+# Schema: deduplication rules
+# How the LLM decides whether a newly-uploaded statement is a new bill or a follow-up
+# of an existing bill. Applied during Phase 1 (Intake) before creating a new bill row.
+
+[meta]
+schema = "deduplication_rules"
+schema_version = "0.1.0"
+notes = "These rules are heuristics, not laws. When uncertain, the LLM asks the patient to confirm rather than guessing."
+
+# --- Strong-match rule: same account number ---
+# If the new statement shares an account number with an existing bill, treat as the same bill.
+[[rules]]
+id = "exact_account_number"
+weight = 100
+match = "new.account_number == existing.account_number AND new.provider_name == existing.provider_name"
+action = "merge_as_followup"
+description = "An exact account number match for the same provider is decisive. Update the existing bill's last_statement_date and current_balance, do not create a new row."
+
+# --- Strong-match rule: same statement number ---
+[[rules]]
+id = "exact_statement_number"
+weight = 100
+match = "new.statement_number == existing.statement_number AND new.provider_name == existing.provider_name"
+action = "merge_duplicate"
+description = "An exact statement number match means the patient uploaded the same physical statement twice. Discard the new one, tell the patient it's already in the tracker."
+
+# --- Two-of-three rule: most common follow-up case ---
+# Many follow-up notices change one field (statement date, amount due) but keep others.
+[[rules]]
+id = "two_of_three_match"
+weight = 75
+match = "at least 2 of {account_number, provider_tax_id, patient_account_id} match exactly AND new.provider_name ~= existing.provider_name AND new.date_of_service_start == existing.date_of_service_start"
+action = "merge_as_followup"
+description = "When two of the three provider-side identifiers match and the date of service matches, treat as follow-up."
+
+# --- Balance-trajectory check ---
+# Follow-up statements typically show the same or slightly different balance.
+[[rules]]
+id = "balance_trajectory"
+weight = 50
+match = "candidate merge AND abs(new.current_balance - existing.current_balance) > existing.current_balance * 0.20 AND no payment recorded between the two statement dates"
+action = "flag_for_review"
+description = "If a 'follow-up' has a balance that moved more than 20% with no recorded payment, ask the patient: was something paid, or is this actually a different bill?"
+
+# --- Provider-name fuzzy matching ---
+# Hospital systems use many doing-business-as names. Treat these as the same:
+[[provider_aliases]]
+canonical = "TriStar Southern Hills Medical Center"
+aliases = ["TriStar Southern Hills", "Southern Hills Medical Center", "TriStar SH"]
+notes = "HCA-owned hospital example."
+
+[[provider_aliases]]
+canonical = "Hospital Medicine Services"
+aliases = ["Hospital Medicine Services of TN", "Hospital Medicine Svc", "HMS"]
+notes = "Physician group commonly billing as separate professional fees alongside HCA hospital bills."
+
+# Add more aliases here as you encounter them.
+
+# --- Provider type guardrails ---
+# A statement from a radiology group for the same date as a hospital stay is NOT a duplicate of the hospital bill.
+# Their provider_type differs even if the encounter_id is shared.
+[[rules]]
+id = "different_provider_type"
+weight = 100
+match = "new.provider_type != existing.provider_type"
+action = "create_new_link_encounter"
+description = "Different provider types serving the same encounter get separate bill rows linked by encounter_id."
+
+# --- Encounter linking rule ---
+# Bills sharing date of service AND facility name (or any shared encounter context) get the same encounter_id.
+[[rules]]
+id = "encounter_linking"
+weight = 100
+match = "new.date_of_service_start == existing.date_of_service_start AND (facility names match OR facility is referenced in the new bill's notes)"
+action = "assign_shared_encounter_id"
+description = "Hospital stay + ER physician + radiologist + anesthesiologist for the same date all share an encounter_id."
+
+# --- The 'ask the patient' fallback ---
+# When weights conflict or below threshold, surface the candidate match to the patient.
+[[rules]]
+id = "ambiguous_match_prompt_user"
+weight = 0
+match = "weighted score is between 30 and 70"
+action = "prompt_user_for_confirmation"
+description = "Show the patient both the new statement and the candidate existing bill, summarize what matches and what doesn't, and ask whether to merge or create new."

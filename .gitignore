@@ -1,0 +1,27 @@
+# Local data — never commit a real bill or tracker
+data/
+bills/
+my_tracker*.csv
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.heic
+
+# OS and editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python (if anyone adds optional helpers later)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Keep example tracker
+!tracker/tracker_template.csv
