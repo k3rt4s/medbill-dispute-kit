@@ -148,6 +148,27 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.1.0)
 
+### Story 4.6 — Negotiate a hardship reduction
+
+**As a** patient whose bill is correctly coded but unaffordable, **I want** a negotiation letter that anchors to the Medicare rate and demands consideration under the hospital's Financial Assistance Policy, **so that** I am not pushed into a payment plan I can't sustain.
+
+**AC:**
+
+- Given a bill with no dispute findings but a balance the patient cannot afford in full, When the LLM uses `templates/letter_hardship_negotiation.md`, Then the letter cites IRS § 501(r) where applicable, names reference points (Medicare rate, hospital cash price, fair-market range) with sources, makes a specific dollar offer, and refuses auto-debit and interest charges.
+
+**Status:** shipped (v0.2.0)
+
+### Story 4.7 — Respond to a third-party medical-debt collector
+
+**As a** patient receiving first written contact from a third-party debt collector on an alleged medical debt, **I want** to demand validation under FDCPA § 1692g within the 30-day window, **so that** collection activity is paused and the collector is forced to produce the underlying paper trail.
+
+**AC:**
+
+- Given a collector's first written communication received within the last 30 days, When the LLM uses `templates/letter_fdcpa_validation.md`, Then the letter demands the original-creditor name and address, the signed contract, an itemized statement, EOB, payments accounting, chain of assignment, state licensure, and date of last activity, and preserves FDCPA and FCRA rights.
+- Given the bill is from the original creditor (hospital or doctor's office) rather than a third-party collector, When the patient asks for this template, Then the LLM declines and routes to `letter_initial_dispute.md` or `letter_hardship_negotiation.md` instead.
+
+**Status:** shipped (v0.2.0)
+
 ---
 
 ## Epic 5 — Carry state across the months-long process
