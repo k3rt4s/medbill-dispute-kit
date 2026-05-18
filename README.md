@@ -29,14 +29,19 @@ A worked walkthrough lives at [llm/workflow.md](llm/workflow.md).
 
 ## What's in the box
 
-| Folder                       | What it holds                                                                        | Who uses it                               |
-| ---------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------- |
-| [`llm/`](llm/)               | Top-level prompt, end-to-end workflow, and output contracts                          | The LLM you're driving                    |
-| [`rules/`](rules/)           | The principles and tactics extracted from Allen's work, one rule per file            | The LLM, as its operating manual          |
-| [`references/`](references/) | Federal laws, state-law template (TN worked example), CPT codes, pricing resources   | The LLM, when it needs to cite something  |
-| [`schemas/`](schemas/)       | TOML schemas describing bill records, tracker rows, dispute actions, and dedup logic | The LLM, when producing structured output |
-| [`templates/`](templates/)   | Letter and complaint templates with placeholders                                     | The LLM, when drafting correspondence     |
-| [`tracker/`](tracker/)       | Downloadable CSV tracker plus column dictionary                                      | You, between sessions                     |
+| Folder                       | What it holds                                                                                         | Who uses it                               |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| [`llm/`](llm/)               | Top-level prompt, end-to-end workflow, and output contracts                                           | The LLM you're driving                    |
+| [`rules/`](rules/)           | The principles and tactics extracted from Allen's work, one rule per file                             | The LLM, as its operating manual          |
+| [`references/`](references/) | Federal laws, dedicated state packs (TN, GA), state-law template for new states, CPT codes, resources | The LLM, when it needs to cite something  |
+| [`schemas/`](schemas/)       | TOML schemas describing bill records, tracker rows, dispute actions, and dedup logic                  | The LLM, when producing structured output |
+| [`templates/`](templates/)   | Letter and complaint templates with placeholders                                                      | The LLM, when drafting correspondence     |
+| [`tracker/`](tracker/)       | Downloadable CSV tracker plus column dictionary                                                       | You, between sessions                     |
+| [`examples/`](examples/)     | Worked-example sessions showing the kit handling real bill patterns                                   | You, before your first session            |
+
+State packs currently shipped: [Tennessee](references/laws_state_tn.md), [Georgia](references/laws_state_ga.md). For any other state, the LLM uses [`references/laws_state_template.md`](references/laws_state_template.md) to find your state's equivalents (with a warning to verify before mailing). PRs welcome — see [BUILD_PLAN.md](BUILD_PLAN.md) for the full backlog.
+
+Letter templates currently shipped: itemized-bill request, initial dispute, 30-day warning before small claims, No Surprises Act violation, ERISA insurance appeal, state insurance department complaint, **hardship negotiation** (for correctly-billed but unaffordable charges), **FDCPA § 1692g validation request** (for third-party collectors on medical debt).
 
 ## The methodology in one paragraph
 
@@ -48,7 +53,7 @@ Marshall Allen spent fifteen years documenting how the US healthcare system char
 
 ## Limits and disclaimers
 
-This is not legal advice. It is a structured way to apply public laws and well-documented consumer-protection patterns to medical billing disputes. The state-law layer ships with Tennessee fully worked out; for other states the kit guides the LLM to look up your state's equivalents using the patterns in [references/laws_state_template.md](references/laws_state_template.md). If your dispute involves more than ~$10,000, suspected fraud, or potential malpractice, talk to a lawyer. Free 30-minute consultations are common, and legal-aid organizations exist in every state.
+This is not legal advice. It is a structured way to apply public laws and well-documented consumer-protection patterns to medical billing disputes. The state-law layer ships with Tennessee and Georgia fully worked out; for other states the kit guides the LLM to look up your state's equivalents using the patterns in [references/laws_state_template.md](references/laws_state_template.md). If your dispute involves more than ~$10,000, suspected fraud, or potential malpractice, talk to a lawyer. Free 30-minute consultations are common, and legal-aid organizations exist in every state.
 
 The kit is jurisdictionally US-only.
 
