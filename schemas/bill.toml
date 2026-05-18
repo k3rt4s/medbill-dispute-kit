@@ -172,6 +172,9 @@ required = true
 enum = [
   "request_itemization",
   "appeal_insurance_denial",
+  "appeal_medicare",
+  "appeal_medicaid",
+  "appeal_dental",
   "dispute_no_surprises_violation",
   "dispute_state_balance_billing",
   "dispute_ground_ambulance",
@@ -184,6 +187,7 @@ enum = [
   "file_cms_hpt_complaint",
   "file_ppdr",
   "file_irs_501r_complaint",
+  "fdcpa_validation_request",
   "small_claims",
   "monitor",
   "closed_resolved",

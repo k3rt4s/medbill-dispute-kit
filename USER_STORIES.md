@@ -205,8 +205,8 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 - Given a patient outside Tennessee, When the LLM hits a state-specific step, Then it follows `references/laws_state_template.md` to find the equivalent statute, agency, and small-claims process, and warns the patient that the citation should be verified before sending mail.
 
-**Status:** in progress (Tennessee shipped v0.1.0, Georgia shipped v0.2.0; v0.3.0+ adds CA, TX, NY, FL via contributor PRs)
-**How to apply:** Track contributor PRs that fill in additional states.
+**Status:** shipped for six states (Tennessee v0.1.0, Georgia v0.2.0, California + Texas + New York + Florida v0.4.0). Long-tail state coverage remains open for contributor PRs.
+**How to apply:** Track contributor PRs that fill in remaining states using `references/laws_state_template.md` as the checklist.
 
 ---
 
@@ -255,6 +255,103 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 - Given a hospital without a compliant MRF on its website, When the patient uses `templates/complaint_cms_hpt.md`, Then the complaint cites 45 CFR Part 180, identifies the specific deficiency (no MRF / incomplete MRF / no consumer display / access-barrier), and includes timestamped screenshots as evidence.
 
 **Status:** shipped (v0.3.0)
+
+---
+
+## Epic 8 — Plan-type coverage (Medicare, Medicaid, dental)
+
+### Story 8.1 — Appeal a Medicare claim denial
+
+**As a** Medicare beneficiary whose claim was denied by the MAC, by a Medicare Advantage plan, or by a Part D plan, **I want** to file the appropriate appeal at the correct level with the correct deadlines, **so that** I exhaust the five-level Medicare appeal process correctly without losing the right to advance to ALJ or federal court.
+
+**AC:**
+
+- Given a denied Medicare claim, When the LLM walks the patient through `rules/12_medicare_appeals.md`, Then it identifies which Medicare part (A/B, C, D) and which level (1-5) applies, calculates the filing deadline from the date of the prior decision, and uses `templates/letter_medicare_appeal.md` to draft the Level 1 or Level 2 request with all required elements per 42 CFR § 405.946 / § 422.566 / § 423.580.
+- Given an expedited-review-eligible situation, When the LLM detects clinical urgency, Then it renders the expedited-review section and shortens the response deadline accordingly.
+
+**Status:** shipped (v0.4.0)
+
+### Story 8.2 — Appeal a Medicaid managed-care denial
+
+**As a** Medicaid enrollee whose service was denied by my MCO, **I want** to file the MCO internal appeal within 60 days and, if still denied, the state fair hearing within the state's deadline, **so that** I exhaust the federal-floor appeal process without losing the right to state-level review.
+
+**AC:**
+
+- Given a Medicaid MCO denial, When the LLM uses `templates/letter_medicaid_appeal.md`, Then it identifies the correct MCO appeal address, cites 42 CFR § 438.402 et seq., includes the Aid Paid Pending option where applicable, and routes to the state fair hearing as Step 2.
+- Tennessee-specific path: Given a TennCare denial, When the patient asks for state fair hearing, Then the letter is addressed to TennCare Solutions and references Tennessee Justice Center as a free-help option.
+
+**Status:** shipped (v0.4.0)
+
+### Story 8.3 — Dispute a dental insurance downcoding or bundling
+
+**As a** patient whose dental insurer downcoded a procedure or bundled separately-billable procedures, **I want** an appeal letter that cites the state's non-covered-services statute and the ADA's CDT code requirements, **so that** I (and my dentist) recover the correct payment.
+
+**AC:**
+
+- Given a dental EOB showing downcoding or bundling, When the LLM uses `templates/letter_dental_dispute.md`, Then the letter identifies the specific CDT code(s) at issue, cites the state non-covered-services statute (Tennessee § 56-2-305 as the worked example), and demands reprocessing with attached clinical documentation.
+- Given a state that has not enacted a non-covered-services statute, When the LLM cannot cite a state-specific anti-downcoding law, Then it falls back to the plan terms and the implied covenant of good faith.
+
+**Status:** shipped (v0.4.0)
+
+---
+
+## Epic 9 — Discoverability and contribution
+
+### Story 9.1 — Find a glossary entry for any acronym the kit uses
+
+**As a** patient unfamiliar with the alphabet soup of health-care billing, **I want** to look up any term used by the kit in one place, **so that** I don't lose context to terminology.
+
+**AC:**
+
+- Given any acronym used in a rule, template, or reference file, When the patient searches `references/glossary.md`, Then they find a plain-English definition.
+
+**Status:** shipped (v0.4.0)
+
+### Story 9.2 — Get answers to common questions without re-reading the rules
+
+**As a** new patient picking up the kit, **I want** quick answers to recurring questions ("the bill is overdue, what now?", "do I need a lawyer?", "what if I missed a deadline?"), **so that** I don't have to read every rule file to get unstuck.
+
+**AC:**
+
+- `FAQ.md` covers ≥ 20 common scenarios with answers grounded in specific rules.
+- Each FAQ answer cross-references the rule or template that handles the case.
+
+**Status:** shipped (v0.4.0)
+
+### Story 9.3 — Run the kit on a short-context LLM
+
+**As a** patient using a small local model or a cloud LLM with limited context, **I want** a staged-load pattern that doesn't require all kit files in memory simultaneously, **so that** I can still complete the workflow.
+
+**AC:**
+
+- `llm/QUICKSTART_short_context.md` describes a 7-stage load pattern.
+- Each stage names the specific files to load and what the LLM should do with them.
+
+**Status:** shipped (v0.4.0)
+
+### Story 9.4 — Contribute a new state pack as a PR
+
+**As an** open-source contributor with knowledge of my state's medical-bill protections, **I want** clear contribution guidelines, **so that** my PR meets the kit's quality bar on the first try.
+
+**AC:**
+
+- `CONTRIBUTING.md` includes a checklist for new state packs covering all 12 required sections.
+- Specifies the citation discipline (URL per claim, verified-on date).
+- Lists the cross-references that must update in lockstep (BUILD_PLAN, CHANGELOG, README, QUICKSTART).
+
+**Status:** shipped (v0.4.0)
+
+### Story 9.5 — Validate a tracker CSV outside an LLM session
+
+**As a** technical user, **I want** a script that confirms my tracker conforms to the schema, **so that** I can catch typos before re-uploading to the LLM.
+
+**AC:**
+
+- `scripts/validate_tracker.py` runs on Python 3.11+ standard library, no dependencies.
+- Validates header order, date format, decimal format, boolean format, and all enum / controlled-vocabulary fields.
+- Returns exit code 0 on valid, 1 on invalid with errors to stderr.
+
+**Status:** shipped (v0.4.0)
 
 ---
 

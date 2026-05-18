@@ -4,13 +4,13 @@ The "how" doc, sitting under [USER_STORIES.md](USER_STORIES.md). Story-level "wh
 
 ## Version status
 
-| Version | Status  | Date       | Highlights                                                                                                                                                                                                 |
-| ------- | ------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| v0.1.0  | shipped | 2026-05-18 | Initial scaffold: 33 files, full Tennessee worked example, 6 letter templates, 10 rules, federal-law references, schemas, tracker template                                                                 |
-| v0.2.0  | shipped | 2026-05-18 | Georgia state pack (incl. ground-ambulance protection), dedicated TN state file, hardship + FDCPA templates, worked example, CHANGELOG, BUILD_PLAN                                                         |
-| v0.3.0  | shipped | 2026-05-18 | Ground-ambulance rule + dispute template (closes the federal NSA gap), IRS § 501(r) FAP application template, CMS Hospital Price Transparency complaint template, PPDR walkthrough rule, schema extensions |
-| v0.4.0  | planned | —          | CA + TX + NY state packs, Medicare/Medicaid appeal tracks, dental dispute track, schema validator                                                                                                          |
-| v1.0.0  | planned | —          | 10+ state packs, full appeal coverage across plan types, glossary, FAQ, validated examples                                                                                                                 |
+| Version | Status  | Date       | Highlights                                                                                                                                                                                                                                         |
+| ------- | ------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v0.1.0  | shipped | 2026-05-18 | Initial scaffold: 33 files, full Tennessee worked example, 6 letter templates, 10 rules, federal-law references, schemas, tracker template                                                                                                         |
+| v0.2.0  | shipped | 2026-05-18 | Georgia state pack (incl. ground-ambulance protection), dedicated TN state file, hardship + FDCPA templates, worked example, CHANGELOG, BUILD_PLAN                                                                                                 |
+| v0.3.0  | shipped | 2026-05-18 | Ground-ambulance rule + dispute template (closes the federal NSA gap), IRS § 501(r) FAP application template, CMS Hospital Price Transparency complaint template, PPDR walkthrough rule, schema extensions                                         |
+| v0.4.0  | shipped | 2026-05-18 | CA + TX + NY + FL state packs, Medicare appeal track, Medicaid appeal template (TennCare worked example), dental dispute template, glossary, FAQ, LLM compatibility doc, short-context QUICKSTART, CONTRIBUTING, optional tracker validator script |
+| v1.0.0  | partial | —          | Six state packs shipped (TN, GA, CA, TX, NY, FL); long-tail 44-state coverage open for community PRs                                                                                                                                               |
 
 ## v0.2.0 backlog (active)
 
@@ -41,17 +41,26 @@ Bill-type coverage and federal-process walkthroughs. State packs CA/TX/NY moved 
 - [x] `CHANGELOG.md` v0.3.0 entry.
 - [x] `README.md` updated to reference new files.
 
-## v0.4.0 backlog (next)
+## v0.4.0 backlog (shipped)
 
-State-pack expansion plus plan-type coverage.
+State-pack expansion plus plan-type coverage plus documentation, all shipped 2026-05-18.
 
-- [ ] `references/laws_state_ca.md` — California (AB 72 surprise-billing predates NSA; IMR external review; $12,500 small-claims for individuals; Health & Safety Code § 1797.225 ground ambulance protection). Story 6.1.
-- [ ] `references/laws_state_tx.md` — Texas (SB 1264 surprise-billing; $20,000 JP small-claims). Story 6.1.
-- [ ] `references/laws_state_ny.md` — New York (Article 49; 2024 medical-debt credit-reporting ban; $5,000 small-claims; Pub. Health Law § 4906 ground ambulance). Story 6.1.
-- [ ] `references/laws_state_fl.md` — Florida ($8,000 small-claims). Story 6.1.
-- [ ] `templates/letter_medicare_appeal.md` + `rules/12_medicare_appeals.md` — redetermination → reconsideration → ALJ. Story 4.4 extension.
-- [ ] `templates/letter_medicaid_appeal.md` — state Medicaid managed-care appeals. Story 4.4 extension.
-- [ ] `templates/letter_dental_dispute.md` — hooks into TN § 56-2-305 downcoding/bundling; opens dental as a vertical. Story 3.x.
+- [x] `references/laws_state_ca.md` — California pack. Notable: IMR ~73% favorable-to-enrollee per DMHC; Hospital Fair Pricing Act applies to all CA hospitals, not just non-profits; AB 716 ground ambulance protection. Story 6.1 shipped for CA.
+- [x] `references/laws_state_tx.md` — Texas pack. Notable: Chapter 541 private right of action with treble damages for knowing violations; SB 916 (2025) extends ground ambulance protection through 2027; Texas Constitution wage-garnishment ban for consumer debt. Story 6.1 shipped for TX.
+- [x] `references/laws_state_ny.md` — New York pack. Notable: Fair Medical Debt Reporting Act (Gen. Bus. Law § 380-j(f)) prohibits medical debt on credit reports; Consumer Credit Fairness Act 3-year SOL on medical debt (CPLR § 214-i); GBL § 349 as the practical bad-faith substitute with treble damages. Story 6.1 shipped for NY.
+- [x] `references/laws_state_fl.md` — Florida pack. Notable: § 624.155 Civil Remedy Notice as the first-party bad-faith vehicle with potential damages exceeding policy limits; § 395.301 7-day itemization with "miscellaneous" line items prohibited; HB 7089 3-year SOL on facility medical debt + extraordinary-collection-action freeze. Story 6.1 shipped for FL.
+- [x] `rules/12_medicare_appeals.md` + `templates/letter_medicare_appeal.md` — five-level Medicare appeals walkthrough (redetermination → QIC reconsideration → ALJ → DAB → federal court) covering Parts A/B, C, D. Story 8.1 shipped.
+- [x] `templates/letter_medicaid_appeal.md` — Medicaid two-step appeal (MCO internal → state fair hearing) under 42 CFR § 438.402 et seq. Tennessee TennCare worked example with TennCare Solutions contact info; state-adaptation pattern for other states. Story 8.2 shipped.
+- [x] `templates/letter_dental_dispute.md` — dental insurer downcoding/bundling/coverage disputes, plus provider-side bills exceeding treatment plan. Hooks into Tennessee § 56-2-305 as the worked example. Story 8.3 shipped.
+- [x] `references/glossary.md` — plain-English definitions for all kit acronyms (AGB, AOB, ALJ, CDT, CMP, CRN, DPC, EPSDT, FBPA, FCCPA, FCRA, FDCPA, FDUTPA, GFE, HCPCS, HPT, IDR, IMR, IRE, IRO, LCD, MAC, MBI, MCO, MDM, MRF, MSN, NCCI, NSA, OMHA, OOP, PPDR, QIC, RVU, SDR, SHIP, SPD, TIN, TPA, UCC, UCR, UDAP, VCC). Story 9.1 shipped.
+- [x] `FAQ.md` — 20+ patient-facing questions covering kit-use, deadlines, escalation, edge cases, and contribution. Story 9.2 shipped.
+- [x] `llm/compatibility.md` — coverage of Claude, ChatGPT, Gemini, Llama, Qwen with context-window and vision considerations. Story 1.1 extension.
+- [x] `llm/QUICKSTART_short_context.md` — 7-stage load pattern for LLMs under 32k tokens. Story 9.3 shipped.
+- [x] `CONTRIBUTING.md` — PR guidelines including the 12-section state-pack checklist. Story 9.4 shipped.
+- [x] `scripts/validate_tracker.py` + `scripts/README.md` — optional Python 3.11+ tracker validator with no third-party dependencies. Story 9.5 shipped.
+- [x] `schemas/bill.toml` — `next_action` enum extended with `appeal_medicare`, `appeal_medicaid`, `appeal_dental`, `fdcpa_validation_request`.
+- [x] `schemas/action.toml` — `action_type` enum extended with `medicare_redetermination_filed`, `medicare_reconsideration_filed`, `medicare_alj_hearing_filed`, `medicaid_mco_appeal_filed`, `medicaid_fair_hearing_filed`, `dental_appeal_filed`.
+- [x] `USER_STORIES.md` — added Epic 8 (Plan-type coverage) and Epic 9 (Discoverability and contribution).
 - [ ] `templates/letter_credit_bureau_dispute.md` — paid medical and sub-$500 collections under 2022 voluntary bureau changes. New Epic 7.
 - [ ] `scripts/validate_tracker.py` — validates a tracker CSV against the TOML schemas. Optional helper. Story 5.2 extension.
 - [ ] `examples/sample_bills/` — synthetic bill images/PDFs (clearly fictional patients) to test extraction. Story 1.2.
