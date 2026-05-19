@@ -26,6 +26,12 @@ The model asks your state. Load the relevant state file:
 - Texas: [`references/laws_state_tx.md`](../references/laws_state_tx.md)
 - New York: [`references/laws_state_ny.md`](../references/laws_state_ny.md)
 - Florida: [`references/laws_state_fl.md`](../references/laws_state_fl.md)
+- Pennsylvania: [`references/laws_state_pa.md`](../references/laws_state_pa.md)
+- Illinois: [`references/laws_state_il.md`](../references/laws_state_il.md)
+- Ohio: [`references/laws_state_oh.md`](../references/laws_state_oh.md)
+- North Carolina: [`references/laws_state_nc.md`](../references/laws_state_nc.md)
+- Michigan: [`references/laws_state_mi.md`](../references/laws_state_mi.md)
+- Washington: [`references/laws_state_wa.md`](../references/laws_state_wa.md)
 - Other: load [`references/laws_state_template.md`](../references/laws_state_template.md) and ask the model to look up your state's equivalents (warn it to verify before mailing).
 
 Also load: [`references/laws_federal.md`](../references/laws_federal.md).
@@ -50,6 +56,10 @@ For each bill, load the rule that matches the model's preliminary finding:
 - PPDR-eligible → load [`rules/11_ppdr_walkthrough.md`](../rules/11_ppdr_walkthrough.md)
 - Insurance denial → load [`rules/07_appeal_insurance_denial.md`](../rules/07_appeal_insurance_denial.md)
 - Medicare denial → load [`rules/12_medicare_appeals.md`](../rules/12_medicare_appeals.md)
+- EMTALA / emergency-care refusal → load [`rules/13_emtala.md`](../rules/13_emtala.md)
+- HIPAA records-access denial → load [`rules/14_hipaa_right_of_access.md`](../rules/14_hipaa_right_of_access.md)
+- Accident-related billing → load [`rules/15_auto_med_pay.md`](../rules/15_auto_med_pay.md)
+- Work-related injury → load [`rules/16_workers_comp.md`](../rules/16_workers_comp.md)
 - Third-party collector → no extra rule needed; go to Stage 5 with the FDCPA template.
 
 ## Stage 5 — Draft
@@ -72,6 +82,9 @@ For each action the workflow chooses, load only that template:
 | Ground-ambulance dispute   | `templates/letter_ground_ambulance.md`                 |
 | State insurance complaint  | `templates/complaint_state_doi.md`                     |
 | CMS HPT complaint          | `templates/complaint_cms_hpt.md`                       |
+| EMTALA complaint           | `templates/complaint_emtala.md`                        |
+| HIPAA right-of-access OCR  | `templates/complaint_hipaa_access.md`                  |
+| Auto med-pay (3 variants)  | `templates/letter_auto_med_pay.md`                     |
 
 Plus: [`llm/output_contracts.md`](output_contracts.md) for the rendering format.
 

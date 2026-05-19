@@ -391,6 +391,75 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
+## Epic 10 — Federal-protection coverage beyond billing
+
+### Story 10.1 — Complain to CMS about an EMTALA violation
+
+**As a** patient who was denied emergency screening, stabilization, or appropriate transfer by a Medicare-participating hospital, **I want** a complaint letter to CMS that fits the agency's investigation process and preserves my civil right of action, **so that** I both create regulatory pressure and protect my 2-year statute of limitations.
+
+**AC:**
+
+- Given an emergency-care denial, When the LLM walks the patient through `rules/13_emtala.md`, Then it categorizes the violation (failure to screen, failure to stabilize, inappropriate transfer, refusal over prior unpaid bill, active labor) and drafts the right CMS complaint.
+- Given the complaint is filed, When the LLM logs the action, Then the 2-year SOL under 42 U.S.C. § 1395dd(d)(2)(C) is calendared and the patient is advised to consult plaintiff-side counsel for the civil action.
+
+**Status:** shipped (v0.6.0)
+
+### Story 10.2 — Force release of medical or billing records under HIPAA
+
+**As a** patient whose provider has delayed access, charged excessive fees, refused electronic transmission, or denied records access entirely, **I want** an OCR complaint that cites the specific 45 CFR § 164.524 provision violated, **so that** I unblock the records I need to support my underlying billing dispute.
+
+**AC:**
+
+- Given a records-request situation, When the LLM walks the patient through `rules/14_hipaa_right_of_access.md`, Then it diagnoses which subsection of § 164.524 is in play (no response in 30 days, excessive fee, refused format, procedural barriers, partial response, outright denial).
+- Given OCR complaint readiness, When the LLM uses `templates/complaint_hipaa_access.md`, Then the complaint identifies the specific subsection violated, attaches evidence, and is filed within the 180-day window.
+
+**Status:** shipped (v0.6.0)
+
+---
+
+## Epic 11 — Accident-related and work-injury billing
+
+### Story 11.1 — Force correct payer ordering on accident-related medical bills
+
+**As a** patient injured in a motor-vehicle accident, **I want** the kit to identify all the potential payers (med-pay/PIP, UM/UIM, at-fault driver's BI, my health insurance) and force each provider to bill them in the correct order, **so that** I don't get hit with chargemaster-priced lien recoveries from my eventual settlement.
+
+**AC:**
+
+- Given an accident-related bill, When the LLM walks the patient through `rules/15_auto_med_pay.md`, Then it routes the case based on whether the state is no-fault or tort, identifies the relevant policy coverages, and (for non-trivial cases) recommends retaining a personal-injury attorney.
+- Given a hospital is preserving the bill for a settlement lien, When the LLM uses `templates/letter_auto_med_pay.md` Variant B, Then the letter demands the provider bill health insurance under any state-specific insurance-first rule (e.g., O.C.G.A. § 44-14-471(c)).
+- Given a hospital has perfected a lien, When the LLM uses Variant C, Then the patient receives a structured challenge citing perfection defects, the made-whole doctrine where applicable, and chargemaster-unconscionability arguments.
+
+**Status:** shipped (v0.6.0)
+
+### Story 11.2 — Reject improper balance bills for workers' compensation injuries
+
+**As a** worker with an accepted workers' compensation claim, **I want** any medical bill that arrives at my address to be redirected to the workers' comp carrier or flagged as improper balance billing, **so that** I do not pay something I am statutorily exempt from owing.
+
+**AC:**
+
+- Given a bill stemming from a work-related injury, When the LLM walks the patient through `rules/16_workers_comp.md`, Then it confirms the WC claim status, identifies the correct carrier, and produces a redirect letter or escalation to the state workers' comp board as appropriate.
+- Given the WC claim is contested or denied, When the LLM advises on parallel tracks, Then it surfaces both the state workers' comp appeal path and the health-insurance-with-subrogation interim option.
+
+**Status:** shipped (v0.6.0)
+
+---
+
+## Epic 12 — Long-tail state coverage
+
+### Story 12.1 — Twelve state packs cover ~50% of US population
+
+**As a** US patient in one of the twelve largest states by population, **I want** the kit to ship a dedicated state pack with verified citations for my state, **so that** I do not need to ask the LLM to look up my state's statutes from a template.
+
+**AC:**
+
+- Dedicated state packs ship for Tennessee, Georgia, California, Texas, New York, Florida, Pennsylvania, Illinois, Ohio, North Carolina, Michigan, Washington.
+- Every pack covers the 12 required sections of `references/laws_state_template.md` plus 1-5 state-specific advantages.
+- Every pack is dated and verified against public sources.
+
+**Status:** shipped (v0.6.0; long-tail 38 states remain open for community PRs)
+
+---
+
 ## Cross-references
 
 - Roadmap: this project does not yet have a `roadmap.json`. Roadmap is captured by story status above.

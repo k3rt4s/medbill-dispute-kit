@@ -6,6 +6,34 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.6.0] — 2026-05-18
+
+### Added
+
+- **North Carolina state pack** (`references/laws_state_nc.md`). Headline: N.C. Gen. Stat. § 75-1.1 UDPA with automatic treble damages and original-creditor reach, unlocked for § 58-63-15 UCPA-predicate violations under *Gray v. N.C. Ins. Underwriting Ass'n* (2000). NC Constitution Art. X § 1 categorically prohibits wage garnishment for medical debt. Small-claims corporate-defendant rule (unauthorized-practice-of-law) requires defense counsel for corporate appearances — opposite of GA. Administrative Medical Debt Relief Initiative (HASP) has erased ~$6.5B for 2.5M North Carolinians as of late 2025. Ground-ambulance gap unclosed (HB 456 passed House 2025 but not yet enacted as of this release).
+- **Michigan state pack** (`references/laws_state_mi.md`). Headline: Michigan's no-fault auto-insurance interaction with medical billing is the distinctive issue — pre-2019 unlimited-PIP regime, 2019 reforms with capped options, MCL § 500.3157 fee schedule capped at 200-230% of Medicare, *Andary v. USAA* retroactivity ruling. MCL § 500.2006 automatic 12% penalty interest is uniquely strong, accruing even when claim is reasonably in dispute per *Nickola v. MIC General Ins.* (2017). Small claims at $7,000 with attorneys prohibited entirely (MCL § 600.8408). Michigan does not recognize stand-alone common-law bad-faith tort per *Roberts v. Auto-Owners*; MCPA private right of action neutered post-*Smith v. Globe Life* (1999).
+- **Washington state pack** (`references/laws_state_wa.md`). Headlines: Charity Care Act (RCW 70.170.060) is the most generous in the country — 100% free care up to 300% FPL for Tier 1 hospitals, up to 200% FPL for Tier 2, with sliding-scale up to 400%/300% respectively. Medical-debt credit-reporting ban (RCW 70.41.400(3) and RCW 70.54.475) makes any reported debt void and unenforceable. Insurance Fair Conduct Act (RCW 48.30.015) provides treble damages and attorney's fees for unreasonable denial of coverage. Balance Billing Protection Act (RCW 48.49) extended to ground ambulance via SSB 5986 effective January 1, 2025, at 325% of Medicare payment floor. Small claims attorneys prohibited (RCW 12.40.080).
+- **EMTALA rule and CMS complaint template** (`rules/13_emtala.md`, `templates/complaint_emtala.md`). Covers the federal anti-dumping statute at 42 U.S.C. § 1395dd: medical screening examination, stabilizing treatment, appropriate transfer, and the prohibition on care refusal over insurance verification. CMS regulatory complaint plus the 2-year SOL on the civil action under § 1395dd(d)(2)(A). Five scenario blocks (screening failure, stabilization failure, inappropriate transfer, refusal over prior bill, active labor).
+- **HIPAA right-of-access rule and OCR complaint template** (`rules/14_hipaa_right_of_access.md`, `templates/complaint_hipaa_access.md`). Covers 45 CFR § 164.524: 30-day deadline, reasonable cost-based fee cap, format and transmission rights. OCR complaint within 180 days. Six violation blocks (no response, excessive fee, refused format, procedural barriers, partial response, outright denial). Recent OCR settlements typically $40k-$240k+ per right-of-access violation.
+- **Auto med-pay rule and 3-variant template** (`rules/15_auto_med_pay.md`, `templates/letter_auto_med_pay.md`). Rule covers the payer-order question (med-pay/PIP/UM-UIM/health insurance/at-fault driver's BI), state no-fault vs. tort distinction, hospital-lien dynamics. Variant A demands the auto insurer apply med-pay/PIP. Variant B demands the hospital bill health insurance instead of reserving for a settlement lien. Variant C challenges a perfected hospital lien using state-statute perfection defects, the made-whole doctrine, and chargemaster-unconscionability.
+- **Workers' compensation rule** (`rules/16_workers_comp.md`). Covers the headline rule (accepted WC claims cannot generate balance bills to the patient), how WC differs from ordinary medical billing in every key dimension, state-by-state statutory citations for TN/CA/TX/NY/FL/PA/IL/OH, the contested-claim and denied-claim paths. Rule-only release; no dedicated template yet (general dispute templates with WC-specific citations are the primary tool for improper WC balance bills).
+- **Roadmap** (`roadmap.json`) per AGENTS.md §7. Structured feature roster covering everything shipped in v0.1.0 through v0.6.0 plus planned and proposed items (long-tail state coverage, Spanish localization, outcomes bank, advocate variant, Turquoise/Dollar For integrations). Each feature has id, title, description, status, and (where applicable) release version + date.
+- **Stories 10.1-10.2, 11.1-11.2, 12.1** added to `USER_STORIES.md` covering EMTALA, HIPAA, auto med-pay, workers' comp, and the long-tail-state framing.
+
+### Changed
+
+- **`schemas/bill.toml`** — `findings` controlled vocabulary extended with `emtala_violation_screening`, `emtala_violation_stabilizing`, `emtala_violation_transfer`, `emtala_threat_future_care`, `records_request_delayed`, `records_request_excessive_fee`, `records_request_denied`, `accident_related`, `hospital_lien_threatened`, `subrogation_overreach_suspected`, `work_related_injury`, `wc_claim_accepted`, `wc_claim_denied`, `wc_balance_billing_improper`. `next_action` enum extended with `request_records_hipaa`, `file_emtala_complaint`, `file_ocr_complaint`, `invoke_med_pay`, `force_health_insurance_bill`, `challenge_hospital_lien`, `redirect_to_wc_carrier`, `file_wc_appeal`, `engage_wc_attorney`, `consult_emtala_counsel`.
+- **`schemas/action.toml`** — `action_type` enum extended with `emtala_complaint_filed`, `ocr_hipaa_complaint_filed`, `auto_med_pay_demand_sent`, `force_health_insurance_billing`, `hospital_lien_challenge`, `wc_carrier_redirect_sent`, `wc_appeal_filed`, `wc_attorney_engaged`.
+- **`BUILD_PLAN.md`** — v0.6.0 marked shipped; v1.0.0 status updated to reflect 12 state packs.
+- **`README.md`** — state-pack list expanded to 12; new rules/templates added to the templates description.
+- **`llm/QUICKSTART_short_context.md`** — Stage 2 (state pack list) and Stage 5 (template list) updated for the new files.
+
+### Known issues
+
+- The kit now ships 12 state packs covering ~50% of US population by state of residence. The remaining 38 states will require community PRs via the `.github/ISSUE_TEMPLATE/state_pack_request.yml` form.
+- Workers' compensation ships as a rule without a dedicated letter template. General-purpose dispute templates with WC-specific citations cover the common balance-billing-against-accepted-WC-claim scenario. A WC-specific template can ship in a future release if a contributor adds one.
+- The auto-med-pay Variant C (challenge to a perfected hospital lien) is functionally a starting demand only; non-trivial lien disputes need an attorney, and the template flags this.
+
 ## [v0.5.0] — 2026-05-18
 
 ### Added
@@ -128,6 +156,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 - **License** — MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v0.6.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.6.0
 [v0.5.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.5.0
 [v0.4.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.4.0
 [v0.3.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.3.0
