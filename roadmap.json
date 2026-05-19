@@ -266,9 +266,65 @@
       "release": { "version": "v0.6.0", "date": "2026-05-18" }
     },
     {
+      "id": "state-nj",
+      "title": "New Jersey state pack",
+      "description": "Worked NJ state-law layer with Consumer Fraud Act (mandatory treble + fees), comprehensive state-funded charity care program, Out-of-Network Consumer Protection Act predating NSA, Louisa Carman Medical Debt Relief Act",
+      "status": "implemented",
+      "release": { "version": "v0.7.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-va",
+      "title": "Virginia state pack",
+      "description": "Worked VA state-law layer with VCPA treble damages, small-claims no-attorney rule, Balance Billing Protection Act with HB 730 ground ambulance, Va. Code § 59.1-444.4 medical-debt credit-reporting prohibition (2025), Medical Debt Protection Act 2026",
+      "status": "implemented",
+      "release": { "version": "v0.7.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-az",
+      "title": "Arizona state pack",
+      "description": "Worked AZ state-law layer with Proposition 209 (3% medical-debt interest cap + garnishment + homestead protections), Noble/Rawlings/Linthicum bad-faith trilogy, small-claims no-attorney rule, Abbott v. Banner hospital-lien customary-charges rule",
+      "status": "implemented",
+      "release": { "version": "v0.7.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-ma",
+      "title": "Massachusetts state pack",
+      "description": "Worked MA state-law layer with Chapter 93A mandatory 30-day demand-letter mechanic + mandatory treble damages + mandatory attorney's fees, Health Safety Net Program, Chapter 58 near-universal coverage context",
+      "status": "implemented",
+      "release": { "version": "v0.7.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-bankruptcy",
+      "title": "Bankruptcy and medical debt rule",
+      "description": "Chapter 7 vs Chapter 13 decision-making, automatic stay under 11 U.S.C. § 362, coordination with other dispute tracks, Upsolve referral for simple cases",
+      "status": "implemented",
+      "release": { "version": "v0.7.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "examples-small-claims",
+      "title": "Small claims walkthrough",
+      "description": "Full worked Tennessee General Sessions filing for $310 walking-boot price-gouging dispute: filing decision, statement of claim, exhibits, hearing-day script, post-judgment collection",
+      "status": "implemented",
+      "release": { "version": "v0.7.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "tool-deadline-watch",
+      "title": "Deadline-watcher script",
+      "description": "scripts/deadline_watch.py reports overdue and upcoming bill actions from a tracker CSV with configurable window",
+      "status": "implemented",
+      "release": { "version": "v0.7.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "doc-start-here",
+      "title": "START_HERE copy-paste quickstart",
+      "description": "docs/START_HERE.md three-minute setup with copy-paste prompts for the 7 most common patient scenarios",
+      "status": "implemented",
+      "release": { "version": "v0.7.0", "date": "2026-05-18" }
+    },
+    {
       "id": "state-long-tail",
-      "title": "State packs for the remaining 38 states",
-      "description": "AK, AL, AR, AZ, CO, CT, DE (initial), HI, IA, ID, IN, KS, KY, LA, MA, MD, ME, MN, MO, MS, MT, ND, NE, NH, NJ, NM, NV, OK, OR, RI, SC, SD, UT, VA, VT, WI, WV, WY",
+      "title": "State packs for the remaining 34 states",
+      "description": "AK, AL, AR, CO, CT, DE (initial), HI, IA, ID, IN, KS, KY, LA, MD, ME, MN, MO, MS, MT, ND, NE, NH, NM, NV, OK, OR, RI, SC, SD, UT, VT, WI, WV, WY",
       "status": "planned",
       "issue": "https://github.com/k3rt4s/medbill-dispute-kit/labels/state-pack"
     },

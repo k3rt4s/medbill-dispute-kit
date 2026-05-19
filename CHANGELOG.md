@@ -6,6 +6,34 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.7.0] — 2026-05-18
+
+### Added
+
+- **New Jersey state pack** (`references/laws_state_nj.md`). Headlines: NJ Consumer Fraud Act (N.J.S.A. 56:8-1 et seq.) with mandatory treble damages and attorney's fees for any "ascertainable loss" — one of the most patient-favorable UDAP statutes in the country; comprehensive state-funded Charity Care Program (N.J.S.A. 26:2H-18.51 et seq.) with sliding-scale eligibility up to 300% FPL; Out-of-Network Consumer Protection Act (N.J.S.A. 26:2SS-1 et seq., 2018) predating the federal NSA; Louisa Carman Medical Debt Relief Act (2024) restrictions on medical-debt credit reporting.
+- **Virginia state pack** (`references/laws_state_va.md`). Headlines: Virginia Consumer Protection Act (Va. Code § 59.1-196 et seq.) with treble damages for willful violations and mandatory attorney's fees; Virginia's small-claims court bars attorneys entirely (Va. Code § 16.1-122.4) — a structural advantage for pro se patients; Balance Billing Protection Act (Va. Code § 38.2-3445 et seq., 2020) including HB 730 (2024) ground-ambulance coverage; Va. Code § 8.01-413.01 medical-debt protections.
+- **Arizona state pack** (`references/laws_state_az.md`). Headlines: Proposition 209 (2022) is unusually patient-favorable — 3% interest cap on medical debt under A.R.S. § 44-1201(F), 10%/60×-minimum-wage wage-garnishment exemption, $400k homestead, and increased personal-property exemptions; Noble/Rawlings/Linthicum trilogy of common-law first-party bad-faith doctrine; small-claims court bars attorneys under A.R.S. § 22-512; Abbott v. Banner Health Network (2016) limits hospital liens to "customary charges" (insurance-contracted rates), not chargemaster.
+- **Massachusetts state pack** (`references/laws_state_ma.md`). Headlines: Chapter 93A (M.G.L. c. 93A § 9) with mandatory 30-day demand-letter mechanic — failure to respond appropriately exposes the defendant to double or treble damages plus attorney's fees; AG's Office actively enforces Chapter 93A against healthcare entities; Health Safety Net Program (M.G.L. c. 118E § 9) covers uninsured patients for medically-necessary care at acute hospitals; near-universal coverage via Chapter 58 (2006) means the kit's typical workflows skew toward insurance-dispute rather than uninsured-patient cases.
+- **Bankruptcy and medical debt rule** (`rules/17_bankruptcy_and_medical_debt.md`). Covers Chapter 7 vs. Chapter 13 distinctions, when bankruptcy is the right tool vs. when to dispute first or apply for charity care first, medical-debt-specific bankruptcy mechanics (no non-dischargeability, automatic stay under 11 U.S.C. § 362, the coordination problem with other dispute tracks), free and low-cost help including Upsolve for straightforward Chapter 7s.
+- **Small claims walkthrough** (`examples/small_claims_walkthrough.md`). Full worked example of a Tennessee General Sessions filing for a $310 walking-boot price-gouging dispute. Covers filing decision, statement of claim drafting, exhibits checklist, hearing-day script with common defendant arguments and rebuttals, post-judgment collection mechanics.
+- **Deadline-watcher script** (`scripts/deadline_watch.py`). Reads a tracker CSV and groups bills into overdue, due-soon (configurable window, default 7 days), and upcoming. Returns exit code 1 if any bill is overdue. Skips settled and closed rows. Python 3.10+ standard library only.
+- **Copy-paste quickstart** (`docs/START_HERE.md`). Three-minute setup guide, opening-prompt template, and copy-paste prompts for seven common patient scenarios (stack of bills, overpriced bill, denied claim, debt collector calling, hospital charity care, old overdue bill, financial hardship).
+- **Stories 13.1-13.4** added to `USER_STORIES.md` covering bankruptcy decision-making, deadline watching, small-claims walkthrough, and copy-paste quickstart.
+
+### Changed
+
+- **`scripts/README.md`** — documents `deadline_watch.py` usage and behavior.
+- **`BUILD_PLAN.md`** — v0.7.0 marked shipped; v1.0.0 status updated to reflect 16 state packs.
+- **`README.md`** — state-pack list expanded to 16; START_HERE referenced; deadline watcher mentioned.
+- **`llm/QUICKSTART_short_context.md`** — Stage 2 state-pack list expanded.
+- **`roadmap.json`** — v0.7.0 features added.
+
+### Known issues
+
+- The kit now ships 16 state packs covering roughly 60% of the US population by state of residence. Remaining 34 states open for community PRs.
+- `deadline_watch.py` does not yet send notifications (email, calendar invite, etc.); it produces console output only. A future revision could add notification adapters.
+- The bankruptcy rule does not include a template; non-trivial bankruptcies require an attorney and the rule's role is to identify the decision point and surface free counsel resources.
+
 ## [v0.6.0] — 2026-05-18
 
 ### Added
@@ -156,6 +184,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 - **License** — MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v0.7.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.7.0
 [v0.6.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.6.0
 [v0.5.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.5.0
 [v0.4.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.4.0

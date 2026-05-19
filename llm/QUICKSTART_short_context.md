@@ -32,6 +32,10 @@ The model asks your state. Load the relevant state file:
 - North Carolina: [`references/laws_state_nc.md`](../references/laws_state_nc.md)
 - Michigan: [`references/laws_state_mi.md`](../references/laws_state_mi.md)
 - Washington: [`references/laws_state_wa.md`](../references/laws_state_wa.md)
+- New Jersey: [`references/laws_state_nj.md`](../references/laws_state_nj.md)
+- Virginia: [`references/laws_state_va.md`](../references/laws_state_va.md)
+- Arizona: [`references/laws_state_az.md`](../references/laws_state_az.md)
+- Massachusetts: [`references/laws_state_ma.md`](../references/laws_state_ma.md)
 - Other: load [`references/laws_state_template.md`](../references/laws_state_template.md) and ask the model to look up your state's equivalents (warn it to verify before mailing).
 
 Also load: [`references/laws_federal.md`](../references/laws_federal.md).
