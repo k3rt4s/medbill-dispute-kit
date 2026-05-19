@@ -525,9 +525,51 @@
       "release": { "version": "v0.11.0", "date": "2026-05-19" }
     },
     {
+      "id": "state-ks",
+      "title": "Kansas state pack",
+      "description": "Worked KS state-law layer; no common-law first-party bad-faith tort (Spencer); KCPA with mandatory attorney's fees",
+      "status": "implemented",
+      "release": { "version": "v0.12.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "state-ms",
+      "title": "Mississippi state pack",
+      "description": "Worked MS state-law layer with Tighe v. Crosthwait bad-faith doctrine; no general hospital lien statute",
+      "status": "implemented",
+      "release": { "version": "v0.12.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "state-nm",
+      "title": "New Mexico state pack",
+      "description": "Worked NM state-law layer with Hovet v. Allstate UCSPA private right of action and Sloan bad faith; § 59A-57 includes ground ambulance",
+      "status": "implemented",
+      "release": { "version": "v0.12.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "state-ne",
+      "title": "Nebraska state pack",
+      "description": "Worked NE state-law layer with Braesch v. Union Ins. bad faith; County Court small claims at $3,900 with no attorneys",
+      "status": "implemented",
+      "release": { "version": "v0.12.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "doc-index",
+      "title": "INDEX.md cross-reference map",
+      "description": "Single-page navigation index covering all kit files by scenario, file type, federal law, and state",
+      "status": "implemented",
+      "release": { "version": "v0.12.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "doc-faq-refresh",
+      "title": "FAQ refresh for v0.6–v0.11 features",
+      "description": "18+ new FAQ entries covering EMTALA, HIPAA, auto med-pay, workers' comp, bankruptcy, TRICARE, VA, telehealth, ground/air ambulance, observation, ACA marketplace, Section 1557, plus process-and-tooling questions",
+      "status": "implemented",
+      "release": { "version": "v0.12.0", "date": "2026-05-19" }
+    },
+    {
       "id": "state-long-tail",
-      "title": "State packs for the remaining 18 states",
-      "description": "AK, DE (initial), HI, ID, KS, LA, ME, MS, MT, ND, NE, NH, NM, RI, SD, VT, WV, WY",
+      "title": "State packs for the remaining 14 states",
+      "description": "AK, DE (initial), HI, ID, LA, ME, MT, ND, NH, RI, SD, VT, WV, WY",
       "status": "planned",
       "issue": "https://github.com/k3rt4s/medbill-dispute-kit/labels/state-pack"
     },
