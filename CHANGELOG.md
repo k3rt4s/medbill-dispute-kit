@@ -6,6 +6,30 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.11.0] — 2026-05-19
+
+### Added
+
+- **Utah state pack** (`references/laws_state_ut.md`). Beck v. Farmers common-law first-party bad-faith doctrine; Utah Consumer Sales Practices Act; small-claims $15,000 limit (high).
+- **Iowa state pack** (`references/laws_state_ia.md`). 10-year SOL on written contracts (Iowa Code § 614.1(5)) tied for longest in US; Dolan v. Aid Ins. Co. common-law bad-faith; Iowa Consumer Fraud Act and Private Right of Action for Consumer Frauds Act.
+- **Nevada state pack** (`references/laws_state_nv.md`). NRS § 686A.310 with private right of action (per Allstate v. Miller 2009); Bartgis common-law bad-faith; AB 469 (2019) strong pre-NSA balance-billing protection at NRS § 439B.700 et seq.
+- **Arkansas state pack** (`references/laws_state_ar.md`). Aetna v. Broadway Arms common-law bad-faith; Arkansas Deceptive Trade Practices Act with private right of action; small-claims $5,000 limit with attorneys typically prohibited.
+- **CPT/HCPCS quick reference** (`references/cpt_quick_reference.md`). Highest-frequency codes for E/M, imaging, lab, common procedures, surgical, ambulance, DME, J-codes. Common modifiers and place-of-service codes. Honors AMA copyright via paraphrase.
+- **Hospital Price Transparency MRF format reference** (`references/hpt_mrf_format.md`). CMS template format, discoverable-URL pattern (`/cms-hpt.txt`), how to read the CSV, common compliance failures, citation patterns for dispute letters.
+- **Stories 17.1-17.3** added to `USER_STORIES.md`.
+
+### Changed
+
+- **`BUILD_PLAN.md`** — v0.11.0 marked shipped; v1.0.0 status updated to 32 state packs.
+- **`README.md`** — state-pack list expanded to 32; new reference docs noted.
+- **`llm/QUICKSTART_short_context.md`** — Stage 2 state list expanded.
+- **`roadmap.json`** — v0.11.0 features added.
+
+### Known issues
+
+- 32 state packs cover roughly 82% of US population. Remaining 18 states open for community PRs.
+- The CPT quick-reference is paraphrased per AMA copyright; full descriptors require AMA or CMS lookup.
+
 ## [v0.10.0] — 2026-05-19
 
 ### Added
@@ -264,6 +288,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 - **License** — MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v0.11.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.11.0
 [v0.10.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.10.0
 [v0.9.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.9.0
 [v0.8.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.8.0

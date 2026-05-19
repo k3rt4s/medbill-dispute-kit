@@ -16,7 +16,8 @@ The "how" doc, sitting under [USER_STORIES.md](USER_STORIES.md). Story-level "wh
 | v0.8.0  | shipped | 2026-05-18 | CO + MD + MO + MN state packs (20 total, ~67% of US population), TRICARE rule, VA Community Care/MISSION Act rule, telehealth rule, DECISION_TREE.md quick-reference                                                                               |
 | v0.9.0  | shipped | 2026-05-18 | IN + WI + SC + AL state packs (24 total, ~74% of US population), Section 1557 rule, air ambulance rule, COMMON_OUTCOMES + ANTI_PATTERNS docs                                                                                                       |
 | v0.10.0 | shipped | 2026-05-19 | KY + OR + OK + CT state packs (28 total, ~78% of US population), ACA marketplace appeal rule, Medicare observation-status rule, RECORDS_RETENTION guide                                                                                            |
-| v1.0.0  | partial | —          | Twenty-eight state packs shipped (adds KY, OR, OK, CT to prior 24); long-tail 22-state coverage open for community PRs                                                                                                                             |
+| v0.11.0 | shipped | 2026-05-19 | UT + IA + NV + AR state packs (32 total, ~82% of US population), CPT/HCPCS quick-reference, HPT MRF format reference                                                                                                                               |
+| v1.0.0  | partial | —          | Thirty-two state packs shipped (adds UT, IA, NV, AR to prior 28); long-tail 18-state coverage open for community PRs                                                                                                                               |
 
 ## v0.2.0 backlog (active)
 

@@ -628,6 +628,40 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
+## Epic 17 — Patient-pricing reference and additional state coverage
+
+### Story 17.1 — Look up common CPT/HCPCS codes without paying for AMA access
+
+**As a** patient reading an itemized bill, **I want** a quick reference for the most common procedure codes that appear on medical bills, **so that** I can orient myself without needing a paid AMA subscription.
+
+**AC:**
+
+- `references/cpt_quick_reference.md` covers the highest-frequency CPT and HCPCS codes for imaging, lab, common procedures, surgical, ambulance, DME, and J-codes. Includes the common modifiers and place-of-service codes that affect billing. Honors AMA copyright by paraphrasing rather than redistributing full descriptors.
+
+**Status:** shipped (v0.11.0)
+
+### Story 17.2 — Read a hospital's machine-readable file
+
+**As a** patient with a hospital bill, **I want** to find and read the hospital's machine-readable file of standard charges, **so that** I can argue from the hospital's own published prices rather than third-party estimates.
+
+**AC:**
+
+- `references/hpt_mrf_format.md` describes the CMS template format, the discoverable-URL pattern, what to look for in the file, common compliance failures, and how to cite the MRF in a dispute letter.
+
+**Status:** shipped (v0.11.0)
+
+### Story 17.3 — Cover the next four most-populous states
+
+**As a** patient in Utah, Iowa, Nevada, or Arkansas, **I want** a dedicated state pack rather than the LLM looking up my state's statutes from the template, **so that** my dispute letters cite the right authorities with confidence.
+
+**AC:**
+
+- Dedicated state packs ship for UT, IA, NV, AR matching the 12-section format of existing packs. Total: 32 state packs covering ~82% of US population.
+
+**Status:** shipped (v0.11.0)
+
+---
+
 ## Cross-references
 
 - Roadmap: this project does not yet have a `roadmap.json`. Roadmap is captured by story status above.
