@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-tracker:
+    name: Validate tracker template against schemas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate example tracker against schemas
+        run: python scripts/validate_tracker.py tracker/tracker_template.csv
+
+      - name: Run pytest if tests/ exists
+        run: |
+          if [ -d tests ]; then
+            python -m pip install --upgrade pip pytest
+            python -m pytest tests/
+          fi
+
+  markdown-links:
+    name: Check for broken markdown links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for broken links in markdown files
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: yes
+          use-verbose-mode: yes
+          config-file: .github/markdown-link-check.json
+        continue-on-error: true

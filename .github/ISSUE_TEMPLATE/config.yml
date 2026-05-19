@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question about using the kit
+    url: https://github.com/k3rt4s/medbill-dispute-kit/blob/main/FAQ.md
+    about: Check the FAQ first. If your question isn't covered, open a discussion or a blank issue.
+  - name: Contribution guide
+    url: https://github.com/k3rt4s/medbill-dispute-kit/blob/main/CONTRIBUTING.md
+    about: Contributing a state pack, template, or other improvement.
