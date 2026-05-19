@@ -594,6 +594,40 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
+## Epic 16 — Plan-type and modality completeness
+
+### Story 16.1 — Appeal a marketplace plan denial correctly
+
+**As a** patient on an ACA marketplace plan whose claim was denied, **I want** the kit to recognize that the appeals framework differs from ERISA and Medicare and route to the right combination of internal appeal, external review by IRO, and state insurance department complaint, **so that** I do not miss the binding-IRO-decision lever unique to ACA-compliant plans.
+
+**AC:**
+
+- Given a denial from a marketplace plan, When the LLM walks the patient through `rules/23_aca_marketplace.md`, Then it routes to internal appeal under 45 CFR § 147.136, followed by IRO external review with binding decision, plus parallel state DOI complaint.
+
+**Status:** shipped (v0.10.0)
+
+### Story 16.2 — Dispute observation status for Medicare patients
+
+**As a** Medicare beneficiary surprised by observation-status billing (Part B cost-sharing instead of Part A, or denied SNF coverage because no qualifying three-day inpatient stay), **I want** the kit to surface reclassification and appeal paths, **so that** I get the correct financial treatment for a hospitalization that clinically looked like an inpatient stay.
+
+**AC:**
+
+- Given a Medicare patient with observation-status billing concerns, When the LLM walks them through `rules/24_observation_status.md`, Then it covers the two-midnight rule, the MOON notice requirement, Condition Code 44 reclassification process, SNF three-day rule, self-administered-drug refund pathway, and the SHIP / Center for Medicare Advocacy resources.
+
+**Status:** shipped (v0.10.0)
+
+### Story 16.3 — Retain documents correctly across a months-long dispute
+
+**As a** patient running a months-long dispute, **I want** clear guidance on what paperwork to keep, where, for how long, and how to organize it, **so that** I don't lose key evidence and don't drown in unnecessary paper.
+
+**AC:**
+
+- `docs/RECORDS_RETENTION.md` covers what to keep (provider, insurer, regulator, contemporaneous notes, pricing evidence), what to throw away, retention periods by statute-of-limitations type, naming conventions for digital storage, and special cases (bankruptcy, settlement confirmation, deceased patients).
+
+**Status:** shipped (v0.10.0)
+
+---
+
 ## Cross-references
 
 - Roadmap: this project does not yet have a `roadmap.json`. Roadmap is captured by story status above.
