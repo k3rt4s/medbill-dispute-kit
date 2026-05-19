@@ -44,6 +44,10 @@ The model asks your state. Load the relevant state file:
 - Wisconsin: [`references/laws_state_wi.md`](../references/laws_state_wi.md)
 - South Carolina: [`references/laws_state_sc.md`](../references/laws_state_sc.md)
 - Alabama: [`references/laws_state_al.md`](../references/laws_state_al.md)
+- Kentucky: [`references/laws_state_ky.md`](../references/laws_state_ky.md)
+- Oregon: [`references/laws_state_or.md`](../references/laws_state_or.md)
+- Oklahoma: [`references/laws_state_ok.md`](../references/laws_state_ok.md)
+- Connecticut: [`references/laws_state_ct.md`](../references/laws_state_ct.md)
 - Other: load [`references/laws_state_template.md`](../references/laws_state_template.md) and ask the model to look up your state's equivalents (warn it to verify before mailing).
 
 Also load: [`references/laws_federal.md`](../references/laws_federal.md).
@@ -78,6 +82,8 @@ For each bill, load the rule that matches the model's preliminary finding:
 - Telehealth visit → load [`rules/20_telehealth.md`](../rules/20_telehealth.md)
 - Section 1557 / civil-rights angle → load [`rules/21_section_1557.md`](../rules/21_section_1557.md)
 - Air ambulance → load [`rules/22_air_ambulance.md`](../rules/22_air_ambulance.md)
+- ACA marketplace plan denial → load [`rules/23_aca_marketplace.md`](../rules/23_aca_marketplace.md)
+- Medicare observation-status issue → load [`rules/24_observation_status.md`](../rules/24_observation_status.md)
 - Third-party collector → no extra rule needed; go to Stage 5 with the FDCPA template.
 
 ## Stage 5 — Draft

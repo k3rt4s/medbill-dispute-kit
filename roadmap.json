@@ -434,9 +434,58 @@
       "release": { "version": "v0.9.0", "date": "2026-05-18" }
     },
     {
+      "id": "state-ky",
+      "title": "Kentucky state pack",
+      "description": "Worked KY state-law layer with 15-year written-contract SOL, Reeder third-party UCSPA private RoA, Wittmer common-law bad faith",
+      "status": "implemented",
+      "release": { "version": "v0.10.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "state-or",
+      "title": "Oregon state pack",
+      "description": "Worked OR state-law layer with UTPA civil penalties + attorney's fees, ORS § 442.563 Hospital Financial Assistance, Balance Billing Protection Act",
+      "status": "implemented",
+      "release": { "version": "v0.10.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "state-ok",
+      "title": "Oklahoma state pack",
+      "description": "Worked OK state-law layer with Christian bad-faith doctrine and punitive damages, OK Consumer Protection Act original-creditor reach",
+      "status": "implemented",
+      "release": { "version": "v0.10.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "state-ct",
+      "title": "Connecticut state pack",
+      "description": "Worked CT state-law layer with CUTPA punitive damages + fees + class actions, state-mandated comprehensive hospital FA, CT Medical Debt Reform Act 2024",
+      "status": "implemented",
+      "release": { "version": "v0.10.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "rule-aca-marketplace",
+      "title": "ACA marketplace plan appeal rule",
+      "description": "45 CFR § 147.136 internal/external appeal framework with binding IRO decision, distinct from ERISA and Medicare tracks",
+      "status": "implemented",
+      "release": { "version": "v0.10.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "rule-observation-status",
+      "title": "Medicare observation-status rule",
+      "description": "Two-midnight rule, MOON notice, Condition Code 44 reclassification, SNF three-day rule, self-administered drug refunds, Alexander v. Becerra observation appeals",
+      "status": "implemented",
+      "release": { "version": "v0.10.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "doc-records-retention",
+      "title": "Records retention guide",
+      "description": "What paperwork to keep, where, for how long, with naming conventions and special cases",
+      "status": "implemented",
+      "release": { "version": "v0.10.0", "date": "2026-05-19" }
+    },
+    {
       "id": "state-long-tail",
-      "title": "State packs for the remaining 26 states",
-      "description": "AK, AR, CT, DE (initial), HI, IA, ID, KS, KY, LA, ME, MS, MT, ND, NE, NH, NM, NV, OK, OR, RI, SD, UT, VT, WV, WY",
+      "title": "State packs for the remaining 22 states",
+      "description": "AK, AR, DE (initial), HI, IA, ID, KS, LA, ME, MS, MT, ND, NE, NH, NM, NV, RI, SD, UT, VT, WV, WY",
       "status": "planned",
       "issue": "https://github.com/k3rt4s/medbill-dispute-kit/labels/state-pack"
     },

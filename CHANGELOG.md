@@ -6,6 +6,32 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.10.0] — 2026-05-19
+
+### Added
+
+- **Kentucky state pack** (`references/laws_state_ky.md`). 15-year SOL on written contracts (among longest in US); State Farm v. Reeder third-party UCSPA private RoA (unusual); Wittmer v. Jones common-law bad faith.
+- **Oregon state pack** (`references/laws_state_or.md`). UTPA with civil penalties and attorney's fees; ORS § 442.563 et seq. Hospital Financial Assistance; Balance Billing Protection Act.
+- **Oklahoma state pack** (`references/laws_state_ok.md`). Christian v. American Home Assur. robust common-law bad-faith doctrine with punitive damages; Oklahoma Consumer Protection Act original-creditor reach.
+- **Connecticut state pack** (`references/laws_state_ct.md`). CUTPA punitive damages plus attorney's fees plus class actions; state-mandated comprehensive hospital FA under § 19a-509b; CT Medical Debt Reform Act 2024.
+- **ACA marketplace appeal rule** (`rules/23_aca_marketplace.md`). 45 CFR § 147.136 internal/external appeal framework, IRO binding decision, parallel state DOI complaint, civil action after exhaustion. Distinct from ERISA self-funded and Medicare tracks.
+- **Medicare observation-status rule** (`rules/24_observation_status.md`). Two-midnight rule (42 CFR § 412.3), MOON notice requirement (NOTICE Act), Condition Code 44 reclassification, SNF three-day inpatient rule, self-administered-drug refunds, Alexander v. Becerra observation appeal right.
+- **Records retention guide** (`docs/RECORDS_RETENTION.md`). What to keep, where, for how long, naming conventions, special cases (bankruptcy, settlement, deceased patients). Conservative rule: 10 years from last activity.
+- **Stories 16.1-16.3** added to `USER_STORIES.md`.
+
+### Changed
+
+- **`BUILD_PLAN.md`** — v0.10.0 marked shipped; v1.0.0 status updated to 28 state packs.
+- **`README.md`** — state-pack list expanded to 28; new rules and RECORDS_RETENTION referenced.
+- **`llm/QUICKSTART_short_context.md`** — Stage 2 and Stage 4 lists expanded for new states and rules.
+- **`roadmap.json`** — v0.10.0 features added.
+
+### Known issues
+
+- 28 state packs cover roughly 78% of US population. Remaining 22 states open for community PRs.
+- Observation-status appeal rights are still evolving post-*Alexander v. Becerra*; CMS rulemaking continues.
+- The records-retention guide errs on the side of keeping documents longer than legally required; this is intentional for patient-protection but consumes more storage than minimum.
+
 ## [v0.9.0] — 2026-05-18
 
 ### Added
@@ -238,6 +264,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 - **License** — MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v0.10.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.10.0
 [v0.9.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.9.0
 [v0.8.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.8.0
 [v0.7.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.7.0
