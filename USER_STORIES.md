@@ -460,6 +460,50 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
+## Epic 13 — Financial-distress and procedural tooling
+
+### Story 13.1 — Decide when bankruptcy is the right tool for medical debt
+
+**As a** patient whose medical debt exceeds any realistic repayment plan, **I want** the kit to identify when bankruptcy makes sense, when other tools should be tried first, and what to bring to a consultation, **so that** I do not file unnecessarily or fail to file when I should.
+
+**AC:**
+
+- Given a patient with significant medical debt, When the LLM walks them through `rules/17_bankruptcy_and_medical_debt.md`, Then it identifies (a) whether the bill is dispute-eligible (if so, dispute first), (b) whether the patient qualifies for charity care (if so, apply first), (c) the means-test eligibility for Chapter 7, (d) the credit-report impact, (e) the right next step (free legal aid, Upsolve for simple Chapter 7s, a bankruptcy attorney).
+
+**Status:** shipped (v0.7.0)
+
+### Story 13.2 — Watch dispute deadlines outside an LLM session
+
+**As a** patient running a months-long dispute process, **I want** to check my tracker for overdue or upcoming deadlines without re-opening the LLM, **so that** I don't lose a 30-day response window because I forgot to check in.
+
+**AC:**
+
+- `scripts/deadline_watch.py` reads a tracker CSV and groups bills into overdue, due-soon (within a configurable window), and upcoming. Returns exit code 1 if any bill is overdue. Skips settled and closed rows.
+
+**Status:** shipped (v0.7.0)
+
+### Story 13.3 — File in small claims court
+
+**As a** patient whose dispute has gone unanswered through the kit's escalation ladder, **I want** to see what filing in small claims actually looks like before I do it, **so that** I know whether to proceed and how to prepare.
+
+**AC:**
+
+- `examples/small_claims_walkthrough.md` covers the full small-claims filing process for a Tennessee General Sessions case: filing decision, statement of claim drafting, exhibits checklist, hearing preparation script, common defendant arguments and rebuttals, post-judgment collection.
+
+**Status:** shipped (v0.7.0)
+
+### Story 13.4 — Get started in ten minutes
+
+**As a** new user landing on the repo, **I want** copy-paste opening prompts for common scenarios, **so that** I can start disputing tonight without reading every rule file.
+
+**AC:**
+
+- `docs/START_HERE.md` provides a three-minute setup guide, an opening prompt template, and copy-paste prompts for seven common patient scenarios (stack of bills, overpriced bill, denied claim, debt collector calling, hospital charity care, old overdue bill, financial hardship).
+
+**Status:** shipped (v0.7.0)
+
+---
+
 ## Cross-references
 
 - Roadmap: this project does not yet have a `roadmap.json`. Roadmap is captured by story status above.

@@ -29,12 +29,30 @@ Does not check:
 
 For those, eyeball the tracker or ask the LLM to review it.
 
+## deadline_watch.py
+
+Reports overdue and upcoming bill actions from a tracker CSV.
+
+```bash
+python scripts/deadline_watch.py my_tracker_2026-05-18.csv
+python scripts/deadline_watch.py my_tracker_2026-05-18.csv --window 14
+python scripts/deadline_watch.py my_tracker_2026-05-18.csv --as-of 2026-06-01
+```
+
+Groups bills into three categories based on `next_action_due`:
+
+- **Overdue** — already past due
+- **Due soon** — within the configurable window (default 7 days)
+- **Upcoming** — beyond the window
+
+Skips rows whose `status` is settled or closed. Returns exit code 1 if any bill is overdue, 0 otherwise. Useful in cron, Task Scheduler, or a weekly check-in to make sure no deadlines have lapsed.
+
 ## Requirements
 
-Python 3.11 or newer (for `tomllib` in the standard library). On 3.10 or earlier, `pip install tomli` and change the import at the top of `validate_tracker.py`.
+Python 3.11 or newer (for `tomllib` in the standard library, used by `validate_tracker.py`). `deadline_watch.py` works on Python 3.10+ as well.
 
 No third-party dependencies.
 
 ## Not yet built
 
-The kit could grow more scripts over time; if you have an idea (e.g., a deadline-watcher that emails you when a `next_action_due` date is approaching, a bill-to-tracker importer that accepts a CSV from a billing portal), open an issue or PR.
+The kit could grow more scripts over time; if you have an idea (e.g., a bill-to-tracker importer that accepts a CSV from a billing portal, a CalDAV exporter that pushes deadlines to your calendar), open an issue or PR.

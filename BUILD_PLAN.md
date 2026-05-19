@@ -12,7 +12,8 @@ The "how" doc, sitting under [USER_STORIES.md](USER_STORIES.md). Story-level "wh
 | v0.4.0  | shipped | 2026-05-18 | CA + TX + NY + FL state packs, Medicare appeal track, Medicaid appeal template (TennCare worked example), dental dispute template, glossary, FAQ, LLM compatibility doc, short-context QUICKSTART, CONTRIBUTING, optional tracker validator script |
 | v0.5.0  | shipped | 2026-05-18 | PA + IL + OH state packs (9 total), multi-encounter + insurance-denial worked examples, GitHub issue templates, PR template, SECURITY, CODE_OF_CONDUCT, basic CI (markdown link check + pytest), validator pytest coverage                         |
 | v0.6.0  | shipped | 2026-05-18 | NC + MI + WA state packs (12 total, ~50% of US population), EMTALA rule + CMS complaint template, HIPAA right-of-access rule + OCR complaint template, auto med-pay rule + 3-variant template, workers' comp rule, roadmap.json                    |
-| v1.0.0  | partial | —          | Twelve state packs shipped (TN, GA, CA, TX, NY, FL, PA, IL, OH, NC, MI, WA); long-tail 38-state coverage open for community PRs                                                                                                                    |
+| v0.7.0  | shipped | 2026-05-18 | NJ + VA + AZ + MA state packs (16 total, ~60% of US population), bankruptcy-and-medical-debt rule, small claims walkthrough, deadline-watcher script, START_HERE copy-paste quickstart                                                             |
+| v1.0.0  | partial | —          | Sixteen state packs shipped (TN, GA, CA, TX, NY, FL, PA, IL, OH, NC, MI, WA, NJ, VA, AZ, MA); long-tail 34-state coverage open for community PRs                                                                                                   |
 
 ## v0.2.0 backlog (active)
 
