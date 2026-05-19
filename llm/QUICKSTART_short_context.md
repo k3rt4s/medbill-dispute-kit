@@ -48,6 +48,10 @@ The model asks your state. Load the relevant state file:
 - Oregon: [`references/laws_state_or.md`](../references/laws_state_or.md)
 - Oklahoma: [`references/laws_state_ok.md`](../references/laws_state_ok.md)
 - Connecticut: [`references/laws_state_ct.md`](../references/laws_state_ct.md)
+- Utah: [`references/laws_state_ut.md`](../references/laws_state_ut.md)
+- Iowa: [`references/laws_state_ia.md`](../references/laws_state_ia.md)
+- Nevada: [`references/laws_state_nv.md`](../references/laws_state_nv.md)
+- Arkansas: [`references/laws_state_ar.md`](../references/laws_state_ar.md)
 - Other: load [`references/laws_state_template.md`](../references/laws_state_template.md) and ask the model to look up your state's equivalents (warn it to verify before mailing).
 
 Also load: [`references/laws_federal.md`](../references/laws_federal.md).

@@ -483,9 +483,51 @@
       "release": { "version": "v0.10.0", "date": "2026-05-19" }
     },
     {
+      "id": "state-ut",
+      "title": "Utah state pack",
+      "description": "Worked UT state-law layer with Beck v. Farmers bad-faith and UCSPA",
+      "status": "implemented",
+      "release": { "version": "v0.11.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "state-ia",
+      "title": "Iowa state pack",
+      "description": "Worked IA state-law layer with 10-year written-contract SOL and Dolan bad-faith",
+      "status": "implemented",
+      "release": { "version": "v0.11.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "state-nv",
+      "title": "Nevada state pack",
+      "description": "Worked NV state-law layer with NRS § 686A.310 private right of action and AB 469 surprise billing",
+      "status": "implemented",
+      "release": { "version": "v0.11.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "state-ar",
+      "title": "Arkansas state pack",
+      "description": "Worked AR state-law layer with Aetna v. Broadway Arms bad-faith and ADTPA private right of action",
+      "status": "implemented",
+      "release": { "version": "v0.11.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "doc-cpt-quick-reference",
+      "title": "CPT/HCPCS quick reference",
+      "description": "High-frequency codes for E/M, imaging, lab, procedures, surgical, ambulance, DME, J-codes with common modifiers and place-of-service codes",
+      "status": "implemented",
+      "release": { "version": "v0.11.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "doc-hpt-mrf-format",
+      "title": "Hospital Price Transparency MRF format reference",
+      "description": "CMS template format, discoverable-URL pattern, reading the CSV, common compliance failures, dispute-letter citation patterns",
+      "status": "implemented",
+      "release": { "version": "v0.11.0", "date": "2026-05-19" }
+    },
+    {
       "id": "state-long-tail",
-      "title": "State packs for the remaining 22 states",
-      "description": "AK, AR, DE (initial), HI, IA, ID, KS, LA, ME, MS, MT, ND, NE, NH, NM, NV, RI, SD, UT, VT, WV, WY",
+      "title": "State packs for the remaining 18 states",
+      "description": "AK, DE (initial), HI, ID, KS, LA, ME, MS, MT, ND, NE, NH, NM, RI, SD, VT, WV, WY",
       "status": "planned",
       "issue": "https://github.com/k3rt4s/medbill-dispute-kit/labels/state-pack"
     },
