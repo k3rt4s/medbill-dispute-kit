@@ -40,6 +40,10 @@ The model asks your state. Load the relevant state file:
 - Maryland: [`references/laws_state_md.md`](../references/laws_state_md.md)
 - Missouri: [`references/laws_state_mo.md`](../references/laws_state_mo.md)
 - Minnesota: [`references/laws_state_mn.md`](../references/laws_state_mn.md)
+- Indiana: [`references/laws_state_in.md`](../references/laws_state_in.md)
+- Wisconsin: [`references/laws_state_wi.md`](../references/laws_state_wi.md)
+- South Carolina: [`references/laws_state_sc.md`](../references/laws_state_sc.md)
+- Alabama: [`references/laws_state_al.md`](../references/laws_state_al.md)
 - Other: load [`references/laws_state_template.md`](../references/laws_state_template.md) and ask the model to look up your state's equivalents (warn it to verify before mailing).
 
 Also load: [`references/laws_federal.md`](../references/laws_federal.md).
@@ -72,6 +76,8 @@ For each bill, load the rule that matches the model's preliminary finding:
 - TRICARE → load [`rules/18_tricare.md`](../rules/18_tricare.md)
 - VA Community Care → load [`rules/19_va_community_care.md`](../rules/19_va_community_care.md)
 - Telehealth visit → load [`rules/20_telehealth.md`](../rules/20_telehealth.md)
+- Section 1557 / civil-rights angle → load [`rules/21_section_1557.md`](../rules/21_section_1557.md)
+- Air ambulance → load [`rules/22_air_ambulance.md`](../rules/22_air_ambulance.md)
 - Third-party collector → no extra rule needed; go to Stage 5 with the FDCPA template.
 
 ## Stage 5 — Draft
