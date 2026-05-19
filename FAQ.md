@@ -126,6 +126,94 @@ Yes. The LLM doesn't care whose bills they are; you'll need their authorization 
 
 A "the insurance already paid, we can't change it" response is almost never accurate. The provider can always issue a corrected claim and refund any insurance overpayment. The patient-side leverage: refuse to pay the disputed portion, document the request for correction, escalate via state insurance department complaint if the provider insists on a wrong bill.
 
+## Federal-protection questions (added since v0.6)
+
+**My hospital refused to give me emergency care because I owed them money.**
+
+That is an EMTALA violation. The Emergency Medical Treatment and Active Labor Act (42 U.S.C. § 1395dd) prohibits Medicare-participating hospitals from refusing emergency screening or stabilization over insurance or payment concerns. File a CMS complaint using [`templates/complaint_emtala.md`](templates/complaint_emtala.md). The 2-year statute of limitations on the civil action under § 1395dd(d)(2)(A) is unforgiving; consult plaintiff-side counsel if you suffered harm. See [`rules/13_emtala.md`](rules/13_emtala.md).
+
+**My provider won't give me my medical records, or wants to charge an unreasonable fee.**
+
+That is a HIPAA right-of-access violation under 45 CFR § 164.524. The provider must produce the records within 30 days at a reasonable cost-based fee. File an OCR complaint using [`templates/complaint_hipaa_access.md`](templates/complaint_hipaa_access.md) within 180 days of the violation. OCR settlements for right-of-access violations typically run $40k-$240k per case; mentioning OCR by name to the provider's privacy officer often resolves the issue without formal investigation. See [`rules/14_hipaa_right_of_access.md`](rules/14_hipaa_right_of_access.md).
+
+**My bill is from a motor-vehicle accident.**
+
+Different track. See [`rules/15_auto_med_pay.md`](rules/15_auto_med_pay.md). You have multiple potential payers (med-pay/PIP, UM/UIM, at-fault driver's liability, your health insurance) and the order matters. Hospitals sometimes try to preserve the bill for a personal-injury settlement lien at chargemaster rates instead of billing health insurance at the contracted rate — this is challengeable in most states. Use the three-variant template [`templates/letter_auto_med_pay.md`](templates/letter_auto_med_pay.md).
+
+**I was injured at work.**
+
+Workers' compensation territory. See [`rules/16_workers_comp.md`](rules/16_workers_comp.md). Accepted WC claims cannot generate balance bills to the patient. If a provider is billing you for a WC-covered injury, that bill is improper.
+
+**I think bankruptcy might be the answer for my medical debt.**
+
+It might be. See [`rules/17_bankruptcy_and_medical_debt.md`](rules/17_bankruptcy_and_medical_debt.md). Medical debt is fully dischargeable in Chapter 7. The kit's view: try the disputes, charity-care applications, and hardship negotiations first; bankruptcy is a last move because of the credit-report impact. For straightforward Chapter 7 below the means-test threshold, [Upsolve](https://upsolve.org) is a free non-profit. For everything else, consult a bankruptcy attorney.
+
+**My family member is on TRICARE.**
+
+TRICARE has its own federal program (10 U.S.C. § 1071-1110b) with a 15% balance-billing cap, active-duty zero-cost-share, and a regional-contractor complaint process. See [`rules/18_tricare.md`](rules/18_tricare.md). For active-duty service members, any bill is almost certainly a billing error; route immediately to the regional contractor.
+
+**My family member is a veteran with a Community Care bill.**
+
+Federal MISSION Act (Pub. L. 115-182) generally prohibits direct billing of veterans for authorized community care. See [`rules/19_va_community_care.md`](rules/19_va_community_care.md). The bill should be redirected to the TPA (Optum or TriWest depending on region), not paid by the veteran.
+
+**The visit was telehealth but the bill looks weird.**
+
+Common. Telehealth has its own coding rules. See [`rules/20_telehealth.md`](rules/20_telehealth.md). Watch for facility fees attached to home telehealth (POS code mismatches), audio-only visits billed as video, and missing or wrong modifiers. Many states have telehealth-parity statutes requiring insurers to cover at the same rate as in-person.
+
+**My bill is from a ground ambulance, $4,000.**
+
+Federal No Surprises Act does not cover ground ambulance — the biggest gap in the NSA. State law may cover. See [`rules/10_ground_ambulance.md`](rules/10_ground_ambulance.md) for the state-by-state table. Where covered, use [`templates/letter_ground_ambulance.md`](templates/letter_ground_ambulance.md) Variant A; where not, Variant B argues UCC § 2-305 with the Medicare ambulance fee schedule as the floor.
+
+**My bill is from an air ambulance, $40,000.**
+
+The federal NSA covers air ambulance (unlike ground). Balance billing is prohibited at 42 U.S.C. § 300gg-112. See [`rules/22_air_ambulance.md`](rules/22_air_ambulance.md). Note: the Airline Deregulation Act preempts most state remedies, so federal NSA enforcement is the principal lever.
+
+**I'm on Medicare and was charged for self-administered drugs during a hospital stay.**
+
+Likely an observation-status issue. See [`rules/24_observation_status.md`](rules/24_observation_status.md). If you were "outpatient under observation" rather than "inpatient," Medicare Part B applies and you bear cost-sharing on individual items, including drugs the hospital administered that you could have taken from home. You can request reclassification to inpatient (Condition Code 44) if clinically appropriate. The State Health Insurance Assistance Program (SHIP, free) helps with this.
+
+**I'm on an ACA marketplace plan and they denied my claim.**
+
+Distinct framework from ERISA. See [`rules/23_aca_marketplace.md`](rules/23_aca_marketplace.md). Internal appeal under 45 CFR § 147.136 (180 days), then external review by an Independent Review Organization with binding decision. Parallel state DOI complaint adds pressure. Success rate at external review is meaningful.
+
+**I think I was discriminated against in healthcare access.**
+
+ACA Section 1557 (42 U.S.C. § 18116) applies. See [`rules/21_section_1557.md`](rules/21_section_1557.md). Common patient-billing-relevant contexts: language access (LEP patients without qualified interpreters), disability accommodation (missing sign-language interpreters, inaccessible equipment), disparate-impact patterns. HHS OCR complaint within 180 days of the violation.
+
+## Process and tooling questions (added since v0.7)
+
+**How do I track deadlines without re-opening the LLM?**
+
+Use [`scripts/deadline_watch.py`](scripts/deadline_watch.py) against your tracker CSV. It groups bills into overdue, due-soon, and upcoming. Exit code 1 if anything is overdue, so you can wire it into a weekly cron or Windows Task Scheduler.
+
+**Can I just print one page that tells me where to start?**
+
+Yes — [`docs/DECISION_TREE.md`](docs/DECISION_TREE.md) is intended as a printable single-page index from "what kind of bill" to "which template applies."
+
+**What's the realistic outcome for my type of dispute?**
+
+See [`docs/COMMON_OUTCOMES.md`](docs/COMMON_OUTCOMES.md). Public-source typical settlement rates, reduction percentages, and time-to-resolution by track.
+
+**What mistakes do most patients make?**
+
+See [`docs/ANTI_PATTERNS.md`](docs/ANTI_PATTERNS.md). 20+ common patient-side mistakes (paying the first bill, putting auto-debit on file, vague disputes, etc.) with the right move for each.
+
+**How long do I need to keep all this paperwork?**
+
+See [`docs/RECORDS_RETENTION.md`](docs/RECORDS_RETENTION.md). Conservative rule: 10 years from last activity on the account.
+
+**How do I get started without reading everything?**
+
+[`docs/START_HERE.md`](docs/START_HERE.md) is the three-minute setup with copy-paste opening prompts for the seven most common patient scenarios.
+
+**What does CPT 99284 (or any other code) mean?**
+
+See [`references/cpt_quick_reference.md`](references/cpt_quick_reference.md) for the most common codes; [`references/cpt_codes_em.md`](references/cpt_codes_em.md) for E/M documentation requirements. For codes not in those files, use the CMS Physician Fee Schedule Lookup.
+
+**My hospital's price file looks weird. How do I read it?**
+
+See [`references/hpt_mrf_format.md`](references/hpt_mrf_format.md) for the CMS machine-readable file format. Common compliance failures (missing cash price, opaque algorithms, login walls) are themselves CMS HPT-complaint hooks.
+
 ## Contributing
 
 **I'd like to add my state's pack. How?**

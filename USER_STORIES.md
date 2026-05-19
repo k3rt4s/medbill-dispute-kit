@@ -662,6 +662,41 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
+## Epic 18 — Kit navigability and additional state coverage
+
+### Story 18.1 — Navigate the kit when it's grown to 100+ files
+
+**As a** patient or contributor opening the repo for the first time at 100+ files, **I want** a single-page cross-reference index that maps every file by scenario, type, federal law, and state, **so that** I can find what I need without skimming everything.
+
+**AC:**
+
+- `docs/INDEX.md` provides scenario-, type-, law-, and state-based navigation.
+- Every rule, template, reference, schema, example, and governance file is listed at least once.
+
+**Status:** shipped (v0.12.0)
+
+### Story 18.2 — Get FAQ answers covering all kit features
+
+**As a** user with questions about features added across v0.6-v0.11, **I want** the FAQ to cover them rather than reading every rule file, **so that** I can answer common scenarios quickly.
+
+**AC:**
+
+- FAQ.md adds 18+ entries covering EMTALA, HIPAA right of access, auto med-pay, workers' comp, bankruptcy, TRICARE, VA Community Care, telehealth, ground ambulance, air ambulance, observation status, ACA marketplace, Section 1557, plus process-and-tooling questions for the deadline watcher, decision tree, common outcomes, anti-patterns, records retention, START_HERE, CPT quick-reference, and HPT MRF format.
+
+**Status:** shipped (v0.12.0)
+
+### Story 18.3 — Cover the next four states by population
+
+**As a** patient in Kansas, Mississippi, New Mexico, or Nebraska, **I want** a dedicated state pack rather than the LLM looking up my state's statutes from the template.
+
+**AC:**
+
+- Dedicated state packs ship for KS, MS, NM, NE matching the existing 12-section format. Total: 36 state packs covering ~84% of US population.
+
+**Status:** shipped (v0.12.0)
+
+---
+
 ## Cross-references
 
 - Roadmap: this project does not yet have a `roadmap.json`. Roadmap is captured by story status above.

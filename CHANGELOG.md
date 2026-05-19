@@ -6,6 +6,29 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.12.0] — 2026-05-19
+
+### Added
+
+- **Kansas state pack** (`references/laws_state_ks.md`). Kansas Consumer Protection Act (K.S.A. § 50-623 et seq.) with mandatory attorney's fees; small claims K.S.A. § 61-2702 with attorneys typically prohibited. Note: Kansas does not recognize common-law first-party bad-faith tort (Spencer v. Aetna 1979); limited remedy under K.S.A. § 40-256 attorney-fees statute.
+- **Mississippi state pack** (`references/laws_state_ms.md`). Tighe v. Crosthwait common-law first-party bad-faith with punitive-damages exposure; Mississippi Consumer Protection Act (Miss. Code § 75-24); Justice Court small claims at $3,500. Mississippi has no general hospital lien statute (a defensive advantage).
+- **New Mexico state pack** (`references/laws_state_nm.md`). Hovet v. Allstate UCSPA private right of action under § 59A-16-30 (unusually patient-favorable); Sloan v. State Farm common-law bad-faith tort; Surprise Billing Protection Act § 59A-57 includes ground ambulance protection at § 59A-57-7. NM Unfair Practices Act with treble damages and attorney's fees.
+- **Nebraska state pack** (`references/laws_state_ne.md`). Braesch v. Union Ins. common-law first-party bad-faith; Nebraska Consumer Protection Act; County Court small claims at $3,900 with attorneys typically prohibited.
+- **INDEX.md cross-reference map** (`docs/INDEX.md`). The single-page navigation index covering all 100+ files in the kit: by scenario, by file type, by federal law, by state. Intended for users navigating the now-large kit.
+- **FAQ refresh** (`FAQ.md`). 18 new questions covering v0.6-v0.11 content: EMTALA, HIPAA right of access, auto med-pay, workers' comp, bankruptcy, TRICARE, VA Community Care, telehealth, ground ambulance, air ambulance, observation status, ACA marketplace, Section 1557. Plus process-and-tooling questions covering the deadline watcher, decision tree, common outcomes, anti-patterns, records retention, START_HERE, CPT quick-reference, HPT MRF format.
+- **Stories 18.1-18.3** added to `USER_STORIES.md`.
+
+### Changed
+
+- **`BUILD_PLAN.md`** — v0.12.0 marked shipped; v1.0.0 status updated to 36 state packs.
+- **`README.md`** — state-pack list expanded to 36; INDEX referenced.
+- **`llm/QUICKSTART_short_context.md`** — Stage 2 state list expanded.
+- **`roadmap.json`** — v0.12.0 features added.
+
+### Known issues
+
+- 36 state packs cover roughly 84% of US population. Remaining 14 states (AK, DE, HI, ID, LA, ME, MT, ND, NH, RI, SD, VT, WV, WY) open for community PRs.
+
 ## [v0.11.0] — 2026-05-19
 
 ### Added
@@ -288,6 +311,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 - **License** — MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v0.12.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.12.0
 [v0.11.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.11.0
 [v0.10.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.10.0
 [v0.9.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.9.0
