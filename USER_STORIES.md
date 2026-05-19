@@ -549,6 +549,51 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
+## Epic 15 — Civil-rights and modality coverage
+
+### Story 15.1 — Use Section 1557 against discrimination-tinged billing
+
+**As a** patient who experienced inadequate language access, disability accommodation, or other discrimination-tinged conduct that affected billing, **I want** the kit to surface ACA Section 1557 protections and route to HHS OCR, **so that** I have a federal civil-rights lever in addition to ordinary billing disputes.
+
+**AC:**
+
+- Given a patient describing an access failure (LEP, disability, etc.), When the LLM uses `rules/21_section_1557.md`, Then it categorizes the violation, drafts a parallel Section 1557 dispute, and routes to OCR within the 180-day complaint window.
+
+**Status:** shipped (v0.9.0)
+
+### Story 15.2 — Handle an air-ambulance balance bill correctly
+
+**As a** patient billed for an air-ambulance transport, **I want** the kit to apply federal NSA protections (which cover air ambulance, unlike ground ambulance) and address the practical pricing issues, **so that** I do not pay illegal balance bills and can negotiate the legal in-network cost-share down where applicable.
+
+**AC:**
+
+- Given an air-ambulance bill, When the LLM walks the patient through `rules/22_air_ambulance.md`, Then it confirms NSA applicability, identifies balance-billing violations, flags ADA preemption of state remedies, and routes to NSA reprocessing or hardship negotiation depending on whether the disputed amount is balance-billed or in-network cost-share.
+
+**Status:** shipped (v0.9.0)
+
+### Story 15.3 — Calibrate expectations from common outcomes
+
+**As a** patient deciding whether to pursue a dispute, **I want** rough patterns of typical settlement amounts, time-to-resolution, and success rates by track, **so that** I can decide whether a fight is worth picking.
+
+**AC:**
+
+- `docs/COMMON_OUTCOMES.md` provides public-source patterns for each major dispute track (itemization, initial dispute, NSA, insurance appeal, § 501(r), FDCPA, small claims, hardship, bankruptcy).
+- Time-to-resolution figures are provided for the most common patient questions.
+
+**Status:** shipped (v0.9.0)
+
+### Story 15.4 — Avoid common patient-side mistakes
+
+**As a** patient starting a dispute, **I want** to read once about the most common patient-side mistakes, **so that** I do not undermine my own case before I begin.
+
+**AC:**
+
+- `docs/ANTI_PATTERNS.md` covers 20+ common patient-side mistakes (paying the first bill, auto-debit on file, vague disputes, threatening too much/too little, confusing EOB with bill, etc.) with the right move for each.
+
+**Status:** shipped (v0.9.0)
+
+---
+
 ## Cross-references
 
 - Roadmap: this project does not yet have a `roadmap.json`. Roadmap is captured by story status above.

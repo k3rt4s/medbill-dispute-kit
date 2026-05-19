@@ -6,6 +6,33 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.9.0] — 2026-05-18
+
+### Added
+
+- **Indiana state pack** (`references/laws_state_in.md`). Erie Ins. v. Hickman common-law bad-faith doctrine with punitive damages; 2023 HB 1004 price-transparency rules; Indiana Deceptive Consumer Sales Act original-creditor reach.
+- **Wisconsin state pack** (`references/laws_state_wi.md`). Anderson v. Continental Ins. common-law bad-faith with punitive damages; 6-year written-contract SOL; OCI complaint channel.
+- **South Carolina state pack** (`references/laws_state_sc.md`). Nichols v. State Farm + common-law bad-faith doctrine; 3-year SOL (short relative to most states); Magistrate Court $7,500 small-claims limit.
+- **Alabama state pack** (`references/laws_state_al.md`). Aetna v. Lavoie common-law bad-faith with robust punitive-damages doctrine; 6-year written-contract SOL; District Court $6,000 small-claims limit.
+- **ACA Section 1557 rule** (`rules/21_section_1557.md`). Federal anti-discrimination statute (42 U.S.C. § 18116) covering race, color, national origin (language access for LEP patients), sex, age, and disability at any healthcare entity receiving federal funds. 2024 final rule under 45 CFR Part 92. HHS OCR complaint within 180 days. Three patient-billing-relevant contexts: language access, disability accommodation, disparate-impact patterns.
+- **Air ambulance rule** (`rules/22_air_ambulance.md`). Federal NSA does cover air ambulance (unlike ground ambulance) at 42 U.S.C. § 300gg-112. ADA preemption of state remedies under 49 U.S.C. § 41713(b)(1) is critical context. Membership programs (Air Methods, AirMedCare Network) as a prevention pattern.
+- **Common outcomes reference** (`docs/COMMON_OUTCOMES.md`). Public-source typical-outcome figures for each dispute track: settlement rates, reduction percentages, time-to-resolution. Sources include Dollar For, KFF, PatientRightsAdvocate, CFPB, ProPublica, *An Arm and a Leg* podcast.
+- **Anti-patterns reference** (`docs/ANTI_PATTERNS.md`). 20+ common patient-side mistakes (paying the first bill, auto-debit on file, vague disputes, conceding non-disputed amounts, confusing EOB with bill, etc.) with the right move for each. Intended as a one-time read before starting a dispute.
+- **Stories 15.1-15.4** added to `USER_STORIES.md`.
+
+### Changed
+
+- **`BUILD_PLAN.md`** — v0.9.0 marked shipped; v1.0.0 status updated to 24 state packs.
+- **`README.md`** — state-pack list expanded to 24; new docs referenced.
+- **`llm/QUICKSTART_short_context.md`** — Stage 2 expanded; Stage 4 rules list updated.
+- **`roadmap.json`** — v0.9.0 features added.
+
+### Known issues
+
+- 24 state packs cover roughly 74% of US population. Remaining 26 states open for community PRs.
+- Section 1557's regulatory interpretation (especially gender-identity and sexual-orientation protections) has been subject to litigation; verify current 45 CFR Part 92 state before relying.
+- Air-ambulance regulatory landscape continues to evolve; ADA preemption may be re-examined by future legislation or Department of Transportation rulemaking.
+
 ## [v0.8.0] — 2026-05-18
 
 ### Added
@@ -211,6 +238,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 - **License** — MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v0.9.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.9.0
 [v0.8.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.8.0
 [v0.7.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.7.0
 [v0.6.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.6.0

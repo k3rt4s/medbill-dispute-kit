@@ -378,9 +378,65 @@
       "release": { "version": "v0.8.0", "date": "2026-05-18" }
     },
     {
+      "id": "state-in",
+      "title": "Indiana state pack",
+      "description": "Worked IN state-law layer with Erie v. Hickman common-law bad-faith, 2023 HB 1004 price-transparency rules, Indiana DCSA",
+      "status": "implemented",
+      "release": { "version": "v0.9.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-wi",
+      "title": "Wisconsin state pack",
+      "description": "Worked WI state-law layer with Anderson v. Continental common-law bad-faith and punitive damages, OCI complaint channel",
+      "status": "implemented",
+      "release": { "version": "v0.9.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-sc",
+      "title": "South Carolina state pack",
+      "description": "Worked SC state-law layer with Nichols v. State Farm bad-faith doctrine, 3-year SOL, $7,500 Magistrate Court",
+      "status": "implemented",
+      "release": { "version": "v0.9.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-al",
+      "title": "Alabama state pack",
+      "description": "Worked AL state-law layer with Aetna v. Lavoie robust bad-faith doctrine and punitive damages",
+      "status": "implemented",
+      "release": { "version": "v0.9.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-section-1557",
+      "title": "ACA Section 1557 anti-discrimination rule",
+      "description": "Federal civil-rights lever for language-access, disability-accommodation, and disparate-impact patterns; 45 CFR Part 92; HHS OCR complaint within 180 days",
+      "status": "implemented",
+      "release": { "version": "v0.9.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-air-ambulance",
+      "title": "Air ambulance rule",
+      "description": "Federal NSA covers air ambulance (unlike ground); ADA preemption of state remedies; membership-program prevention pattern",
+      "status": "implemented",
+      "release": { "version": "v0.9.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "doc-common-outcomes",
+      "title": "Common outcomes reference",
+      "description": "Public-source typical-outcome figures by dispute track for expectation-setting",
+      "status": "implemented",
+      "release": { "version": "v0.9.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "doc-anti-patterns",
+      "title": "Anti-patterns reference",
+      "description": "20+ common patient-side mistakes with the right move for each",
+      "status": "implemented",
+      "release": { "version": "v0.9.0", "date": "2026-05-18" }
+    },
+    {
       "id": "state-long-tail",
-      "title": "State packs for the remaining 30 states",
-      "description": "AK, AL, AR, CT, DE (initial), HI, IA, ID, IN, KS, KY, LA, ME, MS, MT, ND, NE, NH, NM, NV, OK, OR, RI, SC, SD, UT, VT, WI, WV, WY",
+      "title": "State packs for the remaining 26 states",
+      "description": "AK, AR, CT, DE (initial), HI, IA, ID, KS, KY, LA, ME, MS, MT, ND, NE, NH, NM, NV, OK, OR, RI, SD, UT, VT, WV, WY",
       "status": "planned",
       "issue": "https://github.com/k3rt4s/medbill-dispute-kit/labels/state-pack"
     },
