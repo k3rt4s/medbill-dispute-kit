@@ -36,6 +36,10 @@ The model asks your state. Load the relevant state file:
 - Virginia: [`references/laws_state_va.md`](../references/laws_state_va.md)
 - Arizona: [`references/laws_state_az.md`](../references/laws_state_az.md)
 - Massachusetts: [`references/laws_state_ma.md`](../references/laws_state_ma.md)
+- Colorado: [`references/laws_state_co.md`](../references/laws_state_co.md)
+- Maryland: [`references/laws_state_md.md`](../references/laws_state_md.md)
+- Missouri: [`references/laws_state_mo.md`](../references/laws_state_mo.md)
+- Minnesota: [`references/laws_state_mn.md`](../references/laws_state_mn.md)
 - Other: load [`references/laws_state_template.md`](../references/laws_state_template.md) and ask the model to look up your state's equivalents (warn it to verify before mailing).
 
 Also load: [`references/laws_federal.md`](../references/laws_federal.md).
@@ -64,6 +68,10 @@ For each bill, load the rule that matches the model's preliminary finding:
 - HIPAA records-access denial → load [`rules/14_hipaa_right_of_access.md`](../rules/14_hipaa_right_of_access.md)
 - Accident-related billing → load [`rules/15_auto_med_pay.md`](../rules/15_auto_med_pay.md)
 - Work-related injury → load [`rules/16_workers_comp.md`](../rules/16_workers_comp.md)
+- Bankruptcy candidate → load [`rules/17_bankruptcy_and_medical_debt.md`](../rules/17_bankruptcy_and_medical_debt.md)
+- TRICARE → load [`rules/18_tricare.md`](../rules/18_tricare.md)
+- VA Community Care → load [`rules/19_va_community_care.md`](../rules/19_va_community_care.md)
+- Telehealth visit → load [`rules/20_telehealth.md`](../rules/20_telehealth.md)
 - Third-party collector → no extra rule needed; go to Stage 5 with the FDCPA template.
 
 ## Stage 5 — Draft
