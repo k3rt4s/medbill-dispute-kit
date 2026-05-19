@@ -6,6 +6,33 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.8.0] — 2026-05-18
+
+### Added
+
+- **Colorado state pack** (`references/laws_state_co.md`). Headlines: Hospital Discounted Care Act (C.R.S. § 6-20-101 et seq., HB22-1285) caps charges for qualifying uninsured patients at the average of Medicare/Medicaid rates with 4%-of-income payment plans and collections bars; C.R.S. § 10-3-1116 provides a private bad-faith remedy with 2× covered benefit, attorney's fees, and court costs; ground-ambulance protection under C.R.S. § 25.5-4-414 effective January 1, 2025 with 325%-of-Medicare floor.
+- **Maryland state pack** (`references/laws_state_md.md`). Headline distinctive feature: HSCRC all-payer rate-setting system. Maryland hospitals charge the same rate to every payer; no insurer-negotiated discount differential.
+- **Missouri state pack** (`references/laws_state_mo.md`). Notable: RSMo § 375.296 vexatious refusal-to-pay statute (20% of first $1,500 + 10% of excess + attorney's fees); 10-year SOL on written contracts under RSMo § 516.110 — tied for longest in the country.
+- **Minnesota state pack** (`references/laws_state_mn.md`). Notable: Minnesota Debt Fairness Act (HF 4077, 2024) caps medical-debt interest; $20,000 no-attorney Conciliation Court is one of the highest pro-se-friendly small-claims limits in the country; Minn. Stat. § 604.18 first-party bad-faith remedy with taxable costs and attorney fees up to $250k.
+- **TRICARE rule** (`rules/18_tricare.md`). 10 U.S.C. § 1071-1110b, 32 CFR Part 199. 15% balance-billing cap, active-duty zero-cost-share, BCAC referral, regional-contractor routing (East: Humana Military; West: TriWest as of 2024). Active-duty service members receiving any bill is routed to immediate contractor intervention.
+- **VA Community Care / MISSION Act rule** (`rules/19_va_community_care.md`). Pub. L. 115-182, 38 CFR Part 17 Subpart W. Direct-billing prohibition for authorized care; Optum / TriWest TPA routing; 72-hour notification requirement for emergency-care coverage under 38 U.S.C. § 1725; VA Patient Advocate and Veterans Service Organization referral pattern.
+- **Telehealth rule** (`rules/20_telehealth.md`). Place-of-service codes (02 home-other, 10 in-home, 11 office, 22 outpatient hospital), modifier coding (95 video, 93 audio-only), facility-fee appropriateness, audio-only vs video coding (99441-99443 vs 99213/14 + modifier), state telehealth-parity statutes (CA, NY, TN, TX, MA examples), licensure-across-state-lines considerations, Center for Connected Health Policy as the state-by-state tracker.
+- **Decision-tree quick reference** (`docs/DECISION_TREE.md`). 14+ patient scenarios with explicit template recommendations and cross-references to the relevant rules. Intended as a printable single-page index.
+- **Stories 14.1-14.4** added to `USER_STORIES.md`.
+
+### Changed
+
+- **`BUILD_PLAN.md`** — v0.8.0 marked shipped; v1.0.0 status updated to 20 state packs.
+- **`README.md`** — state-pack list expanded to 20; rules list updated; DECISION_TREE referenced.
+- **`llm/QUICKSTART_short_context.md`** — Stage 2 (state pack list) and Stage 4 (rules-by-finding list) expanded.
+- **`roadmap.json`** — v0.8.0 features added; long-tail state list updated.
+
+### Known issues
+
+- 20 state packs cover roughly 67% of the US population by state of residence. Remaining 30 states open for community PRs.
+- Telehealth rules under Medicare have been in flux post-COVID public-health-emergency rules and continue to evolve. The kit's telehealth rule reflects 2026 state of play; verify current CMS guidance.
+- TRICARE regional-contractor assignments may shift; the kit's named contractors are accurate as of 2024-2026 but should be re-verified before relying on for letter drafting.
+
 ## [v0.7.0] — 2026-05-18
 
 ### Added
@@ -184,6 +211,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 - **License** — MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v0.8.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.8.0
 [v0.7.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.7.0
 [v0.6.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.6.0
 [v0.5.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.5.0

@@ -322,9 +322,65 @@
       "release": { "version": "v0.7.0", "date": "2026-05-18" }
     },
     {
+      "id": "state-co",
+      "title": "Colorado state pack",
+      "description": "Worked CO state-law layer with Hospital Discounted Care Act (uninsured rate cap at Medicare/Medicaid average), § 10-3-1116 2x bad-faith with attorney's fees, § 25.5-4-414 ground ambulance 2025",
+      "status": "implemented",
+      "release": { "version": "v0.8.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-md",
+      "title": "Maryland state pack",
+      "description": "Worked MD state-law layer; HSCRC all-payer rate-setting system as the distinctive nationwide feature",
+      "status": "implemented",
+      "release": { "version": "v0.8.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-mo",
+      "title": "Missouri state pack",
+      "description": "Worked MO state-law layer with § 375.296 vexatious refusal-to-pay statute and 10-year SOL on written contracts",
+      "status": "implemented",
+      "release": { "version": "v0.8.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-mn",
+      "title": "Minnesota state pack",
+      "description": "Worked MN state-law layer with Minnesota Debt Fairness Act (2024), $20,000 no-attorney Conciliation Court, § 604.18 first-party bad-faith",
+      "status": "implemented",
+      "release": { "version": "v0.8.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-tricare",
+      "title": "TRICARE rule",
+      "description": "Federal program for military beneficiaries: 15% balance-billing cap, active-duty zero-cost-share, BCAC referral, regional contractors",
+      "status": "implemented",
+      "release": { "version": "v0.8.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-va-community-care",
+      "title": "VA Community Care / MISSION Act rule",
+      "description": "Direct-billing prohibition for VA-authorized community care; Optum/TriWest TPA routing; emergency-care 72-hour notification",
+      "status": "implemented",
+      "release": { "version": "v0.8.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-telehealth",
+      "title": "Telehealth billing rule",
+      "description": "POS codes (02/10/11/22), modifiers 95/93, audio-only coding, telehealth parity laws, licensure-across-state-lines",
+      "status": "implemented",
+      "release": { "version": "v0.8.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "doc-decision-tree",
+      "title": "DECISION_TREE.md quick-reference index",
+      "description": "Single-page flowchart from 'what kind of bill' to 'which template applies' covering 14+ patient scenarios",
+      "status": "implemented",
+      "release": { "version": "v0.8.0", "date": "2026-05-18" }
+    },
+    {
       "id": "state-long-tail",
-      "title": "State packs for the remaining 34 states",
-      "description": "AK, AL, AR, CO, CT, DE (initial), HI, IA, ID, IN, KS, KY, LA, MD, ME, MN, MO, MS, MT, ND, NE, NH, NM, NV, OK, OR, RI, SC, SD, UT, VT, WI, WV, WY",
+      "title": "State packs for the remaining 30 states",
+      "description": "AK, AL, AR, CT, DE (initial), HI, IA, ID, IN, KS, KY, LA, ME, MS, MT, ND, NE, NH, NM, NV, OK, OR, RI, SC, SD, UT, VT, WI, WV, WY",
       "status": "planned",
       "issue": "https://github.com/k3rt4s/medbill-dispute-kit/labels/state-pack"
     },

@@ -504,6 +504,51 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
+## Epic 14 — Federal-program coverage and modality patterns
+
+### Story 14.1 — Handle a TRICARE balance-billing or denial issue
+
+**As a** TRICARE beneficiary receiving a balance bill or claim denial, **I want** the kit to recognize TRICARE's federal protections (15% balance-billing cap, active-duty zero-cost-share, regional contractor and BCAC referral) and route accordingly, **so that** I don't apply commercial-plan tactics to a federal program with different rules.
+
+**AC:**
+
+- Given a TRICARE bill or denial, When the LLM walks the patient through `rules/18_tricare.md`, Then it confirms the patient's eligibility status (active duty / retiree / dependent), regional contractor (East: Humana Military; West: TriWest), and identifies whether the bill violates the 15% cap under 10 U.S.C. § 1079(h). Active-duty members are routed to immediate contractor intervention.
+
+**Status:** shipped (v0.8.0)
+
+### Story 14.2 — Handle a VA Community Care direct-billing problem
+
+**As a** veteran receiving care from a non-VA provider under the MISSION Act, **I want** the kit to recognize when the provider is improperly billing me directly instead of the VA TPA, **so that** I forward the bill to the right place and do not pay something that VA owes.
+
+**AC:**
+
+- Given a Community Care bill, When the LLM walks the patient through `rules/19_va_community_care.md`, Then it confirms the authorization is in place, identifies the right TPA (Optum or TriWest), and routes the bill to the TPA rather than treating it as the veteran's responsibility.
+- Given a service-connected condition, When billed any amount, Then the LLM flags as likely error and routes to VA Patient Advocate or VSO.
+
+**Status:** shipped (v0.8.0)
+
+### Story 14.3 — Catch telehealth coding and parity issues
+
+**As a** patient billed for a telehealth visit, **I want** the kit to check that the place-of-service code matches the actual modality (home vs office), that modifier 95 or 93 is applied appropriately, that an in-person facility fee was not improperly attached, and that state telehealth-parity rules are followed, **so that** I do not pay for coding errors.
+
+**AC:**
+
+- Given a telehealth bill, When the LLM walks the patient through `rules/20_telehealth.md`, Then it verifies POS code (02 or 10 vs 11/22), modifier coding (95/93), facility-fee appropriateness, audio-only vs video coding (99441-99443 vs 99213/14 + modifier), and state telehealth-parity applicability.
+
+**Status:** shipped (v0.8.0)
+
+### Story 14.4 — Use the decision tree as a quick reference
+
+**As a** patient with a specific bill in hand, **I want** a single-page decision tree that points me directly at the right template, **so that** I do not have to read every rule file to figure out where to start.
+
+**AC:**
+
+- `docs/DECISION_TREE.md` covers the 14+ most common patient scenarios with explicit template recommendations and cross-references to the relevant rules.
+
+**Status:** shipped (v0.8.0)
+
+---
+
 ## Cross-references
 
 - Roadmap: this project does not yet have a `roadmap.json`. Roadmap is captured by story status above.
