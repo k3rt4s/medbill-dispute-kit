@@ -1,0 +1,306 @@
+{
+  "$schema": "https://raw.githubusercontent.com/k3rt4s/medbill-dispute-kit/main/schemas/roadmap.schema.json",
+  "project": "medbill-dispute-kit",
+  "description": "LLM-droppable instruction toolkit for analyzing US medical bills, deduplicating follow-up statements, and running a months-long dispute process",
+  "repository": "https://github.com/k3rt4s/medbill-dispute-kit",
+  "license": "MIT",
+  "updated": "2026-05-18",
+  "features": [
+    {
+      "id": "kit-scaffold",
+      "title": "Initial kit scaffold",
+      "description": "LLM operating layer, methodology rules, federal-law references, schemas, letter templates, tracker template",
+      "status": "implemented",
+      "release": { "version": "v0.1.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-tn",
+      "title": "Tennessee state pack",
+      "description": "Worked TN state-law layer including § 68-11-220 itemization, § 56-7-105 bad faith, § 56-2-305 dental, General Sessions small claims",
+      "status": "implemented",
+      "release": { "version": "v0.1.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-ga",
+      "title": "Georgia state pack",
+      "description": "Worked GA state-law layer with O.C.G.A. § 10-1-393(b)(14) automatic itemization, § 10-1-399 FBPA private right of action, § 33-4-6 bad faith, § 33-20E ground ambulance",
+      "status": "implemented",
+      "release": { "version": "v0.2.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "tpl-hardship",
+      "title": "Hardship negotiation letter template",
+      "description": "For correctly-billed but unaffordable charges; anchors to Medicare allowable rate, references IRS § 501(r)",
+      "status": "implemented",
+      "release": { "version": "v0.2.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "tpl-fdcpa-validation",
+      "title": "FDCPA § 1692g validation request template",
+      "description": "Third-party medical-debt collector validation within 30 days of first contact",
+      "status": "implemented",
+      "release": { "version": "v0.2.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-ground-ambulance",
+      "title": "Ground-ambulance rule and dispute template",
+      "description": "Federal NSA explicitly excludes ground ambulance; state-by-state protection table + two-variant letter (state-protected vs unprotected)",
+      "status": "implemented",
+      "release": { "version": "v0.3.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "tpl-fap-application",
+      "title": "IRS § 501(r) Financial Assistance Policy application template",
+      "description": "For non-profit hospital bills; triggers § 1.501(r)-6 collection-action suspension during pendency",
+      "status": "implemented",
+      "release": { "version": "v0.3.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "tpl-cms-hpt-complaint",
+      "title": "CMS Hospital Price Transparency complaint template",
+      "description": "For hospitals not posting compliant machine-readable file under 45 CFR Part 180",
+      "status": "implemented",
+      "release": { "version": "v0.3.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-ppdr-walkthrough",
+      "title": "PPDR (Patient-Provider Dispute Resolution) walkthrough rule",
+      "description": "Federal NSA self-pay arbitration process at nsa-idr.cms.gov; $25 filing fee, 120-day window, collection-pause during pendency",
+      "status": "implemented",
+      "release": { "version": "v0.3.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-ca",
+      "title": "California state pack",
+      "description": "Worked CA state-law layer with AB 72 surprise billing, IMR, Hospital Fair Pricing Act, AB 716 ground ambulance, SB 1061 credit-reporting",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-tx",
+      "title": "Texas state pack",
+      "description": "Worked TX state-law layer with Chapter 541 private right of action, SB 1264 balance billing, SB 916 ground ambulance, TX Constitution wage-garnishment ban",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-ny",
+      "title": "New York state pack",
+      "description": "Worked NY state-law layer with Fair Medical Debt Reporting Act, Consumer Credit Fairness Act, PHL § 2807-k(9-a) hospital FA at 400% FPL",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-fl",
+      "title": "Florida state pack",
+      "description": "Worked FL state-law layer with § 624.155 Civil Remedy Notice, § 395.301 7-day itemization, HB 7089 3-year SOL on facility medical debt",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-medicare-appeals",
+      "title": "Medicare five-level appeals track",
+      "description": "Redetermination, QIC reconsideration, ALJ at OMHA, Appeals Council, federal court — for Parts A, B, C, D",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "tpl-medicaid-appeal",
+      "title": "Medicaid appeal template",
+      "description": "Two-step process (MCO internal then state fair hearing) under 42 CFR § 438.402 with Aid Paid Pending and EPSDT block; TennCare worked example",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "tpl-dental-dispute",
+      "title": "Dental dispute template",
+      "description": "Downcoding, bundling, frequency-limit denials, VCC objections; Tennessee § 56-2-305 worked example",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "doc-glossary",
+      "title": "Glossary",
+      "description": "Plain-English definitions for every acronym used in the kit",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "doc-faq",
+      "title": "FAQ",
+      "description": "20+ patient-facing questions covering kit use, deadlines, escalation, edge cases, contribution",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "doc-llm-compatibility",
+      "title": "LLM compatibility notes",
+      "description": "Coverage of Claude, ChatGPT, Gemini, Llama, Qwen with context-window and vision guidance",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "doc-quickstart-short-context",
+      "title": "Short-context QUICKSTART",
+      "description": "7-stage staged-load pattern for LLMs under 32k tokens",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "doc-contributing",
+      "title": "Contribution guidelines",
+      "description": "PR guidelines with 12-section state-pack checklist, template-creation rules, schema-extension rules",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "tool-validate-tracker",
+      "title": "Tracker CSV validator script",
+      "description": "Python 3.11+ stdlib-only validator with structural checks against the TOML schemas",
+      "status": "implemented",
+      "release": { "version": "v0.4.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-pa",
+      "title": "Pennsylvania state pack",
+      "description": "Worked PA state-law layer with 42 Pa.C.S. § 8371 bad faith (interest+punitives+fees+costs), § 8127 wage-garnishment exemption, UTPCPL/FCEUA original-creditor reach, Act 146 surprise billing",
+      "status": "implemented",
+      "release": { "version": "v0.5.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-il",
+      "title": "Illinois state pack",
+      "description": "Worked IL state-law layer with Hospital Uninsured Patient Discount Act (135% of cost cap), ICFA original-creditor reach with treble damages, 10-year SOL, Fair Patient Billing Act, SB 2405 ground ambulance",
+      "status": "implemented",
+      "release": { "version": "v0.5.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-oh",
+      "title": "Ohio state pack",
+      "description": "Worked OH state-law layer with OCSPA reach over hospitals post-Brakle, Hospital Care Assurance Program statutory free-care at 100% FPL, § 3902.50 ground ambulance, no general hospital-lien statute",
+      "status": "implemented",
+      "release": { "version": "v0.5.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "examples-multi-encounter",
+      "title": "Multi-encounter worked example",
+      "description": "Two hospital encounters, 7 bills, three sessions over six weeks demonstrating dedup, encounter linking, save/resume, settlement accounting",
+      "status": "implemented",
+      "release": { "version": "v0.5.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "examples-insurance-denial",
+      "title": "Insurance-denial worked example",
+      "description": "ERISA self-funded plan denial, internal appeal, external IRO review, parallel EBSA and state DOI complaints",
+      "status": "implemented",
+      "release": { "version": "v0.5.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "github-polish",
+      "title": "GitHub repo polish",
+      "description": "Issue templates (bug, state-pack request, content correction), PR template, SECURITY policy, CODE_OF_CONDUCT (Contributor Covenant 2.1)",
+      "status": "implemented",
+      "release": { "version": "v0.5.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "ci-tests",
+      "title": "CI workflow and validator tests",
+      "description": "GitHub Actions workflow runs validator and pytest; markdown link checker. 8 pytest cases covering happy path and error cases",
+      "status": "implemented",
+      "release": { "version": "v0.5.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-emtala",
+      "title": "EMTALA rule and complaint template",
+      "description": "Federal emergency-care anti-dumping statute; CMS regulatory complaint route; civil action under § 1395dd(d)(2)(A)",
+      "status": "implemented",
+      "release": { "version": "v0.6.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-hipaa-right-of-access",
+      "title": "HIPAA right-of-access rule and OCR complaint template",
+      "description": "45 CFR § 164.524; 30-day deadline, reasonable cost-based fee cap, OCR complaint within 180 days",
+      "status": "implemented",
+      "release": { "version": "v0.6.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-auto-med-pay",
+      "title": "Auto med-pay and accident-related billing rule",
+      "description": "Med-pay / PIP / UM-UIM / hospital lien interactions for motor-vehicle accident billing",
+      "status": "implemented",
+      "release": { "version": "v0.6.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "tpl-auto-med-pay",
+      "title": "Auto med-pay letter template (3 variants)",
+      "description": "Demand to apply med-pay/PIP; demand to bill health insurance instead of relying on lien; challenge to perfected hospital lien",
+      "status": "implemented",
+      "release": { "version": "v0.6.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "rule-workers-comp",
+      "title": "Workers' compensation rule",
+      "description": "Balance-billing prohibition for accepted WC claims; state-specific statutes; coordination with health insurance for contested claims",
+      "status": "implemented",
+      "release": { "version": "v0.6.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-nc",
+      "title": "North Carolina state pack",
+      "description": "Worked NC state-law layer including § 75-1.1 UDPA with treble damages",
+      "status": "implemented",
+      "release": { "version": "v0.6.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-mi",
+      "title": "Michigan state pack",
+      "description": "Worked MI state-law layer including the no-fault auto-insurance interaction with medical billing",
+      "status": "implemented",
+      "release": { "version": "v0.6.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-wa",
+      "title": "Washington state pack",
+      "description": "Worked WA state-law layer with Charity Care Act (100% free care to 300% FPL), IFCA bad faith, Balance Billing Protection Act including ground ambulance",
+      "status": "implemented",
+      "release": { "version": "v0.6.0", "date": "2026-05-18" }
+    },
+    {
+      "id": "state-long-tail",
+      "title": "State packs for the remaining 38 states",
+      "description": "AK, AL, AR, AZ, CO, CT, DE (initial), HI, IA, ID, IN, KS, KY, LA, MA, MD, ME, MN, MO, MS, MT, ND, NE, NH, NJ, NM, NV, OK, OR, RI, SC, SD, UT, VA, VT, WI, WV, WY",
+      "status": "planned",
+      "issue": "https://github.com/k3rt4s/medbill-dispute-kit/labels/state-pack"
+    },
+    {
+      "id": "spanish-localization",
+      "title": "Spanish-language patient-facing prompts and templates",
+      "description": "Translate the most-used templates and rules into Spanish for bilingual patients",
+      "status": "planned"
+    },
+    {
+      "id": "outcomes-bank",
+      "title": "Anonymized real-outcomes bank",
+      "description": "Community-contributed anonymized dispute outcomes for calibration",
+      "status": "proposed"
+    },
+    {
+      "id": "advocate-variant",
+      "title": "Advocate-side variant",
+      "description": "Kit oriented for patient advocates handling multiple patients simultaneously",
+      "status": "proposed"
+    },
+    {
+      "id": "turquoise-integration",
+      "title": "Turquoise Health API integration",
+      "description": "Auto-lookup of fair prices given CPT and ZIP code via Turquoise's API",
+      "status": "proposed"
+    },
+    {
+      "id": "dollar-for-integration",
+      "title": "Dollar For screener integration",
+      "description": "Auto-screen non-profit hospital bills for charity-care eligibility via Dollar For",
+      "status": "proposed"
+    }
+  ]
+}
