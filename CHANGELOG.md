@@ -1,8 +1,37 @@
 # Changelog
 
+<!-- markdownlint-disable MD024 -->
+
 All notable changes to medbill-dispute-kit, in plain English, from the patient's perspective.
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
+
+## [v0.5.0] — 2026-05-18
+
+### Added
+
+- **Pennsylvania state pack** (`references/laws_state_pa.md`). Headline: 42 Pa. C.S. § 8371 first-party bad-faith statute, generally regarded as the most patient-favorable in the country — punitive damages, attorney's fees, court costs, interest. Also covers Act 146 of 2020 (HB 1862) surprise billing; Magisterial District Court at $12,000; 4-year SOL on written contracts under 42 Pa. C.S. § 5525; the UTPCPL's reach over original creditors.
+- **Illinois state pack** (`references/laws_state_il.md`). Headlines: Hospital Uninsured Patient Discount Act (210 ILCS 89/) caps charges for uninsured patients at 135% of cost; Fair Patient Billing Act (210 ILCS 88/); Illinois Consumer Fraud Act (815 ILCS 505/) is one of the broadest UDAP statutes in the country with original-creditor reach; 10-year SOL on written contracts under 735 ILCS 5/13-206; ground-ambulance protection at 215 ILCS 5/356z.3a effective 2023.
+- **Ohio state pack** (`references/laws_state_oh.md`). Headlines: OCSPA reach over hospital corporate entities post-*Brakle v. Cleveland Clinic Foundation* (2021); Hospital Care Assurance Program (Ohio Rev. Code § 5168.14) requires hospitals to provide free care to patients ≤100% FPL; ground-ambulance coverage via Ohio Rev. Code §§ 3902.50-3902.54 effective Jan 12, 2022; corrected citations including a 6-yr written / 4-yr oral SOL post-SB 13 (2021) and Ohio's *lack* of a general hospital-lien statute (defensible advantage).
+- **Multi-encounter worked example** (`examples/multi_encounter_walkthrough.md`). Two hospital encounters, seven bills, three sessions over six weeks. Demonstrates encounter linking, deduplication of follow-up statements, save/resume across sessions, response-driven re-routing when itemized bills arrive, and quantified settlement accounting.
+- **Insurance-denial worked example** (`examples/insurance_denial_walkthrough.md`). ERISA self-funded plan denial of an advanced imaging study, internal appeal with treating-physician evidence, external review by an Independent Review Organization, parallel DOL EBSA intervention and state DOI complaint. Demonstrates plan-type identification as the first move in any denial dispute.
+- **GitHub issue templates** (`.github/ISSUE_TEMPLATE/`). Three YAML form templates: bug report, state-pack request (with role selector for requester vs. contributor), and content correction (with source-URL requirement and severity dropdown). Plus a `config.yml` directing common questions to FAQ.md and CONTRIBUTING.md.
+- **GitHub pull-request template** (`.github/PULL_REQUEST_TEMPLATE.md`). Type-of-change checkboxes covering all kit areas; quality checklist; state-pack-specific 12-section checklist; factual-correction-specific source-and-date verification.
+- **Security policy** (`SECURITY.md`). Defines scope (the optional Python scripts and CI workflow), out-of-scope items (third-party services we link to, user's own data hygiene), reporting channel via maintainer email or private GitHub security advisory, and disclosure timeline.
+- **Code of conduct** (`CODE_OF_CONDUCT.md`). Adapted from Contributor Covenant 2.1 with two project-specific norms: patient stories are not entertainment, and disagreements should be on the citation rather than the person.
+- **Continuous integration** (`.github/workflows/ci.yml`). Runs on push and PR to main. Two jobs: validate-tracker (runs `scripts/validate_tracker.py` against the example tracker and runs pytest if `tests/` exists) and markdown-links (uses `gaurav-nelson/github-action-markdown-link-check` with retry-and-fallback configuration in `.github/markdown-link-check.json`).
+- **Validator unit tests** (`tests/test_validate_tracker.py`). Eight pytest cases covering happy path, missing required column, bad date format, bad decimal format, bad enum value, bad findings token, header-order mismatch, and schema-loading sanity check. All pass.
+- **Stories 9.6, 9.7, 9.8** added to `USER_STORIES.md` and marked shipped.
+
+### Changed
+
+- **`BUILD_PLAN.md`** — v0.5.0 marked shipped; v1.0.0 status updated to reflect nine state packs.
+- **`README.md`** — state-pack list expanded to nine; new sections covering the GitHub-workflow polish.
+
+### Known issues
+
+- The kit's state-pack list now covers nine states comprising roughly 40% of the US population. Long-tail coverage of the remaining 41 states is open for community PRs; `.github/ISSUE_TEMPLATE/state_pack_request.yml` is the coordination channel.
+- The markdown-link-check CI job is configured with `continue-on-error: true` because GitHub-hosted runners occasionally hit rate limits on external sites; failures should be triaged manually rather than treated as build breakers.
 
 ## [v0.4.0] — 2026-05-18
 
@@ -99,6 +128,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 - **License** — MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v0.5.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.5.0
 [v0.4.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.4.0
 [v0.3.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.3.0
 [v0.2.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.2.0

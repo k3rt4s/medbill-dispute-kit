@@ -1,0 +1,28 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^http://localhost"
+    },
+    {
+      "pattern": "^https://localhost"
+    },
+    {
+      "pattern": "github.com/k3rt4s/medbill-dispute-kit/releases/tag/"
+    }
+  ],
+  "replacementPatterns": [],
+  "httpHeaders": [
+    {
+      "urls": ["https://"],
+      "headers": {
+        "Accept": "text/html",
+        "User-Agent": "Mozilla/5.0"
+      }
+    }
+  ],
+  "timeout": "10s",
+  "retryOn429": true,
+  "retryCount": 3,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 206, 403, 429]
+}

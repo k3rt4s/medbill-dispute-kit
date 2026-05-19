@@ -1,0 +1,57 @@
+name: Content correction
+description: A rule, template, or reference contains a factual error (wrong citation, outdated statute, broken process)
+title: "[correction] "
+labels: ["correction", "accuracy"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Factual accuracy is the kit's most important quality. Wrong citations harm patients. Please be specific about the source you're relying on.
+
+  - type: input
+    id: file
+    attributes:
+      label: File path
+      description: Which file contains the error?
+      placeholder: references/laws_state_tn.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-text
+    attributes:
+      label: Current (incorrect) text
+      description: Copy the exact text that is wrong.
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: Correct text
+      description: What should it say?
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source for the correction
+      description: URL or authoritative reference supporting your correction.
+      placeholder: |
+        https://law.justia.com/codes/tennessee/title-68/...
+        (or)
+        Tennessee Code Annotated § 68-11-220(b), retrieved 2026-05-18
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: How material is this error?
+      options:
+        - Critical — wrong statute citation that could weaken a patient's letter
+        - Material — accurate-but-stale (statute renumbered, regulation changed)
+        - Minor — typo, formatting, broken link
+    validations:
+      required: true

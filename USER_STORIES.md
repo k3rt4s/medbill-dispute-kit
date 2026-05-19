@@ -353,6 +353,42 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.4.0)
 
+### Story 9.6 — Pytest coverage for the validator
+
+**As a** maintainer, **I want** unit tests for `scripts/validate_tracker.py`, **so that** schema changes are caught before they reach contributors.
+
+**AC:**
+
+- `tests/test_validate_tracker.py` covers the happy path, missing-required-column, bad-date, bad-decimal, bad-enum, bad-findings-token, and header-order-mismatch cases.
+- Tests run with `python -m pytest tests/` and pass.
+- GitHub Actions workflow at `.github/workflows/ci.yml` runs the validator and pytest on every push and PR to main.
+
+**Status:** shipped (v0.5.0)
+
+### Story 9.7 — Lower friction for first-time contributors
+
+**As a** first-time contributor opening an issue or PR, **I want** structured templates that prompt me for the right information, **so that** my contribution doesn't bounce on missing context.
+
+**AC:**
+
+- `.github/ISSUE_TEMPLATE/` contains bug, state-pack-request, and content-correction templates, each requiring source URLs where applicable.
+- `.github/PULL_REQUEST_TEMPLATE.md` has a checklist for state packs, templates, rules, schema changes, factual corrections, and other change types.
+- `CODE_OF_CONDUCT.md` adapted from Contributor Covenant 2.1.
+- `SECURITY.md` defines scope and vulnerability-reporting channel.
+
+**Status:** shipped (v0.5.0)
+
+### Story 9.8 — Worked examples beyond the simple case
+
+**As a** new user with a complex multi-bill, multi-month situation, **I want** to see the kit handle a realistic scenario before I try it on my own bills, **so that** I can calibrate expectations.
+
+**AC:**
+
+- `examples/multi_encounter_walkthrough.md` shows two hospital encounters with 7 bills, three sessions over six weeks, deduplication of follow-up statements, and resolution with quantified savings.
+- `examples/insurance_denial_walkthrough.md` shows an ERISA self-funded plan denial, internal appeal, external review by an IRO, and final coverage.
+
+**Status:** shipped (v0.5.0)
+
 ---
 
 ## Cross-references

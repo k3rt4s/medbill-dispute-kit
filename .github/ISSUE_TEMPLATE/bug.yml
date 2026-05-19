@@ -1,0 +1,74 @@
+name: Bug report
+description: The kit produced wrong output, broke a workflow step, or otherwise misbehaved
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please describe the bug in enough detail that someone reading later can reproduce it. **Do not include personally identifying information** (your name, addresses, account numbers, MBI, etc.). Synthetic or redacted data is welcome.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Describe the unexpected behavior.
+      placeholder: When I asked the LLM to draft a 30-day warning letter for a Florida hospital bill, it cited Tennessee Code Annotated § 68-11-220 instead of Fla. Stat. § 395.301.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: What should have happened?
+      placeholder: The letter should have cited Fla. Stat. § 395.301 since I told the LLM I am in Florida.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Step-by-step instructions. If the bug involves an LLM, include which model and which files you uploaded.
+      placeholder: |
+        1. Loaded all files from the kit into Claude Opus 4.7 via claude.ai
+        2. Said "I'm in Florida and have a hospital bill to dispute"
+        3. Walked through the workflow and asked for a 30-day warning letter
+        4. The rendered letter cited TN statute
+    validations:
+      required: true
+
+  - type: dropdown
+    id: file-affected
+    attributes:
+      label: Which file or rule is wrong?
+      description: If known.
+      options:
+        - rules/
+        - templates/
+        - references/laws_federal.md
+        - references/laws_state_xx.md (specify in description)
+        - references/cpt_codes_em.md
+        - references/glossary.md
+        - schemas/
+        - llm/system_prompt.md
+        - llm/workflow.md
+        - llm/output_contracts.md
+        - tracker/
+        - scripts/
+        - examples/
+        - Other / unsure
+
+  - type: input
+    id: llm-used
+    attributes:
+      label: LLM used
+      description: Which model and front-end?
+      placeholder: Claude Sonnet 4.6 via claude.ai
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Anything else.

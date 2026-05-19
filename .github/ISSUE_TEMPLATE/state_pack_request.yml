@@ -1,0 +1,54 @@
+name: State pack request
+description: Request a new state-law pack for the kit, or volunteer to contribute one
+title: "[state pack] "
+labels: ["state-pack", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        State packs are the kit's highest-leverage contribution. Use this template either to (a) request a pack for your state, or (b) volunteer to contribute one (in which case the issue serves as a coordination thread).
+
+        See `references/laws_state_template.md` for the 12 required sections, and use any of the existing packs (TN, GA, CA, TX, NY, FL) as structural templates.
+
+  - type: input
+    id: state
+    attributes:
+      label: State
+      description: Which state?
+      placeholder: Pennsylvania
+    validations:
+      required: true
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: Are you requesting or contributing?
+      options:
+        - Requesting (someone else should build it)
+        - Contributing (I will build it and submit a PR)
+        - Both — I want it and I'll build it
+    validations:
+      required: true
+
+  - type: textarea
+    id: known-statutes
+    attributes:
+      label: Known statutes
+      description: If you know any of this state's relevant statutes, list them here. Don't worry about completeness; this is just to seed the research.
+      placeholder: |
+        - Hospital itemization right: [statute number]
+        - Bad-faith: [statute number]
+        - Surprise billing: [statute number]
+        - Ground ambulance: [statute number, if any]
+
+  - type: textarea
+    id: notable-protections
+    attributes:
+      label: Notable state-specific protections
+      description: Anything that makes this state notably patient-favorable or patient-unfavorable compared to other states.
+
+  - type: input
+    id: target-date
+    attributes:
+      label: Target completion date (if contributing)
+      placeholder: e.g., end of next month
