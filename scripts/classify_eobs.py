@@ -145,12 +145,17 @@ def sha256_of(path: Path) -> str:
     return h.hexdigest()
 
 
-def render_pdf_pages(pdf_path: Path) -> list[bytes]:
+def render_pdf_pages(pdf_path: Path, max_pages: int = MAX_PAGES) -> list[bytes]:
+    """Render up to max_pages of the PDF as JPEG bytes; stop iterating
+    after the cap to avoid loading a 100-page EOB into memory just to
+    throw away 90 of them."""
     doc = fitz.open(str(pdf_path))
     pages: list[bytes] = []
     zoom = RENDER_DPI / 72.0
     mat = fitz.Matrix(zoom, zoom)
-    for page in doc:
+    for i, page in enumerate(doc):
+        if i >= max_pages:
+            break
         pix = page.get_pixmap(matrix=mat)
         pages.append(pix.tobytes("jpeg", jpg_quality=JPEG_QUALITY))
     doc.close()
@@ -309,10 +314,13 @@ def main() -> int:
     print(f"[main] existing provider folders: {len(existing_folders)}",
           flush=True)
 
-    # Pass 1: hash dedup
+    # Pass 1: hash dedup. Sort by name explicitly so the file kept is the
+    # lexicographically-first one (typically the original download without a
+    # Windows "(1)", "(2)" suffix).
     files = sorted(
-        f for f in eob_dir.iterdir()
-        if f.is_file() and f.suffix.lower() in {".pdf", ".jpg", ".jpeg", ".png"}
+        (f for f in eob_dir.iterdir()
+         if f.is_file() and f.suffix.lower() in {".pdf", ".jpg", ".jpeg", ".png"}),
+        key=lambda p: p.name,
     )
     print(f"[hash] {len(files)} file(s) to hash", flush=True)
 
@@ -348,11 +356,9 @@ def main() -> int:
         print(f"\n[parse] {f.name}", flush=True)
         try:
             if f.suffix.lower() == ".pdf":
-                images = render_pdf_pages(f)
+                images = render_pdf_pages(f, max_pages=MAX_PAGES)
             else:
                 images = [f.read_bytes()]
-            if len(images) > MAX_PAGES:
-                images = images[:MAX_PAGES]
             extracted = call_vision(client, deployment, images)
         except Exception as exc:
             print(f"  [error] {exc}", flush=True)

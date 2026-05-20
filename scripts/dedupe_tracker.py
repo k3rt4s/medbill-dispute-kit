@@ -141,26 +141,74 @@ def merge_rows(a: dict, b: dict) -> dict:
     return merged
 
 
-def renumber_bills(rows: list[dict]) -> None:
-    year = datetime.date.today().year
-    for i, r in enumerate(rows, 1):
-        r["bill_id"] = f"B-{year}-{i:03d}"
+BILL_ID_RE = re.compile(r"^B-(\d{4})-(\d{3,})$")
+ENCOUNTER_ID_RE = re.compile(r"^E-(\d{4})-(\d{3,})$")
 
 
-def reassign_encounters(rows: list[dict]) -> None:
-    """Group rows by date_of_service_start; assign one E-YYYY-NNN per group."""
-    year = datetime.date.today().year
-    seen: dict[str, str] = {}
-    counter = 0
+def fill_missing_bill_ids(rows: list[dict]) -> None:
+    """Preserve any existing B-YYYY-NNN id (so downstream references stay
+    stable across runs). Only fill rows that have no id, using the year
+    derived from the row's own statement_date or today's year as a
+    fallback, and a number that does not collide with the existing
+    highest id in that year."""
+    by_year_max: dict[int, int] = {}
     for r in rows:
+        m = BILL_ID_RE.match((r.get("bill_id") or "").strip())
+        if m:
+            y, n = int(m.group(1)), int(m.group(2))
+            by_year_max[y] = max(by_year_max.get(y, 0), n)
+
+    today_year = datetime.date.today().year
+    for r in rows:
+        if BILL_ID_RE.match((r.get("bill_id") or "").strip()):
+            continue
+        # Year preference: statement_date, then last_statement_date,
+        # then DOS start, then today.
+        year = today_year
+        for col in ("statement_date", "last_statement_date",
+                    "date_of_service_start"):
+            v = (r.get(col) or "").strip()
+            if len(v) >= 4 and v[:4].isdigit():
+                year = int(v[:4])
+                break
+        by_year_max[year] = by_year_max.get(year, 0) + 1
+        r["bill_id"] = f"B-{year}-{by_year_max[year]:03d}"
+
+
+def fill_missing_encounter_ids(rows: list[dict]) -> None:
+    """Preserve existing E-YYYY-NNN values. For rows missing one but with
+    a date_of_service_start that already has an encounter assigned on a
+    sibling row, reuse that sibling's encounter id. For genuinely new
+    encounter dates, mint E-<year-of-dos>-<next> where <year-of-dos> is
+    the year of the DOS itself, not today."""
+    by_year_max: dict[int, int] = {}
+    dos_to_encounter: dict[str, str] = {}
+    for r in rows:
+        eid = (r.get("encounter_id") or "").strip()
+        m = ENCOUNTER_ID_RE.match(eid)
+        if m:
+            y, n = int(m.group(1)), int(m.group(2))
+            by_year_max[y] = max(by_year_max.get(y, 0), n)
+            dos = (r.get("date_of_service_start") or "").strip()
+            if dos:
+                dos_to_encounter.setdefault(dos, eid)
+
+    for r in rows:
+        if ENCOUNTER_ID_RE.match((r.get("encounter_id") or "").strip()):
+            continue
         dos = (r.get("date_of_service_start") or "").strip()
         if not dos:
             r["encounter_id"] = ""
             continue
-        if dos not in seen:
-            counter += 1
-            seen[dos] = f"E-{year}-{counter:03d}"
-        r["encounter_id"] = seen[dos]
+        if dos in dos_to_encounter:
+            r["encounter_id"] = dos_to_encounter[dos]
+            continue
+        year = int(dos[:4]) if len(dos) >= 4 and dos[:4].isdigit() \
+            else datetime.date.today().year
+        by_year_max[year] = by_year_max.get(year, 0) + 1
+        eid = f"E-{year}-{by_year_max[year]:03d}"
+        r["encounter_id"] = eid
+        dos_to_encounter[dos] = eid
 
 
 def main() -> int:
@@ -219,8 +267,8 @@ def main() -> int:
     for old_id, new_id in merges:
         print(f"  - merged {new_id} into {old_id}", flush=True)
 
-    renumber_bills(rows_out)
-    reassign_encounters(rows_out)
+    fill_missing_bill_ids(rows_out)
+    fill_missing_encounter_ids(rows_out)
 
     if args.dry_run:
         print("[dry-run] no files written", flush=True)

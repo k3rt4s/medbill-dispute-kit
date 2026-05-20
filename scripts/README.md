@@ -47,11 +47,39 @@ Groups bills into three categories based on `next_action_due`:
 
 Skips rows whose `status` is settled or closed. Returns exit code 1 if any bill is overdue, 0 otherwise. Useful in cron, Task Scheduler, or a weekly check-in to make sure no deadlines have lapsed.
 
-## Requirements
+## Local-ops scripts (workstation pipeline, not part of the kit's instruction layer)
 
-Python 3.11 or newer (for `tomllib` in the standard library, used by `validate_tracker.py`). `deadline_watch.py` works on Python 3.10+ as well.
+The scripts below are for a single-workstation pipeline that takes a folder full of scanned medical-bill PDFs and turns it into a clean per-provider folder layout plus a tracker CSV the LLM workflow can consume. They are deliberately not part of the kit's instruction-only contract: they call Azure OpenAI for vision OCR, expect a specific local folder layout, and read API credentials from a workstation `.env`. Use them, ignore them, or rewrite them to fit your own setup.
 
-No third-party dependencies.
+All four accept `--help` and CLI overrides for every default path.
+
+### classify_rename_medical_bills.py
+
+Vision-classifies each file in an `inbox/` folder, renames per the file_management v1.1 convention `<contents_summary>_<category>_<YYYY>_<MM>_v<N>.<ext>`, splits multi-bill PDFs by page range, and routes into `providers/<slug>/` for medical files or `other/` for financial/personal/unknown.
+
+### parse_bills_to_tracker.py
+
+Walks the renamed `providers/<slug>/` tree, extracts structured fields per `schemas/bill.toml` via vision, dedupes by exact account match plus a provider+DOS+balance fallback, and writes `tracker.csv` outside the repo at `C:/Code_data/medbill-dispute-kit/tracker/`.
+
+### dedupe_tracker.py
+
+Post-processes `tracker.csv`. Normalizes provider names via an alias map, re-dedupes when the extractor missed an account number, and drops non-bill rows (NOT-A-BILL itemizations, language-assistance notices, payment-plan reminders). Preserves existing `bill_id`/`encounter_id` values so downstream references stay stable across runs.
+
+### classify_eobs.py
+
+Hash-dedupes a folder full of insurer EOBs (Windows download-conflict copies are common), then vision-classifies each unique EOB and routes to the matching `providers/<slug>/` folder. EOBs for someone other than the account holder land in a `not_for_me/` subfolder; EOBs for the account holder with no matching provider land in `unmatched/`.
+
+### Requirements for the local-ops scripts
+
+- Python 3.11+
+- `PyMuPDF` (fitz) for PDF rendering
+- `openai` for the Azure-OpenAI-compatible client
+- Azure OpenAI deployment with vision support (the workstation default uses `gpt-5.2`)
+- Workstation `.env` with `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`
+
+### Privacy note
+
+All four scripts upload bill / EOB images to Azure OpenAI for OCR. They write a decision log to `C:/Code_data/medbill-dispute-kit/tracker/` that contains patient name, provider name, dates, and amounts — treat `Code_data/` as sensitive. Do not run these scripts on shared workstations or paths that sync to multi-user storage.
 
 ## Not yet built
 
