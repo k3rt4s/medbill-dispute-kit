@@ -296,6 +296,13 @@ def normalize_account(acct) -> str:
     return re.sub(r"\s+", "", str(acct))
 
 
+def _year_of(iso_date: str | None) -> int | None:
+    if not iso_date or len(iso_date) < 4 or not iso_date[:4].isdigit():
+        return None
+    y = int(iso_date[:4])
+    return y if 1900 <= y <= 2100 else None
+
+
 def _merge_into(existing: dict, statement_date: str | None,
                  current_balance: float | None) -> None:
     """Update an existing bill row with a newer statement's data."""
@@ -358,13 +365,18 @@ def make_bill_record(extracted: dict, source_file: Path,
                 _merge_into(existing, statement_date, current_balance)
                 return None, "merged"
 
-    # New bill
-    year = datetime.date.today().year
-    bill_seq[year] = bill_seq.get(year, 0) + 1
-    bill_id = f"B-{year}-{bill_seq[year]:03d}"
+    # New bill. Derive the bill_id year from the row's own statement_date
+    # (or DOS start, then last_statement_date) rather than today, so that
+    # late-arriving 2025 statements processed in 2026 are still numbered
+    # under 2025 instead of jumping years.
+    bill_year = _year_of(statement_date) or _year_of(dos_start) \
+        or datetime.date.today().year
+    bill_seq[bill_year] = bill_seq.get(bill_year, 0) + 1
+    bill_id = f"B-{bill_year}-{bill_seq[bill_year]:03d}"
 
     # Encounter assignment: share encounter_id with any existing bill that
-    # has the same date_of_service_start
+    # has the same date_of_service_start. Year of the encounter id is the
+    # year of the DOS itself.
     encounter_id = ""
     if dos_start:
         for existing in known_bills:
@@ -373,8 +385,9 @@ def make_bill_record(extracted: dict, source_file: Path,
                 encounter_id = existing["encounter_id"]
                 break
     if not encounter_id and dos_start:
-        encounter_seq[year] = encounter_seq.get(year, 0) + 1
-        encounter_id = f"E-{year}-{encounter_seq[year]:03d}"
+        enc_year = _year_of(dos_start) or bill_year
+        encounter_seq[enc_year] = encounter_seq.get(enc_year, 0) + 1
+        encounter_id = f"E-{enc_year}-{encounter_seq[enc_year]:03d}"
 
     findings = extracted.get("findings") or []
     if not isinstance(findings, list):

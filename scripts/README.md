@@ -51,7 +51,7 @@ Skips rows whose `status` is settled or closed. Returns exit code 1 if any bill 
 
 The scripts below are for a single-workstation pipeline that takes a folder full of scanned medical-bill PDFs and turns it into a clean per-provider folder layout plus a tracker CSV the LLM workflow can consume. They are deliberately not part of the kit's instruction-only contract: they call Azure OpenAI for vision OCR, expect a specific local folder layout, and read API credentials from a workstation `.env`. Use them, ignore them, or rewrite them to fit your own setup.
 
-All four accept `--help` and CLI overrides for every default path.
+All four accept `--help` and CLI overrides for every input/output path. The Azure OpenAI `.env` location is the one exception, intentionally hardcoded to `C:/Code/projects/ai-toolkit/.env` per the workspace-wide AGENTS.md §4 pre-push peer review pattern — edit the constant at the top of each script if your workstation keeps the credentials somewhere else.
 
 ### classify_rename_medical_bills.py
 
