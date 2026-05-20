@@ -1,22 +1,28 @@
-"""classify_eobs.py — match each EOB in Health_Bills/EOB/ to a provider
-folder under Health_Bills/providers/, route off-patient EOBs to a
-separate not_for_me/ folder, and leave unmatched ones in EOB/unmatched/.
+"""classify_eobs.py — pass each EOB in Health_Bills/EOB/ to Azure
+OpenAI, extract the patient name and provider name, and move the
+file to the matching providers/<slug>/ folder when (and only when)
+the patient is the account holder (Jonathan Bowker). EOBs for other
+people on the plan (kids, ex-spouse) are left in EOB/ untouched.
 
 Workflow:
 1. Hash dedup pass. Files with identical SHA-256 are moved to
    EOB/_duplicates/, keeping the lexicographically-first filename in
    place. No API calls happen for duplicates.
 2. For each unique EOB, vision-classify via Azure OpenAI gpt-5.2 and
-   extract: patient first/last name, provider name, insurer name, date
-   of service, claim number, total charges, patient responsibility, and
-   a snake_case contents_summary.
+   extract: patient first/last name, provider name, insurer name,
+   date of service, claim number, total charges, patient responsibility,
+   and a snake_case contents_summary.
 3. Route the file:
-   - patient is NOT Jonathan Bowker → EOB/not_for_me/<renamed>
-   - provider matches an existing providers/<slug>/ folder (via alias
-     map or fuzzy match) → providers/<slug>/<renamed>
-   - else → EOB/unmatched/<renamed>
-4. Rename per file_management v1.1: `<contents_summary>_eob_medical_<YYYY>_<MM>_v<N>.pdf`
-   (or `_other_<…>` for non-medical EOBs, though most should be medical).
+   - patient is NOT Jonathan Bowker → leave in EOB/ (no move).
+   - patient IS Jonathan Bowker and provider is identifiable →
+     providers/<slug>/<renamed>. The slug comes from the alias map
+     if the provider matches a known canonical name, else it is
+     slugified directly from the provider name and the folder is
+     created if it does not exist.
+   - patient IS Jonathan Bowker but provider is unidentifiable →
+     leave in EOB/ (no move).
+4. Rename per file_management v1.1:
+   `<contents_summary>_eob_medical_<YYYY>_<MM>_v<N>.pdf`.
 
 Usage:
     python classify_eobs.py
@@ -60,7 +66,7 @@ LAST_NAME = "bowker"
 PROVIDER_ALIASES: list[tuple[re.Pattern, str]] = [
     (re.compile(r"tristar|southern\s*hills\s*(med|medical)"),
      "tristar_southern_hills_medical_center"),
-    (re.compile(r"labcorp|laboratory\s+corporation"), "labcorp"),
+    (re.compile(r"labcorp|laboratory\s+corp|^laboratory$|^laboratory\b"), "labcorp"),
     (re.compile(r"premier\s+radiology"), "premier_radiology"),
     (re.compile(r"centennial\s+heart"), "tristar_southern_hills_medical_center"),
     (re.compile(r"hospital\s+medicine\s+services"),
@@ -214,24 +220,39 @@ def is_jons_eob(extracted: dict) -> bool:
     return False
 
 
-def match_provider_folder(extracted: dict, existing_folders: set[str]) -> str | None:
-    """Return slug of providers/<slug>/ folder, or None if no match."""
-    candidates = []
+def resolve_provider_slug(extracted: dict,
+                          existing_folders: set[str]) -> str | None:
+    """Return the provider slug to route this Jon-EOB to, or None if the
+    provider cannot be identified at all.
+
+    Strategy:
+    1. Try the alias map against provider_name / facility_name /
+       insurance_carrier. If any pattern hits, return its canonical
+       slug regardless of whether the folder already exists (the
+       caller will create it if needed).
+    2. Try a token-overlap fuzzy match against existing folders so
+       that minor wording differences (e.g. "Premier Radiology" vs
+       "Premier Radiology of Tennessee") land in the right place.
+    3. Otherwise, slugify the provider_name itself so new providers
+       get their own folder rather than piling into a generic bucket.
+    4. Return None only when no usable provider string was extracted
+       at all.
+    """
+    candidates: list[str] = []
     for key in ("provider_name", "facility_name", "insurance_carrier"):
         val = extracted.get(key)
-        if val:
-            candidates.append(val.lower())
+        if val and str(val).strip() not in {"", "?", "null", "None"}:
+            candidates.append(str(val).lower())
     if not candidates:
         return None
 
-    # Try alias map
+    # 1. Alias map
     for cand in candidates:
         for pattern, canonical_slug in PROVIDER_ALIASES:
             if pattern.search(cand):
-                if canonical_slug in existing_folders:
-                    return canonical_slug
+                return canonical_slug
 
-    # Try direct slug match against existing folders (token-overlap heuristic)
+    # 2. Fuzzy match against existing folders
     for cand in candidates:
         words = set(re.findall(r"[a-z0-9]+", cand))
         if not words:
@@ -246,6 +267,15 @@ def match_provider_folder(extracted: dict, existing_folders: set[str]) -> str | 
                 best_score = overlap
         if best:
             return best
+
+    # 3. Slugify the raw provider_name (creates a new folder)
+    primary = extracted.get("provider_name") or extracted.get("facility_name")
+    if primary:
+        slug = re.sub(r"[^a-z0-9]+", "_",
+                      re.sub(r"[^A-Za-z0-9 \-]", "", str(primary)).lower())
+        slug = slug.strip("_")[:50]
+        if slug:
+            return slug
 
     return None
 
@@ -296,8 +326,6 @@ def main() -> int:
     if not providers_root.is_dir():
         sys.exit(f"[fatal] providers root not found: {providers_root}")
 
-    not_for_me = eob_dir / "not_for_me"
-    unmatched = eob_dir / "unmatched"
     duplicates = eob_dir / "_duplicates"
 
     load_env(ENV_FILE)
@@ -350,7 +378,8 @@ def main() -> int:
 
     # Pass 2: classify each unique file
     rows: list[dict] = []
-    decisions = {"matched": 0, "unmatched": 0, "not_for_me": 0, "error": 0}
+    decisions = {"moved": 0, "skip_not_jon": 0, "skip_no_provider": 0,
+                 "error": 0}
 
     for f in unique_files:
         print(f"\n[parse] {f.name}", flush=True)
@@ -382,54 +411,60 @@ def main() -> int:
         print(f"  patient={patient!r} provider={provider!r} dos={dos} "
               f"ins_paid={ip} pat_resp={pr}", flush=True)
 
-        # Decide destination
+        # Decide whether to move
         if not is_jons_eob(extracted):
-            target_folder = not_for_me
-            decision = "not_for_me"
-            slug = ""
-        else:
-            slug = match_provider_folder(extracted, existing_folders) or ""
-            if slug:
-                target_folder = providers_root / slug
-                decision = "matched"
-            else:
-                target_folder = unmatched
-                decision = "unmatched"
+            decisions["skip_not_jon"] += 1
+            print(f"  -> [skip] not Jon ({patient}); left in EOB/",
+                  flush=True)
+            rows.append({
+                "source_file": f.name, "decision": "skip_not_jon",
+                "destination": "", "patient": patient, "provider": provider,
+                "dos": dos, "ins_paid": ip, "pat_resp": pr, "slug": "",
+            })
+            continue
 
-        decisions[decision] += 1
+        slug = resolve_provider_slug(extracted, existing_folders)
+        if not slug:
+            decisions["skip_no_provider"] += 1
+            print(f"  -> [skip] Jon but provider not identifiable; "
+                  f"left in EOB/", flush=True)
+            rows.append({
+                "source_file": f.name, "decision": "skip_no_provider",
+                "destination": "", "patient": patient, "provider": provider,
+                "dos": dos, "ins_paid": ip, "pat_resp": pr, "slug": "",
+            })
+            continue
+
+        target_folder = providers_root / slug
+        is_new_folder = slug not in existing_folders
         ext = f.suffix.lower()
 
         if args.dry_run:
             propose = compose_filename(extracted, ext, 1)
-            print(f"  -> [{decision}] {target_folder.name}/{propose}",
+            tag = "new folder" if is_new_folder else "existing"
+            print(f"  -> [move, {tag}] providers/{slug}/{propose}",
                   flush=True)
             rows.append({
-                "source_file": f.name,
-                "decision": decision,
-                "destination": f"{target_folder.name}/{propose}",
-                "patient": patient,
-                "provider": provider,
-                "dos": dos,
-                "ins_paid": ip,
-                "pat_resp": pr,
-                "slug": slug,
+                "source_file": f.name, "decision": "moved",
+                "destination": f"providers/{slug}/{propose}",
+                "patient": patient, "provider": provider, "dos": dos,
+                "ins_paid": ip, "pat_resp": pr, "slug": slug,
             })
+            decisions["moved"] += 1
             continue
 
         dst = unique_in_folder(target_folder, extracted, ext)
+        if is_new_folder:
+            existing_folders.add(slug)
         f.rename(dst)
         rel_dst = dst.relative_to(HEALTH_ROOT)
-        print(f"  -> [{decision}] {rel_dst}", flush=True)
+        decisions["moved"] += 1
+        print(f"  -> [moved] {rel_dst}", flush=True)
         rows.append({
-            "source_file": f.name,
-            "decision": decision,
-            "destination": str(rel_dst),
-            "patient": patient,
-            "provider": provider,
-            "dos": dos,
-            "ins_paid": ip,
-            "pat_resp": pr,
-            "slug": slug,
+            "source_file": f.name, "decision": "moved",
+            "destination": str(rel_dst), "patient": patient,
+            "provider": provider, "dos": dos, "ins_paid": ip,
+            "pat_resp": pr, "slug": slug,
         })
 
     # Write decision log to Code_data
