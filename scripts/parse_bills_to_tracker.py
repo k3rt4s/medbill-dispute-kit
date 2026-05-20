@@ -296,10 +296,30 @@ def normalize_account(acct) -> str:
     return re.sub(r"\s+", "", str(acct))
 
 
+def _merge_into(existing: dict, statement_date: str | None,
+                 current_balance: float | None) -> None:
+    """Update an existing bill row with a newer statement's data."""
+    if statement_date and (
+        not existing.get("last_statement_date")
+        or statement_date > existing["last_statement_date"]
+    ):
+        existing["last_statement_date"] = statement_date
+        if current_balance is not None:
+            existing["current_balance"] = f"{current_balance:.2f}"
+        if statement_date > (existing.get("statement_date") or ""):
+            existing["statement_date"] = statement_date
+
+
 def make_bill_record(extracted: dict, source_file: Path,
                      bill_seq: dict, encounter_seq: dict,
-                     known_bills: list[dict]) -> dict | None:
-    """Build a tracker row from an extracted document; apply dedup."""
+                     known_bills: list[dict]) -> tuple[dict | None, str]:
+    """Build a tracker row from an extracted document.
+
+    Returns (record, disposition) where disposition is one of:
+      "new"     — caller should append the record to known_bills
+      "merged"  — record is None; an existing bill was updated in place
+      "dropped" — record is None; nothing identifiable to act on
+    """
     provider_name = (extracted.get("provider_name") or "").strip()
     account_number = normalize_account(extracted.get("account_number"))
     statement_date = coerce_date(extracted.get("statement_date"))
@@ -309,27 +329,34 @@ def make_bill_record(extracted: dict, source_file: Path,
     current_balance = coerce_float(extracted.get("current_balance"))
 
     if not provider_name and not account_number:
-        # Cannot place this document on the tracker
-        return None
+        return None, "dropped"
 
-    # Dedup: same provider + same account → update existing
+    provider_low = provider_name.lower()
+
+    # Primary dedup: same provider + same account
     for existing in known_bills:
         if (existing["account_number"]
                 and account_number
                 and existing["account_number"] == account_number
-                and existing["provider_name"].lower() == provider_name.lower()):
-            # Merge as follow-up: keep latest statement_date and balance
-            if statement_date and (
-                not existing.get("last_statement_date")
-                or statement_date > existing["last_statement_date"]
-            ):
-                existing["last_statement_date"] = statement_date
-                if current_balance is not None:
-                    existing["current_balance"] = current_balance
-                if statement_date > (existing.get("statement_date") or ""):
-                    existing["statement_date"] = statement_date
-            existing.setdefault("source_files", []).append(str(source_file))
-            return None
+                and existing["provider_name"].lower() == provider_low):
+            _merge_into(existing, statement_date, current_balance)
+            return None, "merged"
+
+    # Fallback dedup: same provider + same DOS + same balance (within $0.50).
+    # Needed because the model often fails to read account numbers off
+    # collection notices and follow-up statements.
+    if dos_start and current_balance is not None:
+        for existing in known_bills:
+            if existing.get("date_of_service_start") != dos_start:
+                continue
+            if existing["provider_name"].lower() != provider_low:
+                continue
+            existing_bal = coerce_float(existing.get("current_balance"))
+            if existing_bal is None:
+                continue
+            if abs(existing_bal - current_balance) < 0.50:
+                _merge_into(existing, statement_date, current_balance)
+                return None, "merged"
 
     # New bill
     year = datetime.date.today().year
@@ -382,9 +409,8 @@ def make_bill_record(extracted: dict, source_file: Path,
         "status": infer_status(extracted, current_balance or 0.0),
         "last_statement_date": statement_date or "",
         "notes": (extracted.get("notes") or "")[:240],
-        "source_files": [str(source_file)],
     }
-    return record
+    return record, "new"
 
 
 def write_tracker(rows: list[dict], out_dir: Path) -> Path:
@@ -463,9 +489,17 @@ def main() -> int:
             events.append(msg)
             continue
 
-        record = make_bill_record(extracted, f, bill_seq, encounter_seq, bills)
-        if record is None:
+        record, disposition = make_bill_record(
+            extracted, f, bill_seq, encounter_seq, bills
+        )
+        if disposition == "merged":
             msg = f"[merge] {rel}: merged into existing bill"
+            print(f"  {msg}", flush=True)
+            events.append(msg)
+            continue
+        if disposition == "dropped":
+            msg = (f"[drop] {rel}: nothing identifiable "
+                   f"(no provider_name and no account_number)")
             print(f"  {msg}", flush=True)
             events.append(msg)
             continue
