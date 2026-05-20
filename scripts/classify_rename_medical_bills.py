@@ -142,12 +142,17 @@ def make_client():
     )
 
 
-def render_pdf_pages(pdf_path: Path) -> list[bytes]:
+def render_pdf_pages(pdf_path: Path, max_pages: int = MAX_PAGES) -> list[bytes]:
+    """Render up to max_pages of the PDF as JPEG bytes; stop iterating
+    after the cap to avoid paying the render cost on pages we will not
+    send to the model."""
     doc = fitz.open(str(pdf_path))
     pages: list[bytes] = []
     zoom = RENDER_DPI / 72.0
     mat = fitz.Matrix(zoom, zoom)
-    for page in doc:
+    for i, page in enumerate(doc):
+        if i >= max_pages:
+            break
         pix = page.get_pixmap(matrix=mat)
         pages.append(pix.tobytes("jpeg", jpg_quality=JPEG_QUALITY))
     doc.close()
@@ -275,7 +280,7 @@ def process_file(client, deployment, path: Path,
 
     if suffix == ".pdf":
         try:
-            images = render_pdf_pages(path)
+            images = render_pdf_pages(path, max_pages=MAX_PAGES)
         except Exception as exc:
             print(f"  [skip] render failed: {exc}", flush=True)
             return
@@ -284,11 +289,6 @@ def process_file(client, deployment, path: Path,
     else:
         print(f"  [skip] unsupported type: {suffix}", flush=True)
         return
-
-    if len(images) > MAX_PAGES:
-        print(f"  [warn] {len(images)} pages, capping at {MAX_PAGES}",
-              flush=True)
-        images = images[:MAX_PAGES]
 
     try:
         result = call_vision(client, deployment, images)
