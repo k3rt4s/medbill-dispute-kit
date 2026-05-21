@@ -1,7 +1,7 @@
 """check_completeness.py — derive per-bill state by joining
-Billers/<slug>/_bills.csv with C:/Code_data/medbill-dispute-kit/tracker/
-matches.csv. Writes/updates the master tracker.csv with one row per
-bill, including:
+Billers/<slug>/_bills.csv with the master matches.csv (in the log
+directory, default ~/.medbill-dispute-kit/tracker/). Writes/updates
+the master tracker.csv with one row per bill, including:
 
   - has_eob (Y/N) — derived from matches.csv
   - has_itemization (Y/N) — read from _bills.csv (set by indexer's
@@ -85,14 +85,16 @@ TRACKER_COLUMNS = [
 
 def make_bill_id(biller_slug: str, file_name: str,
                  statement_date: str, dos_start: str) -> str:
+    """Build a stable bill_id from biller_slug + filename. The hash
+    suffix is 8 hex chars (~4 billion buckets) so collisions across
+    a realistic bill collection are vanishingly unlikely."""
     year = "0000"
     for cand in (statement_date, dos_start):
         if cand and len(cand) >= 4 and cand[:4].isdigit():
             year = cand[:4]
             break
     h = hashlib.sha1(f"{biller_slug}/{file_name}".encode()).hexdigest()
-    n = int(h[:6], 16) % 1000
-    return f"B-{year}-{n:03d}"
+    return f"B-{year}-{h[:8]}"
 
 
 def read_csv(path: Path) -> list[dict]:

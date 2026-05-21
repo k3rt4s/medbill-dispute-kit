@@ -18,8 +18,8 @@ Routing:
 - category == medical → providers/<provider-slug>/
 - category in {financial, personal, unknown} → other/
 
-Reads Azure OpenAI creds from C:/Code/projects/ai-toolkit/.env, same
-pattern as peer_review.py.
+Reads Azure OpenAI creds from a workstation .env file (default
+~/.medbill-dispute-kit/.env; override via $MEDBILL_KIT_ENV_FILE).
 
 Usage:
     python classify_rename_medical_bills.py
