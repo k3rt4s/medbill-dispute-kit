@@ -21,7 +21,7 @@ description = "Matches bill.toml.bill_id. Stable across sessions."
 name = "encounter_id"
 type = "string"
 required = false
-description = "Matches bill.toml.encounter_id. Links related bills."
+description = "Matches bill.toml.encounter_id. Links related bills from the same care encounter. Auto-populated by check_completeness.py by clustering bills with overlapping dates of service (+/- 1 day). User can override and the override is preserved across runs."
 
 [[columns]]
 name = "provider_name"
@@ -164,7 +164,7 @@ description = "Brief audit trail of which itemization signals matched (dcl=N, ub
 name = "next_action"
 type = "string"
 required = false
-description = "Computed next dispute action. Enum: request_eob | request_itemization | request_eob_and_itemization | draft_dispute | await_eob | await_itemization | await_response | monitor | see_canonical | await_response_or_file_small_claims | review."
+description = "Computed next dispute action. Enum: request_eob | request_itemization | request_eob_and_itemization | draft_dispute | negotiate_counter_offer | file_doi_complaint | file_small_claims | await_eob | await_itemization | await_response | await_counter_offer_response | await_doi_response | await_court_date | monitor | see_canonical | await_response_or_file_small_claims | review."
 
 # ============================================================================
 # Operational: dates and certified-mail tracking numbers. Filled by the
@@ -254,7 +254,100 @@ description = "Relative path to the drafted substantive dispute letter."
 name = "dispute_template_used"
 type = "string"
 required = false
-description = "Kit template used to draft the dispute letter (itemization | initial_dispute | no_surprises | fdcpa | erisa_appeal | dental_dispute)."
+description = "Kit template used to draft the dispute letter (itemization | initial_dispute | no_surprises | fdcpa | erisa_appeal | dental_dispute | negotiation_counter_offer)."
+
+# ============================================================================
+# Price benchmarking — populated by fetch_price_benchmarks.py. Drives the
+# negotiated-counter-offer drafter and provides UCC § 2-305 evidence.
+# ============================================================================
+
+[[columns]]
+name = "benchmarks_available"
+type = "string"
+required = false
+description = "Y if Billers/<slug>/_benchmarks.csv exists with at least one row where ratio_billed_to_medicare >= 1.50. Used as a gate by draft_letters_by_state.py to decide whether the negotiation_counter_offer template applies."
+
+[[columns]]
+name = "counter_offer_amount"
+type = "decimal"
+required = false
+description = "Patient's proposed payment in full satisfaction of the account, in USD. Default the drafter computes is 200% of the sum of Medicare allowables for billed CPTs (plus EOB-allowed amounts for codes with no Medicare rate). The user can override this in tracker.csv before re-running the drafter with --force."
+
+[[columns]]
+name = "drafted_counter_offer"
+type = "string"
+required = false
+description = "Relative path to the drafted counter-offer negotiation letter."
+
+[[columns]]
+name = "counter_offer_sent_date"
+type = "date"
+required = false
+description = "Date the counter-offer letter was mailed."
+
+[[columns]]
+name = "counter_offer_tracking"
+type = "string"
+required = false
+description = "USPS certified-mail tracking number for the counter-offer letter."
+
+# ============================================================================
+# State DOI complaint — populated when the user files a parallel pressure
+# complaint with the state insurance department or attorney general.
+# ============================================================================
+
+[[columns]]
+name = "drafted_doi_complaint"
+type = "string"
+required = false
+description = "Relative path to the drafted DOI/AG complaint."
+
+[[columns]]
+name = "doi_complaint_sent_date"
+type = "date"
+required = false
+description = "Date the DOI complaint was filed via online portal or mailed."
+
+[[columns]]
+name = "doi_complaint_tracking"
+type = "string"
+required = false
+description = "USPS certified-mail tracking number if mailed; portal confirmation reference if filed online."
+
+[[columns]]
+name = "doi_complaint_number"
+type = "string"
+required = false
+description = "Case number assigned by the state agency once they accept the complaint."
+
+# ============================================================================
+# Small claims / general sessions civil-warrant filing — populated when the
+# user files a civil action after the 30-day warning expires.
+# ============================================================================
+
+[[columns]]
+name = "drafted_small_claims_civil_warrant"
+type = "string"
+required = false
+description = "Relative path to the drafted civil-warrant filing."
+
+[[columns]]
+name = "small_claims_filed_date"
+type = "date"
+required = false
+description = "Date the civil warrant was filed with the county clerk."
+
+[[columns]]
+name = "small_claims_case_number"
+type = "string"
+required = false
+description = "Case number assigned by the court clerk on filing."
+
+[[columns]]
+name = "small_claims_court"
+type = "string"
+required = false
+description = "Court name and county where filed (e.g. 'General Sessions Court for Davidson County, TN')."
 
 [[columns]]
 name = "notes"

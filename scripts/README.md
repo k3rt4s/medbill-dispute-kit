@@ -41,8 +41,12 @@ text-extraction step                 (out of scope for this kit — use ai-toolk
 restructure_to_billers_eob.py       one-time migration if older `providers/` layout exists
 index_bills_and_claims.py           per-folder _bills.csv and _claims.csv via Azure
 match_claims_to_bills.py            link each EOB claim to a bill it adjudicates
-check_completeness.py               derive per-bill has_eob / has_itemization gates
-draft_letters_by_state.py           draft the next letter for each dispute group
+fetch_price_benchmarks.py           per-folder _benchmarks.csv vs Medicare PFS rates
+audit_billing_errors.py             per-folder _audit.csv flagging duplicates, NCCI unbundling, late fees
+check_completeness.py               derive per-bill has_eob / has_itemization / benchmarks gates, cluster encounters
+draft_letters_by_state.py           draft the next letter for each dispute group, with encounter context
+log_interaction.py                  append a phone call / mailing / response to the action log
+bundle_evidence.py                  zip the full artifact set per dispute group for offsite backup
 ```
 
 ### `restructure_to_billers_eob.py`
@@ -84,16 +88,48 @@ Output: `<log-dir>/matches.csv` with one row per attempted match. Match types: `
 python scripts/match_claims_to_bills.py
 ```
 
+### `audit_billing_errors.py`
+
+Scans each bill sidecar for the common billing errors Marshall Allen catalogues in "Never Pay the First Bill" and produces `Billers/<slug>/_audit.csv` with one row per finding. Detected categories:
+
+- Duplicate CPT same bill — same code billed two or more times with a positive charge on the same bill.
+- NCCI unbundling — comprehensive code billed alongside an included sub-code (e.g., CMP 80053 alongside BMP 80048). Pairs are loaded from `references/ncci_pairs_common.csv` (~70 common pairs ship; extensible without touching the script).
+- Modifier-25 stacking — modifier 25 keyword present and at least one E/M code billed alongside another procedure same DOS.
+- Late fees / finance charges — keyword detection on the sidecar text; most states cap or prohibit these on medical debt.
+- Service-not-received hints — "no-show", "cancelled", "left AMA", "refused" language in the sidecar; prompt to obtain the medical record under `templates/letter_records_request_hipaa.md`.
+- Quantity inflation — line items with `units` or `qty` >= 10 are flagged for chart cross-check.
+
+The audit script makes no network calls. The dispute drafter pulls audit findings into its prompt context so substantive letters cite the structured findings rather than re-extracting them from the sidecar.
+
+```bash
+python scripts/audit_billing_errors.py
+python scripts/audit_billing_errors.py --slug a_specific_biller
+```
+
+### `fetch_price_benchmarks.py`
+
+Walks every `Billers/<slug>/_bills.csv` and extracts each bill's CPT/HCPCS codes plus the dollar amount appearing next to them in the sidecar text. Joins each code against `references/medicare_pfs_common.csv` (a curated CY2025 national-rate lookup that ships with the kit) and writes `Billers/<slug>/_benchmarks.csv` with the ratio of billed to Medicare allowable. Also emits a FAIR Health Consumer URL and a Healthcare Bluebook URL per code so the patient can look up commercial fair-market ranges manually if they want a second benchmark.
+
+This script makes no network calls. The Medicare lookup is bundled public-domain data. Codes not in the bundled file appear in the output with blank Medicare data and a ratio of "" — the patient can extend `references/medicare_pfs_common.csv` over time as new codes show up in their bills.
+
+Marshall Allen's UCC § 2-305 "open price term" argument needs evidence of fair market value. Medicare allowable is the most defensible benchmark a patient can cite back to a provider. This script produces that evidence as a structured artifact that `check_completeness.py` reads to gate the negotiated-counter-offer track and `draft_letters_by_state.py` reads to render the line-item table inside the counter-offer letter.
+
+```bash
+python scripts/fetch_price_benchmarks.py
+python scripts/fetch_price_benchmarks.py --slug a_specific_biller
+```
+
 ### `check_completeness.py`
 
 Joins the per-folder CSVs with `matches.csv` and writes the master `tracker.csv` to the log directory (default `~/.medbill-dispute-kit/tracker/`, override via `$HEALTHBILLS_LOG_DIR`). Each bill row carries:
 
 - `has_eob` (Y/N, derived from matches.csv)
 - `has_itemization` (Y/N, from `_bills.csv`)
-- `current_status` (`gathering_evidence` | `ready_to_dispute` | `disputed` | `escalated` | `settled` | `closed` | `superseded`)
-- `next_action` (`request_eob` | `request_itemization` | `draft_dispute` | etc.)
+- `benchmarks_available` (Y/N, derived from `_benchmarks.csv` — Y means at least one CPT is billed at ≥ 150% of the Medicare allowable, which gates the counter-offer track)
+- `status` (`gathering_evidence` | `ready_to_dispute` | `disputed` | `escalated` | `settled` | `closed` | `superseded`)
+- `next_action` (`request_eob` | `request_itemization` | `negotiate_counter_offer` | `draft_dispute` | `file_doi_complaint` | `file_small_claims` | etc.)
 
-Manual columns the user fills in after mailing each letter (`eob_request_sent_date`, `eob_request_tracking`, etc.) are preserved across runs — the script never overwrites a value the user has entered.
+Manual columns the user fills in after mailing each letter (`eob_request_sent_date`, `eob_request_tracking`, `counter_offer_sent_date`, `doi_complaint_sent_date`, `small_claims_filed_date`, etc.) are preserved across runs — the script never overwrites a value the user has entered.
 
 ```bash
 python scripts/check_completeness.py
@@ -105,17 +141,72 @@ For each dispute group (bills with the same `biller_slug` + `account_number`) se
 
 - `has_eob = N` and `eob_request_sent_date` empty → draft `LETTER_REQUEST_EOB.md`
 - `has_itemization = N` and `itemization_request_sent_date` empty → draft `LETTER_REQUEST_ITEMIZATION.md`
-- Both gates green and no dispute letter sent yet → draft `DISPUTE_LETTER.md` using the appropriate kit template (NSA, FDCPA, dental dispute, ERISA appeal, initial dispute)
+- All three gates green (EOB + itemization + benchmark-overpriced) and no main letter sent → draft `LETTER_COUNTER_OFFER.md` using `templates/letter_negotiation_counter_offer.md`
+- Both evidence gates green but no overpriced line items, and no dispute letter sent → draft `DISPUTE_LETTER.md` using the appropriate kit template (NSA, FDCPA, dental dispute, ERISA appeal, initial dispute)
+- Any main letter drafted or sent and no DOI complaint yet → draft `COMPLAINT_DOI.md` for parallel pressure
+- 30-day warning sent and no small-claims filing yet → draft `SMALL_CLAIMS_CIVIL_WARRANT.md`
 
-Output files land in `Billers/<slug>/<bill_id>_LETTER_*.md`. The path is recorded back into `tracker.csv` columns `drafted_eob_request`, `drafted_itemization_request`, `drafted_dispute_letter`.
+Output files land in `Billers/<slug>/<bill_id>_LETTER_*.md` (or `_COMPLAINT_DOI.md`, `_SMALL_CLAIMS_CIVIL_WARRANT.md`). The path is recorded back into `tracker.csv` columns `drafted_eob_request`, `drafted_itemization_request`, `drafted_dispute_letter`, `drafted_counter_offer`, `drafted_doi_complaint`, `drafted_small_claims_civil_warrant`.
 
-Per-folder overrides exist for cases where the template is known regardless of OCR signals (e.g., `quantum_radiology` → NSA, `humana` → dental_dispute, `labcorp` → FDCPA). The model fills placeholders from real bill/EOB content; if a field isn't visible in evidence, the model is instructed to leave the placeholder rather than invent a value.
+The counter-offer letter auto-computes `counter_offer_amount` as 200% of the sum of Medicare allowables for the bill's CPT codes (with a fallback to 20% of `current_balance` when no codes have Medicare data on file). The user can override `counter_offer_amount` directly in tracker.csv and re-run with `--force` to use a different anchor.
+
+Per-folder overrides exist for cases where the dispute template is known regardless of OCR signals (e.g., `quantum_radiology` → NSA, `humana` → dental_dispute, `labcorp` → FDCPA). The model fills placeholders from real bill/EOB content; if a field isn't visible in evidence, the model is instructed to leave the placeholder rather than invent a value.
+
+Encounter context: when `check_completeness.py` clusters multiple bills into the same `encounter_id` (e.g., a hospital + ER physician + radiology + anesthesia all on the same DOS), the drafter passes a sibling-summary block to the LLM. The model then references the full encounter when applying NSA ancillary-provider protection across providers, rather than treating each bill in isolation.
+
+Additional template keys available for `FOLDER_TEMPLATE_OVERRIDES`:
+
+- `records_request_hipaa` — `templates/letter_records_request_hipaa.md`
+- `good_faith_estimate_request` — `templates/letter_good_faith_estimate_request.md`
+- `ppdr_initiate` — `templates/letter_ppdr_initiate.md`
+- `challenge_hospital_lien` — `templates/letter_challenge_hospital_lien.md`
+- `subrogation_response` — `templates/letter_subrogation_response.md`
+- `credit_report_dispute_fcra` — `templates/letter_credit_report_dispute_fcra.md`
+- `request_insurer_initiate_idr` — `templates/letter_request_insurer_initiate_idr.md`
+
+These do not have automatic state-machine gates because they are user-initiated (records review, GFE/PPDR for self-pay patients, accident-related lien and subrogation, credit-reporting and IDR escalations). Set them in `FOLDER_TEMPLATE_OVERRIDES` to drive the drafter when the trigger condition applies for a specific biller.
 
 ```bash
 python scripts/draft_letters_by_state.py
 python scripts/draft_letters_by_state.py --dry-run
 python scripts/draft_letters_by_state.py --force
 ```
+
+### `log_interaction.py`
+
+Append one row to `<log-dir>/actions.csv` (default `~/.medbill-dispute-kit/tracker/actions.csv`). Marshall Allen's discipline: every phone call, every email, every in-person encounter gets logged. The action log is the paper trail that turns a dispute into evidence.
+
+Rows are append-only and follow `schemas/action.toml`. Action IDs auto-increment as `A-YYYY-NNN`. The script refuses to log against an unknown `bill_id` so you don't silently miss an entry by typoing the ID.
+
+```bash
+python scripts/log_interaction.py \
+    --bill-id B-abc1234567 \
+    --action phone_call_to_billing \
+    --recipient "Acme Hospital billing dept" \
+    --note "Spoke with Jane (rep ID 4421); promised callback by Friday"
+
+python scripts/log_interaction.py \
+    --bill-id B-abc1234567 \
+    --action records_request_sent \
+    --recipient "Acme Hospital HIM dept" \
+    --tracking 9405511899223345678901 \
+    --template templates/letter_records_request_hipaa.md \
+    --response-due 2026-06-20
+```
+
+Phone-call protocols and rep-side scripts live in [references/phone_call_scripts.md](../references/phone_call_scripts.md). The kit is mail-first by default; the phone scripts are for users who choose to call.
+
+### `bundle_evidence.py`
+
+Zip the complete artifact set per dispute group into `<HEALTHBILLS_ROOT>/_bundles/<bill_id>_<YYYYMMDD>.zip` for offsite backup or court-exhibit packaging. Each bundle contains the original bill PDF and sidecar, the matched EOB PDF(s) and sidecars, every drafted letter for the group, the benchmark and audit rows for the bill, the action log entries for the bill, the tracker rows for the group (canonical + superseded), and a MANIFEST.md describing what's in the bundle and what's missing.
+
+```bash
+python scripts/bundle_evidence.py                       # bundle every group
+python scripts/bundle_evidence.py --bill-id B-abc12345
+python scripts/bundle_evidence.py --slug a_specific_biller
+```
+
+Bundles are timestamped per run and earlier bundles are never deleted, so re-bundling is non-destructive.
 
 ### `classify_rename_medical_bills.py`
 

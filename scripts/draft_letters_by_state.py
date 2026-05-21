@@ -82,20 +82,32 @@ SIDECAR_SUFFIX = ".extracted.txt"
 
 # tracker.csv columns we read and (some of which we write back)
 TRACKER_COLUMNS = [
-    "bill_id", "biller_slug", "biller_name", "doc_type", "account_number",
+    "bill_id", "encounter_id",
+    "biller_slug", "biller_name", "doc_type", "account_number",
     "file", "statement_date", "dos_start", "dos_end",
     "total_billed", "current_balance",
     "has_eob", "matched_claim_numbers", "has_itemization",
-    "itemization_signals",
+    "itemization_signals", "benchmarks_available",
     "status", "next_action", "next_action_due",
     "eob_request_sent_date", "eob_request_tracking",
     "itemization_request_sent_date", "itemization_request_tracking",
     "dispute_letter_sent_date", "dispute_letter_tracking",
     "thirty_day_warning_sent_date", "thirty_day_warning_tracking",
+    "counter_offer_amount",
+    "counter_offer_sent_date", "counter_offer_tracking",
+    "doi_complaint_sent_date", "doi_complaint_tracking",
+    "doi_complaint_number",
+    "small_claims_filed_date", "small_claims_case_number",
+    "small_claims_court",
     "drafted_eob_request", "drafted_itemization_request",
     "drafted_dispute_letter", "dispute_template_used",
+    "drafted_counter_offer", "drafted_doi_complaint",
+    "drafted_small_claims_civil_warrant",
     "response_due_date", "notes",
 ]
+
+BENCHMARKS_FILENAME = "_benchmarks.csv"
+COUNTER_OFFER_MULTIPLIER = 2.0  # 200% of Medicare allowable, see template
 
 # Per-folder dispute-template overrides for known cases. Populate this
 # on YOUR workstation with biller slugs whose dispute template is
@@ -149,7 +161,27 @@ TEMPLATE_PATHS = {
     "request_eob": TEMPLATES_DIR / "letter_request_eob.md",
     "email_biller_eob_requested":
         TEMPLATES_DIR / "email_biller_eob_requested.md",
+    "counter_offer":
+        TEMPLATES_DIR / "letter_negotiation_counter_offer.md",
+    "doi_complaint": TEMPLATES_DIR / "complaint_state_doi.md",
+    "small_claims_civil_warrant":
+        TEMPLATES_DIR / "small_claims_civil_warrant.md",
+    "records_request_hipaa":
+        TEMPLATES_DIR / "letter_records_request_hipaa.md",
+    "good_faith_estimate_request":
+        TEMPLATES_DIR / "letter_good_faith_estimate_request.md",
+    "ppdr_initiate": TEMPLATES_DIR / "letter_ppdr_initiate.md",
+    "challenge_hospital_lien":
+        TEMPLATES_DIR / "letter_challenge_hospital_lien.md",
+    "subrogation_response":
+        TEMPLATES_DIR / "letter_subrogation_response.md",
+    "credit_report_dispute_fcra":
+        TEMPLATES_DIR / "letter_credit_report_dispute_fcra.md",
+    "request_insurer_initiate_idr":
+        TEMPLATES_DIR / "letter_request_insurer_initiate_idr.md",
 }
+
+DOI_PORTALS = REFERENCES_DIR / "doi_portals.md"
 
 
 def load_env(env_path: Path) -> None:
@@ -242,6 +274,119 @@ def pick_canonical(rows: list[dict]) -> dict:
     return sorted(rows, key=sort_key, reverse=True)[0]
 
 
+def gather_encounter_siblings(canonical: dict,
+                               all_rows: list[dict]) -> str:
+    """Return a short summary of OTHER bills (different biller_slug)
+    sharing this bill's encounter_id. Used as extra prompt context so
+    the drafter can reference the full encounter when applying NSA
+    ancillary-provider protection and other encounter-wide arguments."""
+    eid = (canonical.get("encounter_id") or "").strip()
+    if not eid:
+        return ""
+    slug = canonical.get("biller_slug", "")
+    sibs = [
+        r for r in all_rows
+        if r.get("encounter_id") == eid
+        and r.get("biller_slug") != slug
+    ]
+    if not sibs:
+        return ""
+    lines = [
+        f"Encounter {eid} also produced bills from the following "
+        f"other providers (consider NSA ancillary protection and "
+        f"cross-reference in the letter where applicable):",
+        "",
+    ]
+    for s in sibs:
+        lines.append(
+            f"- {s.get('biller_slug', '')} "
+            f"({s.get('biller_name', '')}): "
+            f"DOS {s.get('dos_start', '')} to {s.get('dos_end', '')}, "
+            f"billed ${s.get('total_billed', '')}, "
+            f"current ${s.get('current_balance', '')}, "
+            f"has_eob={s.get('has_eob', '')}, "
+            f"has_itemization={s.get('has_itemization', '')}"
+        )
+    return "\n".join(lines)
+
+
+def read_benchmarks(slug: str) -> list[dict]:
+    """Return the rows of Billers/<slug>/_benchmarks.csv if present."""
+    bench = BILLERS_DIR / slug / BENCHMARKS_FILENAME
+    if not bench.exists():
+        return []
+    with bench.open(encoding="utf-8") as fh:
+        return list(csv.DictReader(fh))
+
+
+def compute_counter_offer(canonical: dict,
+                          benchmark_rows: list[dict]) -> str:
+    """Default counter-offer = COUNTER_OFFER_MULTIPLIER * sum(Medicare
+    allowables) for codes whose Medicare rate is known. If no codes
+    have Medicare data, fall back to 20% of current_balance. The
+    drafter writes this into counter_offer_amount; the user can
+    override it in tracker.csv before re-running with --force."""
+    medicare_sum = 0.0
+    n_with_rate = 0
+    for row in benchmark_rows:
+        try:
+            rate = float(row.get("medicare_national") or 0)
+        except ValueError:
+            continue
+        if rate > 0:
+            medicare_sum += rate
+            n_with_rate += 1
+    if n_with_rate > 0:
+        return f"{medicare_sum * COUNTER_OFFER_MULTIPLIER:.2f}"
+    # Fallback: 20% of current balance
+    try:
+        bal = float(canonical.get("current_balance") or 0)
+    except ValueError:
+        bal = 0.0
+    if bal > 0:
+        return f"{bal * 0.20:.2f}"
+    return ""
+
+
+def filter_overpriced_benchmarks(rows: list[dict],
+                                  threshold: float = 1.50) -> list[dict]:
+    """Keep only the line items materially over Medicare."""
+    out: list[dict] = []
+    for r in rows:
+        try:
+            ratio = float(r.get("ratio_billed_to_medicare") or 0)
+        except ValueError:
+            continue
+        try:
+            spread = (float(r.get("billed_amount") or 0)
+                      - float(r.get("medicare_national") or 0))
+        except ValueError:
+            spread = 0.0
+        if ratio >= threshold or spread >= 200.0:
+            out.append(r)
+    return out
+
+
+def format_benchmark_table(rows: list[dict]) -> str:
+    """Render the overpriced rows as a markdown table for the LLM
+    prompt. The counter-offer template references this section."""
+    if not rows:
+        return "(no overpriced line items)"
+    lines = [
+        "| CPT/HCPCS | Description | Billed | Medicare | Ratio |",
+        "|-----------|-------------|-------:|---------:|------:|",
+    ]
+    for r in rows:
+        lines.append(
+            f"| {r.get('cpt_code', '')} "
+            f"| {r.get('description', '')} "
+            f"| ${r.get('billed_amount', '')} "
+            f"| ${r.get('medicare_national', '')} "
+            f"| {r.get('ratio_billed_to_medicare', '')}x |"
+        )
+    return "\n".join(lines)
+
+
 def gather_evidence_text(canonical: dict) -> str:
     """Return concatenated sidecar text from the canonical bill plus
     any related EOB(s) for the same biller_slug. Capped to ~30k chars
@@ -325,30 +470,37 @@ def read_medical_history() -> str:
 
 def call_draft(letter_kind: str, template_key: str,
                 canonical: dict, evidence: str,
-                supporting_law: str, history: str) -> str:
+                supporting_law: str, history: str,
+                extras: dict | None = None) -> str:
     client, deployment = vision_client()
     template_text = load_template(template_key)
     system = (
         "You are a senior medical-billing advocate drafting a single "
-        "formal letter. Use the kit template as structure; substitute "
-        "every placeholder with concrete values from the bill / EOB "
+        "formal letter or filing. Use the kit template as structure; "
+        "substitute every placeholder with concrete values from the "
         "evidence; cite real federal and state statutes; tone firm, "
         "specific. Output the letter only — no preamble, no fenced "
         "code block, no commentary. Header at top: patient name + "
         "address + phone + email. Then date, then recipient block. "
         "Keep the [CERTIFIED MAIL TRACKING NUMBER] placeholder. State "
-        "a 15 or 30 business-day response window. CC the relevant "
-        "state insurance department; for services rendered in Georgia "
-        "also cc the GA OCI; cc the federal CMS No Surprises Help "
-        "Desk for NSA letters. Close with signature + account # + "
-        "date of service. Do not invent values that aren't in the "
-        "evidence."
+        "a 15 or 30 business-day response window where applicable. CC "
+        "the relevant state insurance department; for services "
+        "rendered in Georgia also cc the GA OCI; cc the federal CMS "
+        "No Surprises Help Desk for NSA letters. Close with signature "
+        "+ account # + date of service. Do not invent values that "
+        "aren't in the evidence."
     )
+    extras_block = ""
+    if extras:
+        for k, v in extras.items():
+            if v:
+                extras_block += f"\n# {k}\n{v}\n"
     user = (
         f"# Letter kind\n{letter_kind}\n\n"
         f"# Kit template ({template_key})\n{template_text}\n\n"
         f"# Patient identity\n{history}\n\n"
-        f"# Law context\n{supporting_law}\n\n"
+        f"# Law context\n{supporting_law}\n"
+        f"{extras_block}\n"
         f"# Bill / EOB evidence\n{evidence}\n"
     )
     resp = client.chat.completions.create(
@@ -357,14 +509,15 @@ def call_draft(letter_kind: str, template_key: str,
             {"role": "system", "content": system},
             {"role": "user", "content": user},
         ],
-        max_completion_tokens=4096,
+        max_completion_tokens=6144,
     )
     return (resp.choices[0].message.content or "").strip()
 
 
 def draft_letter_if_needed(canonical: dict, all_rows: list[dict],
                            letter_kind: str, template_key: str,
-                           dest: Path, force: bool, dry_run: bool) -> str | None:
+                           dest: Path, force: bool, dry_run: bool,
+                           extras: dict | None = None) -> str | None:
     """Returns the destination path string if a letter was written
     (or would be written in dry-run); empty if skipped."""
     if dest.exists() and not force:
@@ -389,6 +542,7 @@ def draft_letter_if_needed(canonical: dict, all_rows: list[dict],
             evidence=evidence,
             supporting_law=load_law_for_slug(slug),
             history=read_medical_history(),
+            extras=extras,
         )
     except Exception as exc:
         print(f"  [error] {exc}", flush=True)
@@ -399,6 +553,22 @@ def draft_letter_if_needed(canonical: dict, all_rows: list[dict],
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(text, encoding="utf-8")
     return str(dest)
+
+
+def doi_portal_extract(state_code: str) -> str:
+    """Pull the relevant state's section out of references/doi_portals.md
+    for inclusion in the DOI complaint prompt context."""
+    if not state_code or not DOI_PORTALS.exists():
+        return ""
+    body = DOI_PORTALS.read_text(encoding="utf-8")
+    header = f"## {state_code.upper()} —"
+    idx = body.find(header)
+    if idx < 0:
+        return ""
+    next_idx = body.find("\n## ", idx + len(header))
+    if next_idx < 0:
+        next_idx = len(body)
+    return body[idx:next_idx].strip()
 
 
 def main() -> int:
@@ -436,9 +606,16 @@ def main() -> int:
         slug = canonical["biller_slug"]
         has_eob = canonical.get("has_eob") == "Y"
         has_item = canonical.get("has_itemization") == "Y"
+        has_benchmarks = canonical.get("benchmarks_available") == "Y"
         sent_eob = canonical.get("eob_request_sent_date", "").strip()
         sent_item = canonical.get("itemization_request_sent_date", "").strip()
         sent_dispute = canonical.get("dispute_letter_sent_date", "").strip()
+        sent_counter = canonical.get("counter_offer_sent_date", "").strip()
+        sent_warning = canonical.get(
+            "thirty_day_warning_sent_date", "").strip()
+        sent_doi = canonical.get("doi_complaint_sent_date", "").strip()
+        filed_small_claims = canonical.get(
+            "small_claims_filed_date", "").strip()
         status = canonical.get("status", "")
         next_action = canonical.get("next_action", "")
         bills_folder = BILLERS_DIR / slug
@@ -487,8 +664,47 @@ def main() -> int:
                         Path(path).relative_to(HEALTH_ROOT)
                     )
 
-        # Dispute letter (only when BOTH gates are open)
-        if has_eob and has_item and not sent_dispute:
+        # Encounter context for any of the main-letter drafts that
+        # follow. Computed once and passed via extras.
+        encounter_block = gather_encounter_siblings(canonical, tracker_rows)
+
+        # Counter-offer letter (preferred when bill is materially over
+        # Medicare, both gates open, and no dispute already sent).
+        if (has_eob and has_item and has_benchmarks
+                and not sent_dispute and not sent_counter):
+            benchmark_rows = read_benchmarks(slug)
+            overpriced = filter_overpriced_benchmarks(benchmark_rows)
+            # Auto-compute the counter-offer if the user hasn't set
+            # one in tracker.csv yet.
+            if not canonical.get("counter_offer_amount"):
+                canonical["counter_offer_amount"] = compute_counter_offer(
+                    canonical, benchmark_rows,
+                )
+            dest = bills_folder / f"{bill_id}_LETTER_COUNTER_OFFER.md"
+            path = draft_letter_if_needed(
+                canonical=canonical, all_rows=members,
+                letter_kind="COUNTER_OFFER",
+                template_key="counter_offer",
+                dest=dest, force=args.force, dry_run=args.dry_run,
+                extras={
+                    "Counter-offer amount":
+                        f"${canonical.get('counter_offer_amount', '')}",
+                    "Overpriced line items":
+                        format_benchmark_table(overpriced),
+                    "Encounter context": encounter_block,
+                },
+            )
+            if path:
+                written[bill_id + "_counter"] = path
+                canonical["drafted_counter_offer"] = str(
+                    Path(path).relative_to(HEALTH_ROOT)
+                )
+                canonical["dispute_template_used"] = "counter_offer"
+
+        # Dispute letter (only when BOTH gates are open and either no
+        # benchmark evidence supports the price-gouging frame, or the
+        # user has explicitly chosen to skip the counter-offer track).
+        elif has_eob and has_item and not sent_dispute and not sent_counter:
             # Use the folder override if available so we don't need to
             # gather evidence twice when not in dry-run; only gather
             # the (cheap) sidecar text for the template picker when
@@ -507,6 +723,7 @@ def main() -> int:
                 letter_kind="DISPUTE",
                 template_key=template_key,
                 dest=dest, force=args.force, dry_run=args.dry_run,
+                extras={"Encounter context": encounter_block},
             )
             if path:
                 written[bill_id + "_dispute"] = path
@@ -514,6 +731,59 @@ def main() -> int:
                     Path(path).relative_to(HEALTH_ROOT)
                 )
                 canonical["dispute_template_used"] = template_key
+
+        # DOI complaint — parallel pressure track, drafted as soon as
+        # the main letter (dispute or counter-offer) is in the queue or
+        # already sent. Filed via the state portal same day as mailing.
+        if (sent_dispute or sent_counter or canonical.get("drafted_dispute_letter")
+                or canonical.get("drafted_counter_offer")) and not sent_doi:
+            state_code = (
+                BILLER_STATE_OVERRIDES.get(slug) or PATIENT_STATE
+            )
+            dest = bills_folder / f"{bill_id}_COMPLAINT_DOI.md"
+            path = draft_letter_if_needed(
+                canonical=canonical, all_rows=members,
+                letter_kind="DOI_COMPLAINT",
+                template_key="doi_complaint",
+                dest=dest, force=args.force, dry_run=args.dry_run,
+                extras={
+                    "State portal data":
+                        doi_portal_extract(state_code),
+                    "State code": (state_code or "").upper(),
+                },
+            )
+            if path:
+                written[bill_id + "_doi"] = path
+                canonical["drafted_doi_complaint"] = str(
+                    Path(path).relative_to(HEALTH_ROOT)
+                )
+
+        # Small claims civil-warrant — drafted only when the 30-day
+        # warning has gone unanswered for 15 days. We don't try to
+        # compute "elapsed days" here; the user signals readiness by
+        # populating thirty_day_warning_sent_date and clearing any
+        # resolution flag. The drafter then produces the warrant.
+        if sent_warning and not filed_small_claims:
+            dest = bills_folder / (
+                f"{bill_id}_SMALL_CLAIMS_CIVIL_WARRANT.md"
+            )
+            path = draft_letter_if_needed(
+                canonical=canonical, all_rows=members,
+                letter_kind="SMALL_CLAIMS",
+                template_key="small_claims_civil_warrant",
+                dest=dest, force=args.force, dry_run=args.dry_run,
+                extras={
+                    "Counter-offer amount (if any)":
+                        canonical.get("counter_offer_amount", ""),
+                    "DOI complaint number (if filed)":
+                        canonical.get("doi_complaint_number", ""),
+                },
+            )
+            if path:
+                written[bill_id + "_small_claims"] = path
+                canonical["drafted_small_claims_civil_warrant"] = str(
+                    Path(path).relative_to(HEALTH_ROOT)
+                )
 
         # Mark superseded members
         for r in members:

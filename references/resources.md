@@ -43,6 +43,28 @@ If the hospital doesn't have one or it's clearly incomplete, file a complaint at
 - **URL:** [surgerycenterok.com](https://surgerycenterok.com)
 - **Why it matters:** Cash-pay surgical center that has posted all-inclusive cash prices for 100+ procedures since 2009. Use as the reference comparable when arguing a hospital bill is unreasonable. If SCO does a breast biopsy for ~$1,900 and a local hospital bills $19,000, the disparity is exhibit A in a UCC § 2-305 argument.
 
+### Free Market Medical Association (cash-pay surgery and imaging directory)
+
+- **URL:** [fmma.org](https://www.fmma.org)
+- **What it does:** Searchable directory of independent surgery centers, imaging centers, and direct primary care practices nationwide that publish cash prices. SCO is the most famous member; FMMA lists hundreds more across the US.
+- **How to use it as a counter-offer anchor:** Find the nearest 2–3 FMMA members offering the procedure on your bill, take screenshots of their published cash prices on the date you check, and attach them to your counter-offer letter as Exhibit X. A hospital billing 10x what an FMMA member 30 miles away charges has a UCC § 2-305 problem.
+
+### Direct Primary Care Frontier (DPC directory)
+
+- **URL:** [dpcfrontier.com](https://www.dpcfrontier.com)
+- **What it does:** Maps US direct-primary-care practices. DPC is a flat-monthly-fee model that includes most office visits, basic labs, and some procedures, and typically excludes insurance entirely. Average monthly fee $50–$120.
+- **Why it's a comparable:** Allen's argument that "insurance-paid medical care is wildly overpriced" lands harder when a DPC clinic 5 miles from the disputed bill charges $75/month for unlimited office visits while the hospital billed $850 for one urgent-care encounter.
+
+### Sesame
+
+- **URL:** [sesamecare.com](https://sesamecare.com)
+- **What it does:** Cash-pay telehealth and in-person marketplace with transparent up-front prices for visits, procedures, and imaging. National coverage; prices visible without signup.
+
+### Hospital Price Files Finder (PatientRightsAdvocate)
+
+- **URL:** [hospitalpricingfiles.patientrightsadvocate.org](https://hospitalpricingfiles.patientrightsadvocate.org)
+- **What it does:** Free search across hospital MRFs with compliance audits flagging non-compliant hospitals. Use this when the hospital that billed you hides its own MRF and you need to cite either the published rate or the non-compliance itself.
+
 ---
 
 ## Prescription drug pricing
