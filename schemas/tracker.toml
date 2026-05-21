@@ -119,12 +119,142 @@ description = "Most recent certified-mail tracking number used for this bill."
 name = "status"
 type = "string"
 required = true
+description = "current_status of this bill on the dispute state machine. Enum: gathering_evidence | ready_to_dispute | disputed | escalated | settled | closed | superseded."
 
 [[columns]]
 name = "last_statement_date"
 type = "date"
 required = false
 description = "Updated each time a follow-up statement is detected."
+
+# ============================================================================
+# Evidence gates — populated by check_completeness.py from the per-folder
+# CSVs and matches.csv. Drive the state machine.
+# ============================================================================
+
+[[columns]]
+name = "has_eob"
+type = "string"
+required = false
+description = "Y if this bill is linked to at least one EOB claim row in matches.csv, else N. Computed by check_completeness.py."
+
+[[columns]]
+name = "matched_claim_numbers"
+type = "string"
+required = false
+description = "Semicolon-joined EOB claim numbers linked to this bill via the matcher."
+
+[[columns]]
+name = "has_itemization"
+type = "string"
+required = false
+description = "Y if the bill's extracted text passes the kit's itemization detector (3+ distinct dated charge lines, or UB-04/CMS-1500 form structure, or an explicit itemized-statement header). Computed by index_bills_and_claims.py."
+
+[[columns]]
+name = "itemization_signals"
+type = "string"
+required = false
+description = "Brief audit trail of which itemization signals matched (dcl=N, ub04_headers, etc.). Useful for debugging false negatives."
+
+# ============================================================================
+# State machine — populated by check_completeness.py
+# ============================================================================
+
+[[columns]]
+name = "next_action"
+type = "string"
+required = false
+description = "Computed next dispute action. Enum: request_eob | request_itemization | request_eob_and_itemization | draft_dispute | await_eob | await_itemization | await_response | monitor | see_canonical | await_response_or_file_small_claims | review."
+
+# ============================================================================
+# Operational: dates and certified-mail tracking numbers. Filled by the
+# user (manually) after mailing each letter. Scripts never overwrite
+# values that have been entered here.
+# ============================================================================
+
+[[columns]]
+name = "eob_request_sent_date"
+type = "date"
+required = false
+description = "Date the EOB-request letter was mailed to the insurer. Filled in by the user after mailing. Drives the state machine: once set, the script stops drafting new EOB-request letters and waits for a response."
+
+[[columns]]
+name = "eob_request_tracking"
+type = "string"
+required = false
+description = "USPS certified-mail tracking number for the EOB request."
+
+[[columns]]
+name = "itemization_request_sent_date"
+type = "date"
+required = false
+description = "Date the itemization-request letter was mailed to the biller."
+
+[[columns]]
+name = "itemization_request_tracking"
+type = "string"
+required = false
+description = "USPS certified-mail tracking number for the itemization request."
+
+[[columns]]
+name = "dispute_letter_sent_date"
+type = "date"
+required = false
+description = "Date the substantive dispute letter (NSA / FDCPA / initial dispute / dental / ERISA appeal / negotiation) was mailed."
+
+[[columns]]
+name = "dispute_letter_tracking"
+type = "string"
+required = false
+description = "USPS certified-mail tracking number for the dispute letter."
+
+[[columns]]
+name = "thirty_day_warning_sent_date"
+type = "date"
+required = false
+description = "Date the 30-day warning letter was mailed (pre-small-claims escalation)."
+
+[[columns]]
+name = "thirty_day_warning_tracking"
+type = "string"
+required = false
+description = "USPS certified-mail tracking number for the 30-day warning."
+
+[[columns]]
+name = "response_due_date"
+type = "date"
+required = false
+description = "Computed deadline by which the most recent letter expects a response (typically 15 or 30 business days from the most recent *_sent_date)."
+
+# ============================================================================
+# Drafted-letter paths — populated by draft_letters_by_state.py. These
+# tell the user where the most recently drafted letter lives so they
+# can print, sign, and mail it.
+# ============================================================================
+
+[[columns]]
+name = "drafted_eob_request"
+type = "string"
+required = false
+description = "Relative path (from Health_Bills/) to the drafted EOB-request letter for this dispute, if one has been generated."
+
+[[columns]]
+name = "drafted_itemization_request"
+type = "string"
+required = false
+description = "Relative path to the drafted itemization-request letter."
+
+[[columns]]
+name = "drafted_dispute_letter"
+type = "string"
+required = false
+description = "Relative path to the drafted substantive dispute letter."
+
+[[columns]]
+name = "dispute_template_used"
+type = "string"
+required = false
+description = "Kit template used to draft the dispute letter (itemization | initial_dispute | no_surprises | fdcpa | erisa_appeal | dental_dispute)."
 
 [[columns]]
 name = "notes"
