@@ -36,7 +36,7 @@ Run these checks on every bill:
 
 For each bill, choose the highest-leverage next action it qualifies for. The order matters; do these in this sequence, not in parallel:
 
-1. `request_eob` if a bill has arrived but the corresponding Explanation of Benefits has not. Template: `templates/letter_request_eob.md` (under ERISA § 1024(b)(4) for plan documents).
+1. `request_eob` if a bill has arrived but the corresponding Explanation of Benefits has not. Template: `templates/letter_request_eob.md`. The EOB itself is typically furnished under the plan's claim-procedure rules at 29 CFR § 2560.503-1 (and any applicable state insurance right-of-access provision); ERISA § 1024(b)(4) covers plan documents (SPD, plan document, trust agreement) and is invoked as a parallel basis in the same letter where the patient also needs the underlying plan terms.
 2. `request_itemization` if there's no itemized bill yet. Template: `templates/letter_itemization_request.md`. Deadline: 30 days from receipt of request, per most state itemization statutes.
 3. `request_records_hipaa` if the audit detector or your review surfaces a service-not-received suspicion. Template: `templates/letter_records_request_hipaa.md`. Federal § 164.524 30-day clock.
 4. `appeal_insurance_denial` if the bill stems from a claim denial. Template: `templates/letter_insurance_appeal_erisa.md` for ERISA plans; otherwise the state-plan equivalent. Deadline: per the plan's appeal window, typically 180 days.

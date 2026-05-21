@@ -1,17 +1,27 @@
-"""bundle_to_cloud.py — push evidence bundles to an encrypted offsite
-destination via rclone.
+"""bundle_to_cloud.py — push evidence bundles to an offsite destination
+via rclone.
 
 Marshall Allen's discipline: every paper trail needs an offsite copy.
 A house fire, a hard-drive failure, or a compromised laptop must not
 destroy the months of certified-mail receipts, drafted letters, and
 benchmark analyses that prove your case.
 
+PHI WARNING: the bundles produced by `scripts/bundle_evidence.py`
+contain protected health information — full bill text, EOBs, claim
+numbers, dates of service, dollar amounts, and certified-mail
+tracking numbers. Do NOT push them to an unencrypted cloud remote.
+Configure rclone's `crypt` backend over your underlying storage
+(Backblaze B2, Wasabi, S3, OneDrive, etc.) so the data is encrypted
+client-side before upload, and use the encrypted-overlay remote name
+as `HEALTHBILLS_CLOUD_REMOTE`. Walkthrough at rclone.org/crypt. The
+script does not verify encryption status; that is the user's
+responsibility.
+
 This script is a thin wrapper around rclone. rclone supports 70+
-storage backends (Backblaze B2, Wasabi, S3, Google Drive, OneDrive,
-SFTP, Mega, Box, etc.) and includes client-side encryption via its
-"crypt" backend. The kit does not bundle credentials or assume a
-backend; the user configures rclone once with `rclone config` and
-sets the remote name + path via env vars below.
+storage backends and includes client-side encryption via its `crypt`
+backend. The kit does not bundle credentials or assume a backend; the
+user configures rclone once with `rclone config` and sets the remote
+name + path via env vars below.
 
 Required env vars:
 
@@ -104,9 +114,18 @@ def main() -> int:
             "[fatal] set HEALTHBILLS_CLOUD_REMOTE (rclone remote name) "
             "and HEALTHBILLS_CLOUD_PATH (destination path) env vars. "
             "Run `rclone config` first if you have not configured a "
-            "remote yet."
+            "remote yet. PHI WARNING: configure rclone's crypt backend "
+            "(rclone.org/crypt) over your underlying storage so the "
+            "bundles are encrypted client-side before upload."
         )
     dest = f"{remote}:{path.strip('/')}"
+    print(
+        "[warn] Bundles contain PHI. Verify HEALTHBILLS_CLOUD_REMOTE "
+        f"({remote}) is an rclone crypt-overlay remote, not a raw "
+        "cloud backend. The kit does not verify encryption; that is "
+        "your responsibility.",
+        flush=True,
+    )
 
     if not BUNDLES_DIR.is_dir():
         sys.exit(
