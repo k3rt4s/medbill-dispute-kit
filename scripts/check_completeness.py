@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import datetime
 import hashlib
 import os
 import re
@@ -50,6 +51,14 @@ TRACKER_CSV = LOG_DIR / "tracker.csv"
 MATCHES_CSV = LOG_DIR / "matches.csv"
 
 BILLS_FILENAME = "_bills.csv"
+BENCHMARKS_FILENAME = "_benchmarks.csv"
+
+# Ratio above which a billed CPT is considered materially over Medicare and
+# therefore eligible for the negotiated-counter-offer track. 1.50 = 150% of
+# Medicare allowable. Most commercial insurers pay 100-250% of Medicare;
+# patient-side amounts above 150% without contractual basis are facially
+# negotiable per Marshall Allen's UCC § 2-305 framing.
+COUNTER_OFFER_RATIO_THRESHOLD = 1.50
 
 # Slugs whose folders should always derive `status = closed`
 # rather than triggering dispute actions. Used for insurer / agency
@@ -65,12 +74,13 @@ ALWAYS_SKIP_SLUGS: set[str] = set()
 
 TRACKER_COLUMNS = [
     # Identity
-    "bill_id", "biller_slug", "biller_name", "doc_type", "account_number",
+    "bill_id", "encounter_id",
+    "biller_slug", "biller_name", "doc_type", "account_number",
     "file", "statement_date", "dos_start", "dos_end",
     "total_billed", "current_balance",
     # Evidence gates
     "has_eob", "matched_claim_numbers", "has_itemization",
-    "itemization_signals",
+    "itemization_signals", "benchmarks_available",
     # Derived state
     "status", "next_action", "next_action_due",
     # Operational (preserved across runs)
@@ -78,6 +88,12 @@ TRACKER_COLUMNS = [
     "itemization_request_sent_date", "itemization_request_tracking",
     "dispute_letter_sent_date", "dispute_letter_tracking",
     "thirty_day_warning_sent_date", "thirty_day_warning_tracking",
+    "counter_offer_amount",
+    "counter_offer_sent_date", "counter_offer_tracking",
+    "doi_complaint_sent_date", "doi_complaint_tracking",
+    "doi_complaint_number",
+    "small_claims_filed_date", "small_claims_case_number",
+    "small_claims_court",
     # Free text
     "response_due_date", "notes",
 ]
@@ -122,6 +138,120 @@ def load_bills() -> list[dict]:
     return bills
 
 
+_ISO_DATE_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})$")
+
+
+def parse_iso_date(s: str) -> datetime.date | None:
+    if not s:
+        return None
+    m = _ISO_DATE_RE.match(s.strip())
+    if not m:
+        return None
+    try:
+        return datetime.date(int(m.group(1)), int(m.group(2)),
+                             int(m.group(3)))
+    except ValueError:
+        return None
+
+
+def assign_encounter_ids(rows: list[dict],
+                          window_days: int = 1,
+                          preserved: dict[str, str] | None = None
+                          ) -> None:
+    """Cluster rows by overlapping date-of-service windows and assign
+    each cluster a stable encounter_id of the form E-YYYY-NNN, where
+    YYYY is the cluster's earliest DOS year.
+
+    Two rows belong to the same encounter when their effective DOS
+    (dos_start, falling back to statement_date) are within +/-
+    window_days of each other. Same-day visits to a hospital plus its
+    contracted radiology + emergency-physician group will cluster;
+    distinct unrelated services will not.
+
+    Rows without any parseable date are not clustered and get no
+    encounter_id (left empty).
+
+    The `preserved` map preserves prior encounter_id assignments from
+    tracker.csv across runs, so user-supplied encounter overrides
+    survive."""
+    if preserved is None:
+        preserved = {}
+
+    indexed: list[tuple[int, datetime.date]] = []
+    for i, r in enumerate(rows):
+        d = (parse_iso_date(r.get("dos_start", ""))
+             or parse_iso_date(r.get("statement_date", "")))
+        if d is None:
+            continue
+        indexed.append((i, d))
+
+    indexed.sort(key=lambda t: t[1])
+    cluster_for: dict[int, int] = {}
+    next_cluster = 0
+    last_date: datetime.date | None = None
+    for i, d in indexed:
+        if last_date is None or (d - last_date).days > window_days:
+            next_cluster += 1
+        cluster_for[i] = next_cluster
+        last_date = d
+
+    # Build cluster -> [row indices]
+    members: dict[int, list[int]] = defaultdict(list)
+    for i, c in cluster_for.items():
+        members[c].append(i)
+
+    counters: dict[int, int] = defaultdict(int)
+    cluster_id_for: dict[int, str] = {}
+    for c, idxs in members.items():
+        # Honor any preserved id for this cluster — pick the first
+        # bill_id with a prior encounter_id.
+        prior_eid = ""
+        for i in idxs:
+            pid = preserved.get(rows[i].get("bill_id", ""), "")
+            if pid:
+                prior_eid = pid
+                break
+        if prior_eid:
+            cluster_id_for[c] = prior_eid
+            continue
+        # Otherwise mint a new one from the cluster's earliest DOS year.
+        earliest_year = min(parse_iso_date(rows[i].get("dos_start", ""))
+                            or parse_iso_date(rows[i].get("statement_date", ""))
+                            for i in idxs).year
+        counters[earliest_year] += 1
+        cluster_id_for[c] = (
+            f"E-{earliest_year}-{counters[earliest_year]:03d}"
+        )
+
+    for i, c in cluster_for.items():
+        rows[i]["encounter_id"] = cluster_id_for[c]
+
+
+def load_benchmarks_by_slug() -> dict[str, bool]:
+    """Return {biller_slug: has_overpriced_lines} where True means at
+    least one CPT on a bill in this folder is billed at >= the counter
+    offer ratio threshold over the Medicare allowable. Drives the
+    benchmarks_available column on tracker.csv."""
+    out: dict[str, bool] = {}
+    if not BILLERS_DIR.is_dir():
+        return out
+    for slug_dir in sorted(d for d in BILLERS_DIR.iterdir() if d.is_dir()):
+        bench = slug_dir / BENCHMARKS_FILENAME
+        if not bench.exists():
+            continue
+        overpriced = False
+        for row in read_csv(bench):
+            try:
+                ratio = float(row.get("ratio_billed_to_medicare") or 0)
+            except ValueError:
+                continue
+            if ratio >= COUNTER_OFFER_RATIO_THRESHOLD:
+                overpriced = True
+                break
+        out[slug_dir.name] = overpriced
+    return out
+
+
 def load_matches_by_bill() -> dict[tuple[str, str], list[dict]]:
     """Return {(biller_slug, bill_file): [claim_match_rows]} for matches
     where a bill was linked to one or more claims.
@@ -142,8 +272,11 @@ def load_matches_by_bill() -> dict[tuple[str, str], list[dict]]:
 
 
 def derive_status(has_eob: str, has_itemization: str,
+                  benchmarks_available: str,
                   sent_eob: str, sent_itemization: str,
-                  sent_dispute: str, sent_warning: str,
+                  sent_dispute: str, sent_counter_offer: str,
+                  sent_warning: str, sent_doi: str,
+                  small_claims_filed: str,
                   doc_type: str, current_balance: str,
                   slug: str) -> tuple[str, str]:
     """Return (status, next_action)."""
@@ -157,19 +290,37 @@ def derive_status(has_eob: str, has_itemization: str,
         bal = 0.0
     if doc_type == "informational" or (bal == 0.0 and not sent_eob
                                        and not sent_itemization
-                                       and not sent_dispute):
+                                       and not sent_dispute
+                                       and not sent_counter_offer):
         return "closed", "monitor"
 
     have_eob = has_eob == "Y"
     have_item = has_itemization == "Y"
+    have_benchmarks = benchmarks_available == "Y"
 
-    # Already in dispute escalation
+    # Already in court escalation
+    if small_claims_filed:
+        return "escalated", "await_court_date"
+    # Already in pre-court escalation
     if sent_warning:
-        return "escalated", "await_response_or_file_small_claims"
-    if sent_dispute:
+        # If a DOI complaint hasn't gone out yet, that's the parallel
+        # next step before small claims; the warning gives a 15-day
+        # window in which DOI pressure often moves things.
+        if not sent_doi:
+            return "escalated", "file_doi_complaint"
+        return "escalated", "file_small_claims"
+    # Counter-offer / dispute in flight
+    if sent_counter_offer or sent_dispute:
+        if not sent_doi:
+            return "disputed", "file_doi_complaint"
         return "disputed", "await_response"
 
     if have_eob and have_item:
+        # Prefer the price-benchmarked counter-offer track when the
+        # bill is materially over Medicare. Falls back to the
+        # template-picker dispute track when prices look reasonable.
+        if have_benchmarks:
+            return "ready_to_dispute", "negotiate_counter_offer"
         return "ready_to_dispute", "draft_dispute"
     if not have_eob and not have_item:
         if sent_eob and sent_itemization:
@@ -196,6 +347,7 @@ def main() -> int:
 
     bills = load_bills()
     matches_by_bill = load_matches_by_bill()
+    benchmarks_by_slug = load_benchmarks_by_slug()
     existing = {r["bill_id"]: r for r in read_csv(TRACKER_CSV) if r.get("bill_id")}
 
     rows: list[dict] = []
@@ -223,22 +375,33 @@ def main() -> int:
         sent_item = prior.get("itemization_request_sent_date", "")
         sent_dispute = prior.get("dispute_letter_sent_date", "")
         sent_warning = prior.get("thirty_day_warning_sent_date", "")
+        sent_counter_offer = prior.get("counter_offer_sent_date", "")
+        sent_doi = prior.get("doi_complaint_sent_date", "")
+        small_claims_filed = prior.get("small_claims_filed_date", "")
 
         raw_item = (bill.get("has_itemization") or "").strip().upper()
         has_itemization = "Y" if raw_item == "Y" else "N"
+        benchmarks_available = (
+            "Y" if benchmarks_by_slug.get(biller_slug) else "N"
+        )
         doc_type = bill.get("doc_type", "")
 
         status, next_action = derive_status(
             has_eob=has_eob,
             has_itemization=has_itemization,
+            benchmarks_available=benchmarks_available,
             sent_eob=sent_eob, sent_itemization=sent_item,
-            sent_dispute=sent_dispute, sent_warning=sent_warning,
+            sent_dispute=sent_dispute,
+            sent_counter_offer=sent_counter_offer,
+            sent_warning=sent_warning, sent_doi=sent_doi,
+            small_claims_filed=small_claims_filed,
             doc_type=doc_type, current_balance=bill.get("current_balance", ""),
             slug=biller_slug,
         )
 
         row = {
             "bill_id": bill_id,
+            "encounter_id": prior.get("encounter_id", ""),
             "biller_slug": biller_slug,
             "biller_name": bill.get("biller_name_raw", ""),
             "doc_type": doc_type,
@@ -253,6 +416,7 @@ def main() -> int:
             "matched_claim_numbers": matched_claim_numbers,
             "has_itemization": has_itemization,
             "itemization_signals": bill.get("itemization_signals", ""),
+            "benchmarks_available": benchmarks_available,
             "status": status,
             "next_action": next_action,
             "next_action_due": prior.get("next_action_due", ""),
@@ -265,11 +429,29 @@ def main() -> int:
             "dispute_letter_tracking": prior.get("dispute_letter_tracking", ""),
             "thirty_day_warning_sent_date": sent_warning,
             "thirty_day_warning_tracking": prior.get("thirty_day_warning_tracking", ""),
+            "counter_offer_amount": prior.get("counter_offer_amount", ""),
+            "counter_offer_sent_date": sent_counter_offer,
+            "counter_offer_tracking": prior.get("counter_offer_tracking", ""),
+            "doi_complaint_sent_date": sent_doi,
+            "doi_complaint_tracking": prior.get("doi_complaint_tracking", ""),
+            "doi_complaint_number": prior.get("doi_complaint_number", ""),
+            "small_claims_filed_date": small_claims_filed,
+            "small_claims_case_number": prior.get("small_claims_case_number", ""),
+            "small_claims_court": prior.get("small_claims_court", ""),
             "response_due_date": prior.get("response_due_date", ""),
             "notes": prior.get("notes", ""),
         }
         rows.append(row)
         counters["preserved" if bill_id in existing else "new"] += 1
+
+    # Assign encounter_ids by clustering bills with adjacent DOS.
+    preserved_encounters = {
+        bid: row.get("encounter_id", "")
+        for bid, row in existing.items()
+        if row.get("encounter_id")
+    }
+    assign_encounter_ids(rows, window_days=1,
+                          preserved=preserved_encounters)
 
     # Sort by biller_slug, then statement_date, then bill_id for stable output
     rows.sort(key=lambda r: (r["biller_slug"], r.get("statement_date") or "",

@@ -1,0 +1,72 @@
+comprehensive_code,included_code,note
+85025,85027,85025 CBC with diff includes 85027 CBC without diff; do not bill both
+85025,85004,85025 CBC includes 85004 automated differential WBC count
+85025,85007,85025 CBC includes 85007 manual differential WBC count
+80053,80048,Comprehensive metabolic panel 80053 includes basic metabolic panel 80048
+80053,84520,CMP 80053 includes BUN 84520
+80053,82565,CMP 80053 includes creatinine 82565
+80053,82435,CMP 80053 includes chloride 82435
+80053,84132,CMP 80053 includes potassium 84132
+80053,84295,CMP 80053 includes sodium 84295
+80053,82947,CMP 80053 includes glucose 82947
+80053,82310,CMP 80053 includes calcium 82310
+80053,82040,CMP 80053 includes albumin 82040
+80053,82247,CMP 80053 includes total bilirubin 82247
+80053,84450,CMP 80053 includes AST 84450
+80053,84460,CMP 80053 includes ALT 84460
+80053,84075,CMP 80053 includes alkaline phosphatase 84075
+80053,84155,CMP 80053 includes total protein 84155
+80048,84520,BMP 80048 includes BUN 84520
+80048,82565,BMP 80048 includes creatinine 82565
+80048,82435,BMP 80048 includes chloride 82435
+80048,84132,BMP 80048 includes potassium 84132
+80048,84295,BMP 80048 includes sodium 84295
+80048,82947,BMP 80048 includes glucose 82947
+80048,82310,BMP 80048 includes calcium 82310
+80048,82374,BMP 80048 includes carbon dioxide 82374
+80061,82465,Lipid panel 80061 includes total cholesterol 82465
+80061,84478,Lipid panel 80061 includes triglycerides 84478
+80061,83718,Lipid panel 80061 includes HDL cholesterol 83718
+80076,84450,Hepatic function panel 80076 includes AST 84450
+80076,84460,Hepatic function panel 80076 includes ALT 84460
+80076,82247,Hepatic function panel 80076 includes total bilirubin 82247
+80076,84075,Hepatic function panel 80076 includes alkaline phosphatase 84075
+80076,84155,Hepatic function panel 80076 includes total protein 84155
+80076,82040,Hepatic function panel 80076 includes albumin 82040
+80076,82248,Hepatic function panel 80076 includes direct bilirubin 82248
+81003,81001,Automated urinalysis 81003 and UA with microscopy 81001 should not bill same DOS
+81003,81002,Automated UA 81003 and UA without microscopy 81002 should not bill same DOS
+81003,81005,Auto UA 81003 includes 81005 routine UA non-automated
+93000,93005,EKG complete 93000 includes 93005 tracing only
+93000,93010,EKG complete 93000 includes 93010 interpretation only
+93005,93010,93005 tracing and 93010 interpretation are subcomponents of 93000 complete
+71046,71045,Chest X-ray 2 views 71046 includes single view 71045
+71046,71047,71046 2-view chest X-ray and 71047 3-view; bill the higher only, not both
+72100,72020,Lumbar spine 2-3 views 72100 includes 72020 single view
+73070,73060,Elbow X-ray 2 views 73070 includes 73060 single view
+73080,73070,Elbow complete 73080 includes 2-view 73070 same DOS
+73110,73100,Wrist complete min 3 views 73110 includes 73100 2 views
+73130,73120,Hand min 3 views 73130 includes 73120 2 views
+73510,73500,Hip complete 73510 includes 73500 single view
+73560,73564,Knee 1-2 views 73560 includes 73564 complete 4+ views; bill higher only
+73610,73600,Ankle complete min 3 views 73610 includes 73600 2 views
+74176,74150,CT abdomen and pelvis without contrast 74176 includes 74150 CT abdomen alone
+74176,72192,CT abdomen and pelvis 74176 includes 72192 CT pelvis alone
+74177,74160,CT abd/pelvis with contrast 74177 includes 74160 CT abd with contrast
+74178,74170,CT abd/pelvis with and without contrast 74178 includes 74170
+70450,70470,CT head without contrast 70450 and 70470 with-and-without; do not bill both
+70551,70552,MRI brain without contrast 70551 and with contrast 70552; choose one
+70553,70551,MRI brain with and without contrast 70553 includes 70551 alone
+99213,99212,Same E/M established patient level 3 and level 2 same day
+99214,99213,Same E/M established patient level 4 and level 3 same day
+99215,99214,Same E/M established patient level 5 and level 4 same day
+99284,99283,Same ED visit level 4 and level 3 same day
+99285,99284,Same ED visit level 5 and level 4 same day
+99291,99285,Critical care 99291 and ED visit 99285 same day should not double bill unless documented separately
+12011,12001,Simple repair face 2.5cm 12011 includes simple repair scalp 2.5cm 12001 if same anatomic location
+12031,12001,Intermediate repair 12031 includes simple repair 12001 same wound
+13100,12031,Complex repair 13100 includes intermediate repair 12031 same wound
+36415,36410,Venipuncture routine 36415 includes 36410 venipuncture age 3-younger; choose by age
+96365,96360,Therapeutic IV infusion 96365 and hydration 96360 may bundle when same access; verify documentation
+96374,96360,IV push 96374 includes hydration 96360 if hydration was incidental to push
+20610,20605,Arthrocentesis large joint 20610 includes intermediate 20605 same joint
