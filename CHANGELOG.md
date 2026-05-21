@@ -6,6 +6,12 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.13.1] — 2026-05-21
+
+### Fixed
+
+- **WC / auto-medpay false positive on form-label checkbox blocks.** `scripts/draft_letters_by_state.py` was mis-routing every bill whose template printed the "Please indicate if applicable: AUTO ACCIDENT / WORKER'S COMPENSATION / Date of Injury" form-field labels to the WC carrier redirect or auto-medpay letter, even though those labels are checkbox-style Y/N fields, not positive answers. The detector now strips the form-label block (header line plus ~6 immediately following lines) before counting injury keywords, so the labels themselves no longer trigger. Narrative mentions of WC / MVA elsewhere in the bill still trigger as designed. Surfaced when a Premier Radiology bill with a UB-04-style billing form generated an unwanted auto-medpay draft for a routine internal-medicine visit.
+
 ## [v0.13.0] — 2026-05-21
 
 The Marshall Allen methodology release. Brings the "Never Pay the First Bill" workflow into the local-ops pipeline end-to-end.

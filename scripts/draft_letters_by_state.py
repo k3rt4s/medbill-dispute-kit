@@ -209,6 +209,22 @@ AUTO_INJURY_RE = re.compile(
     re.I,
 )
 
+# Form-label checkbox blocks on provider billing forms commonly read
+# "Please indicate if applicable: AUTO ACCIDENT / WORKER'S COMPENSATION
+# / Date of Injury". These are field labels, not narrative statements
+# that the patient was actually in an MVA or sustained a workplace
+# injury. The detector must strip these blocks before counting keyword
+# hits to avoid mis-routing every bill with a UB-04-style form layout
+# to WC / auto-medpay redirect. Strips from "please indicate if
+# applicable" header through the immediately following ~6 lines, which
+# is enough to consume the typical AUTO ACCIDENT / WC / Date of Injury
+# label cluster without affecting later narrative paragraphs.
+FORM_LABEL_BLOCK_RE = re.compile(
+    r"please\s+indicate\s+if\s+applicable\s*:?[^\n]*\n"
+    r"(?:[^\n]{0,80}\n){0,6}",
+    re.I,
+)
+
 DOI_PORTALS = REFERENCES_DIR / "doi_portals.md"
 
 
@@ -317,8 +333,15 @@ def detect_injury_routing(canonical: dict) -> str:
     body = read_sidecar_body(sidecar)
     if not body:
         return ""
-    wc_hits = len(WC_INJURY_RE.findall(body))
-    auto_hits = len(AUTO_INJURY_RE.findall(body))
+    # Strip "please indicate if applicable:" form-label blocks so the
+    # AUTO ACCIDENT / WORKER'S COMPENSATION checkbox labels on the bill
+    # template don't trigger the detector. Without this, every UB-04
+    # / CMS-1500 / Imagine-Pay style bill that prints those labels (Y/N
+    # fields, not positive answers) gets mis-routed to the WC or auto-
+    # medpay track.
+    body_for_detection = FORM_LABEL_BLOCK_RE.sub(" ", body)
+    wc_hits = len(WC_INJURY_RE.findall(body_for_detection))
+    auto_hits = len(AUTO_INJURY_RE.findall(body_for_detection))
     if wc_hits >= 1 and wc_hits >= auto_hits:
         return "wc"
     if auto_hits >= 1:
