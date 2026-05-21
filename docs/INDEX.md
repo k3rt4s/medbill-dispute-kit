@@ -50,40 +50,66 @@ For the patient's most common questions, jump straight to:
 | [`rules/23_aca_marketplace.md`](../rules/23_aca_marketplace.md)                         | Marketplace-plan appeal framework                                |
 | [`rules/24_observation_status.md`](../rules/24_observation_status.md)                   | Medicare observation-status billing                              |
 
-### Letter and complaint templates (17+ files)
+### Letter and complaint templates (30+ files)
 
-| Template                                                                                                | When to use                                   |
-| ------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| [`letter_itemization_request.md`](../templates/letter_itemization_request.md)                           | First action against any unitemized bill      |
-| [`letter_initial_dispute.md`](../templates/letter_initial_dispute.md)                                   | After itemization, specific finding           |
-| [`letter_30day_warning.md`](../templates/letter_30day_warning.md)                                       | Escalation before small claims                |
-| [`letter_no_surprises_violation.md`](../templates/letter_no_surprises_violation.md)                     | NSA balance-billing violation                 |
-| [`letter_insurance_appeal_erisa.md`](../templates/letter_insurance_appeal_erisa.md)                     | ERISA self-funded plan denial                 |
-| [`letter_medicare_appeal.md`](../templates/letter_medicare_appeal.md)                                   | Medicare Levels 1-2                           |
-| [`letter_medicaid_appeal.md`](../templates/letter_medicaid_appeal.md)                                   | Medicaid MCO + state fair hearing             |
-| [`letter_dental_dispute.md`](../templates/letter_dental_dispute.md)                                     | Dental downcoding/bundling                    |
-| [`letter_hardship_negotiation.md`](../templates/letter_hardship_negotiation.md)                         | Correctly-billed but unaffordable             |
-| [`letter_fdcpa_validation.md`](../templates/letter_fdcpa_validation.md)                                 | Third-party collector validation              |
-| [`letter_ground_ambulance.md`](../templates/letter_ground_ambulance.md)                                 | Two variants by state law                     |
-| [`letter_financial_assistance_application.md`](../templates/letter_financial_assistance_application.md) | IRS § 501(r) FAP for non-profit hospitals     |
-| [`letter_auto_med_pay.md`](../templates/letter_auto_med_pay.md)                                         | 3 variants for accident-related billing       |
-| [`complaint_state_doi.md`](../templates/complaint_state_doi.md)                                         | State insurance department complaint          |
-| [`complaint_cms_hpt.md`](../templates/complaint_cms_hpt.md)                                             | Federal Hospital Price Transparency complaint |
-| [`complaint_emtala.md`](../templates/complaint_emtala.md)                                               | CMS EMTALA complaint                          |
-| [`complaint_hipaa_access.md`](../templates/complaint_hipaa_access.md)                                   | HHS OCR HIPAA right-of-access complaint       |
+| Template                                                                                                | When to use                                      |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| [`letter_itemization_request.md`](../templates/letter_itemization_request.md)                           | First action against any unitemized bill         |
+| [`letter_request_eob.md`](../templates/letter_request_eob.md)                                           | EOB not received from insurer                    |
+| [`email_biller_eob_requested.md`](../templates/email_biller_eob_requested.md)                           | Courtesy email to biller alongside EOB request   |
+| [`letter_records_request_hipaa.md`](../templates/letter_records_request_hipaa.md)                       | HIPAA § 164.524 medical-records request          |
+| [`letter_initial_dispute.md`](../templates/letter_initial_dispute.md)                                   | After itemization, specific finding              |
+| [`letter_dispute_reply.md`](../templates/letter_dispute_reply.md)                                       | Provider replied without addressing substance    |
+| [`letter_30day_warning.md`](../templates/letter_30day_warning.md)                                       | Escalation before small claims                   |
+| [`letter_no_surprises_violation.md`](../templates/letter_no_surprises_violation.md)                     | NSA balance-billing violation                    |
+| [`letter_request_insurer_initiate_idr.md`](../templates/letter_request_insurer_initiate_idr.md)         | Demand plan initiate federal IDR                 |
+| [`letter_good_faith_estimate_request.md`](../templates/letter_good_faith_estimate_request.md)           | Uninsured / self-pay GFE demand                  |
+| [`letter_ppdr_initiate.md`](../templates/letter_ppdr_initiate.md)                                       | Self-pay PPDR submission when bill > GFE+$400    |
+| [`letter_insurance_appeal_erisa.md`](../templates/letter_insurance_appeal_erisa.md)                     | ERISA self-funded plan denial                    |
+| [`letter_erisa_502c_penalty.md`](../templates/letter_erisa_502c_penalty.md)                             | $110/day demand for plan-document non-production |
+| [`letter_medicare_appeal.md`](../templates/letter_medicare_appeal.md)                                   | Medicare Levels 1-2                              |
+| [`letter_medicaid_appeal.md`](../templates/letter_medicaid_appeal.md)                                   | Medicaid MCO + state fair hearing                |
+| [`letter_dental_dispute.md`](../templates/letter_dental_dispute.md)                                     | Dental downcoding/bundling                       |
+| [`letter_hardship_negotiation.md`](../templates/letter_hardship_negotiation.md)                         | Correctly-billed but unaffordable                |
+| [`letter_negotiation_counter_offer.md`](../templates/letter_negotiation_counter_offer.md)               | UCC § 2-305 counter-offer with benchmark table   |
+| [`letter_fdcpa_validation.md`](../templates/letter_fdcpa_validation.md)                                 | Third-party collector validation                 |
+| [`letter_credit_report_dispute_fcra.md`](../templates/letter_credit_report_dispute_fcra.md)             | Medical debt reported to a credit bureau         |
+| [`letter_ground_ambulance.md`](../templates/letter_ground_ambulance.md)                                 | Two variants by state law                        |
+| [`letter_financial_assistance_application.md`](../templates/letter_financial_assistance_application.md) | IRS § 501(r) FAP for non-profit hospitals        |
+| [`letter_auto_med_pay.md`](../templates/letter_auto_med_pay.md)                                         | 3 variants for accident-related billing          |
+| [`letter_wc_carrier_redirect.md`](../templates/letter_wc_carrier_redirect.md)                           | Work-related injury payer redirect               |
+| [`letter_challenge_hospital_lien.md`](../templates/letter_challenge_hospital_lien.md)                   | Statutory hospital lien on tort recovery         |
+| [`letter_subrogation_response.md`](../templates/letter_subrogation_response.md)                         | Plan subrogation / reimbursement claim           |
+| [`small_claims_civil_warrant.md`](../templates/small_claims_civil_warrant.md)                           | County-agnostic civil-warrant skeleton           |
+| [`encounter_combined_dispute.md`](../templates/encounter_combined_dispute.md)                           | Multi-provider encounter under NSA ancillary     |
+| [`attorney_intake_packet.md`](../templates/attorney_intake_packet.md)                                   | Two-page case summary for attorney consult       |
+| [`complaint_state_doi.md`](../templates/complaint_state_doi.md)                                         | State insurance department complaint             |
+| [`complaint_cms_hpt.md`](../templates/complaint_cms_hpt.md)                                             | Federal Hospital Price Transparency complaint    |
+| [`complaint_emtala.md`](../templates/complaint_emtala.md)                                               | CMS EMTALA complaint                             |
+| [`complaint_hipaa_access.md`](../templates/complaint_hipaa_access.md)                                   | HHS OCR HIPAA right-of-access complaint          |
+| [`complaint_irs_form_13909.md`](../templates/complaint_irs_form_13909.md)                               | IRS Form 13909 tax-exempt org complaint          |
 
 ### Reference files
 
-| Reference                                                                   | Use                                         |
-| --------------------------------------------------------------------------- | ------------------------------------------- |
-| [`references/laws_federal.md`](../references/laws_federal.md)               | Federal-law cite source of truth            |
-| [`references/laws_state_*.md`](../references/)                              | Per-state cite source of truth (36 states)  |
-| [`references/laws_state_template.md`](../references/laws_state_template.md) | Template for new state packs                |
-| [`references/cpt_codes_em.md`](../references/cpt_codes_em.md)               | E/M coding documentation requirements       |
-| [`references/cpt_quick_reference.md`](../references/cpt_quick_reference.md) | High-frequency CPT/HCPCS codes              |
-| [`references/hpt_mrf_format.md`](../references/hpt_mrf_format.md)           | Reading a hospital's price-transparency MRF |
-| [`references/glossary.md`](../references/glossary.md)                       | All kit acronyms defined                    |
-| [`references/resources.md`](../references/resources.md)                     | External patient-advocacy resources         |
+| Reference                                                                                             | Use                                                                  |
+| ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [`references/laws_federal.md`](../references/laws_federal.md)                                         | Federal-law cite source of truth                                     |
+| [`references/laws_state_*.md`](../references/)                                                        | Per-state cite source of truth (36 states)                           |
+| [`references/laws_state_template.md`](../references/laws_state_template.md)                           | Template for new state packs                                         |
+| [`references/cpt_codes_em.md`](../references/cpt_codes_em.md)                                         | E/M coding documentation requirements                                |
+| [`references/cpt_quick_reference.md`](../references/cpt_quick_reference.md)                           | High-frequency CPT/HCPCS codes                                       |
+| [`references/medicare_pfs_common.csv`](../references/medicare_pfs_common.csv)                         | ~150 CPT/HCPCS rows at CY2025 national Medicare rates                |
+| [`references/ncci_pairs_common.csv`](../references/ncci_pairs_common.csv)                             | NCCI unbundling pairs for the audit detector                         |
+| [`references/hpt_mrf_format.md`](../references/hpt_mrf_format.md)                                     | Reading a hospital's price-transparency MRF                          |
+| [`references/mrf_vendor_adapters.md`](../references/mrf_vendor_adapters.md)                           | Four supported MRF formats and the kit's fetch adapter               |
+| [`references/doi_portals.md`](../references/doi_portals.md)                                           | State DOI / AG portal directory (35 states) + federal                |
+| [`references/medical_debt_protection_by_state.md`](../references/medical_debt_protection_by_state.md) | 15 states: credit reporting, interest cap, charity care, itemization |
+| [`references/sol_by_state.md`](../references/sol_by_state.md)                                         | 50-state written-contract SOL table for medical-debt cases           |
+| [`references/irs_990_review.md`](../references/irs_990_review.md)                                     | Walkthrough of Schedule H Part I/V/VI for non-profit hospitals       |
+| [`references/spd_parsing_guide.md`](../references/spd_parsing_guide.md)                               | SPD extraction field set and use cases                               |
+| [`references/phone_call_scripts.md`](../references/phone_call_scripts.md)                             | Six scripts plus protocols and state recording laws                  |
+| [`references/glossary.md`](../references/glossary.md)                                                 | All kit acronyms defined                                             |
+| [`references/resources.md`](../references/resources.md)                                               | External patient-advocacy resources                                  |
 
 ### LLM operating files
 
@@ -115,10 +141,24 @@ For the patient's most common questions, jump straight to:
 
 ### Scripts
 
-| Script                                                          | Purpose                                    |
-| --------------------------------------------------------------- | ------------------------------------------ |
-| [`scripts/validate_tracker.py`](../scripts/validate_tracker.py) | Validate tracker CSV against schemas       |
-| [`scripts/deadline_watch.py`](../scripts/deadline_watch.py)     | Report overdue and upcoming bill deadlines |
+| Script                                                                                    | Purpose                                                            |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| [`scripts/validate_tracker.py`](../scripts/validate_tracker.py)                           | Validate tracker CSV against schemas                               |
+| [`scripts/deadline_watch.py`](../scripts/deadline_watch.py)                               | Overdue actions, response windows, SOL tracking by state           |
+| [`scripts/classify_rename_medical_bills.py`](../scripts/classify_rename_medical_bills.py) | Inbox intake: classify, rename, route to Billers/ or EOB/          |
+| [`scripts/restructure_to_billers_eob.py`](../scripts/restructure_to_billers_eob.py)       | One-time migration from older providers/ layout                    |
+| [`scripts/index_bills_and_claims.py`](../scripts/index_bills_and_claims.py)               | Per-folder `_bills.csv` and `_claims.csv` via Azure OpenAI         |
+| [`scripts/match_claims_to_bills.py`](../scripts/match_claims_to_bills.py)                 | Link each EOB claim to a bill it adjudicates                       |
+| [`scripts/fetch_price_benchmarks.py`](../scripts/fetch_price_benchmarks.py)               | Per-folder `_benchmarks.csv` vs Medicare + MRF data                |
+| [`scripts/fetch_mrf.py`](../scripts/fetch_mrf.py)                                         | Pull hospital MRF, extract per-CPT rate bands                      |
+| [`scripts/audit_billing_errors.py`](../scripts/audit_billing_errors.py)                   | Per-folder `_audit.csv` with NCCI / duplicate / modifier-25 / etc. |
+| [`scripts/check_completeness.py`](../scripts/check_completeness.py)                       | Master tracker.csv: gates, encounters, state machine               |
+| [`scripts/draft_letters_by_state.py`](../scripts/draft_letters_by_state.py)               | State-machine letter generator with all kit templates              |
+| [`scripts/parse_spd.py`](../scripts/parse_spd.py)                                         | SPD PDF -> structured plan-profile JSON via Azure OpenAI           |
+| [`scripts/log_interaction.py`](../scripts/log_interaction.py)                             | Append-only action log producer (calls, mailings, responses)       |
+| [`scripts/bundle_evidence.py`](../scripts/bundle_evidence.py)                             | Per-dispute-group zip with MANIFEST.md for offsite backup          |
+| [`scripts/bundle_to_cloud.py`](../scripts/bundle_to_cloud.py)                             | Push bundles to encrypted offsite via rclone                       |
+| [`scripts/analyze_self_pay_election.py`](../scripts/analyze_self_pay_election.py)         | Compare insurance vs NSA self-pay path per bill                    |
 
 ### Governance and meta
 

@@ -697,8 +697,251 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
+## Epic 19 — Marshall Allen methodology pipeline
+
+### Story 19.1 — Benchmark every bill against Medicare and surface counter-offer evidence
+
+**As a** patient with an itemized bill, **I want** the kit to compare each CPT against the Medicare allowable rate and surface a UCC § 2-305 counter-offer anchor, **so that** I have concrete evidence the bill is not a good-faith open-price term.
+
+**AC:**
+
+- Given an itemized bill, When `scripts/fetch_price_benchmarks.py` runs, Then it writes `Billers/<slug>/_benchmarks.csv` with one row per CPT showing billed amount, Medicare national rate, ratio, and FAIR Health / Bluebook URLs.
+- Given `_benchmarks.csv` has at least one row with `ratio_billed_to_medicare >= 1.50`, When `scripts/check_completeness.py` runs, Then the bill's `benchmarks_available` flips to Y and `next_action` becomes `negotiate_counter_offer`.
+- Given the counter-offer track is active, When `scripts/draft_letters_by_state.py` runs, Then it drafts `LETTER_COUNTER_OFFER.md` from `templates/letter_negotiation_counter_offer.md` with the line-item benchmark table embedded and an auto-computed `counter_offer_amount` of 200 % of the sum of Medicare allowables (or 20 % of `current_balance` as fallback).
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.2 — Audit each bill for duplicates, unbundling, modifier-25, late fees, and quantity inflation
+
+**As a** patient under a bill, **I want** the kit to automatically detect the most common billing errors Marshall Allen documents, **so that** my dispute letter cites structured findings rather than relying on the LLM to re-discover them every run.
+
+**AC:**
+
+- Given an itemized bill, When `scripts/audit_billing_errors.py` runs, Then it writes `Billers/<slug>/_audit.csv` with rows for each detected: duplicate CPT same DOS, NCCI unbundling (from `references/ncci_pairs_common.csv`), modifier-25 stacking with an E/M code, late-fee / finance-charge keywords, service-not-received language, and quantity-inflation flags.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.3 — Generate state-specific DOI / AG complaints in parallel with the dispute letter
+
+**As a** patient who has mailed a dispute letter, **I want** the kit to draft the matching state insurance-department or attorney-general consumer-affairs complaint same day, **so that** parallel pressure reaches the bad actor without my having to research each state portal.
+
+**AC:**
+
+- Given a dispute or counter-offer letter has been drafted (or its sent-date is populated), When the drafter runs, Then it produces `COMPLAINT_DOI.md` using `templates/complaint_state_doi.md` filled in with the right portal URL and mailing address for the patient's state from `references/doi_portals.md`.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.4 — Prepare a small-claims civil-warrant filing when escalation is needed
+
+**As a** patient whose dispute and 30-day warning have gone unanswered, **I want** the kit to draft a county-agnostic small-claims / general-sessions civil warrant with five claim theories preserved (UCC § 2-305 declaratory, NSA, HPT non-compliance, state itemization statute, FDCPA), **so that** I can file with the county clerk by transcribing onto their standard form.
+
+**AC:**
+
+- Given `thirty_day_warning_sent_date` is populated and no `small_claims_filed_date` is set, When the drafter runs, Then it produces `SMALL_CLAIMS_CIVIL_WARRANT.md` from `templates/small_claims_civil_warrant.md`.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.5 — Re-anchor a non-responsive dispute with a second written dispute
+
+**As a** patient whose dispute letter received a non-substantive reply, **I want** the kit to draft a tighter second written dispute that identifies what was unaddressed and gives a 15-business-day final window, **so that** I have a clean record before filing the DOI complaint or small claims.
+
+**AC:**
+
+- Given `dispute_letter_sent_date` is populated and the user has recorded a non-substantive response (via the notes column or via `scripts/log_interaction.py --action response_received`), When the drafter is run with the dispute_reply template override, Then it produces `LETTER_DISPUTE_REPLY.md` from `templates/letter_dispute_reply.md` selecting from blocks A-E based on what the user characterized in the reply.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.6 — Surface accounts past or near statute of limitations
+
+**As a** patient with old medical debts, **I want** the kit to flag accounts whose state-law SOL has expired or expires soon, **so that** I can preserve the SOL defense without accidentally re-aging the debt.
+
+**AC:**
+
+- Given a tracker CSV, When `scripts/deadline_watch.py --sol --state <CODE>` runs, Then accounts past the state's written-contract SOL appear in an "SOL expired" group and accounts within `--sol-warn` days appear in an "SOL approaching" group, with `references/sol_by_state.md` documenting the state-by-state table.
+- The output includes a reminder not to confirm the debt or make a partial payment on a SOL-expired account without first researching the state's re-aging rule.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.7 — Pursue ERISA § 502(c) statutory penalty when plan documents are not produced
+
+**As a** plan participant whose written § 1024(b)(4) document request was ignored, **I want** the kit to draft the § 502(c)(1) statutory-penalty demand at $110/day so I can recover the penalty (payable to me) or motivate the administrator to cure, **so that** the document delay carries actual cost.
+
+**AC:**
+
+- Given an SPD or plan-document request was sent and at least 45 calendar days have elapsed without cure, When the drafter is run with the erisa_502c_penalty template override, Then it produces a demand letter computing the accrued penalty days × $110 with a 15-day cure window before federal-court filing.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.8 — Verify services were actually delivered via HIPAA records request
+
+**As a** patient suspicious that a line item was billed but not rendered, **I want** the kit to draft a HIPAA § 164.524 records request that invokes the 30-day statutory clock and the state's per-page fee cap, **so that** I can compare the medical record to the bill before deciding what to dispute.
+
+**AC:**
+
+- Given the audit detector has surfaced a `service_not_received_suspected` finding (or the user explicitly requests records), When the drafter is run with the records_request_hipaa template override, Then it produces `LETTER_RECORDS_REQUEST_HIPAA.md` from `templates/letter_records_request_hipaa.md` invoking § 164.524 and the applicable state fee cap.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.9 — Use the No Surprises Act self-pay GFE / PPDR path
+
+**As an** uninsured or self-pay patient, **I want** the kit to draft a Good Faith Estimate demand and, when the final bill exceeds the GFE by $400+, a Patient-Provider Dispute Resolution submission for the federal portal, **so that** I have access to the federal NSA framework that applies to me.
+
+**AC:**
+
+- Given a self-pay patient and a scheduled or recently-billed service, When the drafter is run with the good_faith_estimate_request override, Then it produces `LETTER_GFE_REQUEST.md` from `templates/letter_good_faith_estimate_request.md`.
+- Given a final bill that exceeds a previously-issued GFE by $400+, When the drafter is run with the ppdr_initiate override, Then it produces a PPDR submission from `templates/letter_ppdr_initiate.md` with the line-item comparison table.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.10 — Challenge a hospital lien filed against a tort recovery
+
+**As an** accident-injured patient whose hospital has filed a statutory lien against a tort recovery, **I want** the kit to draft a six-ground lien challenge (chargemaster vs allowed, bill-insurance-first, NSA preemption, statutory cap, defective notice, made-whole), **so that** the lien is withdrawn or reduced to the contracted rate before settlement.
+
+**AC:**
+
+- Given the user flags `findings = "hospital_lien_threatened"` on a tracker row, When the drafter is run with the challenge_hospital_lien override, Then it produces `LETTER_CHALLENGE_HOSPITAL_LIEN.md` from `templates/letter_challenge_hospital_lien.md`.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.11 — Respond to plan subrogation claims with the made-whole / common-fund defenses
+
+**As a** plan participant facing an insurer subrogation claim against my tort recovery, **I want** the kit to demand plan documents and preserve the made-whole, common-fund, allocation, and NSA-carve-out defenses, **so that** the plan's reimbursement is reduced or eliminated.
+
+**AC:**
+
+- Given the user has received a subrogation questionnaire or letter of representation, When the drafter is run with the subrogation_response override, Then it produces `LETTER_SUBROGATION_RESPONSE.md` from `templates/letter_subrogation_response.md` demanding the SPD and asserting the four defenses.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.12 — Dispute medical debt that has hit a credit report
+
+**As a** patient whose disputed medical bill has been reported to a consumer credit bureau, **I want** the kit to draft an FCRA dispute letter invoking the bureau policies, the federal CFPB rule, the state-law ban (where applicable), and the active-dispute and identity-theft defenses, **so that** the tradeline is removed or marked in dispute.
+
+**AC:**
+
+- Given the user records the tradeline on a credit report, When the drafter is run with the credit_report_dispute_fcra override, Then it produces `LETTER_CREDIT_REPORT_DISPUTE_FCRA.md` from `templates/letter_credit_report_dispute_fcra.md` selecting the applicable grounds from A–H based on the bill's history.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.13 — Request that the plan initiate federal IDR on a balance-billed NSA claim
+
+**As a** plan participant being balance-billed for an NSA-protected service, **I want** the kit to demand the plan initiate federal Independent Dispute Resolution against the provider and confirm in writing that my cost-sharing is fixed at the in-network amount, **so that** the plan-vs-provider fight stays between them.
+
+**AC:**
+
+- Given an NSA-protected service is being balance-billed, When the drafter is run with the request_insurer_initiate_idr override, Then it produces `LETTER_REQUEST_INSURER_INITIATE_IDR.md` from `templates/letter_request_insurer_initiate_idr.md`.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.14 — Redirect work-related and motor-vehicle injury bills to the right payer
+
+**As a** patient whose injury was work-related or vehicle-accident-related, **I want** the kit to detect the injury context from the bill and draft a payer-redirect letter to the workers'-compensation carrier or auto med-pay carrier, **so that** the provider bills the right payer instead of me.
+
+**AC:**
+
+- Given the canonical bill's sidecar text contains work-related-injury keywords, When the drafter runs, Then it produces `LETTER_WC_CARRIER_REDIRECT.md` from `templates/letter_wc_carrier_redirect.md` in parallel with the regular dispute flow.
+- Given motor-vehicle-accident keywords are present instead, When the drafter runs, Then it produces `LETTER_AUTO_MED_PAY.md` from `templates/letter_auto_med_pay.md` in parallel with the regular dispute flow.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.15 — Cluster same-encounter bills and combine the dispute across providers
+
+**As a** patient with bills from four or more providers for one hospital encounter, **I want** the kit to recognize the encounter, link the bills, and draft a single combined NSA-ancillary dispute letter addressing every provider, **so that** the legal argument is made once and the recipients are coordinated.
+
+**AC:**
+
+- Given multiple bills with date-of-service within ±1 day, When `scripts/check_completeness.py` runs, Then they share an `encounter_id` of the form `E-YYYY-NNN`, preserved across runs through user override.
+- Given an encounter with 4+ distinct billers and at least one bill with an EOB on file, When the drafter runs, Then it produces a single `LETTER_ENCOUNTER_COMBINED.md` from `templates/encounter_combined_dispute.md` anchored to the alphabetically-first bill_id in the encounter, with a per-provider table covering every encounter member.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.16 — Log every interaction with billing and insurance
+
+**As a** patient running a months-long dispute, **I want** to log every phone call, email, and received response in a structured action log so the dispute drafter can reference the history in subsequent letters, **so that** the paper trail is intact and citable.
+
+**AC:**
+
+- Given the user runs `scripts/log_interaction.py --bill-id <id> --action <type> --note <text>`, Then a row is appended to `<log-dir>/actions.csv` with auto-incremented `A-YYYY-NNN` action_id, validated against `schemas/action.toml`, and refused if the bill_id is not in `tracker.csv` (unless `--skip-bill-check`).
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.17 — Bundle every dispute group's evidence for offsite backup and exhibit packaging
+
+**As a** patient preparing for a CFO escalation, a DOI complaint, or a court appearance, **I want** the kit to zip every artifact for one dispute group (bill, EOB, drafted letters, benchmark and audit rows, action log) with a manifest, **so that** I have a single self-contained record I can hand to a lawyer or judge.
+
+**AC:**
+
+- Given `tracker.csv` has dispute groups, When `scripts/bundle_evidence.py` runs, Then `<HEALTHBILLS_ROOT>/_bundles/<bill_id>_<YYYYMMDD>.zip` is produced per group with a `MANIFEST.md` listing included and missing artifacts.
+- Given the user has configured rclone, When `scripts/bundle_to_cloud.py` runs with `HEALTHBILLS_CLOUD_REMOTE` and `HEALTHBILLS_CLOUD_PATH` set, Then bundles are uploaded with `--immutable` so existing remote files are not overwritten.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.18 — Phone-call scripts and protocols for the calls the patient does choose to make
+
+**As a** kit user who needs to make a phone call to billing, insurance, or a patient advocate, **I want** scripts and rep-side protocols covering identification, recording-law rules per state, three-step confirmation patterns, and follow-up-letter cadence, **so that** I do not lose ground on a call.
+
+**AC:**
+
+- `references/phone_call_scripts.md` ships with six scripts (initial billing call, insurance EOB call, collection-hold call, patient-advocate escalation, CFO escalation, FDCPA validation request) plus universal protocols and a one-party / all-party recording-law state list.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.19 — Read the hospital's IRS Form 990 to build leverage
+
+**As a** patient disputing a non-profit hospital bill, **I want** a clear walkthrough of which Schedule H fields to extract from the hospital's IRS Form 990 and how to use them in dispute letters, FAP applications, and DOI complaints, **so that** the hospital's own filings become evidence.
+
+**AC:**
+
+- `references/irs_990_review.md` describes where to find the 990 (ProPublica, GuideStar, IRS), the Schedule H Part I/V/VI fields most useful for disputes, and how to use the data in hardship-negotiation letters, state complaints, IRS Form 13909, and CFO escalation.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.20 — Pull the hospital's machine-readable file for the codes on my bill
+
+**As a** patient with a hospital bill, **I want** the kit to fetch the hospital's MRF and extract gross, cash, min/max negotiated, and per-payer rates for the specific CPTs on my bill, **so that** the dispute letter can argue from the hospital's own published prices in addition to the Medicare benchmark.
+
+**AC:**
+
+- Given a hospital MRF URL and a CPT list, When `scripts/fetch_mrf.py` runs, Then it content-sniffs the format (CMS template JSON or CSV, Turquoise CSV, TransparentRx JSON, Epic-native CSV) and emits `<HEALTHBILLS_ROOT>/_mrf_lookups/mrf_<hospital_slug>_<YYYYMMDD>.csv` with per-code rate bands.
+- `references/mrf_vendor_adapters.md` documents the supported formats and the discoverability patterns.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.21 — Parse the Summary Plan Description into a structured profile
+
+**As a** plan participant in an active dispute, **I want** the kit to read my SPD PDF and emit a structured JSON profile with funding status, cost-sharing, claim and appeal deadlines, subrogation language, and NSA-ancillary implementation, **so that** ERISA appeals, subrogation responses, and IDR requests cite my actual plan terms.
+
+**AC:**
+
+- Given an SPD PDF, When `scripts/parse_spd.py --pdf <path> --plan-slug <slug>` runs, Then it renders the first 60 pages, sends them to Azure OpenAI, and emits `<HEALTHBILLS_ROOT>/_spd_profiles/<plan_slug>.json` with the field set documented in `references/spd_parsing_guide.md`.
+- The profile uses null for fields the SPD does not specify and includes a verbatim quote (capped) of the subrogation and appeal-procedure paragraphs.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.22 — Expand the bundled Medicare PFS lookup so more bills auto-benchmark
+
+**As a** patient with a bill containing codes from observation, inpatient, mental-health, OB, or immunization categories, **I want** the bundled `medicare_pfs_common.csv` to cover them, **so that** the benchmark CSV is filled out without manual research.
+
+**AC:**
+
+- `references/medicare_pfs_common.csv` ships with ~150 CPT/HCPCS rows at CY2025 national rates, covering ED, observation, inpatient, radiology, lab, cardiology, pulmonology, orthopedic surgery, OB/GYN, mental health, PT, immunizations, common drugs, and supply codes flagged as bundled.
+
+**Status:** shipped (v0.13.0)
+
+### Story 19.23 — Surface state-specific medical-debt protections in dispute and FCRA letters
+
+**As a** patient in a state with strong medical-debt protections (CO, NY, CA, IL, NJ, MN, others), **I want** the dispute drafter to cite the right state-specific medical-debt-reporting ban, interest cap, charity-care screening mandate, and itemized-bill statute, **so that** my letters carry the strongest available legal anchors.
+
+**AC:**
+
+- `references/medical_debt_protection_by_state.md` ships with 15 state entries each covering credit reporting, interest cap, charity-care screening, and itemized-bill on demand. The federal CFPB rule and three-bureau voluntary policies appear at the bottom.
+
+**Status:** shipped (v0.13.0)
+
+---
+
 ## Cross-references
 
-- Roadmap: this project does not yet have a `roadmap.json`. Roadmap is captured by story status above.
-- Changelog: see commit history; once releases start, a `CHANGELOG.md` will mirror version blocks.
-- Engineering plan: each rule/template is referenced from its story above by relative path.
+- Roadmap: see `roadmap.json` for the structured feature list with release versions.
+- Changelog: see `CHANGELOG.md` and the git history.
+- Engineering plan: each rule/template/script is referenced from its story above by relative path.

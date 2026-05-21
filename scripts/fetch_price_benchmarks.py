@@ -42,6 +42,7 @@ HEALTH_ROOT = Path(
     or (Path.home() / "Health_Bills")
 )
 BILLERS_DIR = HEALTH_ROOT / "Billers"
+MRF_DIR = HEALTH_ROOT / "_mrf_lookups"
 SIDECAR_SUFFIX = ".extracted.txt"
 BILLS_FILENAME = "_bills.csv"
 BENCHMARKS_FILENAME = "_benchmarks.csv"
@@ -77,6 +78,8 @@ BENCHMARK_COLUMNS = [
     "bill_file", "cpt_code", "description",
     "billed_amount", "medicare_national",
     "ratio_billed_to_medicare",
+    "hospital_cash_price", "hospital_min_negotiated",
+    "hospital_max_negotiated",
     "fairhealth_url", "bluebook_url",
     "category", "notes",
 ]
@@ -87,6 +90,43 @@ def load_medicare_lookup() -> dict[str, dict]:
         return {}
     with MEDICARE_LOOKUP.open(encoding="utf-8") as fh:
         return {row["cpt_code"]: row for row in csv.DictReader(fh)}
+
+
+def load_mrf_lookup() -> dict[str, dict]:
+    """Aggregate every `_mrf_lookups/mrf_*.csv` file into a single
+    {cpt_code: {cash, min_negotiated, max_negotiated}} map. When the
+    same CPT appears in multiple hospitals' files, the lowest cash and
+    lowest min_negotiated win (most patient-favorable). Returns an
+    empty dict if no MRF lookups have been fetched."""
+    out: dict[str, dict] = {}
+    if not MRF_DIR.is_dir():
+        return out
+    for mrf_csv in sorted(MRF_DIR.glob("mrf_*.csv")):
+        with mrf_csv.open(encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                code = (row.get("cpt_code") or "").strip().upper()
+                if not code:
+                    continue
+                slot = out.setdefault(code, {})
+                for source_col, target_col, prefer in [
+                    ("discounted_cash", "cash", "lowest"),
+                    ("min_negotiated", "min_negotiated", "lowest"),
+                    ("max_negotiated", "max_negotiated", "highest"),
+                ]:
+                    raw = (row.get(source_col) or "").strip()
+                    if not raw:
+                        continue
+                    try:
+                        val = float(raw)
+                    except ValueError:
+                        continue
+                    if target_col not in slot:
+                        slot[target_col] = val
+                    elif prefer == "lowest":
+                        slot[target_col] = min(slot[target_col], val)
+                    else:
+                        slot[target_col] = max(slot[target_col], val)
+    return out
 
 
 def read_sidecar_body(sidecar: Path) -> str:
@@ -138,11 +178,13 @@ def bluebook_url(code: str) -> str:
 
 
 def benchmarks_for_bill(bill_file: str, body: str,
-                        lookup: dict[str, dict]) -> list[dict]:
+                        lookup: dict[str, dict],
+                        mrf_lookup: dict[str, dict]) -> list[dict]:
     pairs = extract_code_amount_pairs(body)
     out: list[dict] = []
     for code, billed in pairs:
         ref = lookup.get(code, {})
+        mrf = mrf_lookup.get(code, {})
         # Prefer non-facility for office, facility for ED/inpatient;
         # we can't tell from here, so we average the two if both exist
         # and the spread is small. Otherwise default to non-facility.
@@ -164,6 +206,9 @@ def benchmarks_for_bill(bill_file: str, body: str,
                 ratio = f"{billed / float(mc):.2f}"
             except (ZeroDivisionError, ValueError):
                 ratio = ""
+        def fmt(v):
+            return "" if v is None else f"{v:.2f}"
+
         out.append({
             "bill_file": bill_file,
             "cpt_code": code,
@@ -171,6 +216,9 @@ def benchmarks_for_bill(bill_file: str, body: str,
             "billed_amount": f"{billed:.2f}",
             "medicare_national": mc,
             "ratio_billed_to_medicare": ratio,
+            "hospital_cash_price": fmt(mrf.get("cash")),
+            "hospital_min_negotiated": fmt(mrf.get("min_negotiated")),
+            "hospital_max_negotiated": fmt(mrf.get("max_negotiated")),
             "fairhealth_url": fairhealth_url(code),
             "bluebook_url": bluebook_url(code),
             "category": ref.get("category", ""),
@@ -179,7 +227,9 @@ def benchmarks_for_bill(bill_file: str, body: str,
     return out
 
 
-def process_slug(slug_dir: Path, lookup: dict[str, dict]) -> int:
+def process_slug(slug_dir: Path,
+                 lookup: dict[str, dict],
+                 mrf_lookup: dict[str, dict]) -> int:
     bills_csv = slug_dir / BILLS_FILENAME
     if not bills_csv.exists():
         return 0
@@ -195,7 +245,9 @@ def process_slug(slug_dir: Path, lookup: dict[str, dict]) -> int:
             body = read_sidecar_body(sidecar)
             if not body.strip():
                 continue
-            rows_out.extend(benchmarks_for_bill(file_name, body, lookup))
+            rows_out.extend(benchmarks_for_bill(
+                file_name, body, lookup, mrf_lookup,
+            ))
     out_path = slug_dir / BENCHMARKS_FILENAME
     if not rows_out:
         # Remove a stale benchmarks file if nothing matched this run
@@ -224,11 +276,20 @@ def main() -> int:
         print(f"[warn] no Medicare lookup at {MEDICARE_LOOKUP}; "
               f"ratios will be blank", flush=True)
 
+    mrf_lookup = load_mrf_lookup()
+    if mrf_lookup:
+        print(f"[info] merged {len(mrf_lookup)} CPT codes from "
+              f"hospital MRF lookups in {MRF_DIR}", flush=True)
+    else:
+        print(f"[info] no MRF lookups found in {MRF_DIR}; "
+              f"hospital_cash_price and hospital_*_negotiated columns "
+              f"will be blank", flush=True)
+
     counts = OrderedDict()
     for slug_dir in sorted(d for d in BILLERS_DIR.iterdir() if d.is_dir()):
         if args.slug and slug_dir.name != args.slug:
             continue
-        n = process_slug(slug_dir, lookup)
+        n = process_slug(slug_dir, lookup, mrf_lookup)
         if n:
             counts[slug_dir.name] = n
 

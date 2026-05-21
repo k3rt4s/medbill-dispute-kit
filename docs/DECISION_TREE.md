@@ -104,6 +104,65 @@ For **for-profit hospitals** or any other provider:
 
 - → **`templates/complaint_hipaa_access.md`** (HHS Office for Civil Rights complaint).
 
+## Step 4a — If the bill is materially over Medicare and both gates are open
+
+If you have both the EOB and an itemized bill, and your line items are billed at 1.5x or more of the Medicare allowable rate (run `scripts/fetch_price_benchmarks.py` to compute), the negotiated counter-offer is usually the strongest first move:
+
+- → **`templates/letter_negotiation_counter_offer.md`** (UCC § 2-305 counter-offer with the line-item benchmark table built in; auto-anchored at 200% of Medicare).
+
+## Step 4b — If the encounter has 4+ separate providers
+
+A hospital admission generating bills from facility + ER physician + radiology + anesthesia is one encounter. Apply the NSA ancillary-provider theory across the whole encounter, not bill-by-bill:
+
+- → **`templates/encounter_combined_dispute.md`** (one letter addressing every provider; the kit auto-drafts this when the encounter clustering hits the 4-biller threshold).
+
+## Step 4c — If the bill is for an injury that should be billed elsewhere
+
+For work-related injuries:
+
+- → **`templates/letter_wc_carrier_redirect.md`** (workers'-comp carrier under the state WC anti-balance-billing statute).
+
+For motor-vehicle accidents:
+
+- → **`templates/letter_auto_med_pay.md`** (auto med-pay / PIP carrier).
+
+The kit auto-detects these from sidecar keywords during drafting; they run alongside (not instead of) the regular dispute flow.
+
+## Step 4d — If the provider replied but didn't address the substance
+
+A form letter, a new statement at the original balance, a "we reviewed the account" conclusion, or an invitation to call when you asked for writing are all non-responses:
+
+- → **`templates/letter_dispute_reply.md`** (re-anchor with a 15-business-day final window, then escalate).
+
+## Step 4e — If a hospital lien has been filed against a tort recovery
+
+- → **`templates/letter_challenge_hospital_lien.md`** (six grounds including bill-insurance-first, chargemaster vs allowed, made-whole doctrine, statutory cap).
+
+## Step 4f — If a plan is asserting subrogation against your recovery
+
+- → **`templates/letter_subrogation_response.md`** (demand SPD, preserve made-whole and common-fund defenses, allocate between economic and non-economic damages).
+
+## Step 4g — If the debt has been reported to a credit bureau
+
+- → **`templates/letter_credit_report_dispute_fcra.md`** (one letter per bureau plus the furnisher; eight grounds including federal CFPB rule and state bans).
+
+## Step 4h — If the plan is balance-billing on an NSA-protected service
+
+- → **`templates/letter_request_insurer_initiate_idr.md`** (demand the plan initiate federal Independent Dispute Resolution; confirm cost-sharing fixed at in-network amount).
+
+## Step 4i — If you're uninsured and want the NSA self-pay path
+
+- → **`templates/letter_good_faith_estimate_request.md`** before service or post-bill.
+- → **`templates/letter_ppdr_initiate.md`** when the final bill exceeds the GFE by $400+.
+
+## Step 4j — If you want HIPAA medical records to verify what was actually delivered
+
+- → **`templates/letter_records_request_hipaa.md`** (45 CFR § 164.524 right of access, 30-day statutory clock). Auto-drafted when the audit detector flags `service_not_received_suspected`.
+
+## Step 4k — If the plan administrator missed the 30-day plan-document request
+
+- → **`templates/letter_erisa_502c_penalty.md`** ($110/day statutory penalty under § 502(c)(1), payable to you).
+
 ## Step 5 — After 30 days of no substantive response
 
 If you sent an initial dispute letter (4g-4j above) and the provider has not responded substantively within 15-30 days:
@@ -114,8 +173,15 @@ If you sent an initial dispute letter (4g-4j above) and the provider has not res
 
 If the 30-day warning has been ignored:
 
-- → **`templates/complaint_state_doi.md`** (file state complaint).
-- → File in small claims court if the disputed amount is within your state's jurisdictional limit. See `rules/06_small_claims.md` and `examples/small_claims_walkthrough.md`.
+- → **`templates/complaint_state_doi.md`** (file state DOI complaint; the kit also auto-drafts this alongside the main dispute letter, so you may already have a draft).
+- → **`templates/small_claims_civil_warrant.md`** (county-agnostic civil-warrant skeleton you transcribe onto your county clerk's form). See `rules/06_small_claims.md` and `examples/small_claims_walkthrough.md`.
+- → If the hospital is a non-profit and the conduct contradicts its Schedule H representations, **`templates/complaint_irs_form_13909.md`** in parallel.
+
+## Step 6a — If the dispute warrants attorney engagement
+
+If the amount in controversy approaches the small-claims jurisdictional limit, an ERISA fiduciary claim is in play, the dispute involves a hospital lien blocking a tort settlement, or the kit's free flow has stopped producing results:
+
+- → **`templates/attorney_intake_packet.md`** (two-page case summary with artifact index for an intake consult).
 
 ## Step 7 — If the debt has been overwhelming
 

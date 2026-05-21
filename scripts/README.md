@@ -19,10 +19,14 @@ python scripts/validate_tracker.py my_tracker_2026-05-18.csv
 
 Reports overdue and upcoming bill actions from a tracker CSV. Groups bills into Overdue / Due soon / Upcoming based on `next_action_due`. Exits 1 if anything is overdue. Useful in Task Scheduler / cron for weekly check-ins.
 
+With `--sol --state <CODE>`, the script also reports accounts whose written-contract statute of limitations has expired or expires soon. SOL data comes from `references/sol_by_state.md` and the bundled state table in this script (keep both in sync). The SOL group is informational; the patient should not act on a near-SOL flag without first researching the state's re-aging rule (acknowledging the debt or paying restarts the clock in most states).
+
 ```bash
 python scripts/deadline_watch.py my_tracker_2026-05-18.csv
 python scripts/deadline_watch.py my_tracker_2026-05-18.csv --window 14
 python scripts/deadline_watch.py my_tracker_2026-05-18.csv --as-of 2026-06-01
+python scripts/deadline_watch.py my_tracker_2026-05-18.csv --sol --state TN
+python scripts/deadline_watch.py my_tracker_2026-05-18.csv --sol --state FL --sol-facility-rule
 ```
 
 ## Local-ops pipeline (workstation-specific)
@@ -163,8 +167,15 @@ Additional template keys available for `FOLDER_TEMPLATE_OVERRIDES`:
 - `subrogation_response` — `templates/letter_subrogation_response.md`
 - `credit_report_dispute_fcra` — `templates/letter_credit_report_dispute_fcra.md`
 - `request_insurer_initiate_idr` — `templates/letter_request_insurer_initiate_idr.md`
+- `dispute_reply` — `templates/letter_dispute_reply.md` (second written dispute when the first reply did not address the substance)
+- `erisa_502c_penalty` — `templates/letter_erisa_502c_penalty.md` (statutory penalty for plan-document non-production)
 
-These do not have automatic state-machine gates because they are user-initiated (records review, GFE/PPDR for self-pay patients, accident-related lien and subrogation, credit-reporting and IDR escalations). Set them in `FOLDER_TEMPLATE_OVERRIDES` to drive the drafter when the trigger condition applies for a specific biller.
+These do not have automatic state-machine gates because they are user-initiated (records review, GFE/PPDR for self-pay patients, accident-related lien and subrogation, credit-reporting and IDR escalations, second written dispute, ERISA penalty claim). Set them in `FOLDER_TEMPLATE_OVERRIDES` to drive the drafter when the trigger condition applies for a specific biller.
+
+Automatic state-machine branches added in v0.13.0:
+
+- WC / auto-medpay routing — the canonical bill's sidecar text is keyword-scanned for work-related-injury or motor-vehicle-accident markers; matching bills get `LETTER_WC_CARRIER_REDIRECT.md` or `LETTER_AUTO_MED_PAY.md` drafted alongside (not instead of) the regular dispute flow.
+- Encounter-combined dispute — encounters with 4+ distinct billers (a hospital-admission signature) and at least one EOB on file produce a single `LETTER_ENCOUNTER_COMBINED.md` anchored to the alphabetically-first bill_id in the encounter, addressing every provider in the encounter at once.
 
 ```bash
 python scripts/draft_letters_by_state.py
@@ -207,6 +218,49 @@ python scripts/bundle_evidence.py --slug a_specific_biller
 ```
 
 Bundles are timestamped per run and earlier bundles are never deleted, so re-bundling is non-destructive.
+
+### `bundle_to_cloud.py`
+
+Pushes evidence bundles to an encrypted offsite destination via rclone. The kit does not bundle credentials or assume a backend; configure rclone once with `rclone config` (Backblaze B2, Wasabi, S3, etc., all work; pair with rclone's `crypt` backend for client-side encryption), then set `HEALTHBILLS_CLOUD_REMOTE` and `HEALTHBILLS_CLOUD_PATH` env vars and run:
+
+```bash
+python scripts/bundle_to_cloud.py
+python scripts/bundle_to_cloud.py --bundle B-abc12345_20260521.zip
+python scripts/bundle_to_cloud.py --since 2026-05-01
+python scripts/bundle_to_cloud.py --dry-run
+```
+
+Uses rclone's `--immutable` so remote files are never overwritten. The script does not delete local copies; use rclone's own retention features or a separate cleanup script if you want pruning.
+
+### `fetch_mrf.py`
+
+Pulls a hospital's machine-readable price file (45 CFR Part 180) and extracts per-CPT gross, cash, min/max negotiated, and per-payer rates for the codes on a specific bill. Standard-library-only; no network credentials needed (most hospital MRFs are public URLs). Content-sniffs the format from a small read of the file's first bytes:
+
+- CMS template JSON (post-July 2024) — top-level `standard_charge_information[]`.
+- CMS template CSV — wide-format with `standard_charge|gross`, `standard_charge|<payer>|<plan>|negotiated_dollar` columns.
+- Turquoise / TransparentRx flat CSV — `cpt_hcpcs_code` + `gross_charge` + `negotiated_rate_*`.
+- TransparentRx legacy JSON — nested `PriceTransparency.Items[]`.
+- Epic-native wide CSV — `BILLABLE_CODE` + `CODE_TYPE` + `LIST_PRICE`.
+
+See [`references/mrf_vendor_adapters.md`](../references/mrf_vendor_adapters.md) for format details and where to find a hospital's MRF URL.
+
+```bash
+python scripts/fetch_mrf.py \
+    --url https://example.com/standard-charges.json \
+    --hospital-slug example_general \
+    --cpts 99284,99285,71046,80053
+```
+
+### `parse_spd.py`
+
+Reads a Summary Plan Description PDF via Azure OpenAI gpt-5.2 and emits a structured plan profile JSON for use by the ERISA appeal, subrogation response, IDR request, and 502(c) penalty templates. The profile includes funding status (self-funded vs fully insured), in-network cost-sharing, claim and appeal deadlines, subrogation language (with made-whole and common-fund disclaimer flags), and the plan's NSA-ancillary implementation. See [`references/spd_parsing_guide.md`](../references/spd_parsing_guide.md) for the field set and use cases.
+
+```bash
+python scripts/parse_spd.py --pdf path/to/spd.pdf --plan-slug acme_ppo_2026
+python scripts/parse_spd.py --pdf path/to/spd.pdf --plan-slug acme_ppo_2026 --max-pages 80
+```
+
+Output: `<HEALTHBILLS_ROOT>/_spd_profiles/<plan_slug>.json`.
 
 ### `classify_rename_medical_bills.py`
 

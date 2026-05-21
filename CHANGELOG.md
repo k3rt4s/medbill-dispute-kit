@@ -6,6 +6,46 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.13.0] — 2026-05-21
+
+The Marshall Allen methodology release. Brings the "Never Pay the First Bill" workflow into the local-ops pipeline end-to-end.
+
+### Added
+
+- **Price benchmarking against Medicare PFS** (`scripts/fetch_price_benchmarks.py`, `references/medicare_pfs_common.csv`). Per-folder `_benchmarks.csv` with billed vs Medicare ratio and FAIR Health / Bluebook URLs. CY2025 national rates for ~150 codes across ED, observation, inpatient, radiology, lab, cardiology, OB/GYN, mental health, PT, immunizations, drugs.
+- **Negotiated counter-offer template and drafter integration** (`templates/letter_negotiation_counter_offer.md`). UCC § 2-305 framing with embedded benchmark table; auto-computed offer at 200 % of Medicare allowables (or 20 % of balance fallback).
+- **State DOI / AG portal directory** (`references/doi_portals.md`). 35-state portal directory plus federal parallel filings. Drafter emits `COMPLAINT_DOI.md` alongside the main letter.
+- **Small-claims civil-warrant skeleton** (`templates/small_claims_civil_warrant.md`). County-agnostic with five claim theories preserved.
+- **Billing-error audit detector** (`scripts/audit_billing_errors.py`, `references/ncci_pairs_common.csv`). Per-folder `_audit.csv` from duplicate-CPT, NCCI unbundling, modifier-25 stacking, late-fee, service-not-received, and quantity-inflation detectors.
+- **HIPAA records request template** (`templates/letter_records_request_hipaa.md`). Invokes 45 CFR § 164.524 with state per-page fee caps.
+- **GFE and PPDR templates for the NSA self-pay path** (`templates/letter_good_faith_estimate_request.md`, `templates/letter_ppdr_initiate.md`).
+- **Hospital lien and subrogation response templates** (`templates/letter_challenge_hospital_lien.md`, `templates/letter_subrogation_response.md`). Six-ground lien challenge; made-whole, common-fund, allocation, NSA-carve-out defenses.
+- **FCRA credit-report dispute template** (`templates/letter_credit_report_dispute_fcra.md`). Eight grounds covering federal CFPB rule, bureau policies, state bans, active dispute, paid-by-insurance, identity theft, outdated reporting.
+- **Insurer-IDR request template** (`templates/letter_request_insurer_initiate_idr.md`). Demands the plan initiate federal IDR and confirms patient cost-sharing is fixed at the in-network amount.
+- **Workers' compensation carrier redirect template** (`templates/letter_wc_carrier_redirect.md`). Drafter sidecar-keyword detection routes work-related-injury bills to WC redirect and motor-vehicle bills to auto med-pay in parallel with the regular dispute flow.
+- **Encounter clustering and combined dispute letter** (`scripts/check_completeness.py`, `templates/encounter_combined_dispute.md`). Bills with overlapping DOS (±1 day) share an `E-YYYY-NNN` encounter id; encounters with 4+ billers and an EOB on file get a single combined letter anchored to the alphabetically-first bill id.
+- **Aging-letter ladder** (`templates/letter_dispute_reply.md`). Second written dispute with blocks A–E for non-substantive responses.
+- **ERISA § 502(c)(1) statutory-penalty template** (`templates/letter_erisa_502c_penalty.md`). Computes $110/day from the 30-day window with a 15-day cure period.
+- **Interaction log producer** (`scripts/log_interaction.py`). Append-only `actions.csv` rows validated against `schemas/action.toml`, with bill-id existence check against `tracker.csv`.
+- **Evidence bundler and cloud push** (`scripts/bundle_evidence.py`, `scripts/bundle_to_cloud.py`). Per-dispute zip with `MANIFEST.md`; rclone-based offsite push with `--immutable`.
+- **Medical-debt SOL tracking** (`references/sol_by_state.md`, `scripts/deadline_watch.py --sol --state`). Surfaces accounts past or near the state's written-contract SOL with a re-aging reminder.
+- **State medical-debt protection summary** (`references/medical_debt_protection_by_state.md`). 15-state index across credit reporting, interest cap, charity-care screening, itemized-bill statute.
+- **IRS Form 990 community-benefit review reference** (`references/irs_990_review.md`). Schedule H Part I/V/VI walkthrough.
+- **Hospital MRF lookup** (`scripts/fetch_mrf.py`, `references/mrf_vendor_adapters.md`). Four-format adapter (CMS template JSON / CSV, Turquoise CSV, TransparentRx JSON, Epic-native CSV) emitting per-CPT rate bands.
+- **SPD parser** (`scripts/parse_spd.py`, `references/spd_parsing_guide.md`). Azure OpenAI-driven structured plan-profile extraction.
+- **Phone-call scripts and protocols** (`references/phone_call_scripts.md`). Six scripts plus universal protocols and a state-by-state recording-law list. Kit remains mail-first; scripts are provided for community use.
+- **Stories 19.1–19.23** added to `USER_STORIES.md`.
+
+### Changed
+
+- **`schemas/tracker.toml`** — added `encounter_id`, `benchmarks_available`, `counter_offer_amount`, the operational date+tracking triples for counter-offer / DOI / small-claims, and the corresponding `drafted_*` paths. `next_action` enum expanded.
+- **`schemas/action.toml`** — added 12 new action types covering records, GFE, IDR, subrogation, counter-offer outcomes, advocate/CFO calls, bundle archive, audit findings.
+- **`scripts/check_completeness.py`** — encounter clustering, benchmarks gate, expanded `derive_status` covering counter-offer / DOI / small-claims branches.
+- **`scripts/draft_letters_by_state.py`** — registers all new templates; passes benchmark table, encounter-sibling summary, and state portal data to the LLM via the new `extras` channel; auto-computes counter-offer; detects accident vs work-injury routing.
+- **`references/resources.md`** — FMMA, DPC Frontier, Sesame, PatientRightsAdvocate cash-pay comparables.
+- **`scripts/README.md`** — documents all new scripts, encounter clustering, available FOLDER_TEMPLATE_OVERRIDES keys.
+- **`roadmap.json`** — v0.13.0 features added.
+
 ## [v0.12.0] — 2026-05-19
 
 ### Added
