@@ -116,10 +116,10 @@ required = false
 description = "Most recent certified-mail tracking number used for this bill."
 
 [[columns]]
-name = "current_status"
+name = "status"
 type = "string"
 required = true
-description = "Current state of this bill on the dispute state machine. Enum: gathering_evidence | ready_to_dispute | disputed | escalated | settled | closed | superseded."
+description = "Current state of this bill on the dispute lifecycle. The state-machine pipeline writes one of: gathering_evidence | ready_to_dispute | disputed | escalated | settled | closed | superseded. Legacy callers may still use the coarser-grained enum defined in schemas/bill.toml (open | awaiting_response | in_dispute | settled | closed); validate_tracker.py accepts both vocabularies."
 
 [[columns]]
 name = "last_statement_date"

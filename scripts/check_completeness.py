@@ -6,7 +6,7 @@ the master tracker.csv with one row per bill, including:
   - has_eob (Y/N) — derived from matches.csv
   - has_itemization (Y/N) — read from _bills.csv (set by indexer's
     peer-reviewed dated-charge-line heuristic)
-  - current_status — gathering_evidence | ready_to_dispute |
+  - status — gathering_evidence | ready_to_dispute |
     disputed | escalated | settled | closed
   - next_action — request_eob | request_itemization | draft_dispute |
     monitor | (and others depending on prior sent letters)
@@ -51,7 +51,7 @@ MATCHES_CSV = LOG_DIR / "matches.csv"
 
 BILLS_FILENAME = "_bills.csv"
 
-# Slugs whose folders should always derive `current_status = closed`
+# Slugs whose folders should always derive `status = closed`
 # rather than triggering dispute actions. Used for insurer / agency
 # correspondence that is not a billable provider claim.
 #
@@ -72,7 +72,7 @@ TRACKER_COLUMNS = [
     "has_eob", "matched_claim_numbers", "has_itemization",
     "itemization_signals",
     # Derived state
-    "current_status", "next_action", "next_action_due",
+    "status", "next_action", "next_action_due",
     # Operational (preserved across runs)
     "eob_request_sent_date", "eob_request_tracking",
     "itemization_request_sent_date", "itemization_request_tracking",
@@ -83,18 +83,15 @@ TRACKER_COLUMNS = [
 ]
 
 
-def make_bill_id(biller_slug: str, file_name: str,
-                 statement_date: str, dos_start: str) -> str:
-    """Build a stable bill_id from biller_slug + filename. The hash
-    suffix is 8 hex chars (~4 billion buckets) so collisions across
-    a realistic bill collection are vanishingly unlikely."""
-    year = "0000"
-    for cand in (statement_date, dos_start):
-        if cand and len(cand) >= 4 and cand[:4].isdigit():
-            year = cand[:4]
-            break
+def make_bill_id(biller_slug: str, file_name: str) -> str:
+    """Build a stable bill_id from biller_slug + filename only.
+
+    No derived date is included in the id so that re-OCR runs that
+    change statement_date / dos_start don't shift the id and break
+    the merge of user-supplied operational fields (sent dates,
+    tracking numbers, notes) across runs."""
     h = hashlib.sha1(f"{biller_slug}/{file_name}".encode()).hexdigest()
-    return f"B-{year}-{h[:8]}"
+    return f"B-{h[:10]}"
 
 
 def read_csv(path: Path) -> list[dict]:
@@ -125,17 +122,22 @@ def load_bills() -> list[dict]:
     return bills
 
 
-def load_matches_by_bill() -> dict[str, list[dict]]:
-    """Return {bill_file: [claim_match_rows]} for matches where a bill
-    was linked to one or more claims."""
+def load_matches_by_bill() -> dict[tuple[str, str], list[dict]]:
+    """Return {(biller_slug, bill_file): [claim_match_rows]} for matches
+    where a bill was linked to one or more claims.
+
+    Keyed by (slug, file) — not file alone — so basename collisions
+    across slugs (e.g. two billers each having a "statement_v1.pdf")
+    do not silently cross-link."""
     matches = read_csv(MATCHES_CSV)
-    by_bill: dict[str, list[dict]] = defaultdict(list)
+    by_bill: dict[tuple[str, str], list[dict]] = defaultdict(list)
     for m in matches:
-        bill_file = m.get("bill_file", "").strip()
-        if bill_file and m.get("match_type") in (
+        slug = (m.get("bill_slug") or "").strip()
+        bill_file = (m.get("bill_file") or "").strip()
+        if slug and bill_file and m.get("match_type") in (
             "deterministic", "azure",
         ):
-            by_bill[bill_file].append(m)
+            by_bill[(slug, bill_file)].append(m)
     return by_bill
 
 
@@ -144,7 +146,7 @@ def derive_status(has_eob: str, has_itemization: str,
                   sent_dispute: str, sent_warning: str,
                   doc_type: str, current_balance: str,
                   slug: str) -> tuple[str, str]:
-    """Return (current_status, next_action)."""
+    """Return (status, next_action)."""
     if slug in ALWAYS_SKIP_SLUGS:
         return "closed", "monitor"
 
@@ -207,12 +209,13 @@ def main() -> int:
             continue
         statement_date = bill.get("statement_date", "")
         dos_start = bill.get("dos_start", "")
-        bill_id = make_bill_id(biller_slug, file_name, statement_date, dos_start)
+        bill_id = make_bill_id(biller_slug, file_name)
 
-        claim_matches = matches_by_bill.get(file_name, [])
+        claim_matches = matches_by_bill.get((biller_slug, file_name), [])
         has_eob = "Y" if claim_matches else "N"
         matched_claim_numbers = ";".join(
-            sorted({m.get("claim_number", "") for m in claim_matches if m.get("claim_number")})
+            sorted({m.get("claim_number", "") for m in claim_matches
+                    if m.get("claim_number")})
         )
 
         prior = existing.get(bill_id, {})
@@ -221,7 +224,8 @@ def main() -> int:
         sent_dispute = prior.get("dispute_letter_sent_date", "")
         sent_warning = prior.get("thirty_day_warning_sent_date", "")
 
-        has_itemization = bill.get("has_itemization", "N") or "N"
+        raw_item = (bill.get("has_itemization") or "").strip().upper()
+        has_itemization = "Y" if raw_item == "Y" else "N"
         doc_type = bill.get("doc_type", "")
 
         status, next_action = derive_status(
@@ -249,7 +253,7 @@ def main() -> int:
             "matched_claim_numbers": matched_claim_numbers,
             "has_itemization": has_itemization,
             "itemization_signals": bill.get("itemization_signals", ""),
-            "current_status": status,
+            "status": status,
             "next_action": next_action,
             "next_action_due": prior.get("next_action_due", ""),
             # Preserve user-set operational fields
@@ -276,7 +280,7 @@ def main() -> int:
           flush=True)
     # Print quick state breakdown
     from collections import Counter
-    status_counts = Counter(r["current_status"] for r in rows)
+    status_counts = Counter(r["status"] for r in rows)
     action_counts = Counter(r["next_action"] for r in rows)
     print("[status]", dict(status_counts), flush=True)
     print("[next_action]", dict(action_counts), flush=True)
