@@ -215,15 +215,23 @@ AUTO_INJURY_RE = re.compile(
 # that the patient was actually in an MVA or sustained a workplace
 # injury. The detector must strip these blocks before counting keyword
 # hits to avoid mis-routing every bill with a UB-04-style form layout
-# to WC / auto-medpay redirect. Strips from "please indicate if
-# applicable" header through the immediately following ~6 lines, which
-# is enough to consume the typical AUTO ACCIDENT / WC / Date of Injury
-# label cluster without affecting later narrative paragraphs.
-FORM_LABEL_BLOCK_RE = re.compile(
-    r"please\s+indicate\s+if\s+applicable\s*:?[^\n]*\n"
-    r"(?:[^\n]{0,80}\n){0,6}",
+# to WC / auto-medpay redirect.
+#
+# `_FORM_HEADER_RE` matches the "please indicate if applicable" header
+# at any position within a line (OCR sometimes prefixes line numbers).
+# `_FORM_LABEL_TOKENS_RE` is the keyword confirmation that gates
+# stripping — without one of these tokens appearing in the next 10
+# lines after the header, the header is left alone (so a narrative
+# sentence containing "please indicate if applicable" does not
+# accidentally suppress later legitimate WC / auto content).
+_FORM_HEADER_RE = re.compile(
+    r"please\s+indicate\s+if\s+applicable", re.I,
+)
+_FORM_LABEL_TOKENS_RE = re.compile(
+    r"\b(auto\s+accident|worker'?s?\s+comp|date\s+of\s+injury)\b",
     re.I,
 )
+_FORM_BLOCK_MAX_LINES = 10
 
 DOI_PORTALS = REFERENCES_DIR / "doi_portals.md"
 
@@ -318,6 +326,36 @@ def pick_canonical(rows: list[dict]) -> dict:
     return sorted(rows, key=sort_key, reverse=True)[0]
 
 
+def _strip_form_label_blocks(body: str) -> str:
+    """Remove "please indicate if applicable:" form-label checkbox
+    blocks from sidecar text. Iterates line by line, looking for the
+    header phrase; when found, scans the next `_FORM_BLOCK_MAX_LINES`
+    for canonical form-label tokens (AUTO ACCIDENT / WORKER'S COMP /
+    DATE OF INJURY). If at least one matches, drops the header line
+    and every line through the LAST token line within the window —
+    preserving anything after that boundary. Narrative text mentioning
+    "please indicate if applicable" without nearby form tokens is left
+    untouched, and the strip never over-runs into adjacent content."""
+    lines = body.split("\n")
+    keep: list[str] = []
+    i = 0
+    n = len(lines)
+    while i < n:
+        line = lines[i]
+        if _FORM_HEADER_RE.search(line):
+            window_end = min(i + 1 + _FORM_BLOCK_MAX_LINES, n)
+            last_token = -1
+            for j in range(i + 1, window_end):
+                if _FORM_LABEL_TOKENS_RE.search(lines[j]):
+                    last_token = j
+            if last_token >= 0:
+                i = last_token + 1
+                continue
+        keep.append(line)
+        i += 1
+    return "\n".join(keep)
+
+
 def detect_injury_routing(canonical: dict) -> str:
     """Inspect the canonical bill's sidecar text for accident or
     work-injury markers. Returns 'wc' if work-related markers dominate,
@@ -338,8 +376,10 @@ def detect_injury_routing(canonical: dict) -> str:
     # template don't trigger the detector. Without this, every UB-04
     # / CMS-1500 / Imagine-Pay style bill that prints those labels (Y/N
     # fields, not positive answers) gets mis-routed to the WC or auto-
-    # medpay track.
-    body_for_detection = FORM_LABEL_BLOCK_RE.sub(" ", body)
+    # medpay track. The suppression is line-anchored, keyword-gated
+    # (requires AUTO ACCIDENT / WORKER'S COMP / DATE OF INJURY in the
+    # next 10 lines), and handles arbitrary OCR line lengths.
+    body_for_detection = _strip_form_label_blocks(body)
     wc_hits = len(WC_INJURY_RE.findall(body_for_detection))
     auto_hits = len(AUTO_INJURY_RE.findall(body_for_detection))
     if wc_hits >= 1 and wc_hits >= auto_hits:
