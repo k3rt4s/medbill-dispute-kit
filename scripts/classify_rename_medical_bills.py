@@ -38,10 +38,23 @@ import sys
 import traceback
 from pathlib import Path
 
+import os
+
 import fitz  # PyMuPDF
 
-ENV_FILE = Path(r"C:\Code\projects\ai-toolkit\.env")
-HEALTH_ROOT = Path(r"D:\Proton Drive\My files\Financial\Health_Bills")
+# Defaults. Override at runtime via CLI args or these env vars:
+#   $HEALTHBILLS_ROOT       — parent of inbox/, providers/ (or Billers/+EOB/), other/
+#   $MEDBILL_KIT_ENV_FILE   — path to the workstation .env that holds
+#                             AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT,
+#                             AZURE_OPENAI_DEPLOYMENT
+ENV_FILE = Path(
+    os.environ.get("MEDBILL_KIT_ENV_FILE")
+    or (Path.home() / ".medbill-dispute-kit" / ".env")
+)
+HEALTH_ROOT = Path(
+    os.environ.get("HEALTHBILLS_ROOT")
+    or (Path.home() / "Health_Bills")
+)
 DEFAULT_INBOX = HEALTH_ROOT / "inbox"
 DEFAULT_PROVIDERS = HEALTH_ROOT / "providers"
 DEFAULT_OTHER = HEALTH_ROOT / "other"
