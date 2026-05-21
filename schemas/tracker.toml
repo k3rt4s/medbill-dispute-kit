@@ -86,7 +86,7 @@ description = "Render as 'true' or 'false' or empty."
 name = "findings"
 type = "string"
 required = false
-description = "Semicolon-separated list of finding slugs from bill.toml.findings.controlled_vocabulary."
+description = "Semicolon-separated list of finding slugs from bill.toml.findings.controlled_vocabulary. Populated by check_completeness.py from audit_billing_errors.py output (_audit.csv per slug). User-added findings are preserved across runs as long as they appear in the controlled vocabulary."
 
 [[columns]]
 name = "next_action"
@@ -348,6 +348,12 @@ name = "small_claims_court"
 type = "string"
 required = false
 description = "Court name and county where filed (e.g. 'General Sessions Court for Davidson County, TN')."
+
+[[columns]]
+name = "drafted_hipaa_records_request"
+type = "string"
+required = false
+description = "Relative path to the drafted HIPAA § 164.524 records request, populated when audit findings include service_not_received_suspected (auto-triggered by the drafter) or when the user explicitly invokes the records_request_hipaa template via FOLDER_TEMPLATE_OVERRIDES."
 
 [[columns]]
 name = "notes"

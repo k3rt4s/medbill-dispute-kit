@@ -88,6 +88,7 @@ TRACKER_COLUMNS = [
     "total_billed", "current_balance",
     "has_eob", "matched_claim_numbers", "has_itemization",
     "itemization_signals", "benchmarks_available",
+    "findings",
     "status", "next_action", "next_action_due",
     "eob_request_sent_date", "eob_request_tracking",
     "itemization_request_sent_date", "itemization_request_tracking",
@@ -103,6 +104,7 @@ TRACKER_COLUMNS = [
     "drafted_dispute_letter", "dispute_template_used",
     "drafted_counter_offer", "drafted_doi_complaint",
     "drafted_small_claims_civil_warrant",
+    "drafted_hipaa_records_request",
     "response_due_date", "notes",
 ]
 
@@ -179,7 +181,33 @@ TEMPLATE_PATHS = {
         TEMPLATES_DIR / "letter_credit_report_dispute_fcra.md",
     "request_insurer_initiate_idr":
         TEMPLATES_DIR / "letter_request_insurer_initiate_idr.md",
+    "auto_med_pay": TEMPLATES_DIR / "letter_auto_med_pay.md",
+    "wc_carrier_redirect":
+        TEMPLATES_DIR / "letter_wc_carrier_redirect.md",
+    "dispute_reply": TEMPLATES_DIR / "letter_dispute_reply.md",
+    "erisa_502c_penalty":
+        TEMPLATES_DIR / "letter_erisa_502c_penalty.md",
+    "encounter_combined":
+        TEMPLATES_DIR / "encounter_combined_dispute.md",
 }
+
+# Sidecar keyword detectors for accident- and work-related care. The
+# drafter inspects the canonical bill's sidecar text once per group
+# and routes to the matching redirect template in parallel with the
+# regular dispute flow.
+WC_INJURY_RE = re.compile(
+    r"\b(workers?[\s']?\s*comp(?:ensation)?|work[-\s]?related\s+injury|"
+    r"on[-\s]?the[-\s]?job|occupational\s+injury|first\s+report\s+of\s+injury|"
+    r"WC\s+claim|workplace\s+injury|injured\s+at\s+work)\b",
+    re.I,
+)
+AUTO_INJURY_RE = re.compile(
+    r"\b(motor[-\s]?vehicle\s+(?:accident|collision)|MVA\b|"
+    r"auto(?:mobile)?\s+(?:accident|collision)|car\s+(?:accident|crash)|"
+    r"PIP\s+(?:claim|coverage)|med[-\s]?pay\s+(?:claim|coverage)|"
+    r"third[-\s]?party\s+(?:auto|liability)\s+(?:insurer|carrier))\b",
+    re.I,
+)
 
 DOI_PORTALS = REFERENCES_DIR / "doi_portals.md"
 
@@ -272,6 +300,30 @@ def pick_canonical(rows: list[dict]) -> dict:
         dos_norm = dos if _DATE_RE.match(dos) else "0000-00-00"
         return (stmt_norm, dos_norm, r.get("file", ""))
     return sorted(rows, key=sort_key, reverse=True)[0]
+
+
+def detect_injury_routing(canonical: dict) -> str:
+    """Inspect the canonical bill's sidecar text for accident or
+    work-injury markers. Returns 'wc' if work-related markers dominate,
+    'auto' if motor-vehicle markers dominate, or '' if neither is
+    present. WC takes priority when both match because the WC carrier
+    is the statutorily-required first payer on a work-related auto
+    incident (e.g., a delivery driver in an MVA on the job)."""
+    slug = canonical.get("biller_slug", "")
+    file = canonical.get("file", "")
+    sidecar = BILLERS_DIR / slug / (file + SIDECAR_SUFFIX)
+    if not sidecar.exists():
+        return ""
+    body = read_sidecar_body(sidecar)
+    if not body:
+        return ""
+    wc_hits = len(WC_INJURY_RE.findall(body))
+    auto_hits = len(AUTO_INJURY_RE.findall(body))
+    if wc_hits >= 1 and wc_hits >= auto_hits:
+        return "wc"
+    if auto_hits >= 1:
+        return "auto"
+    return ""
 
 
 def gather_encounter_siblings(canonical: dict,
@@ -668,6 +720,46 @@ def main() -> int:
         # follow. Computed once and passed via extras.
         encounter_block = gather_encounter_siblings(canonical, tracker_rows)
 
+        # Encounter-combined dispute — drafted once per encounter when
+        # the encounter has 4+ distinct billers (a hospital-admission
+        # signature pattern with facility + ER physician + radiology +
+        # anesthesia or similar) and at least one bill in the
+        # encounter has its EOB on file. The LLM uses the EOB evidence
+        # to assess network status across the encounter. We anchor the
+        # draft to the bill with the alphabetically-first bill_id in
+        # the encounter so the letter is only generated once per
+        # encounter across runs.
+        eid = (canonical.get("encounter_id") or "").strip()
+        if eid:
+            encounter_members = [
+                r for r in tracker_rows
+                if r.get("encounter_id") == eid
+            ]
+            distinct_slugs = {
+                r.get("biller_slug", "") for r in encounter_members
+            }
+            any_eob = any(
+                r.get("has_eob") == "Y" for r in encounter_members
+            )
+            anchor_bill_id = sorted(
+                r["bill_id"] for r in encounter_members
+            )[0]
+            if (len(distinct_slugs) >= 4
+                    and any_eob
+                    and canonical.get("bill_id") == anchor_bill_id):
+                dest = bills_folder / (
+                    f"{bill_id}_LETTER_ENCOUNTER_COMBINED.md"
+                )
+                path = draft_letter_if_needed(
+                    canonical=canonical, all_rows=encounter_members,
+                    letter_kind="ENCOUNTER_COMBINED",
+                    template_key="encounter_combined",
+                    dest=dest, force=args.force, dry_run=args.dry_run,
+                    extras={"Encounter context": encounter_block},
+                )
+                if path:
+                    written[bill_id + "_encounter"] = path
+
         # Counter-offer letter (preferred when bill is materially over
         # Medicare, both gates open, and no dispute already sent).
         if (has_eob and has_item and has_benchmarks
@@ -731,6 +823,67 @@ def main() -> int:
                     Path(path).relative_to(HEALTH_ROOT)
                 )
                 canonical["dispute_template_used"] = template_key
+
+        # HIPAA records request — when the audit detector has surfaced
+        # `service_not_received_suspected` on the canonical bill, we
+        # draft the records-access letter automatically so the patient
+        # can verify each billed service is in the chart before
+        # proceeding with the dispute.
+        findings = {
+            f.strip() for f in
+            (canonical.get("findings") or "").split(";")
+            if f.strip()
+        }
+        if ("service_not_received_suspected" in findings
+                and not canonical.get("drafted_hipaa_records_request")):
+            dest = bills_folder / (
+                f"{bill_id}_LETTER_RECORDS_REQUEST_HIPAA.md"
+            )
+            path = draft_letter_if_needed(
+                canonical=canonical, all_rows=members,
+                letter_kind="RECORDS_REQUEST_HIPAA",
+                template_key="records_request_hipaa",
+                dest=dest, force=args.force, dry_run=args.dry_run,
+                extras={"Encounter context": encounter_block},
+            )
+            if path:
+                written[bill_id + "_hipaa"] = path
+                canonical["drafted_hipaa_records_request"] = str(
+                    Path(path).relative_to(HEALTH_ROOT)
+                )
+
+        # WC / auto-medpay redirect — when the bill is for a work-
+        # related or motor-vehicle injury, the first move is to
+        # redirect billing to the right payer. We draft the redirect
+        # in addition to (not instead of) the regular dispute flow so
+        # the user can mail it first.
+        routing = detect_injury_routing(canonical)
+        if routing == "wc":
+            dest = bills_folder / (
+                f"{bill_id}_LETTER_WC_CARRIER_REDIRECT.md"
+            )
+            path = draft_letter_if_needed(
+                canonical=canonical, all_rows=members,
+                letter_kind="WC_REDIRECT",
+                template_key="wc_carrier_redirect",
+                dest=dest, force=args.force, dry_run=args.dry_run,
+                extras={"Encounter context": encounter_block},
+            )
+            if path:
+                written[bill_id + "_wc"] = path
+        elif routing == "auto":
+            dest = bills_folder / (
+                f"{bill_id}_LETTER_AUTO_MED_PAY.md"
+            )
+            path = draft_letter_if_needed(
+                canonical=canonical, all_rows=members,
+                letter_kind="AUTO_MED_PAY",
+                template_key="auto_med_pay",
+                dest=dest, force=args.force, dry_run=args.dry_run,
+                extras={"Encounter context": encounter_block},
+            )
+            if path:
+                written[bill_id + "_auto"] = path
 
         # DOI complaint — parallel pressure track, drafted as soon as
         # the main letter (dispute or counter-offer) is in the queue or

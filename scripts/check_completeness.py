@@ -52,6 +52,18 @@ MATCHES_CSV = LOG_DIR / "matches.csv"
 
 BILLS_FILENAME = "_bills.csv"
 BENCHMARKS_FILENAME = "_benchmarks.csv"
+AUDIT_FILENAME = "_audit.csv"
+
+# Audit finding_code -> controlled-vocabulary slug in bill.toml.
+# Keep in sync with schemas/bill.toml findings.controlled_vocabulary.
+AUDIT_FINDING_TO_SLUG: dict[str, str] = {
+    "duplicate_cpt_same_bill": "duplicate_cpt_same_bill",
+    "unbundling_ncci": "unbundling_ncci",
+    "modifier_25_stacking": "modifier_25_stacking",
+    "late_fee_or_finance_charge": "late_fee_or_finance_charge",
+    "service_not_received_suspected": "service_not_received_suspected",
+    "quantity_high": "quantity_inflation_suspected",
+}
 
 # Ratio above which a billed CPT is considered materially over Medicare and
 # therefore eligible for the negotiated-counter-offer track. 1.50 = 150% of
@@ -81,6 +93,7 @@ TRACKER_COLUMNS = [
     # Evidence gates
     "has_eob", "matched_claim_numbers", "has_itemization",
     "itemization_signals", "benchmarks_available",
+    "findings",
     # Derived state
     "status", "next_action", "next_action_due",
     # Operational (preserved across runs)
@@ -94,6 +107,7 @@ TRACKER_COLUMNS = [
     "doi_complaint_number",
     "small_claims_filed_date", "small_claims_case_number",
     "small_claims_court",
+    "drafted_hipaa_records_request",
     # Free text
     "response_due_date", "notes",
 ]
@@ -227,6 +241,29 @@ def assign_encounter_ids(rows: list[dict],
         rows[i]["encounter_id"] = cluster_id_for[c]
 
 
+def load_audit_findings_by_bill() -> dict[tuple[str, str], set[str]]:
+    """Return {(slug, file): {finding_slug, ...}} from _audit.csv per
+    slug. Maps audit finding_codes to bill.toml controlled-vocabulary
+    slugs via AUDIT_FINDING_TO_SLUG."""
+    out: dict[tuple[str, str], set[str]] = defaultdict(set)
+    if not BILLERS_DIR.is_dir():
+        return out
+    for slug_dir in BILLERS_DIR.iterdir():
+        if not slug_dir.is_dir():
+            continue
+        audit = slug_dir / AUDIT_FILENAME
+        if not audit.exists():
+            continue
+        for row in read_csv(audit):
+            slug = slug_dir.name
+            bill_file = (row.get("bill_file") or "").strip()
+            code = (row.get("finding_code") or "").strip()
+            slug_for = AUDIT_FINDING_TO_SLUG.get(code)
+            if bill_file and slug_for:
+                out[(slug, bill_file)].add(slug_for)
+    return out
+
+
 def load_benchmarks_by_slug() -> dict[str, bool]:
     """Return {biller_slug: has_overpriced_lines} where True means at
     least one CPT on a bill in this folder is billed at >= the counter
@@ -348,6 +385,7 @@ def main() -> int:
     bills = load_bills()
     matches_by_bill = load_matches_by_bill()
     benchmarks_by_slug = load_benchmarks_by_slug()
+    audit_findings_by_bill = load_audit_findings_by_bill()
     existing = {r["bill_id"]: r for r in read_csv(TRACKER_CSV) if r.get("bill_id")}
 
     rows: list[dict] = []
@@ -386,6 +424,18 @@ def main() -> int:
         )
         doc_type = bill.get("doc_type", "")
 
+        # Merge audit findings into the findings column. Preserve any
+        # user-added findings present on the prior tracker row.
+        audit_slugs = audit_findings_by_bill.get(
+            (biller_slug, file_name), set(),
+        )
+        prior_findings = {
+            f.strip()
+            for f in (prior.get("findings") or "").split(";")
+            if f.strip()
+        }
+        merged_findings = sorted(audit_slugs | prior_findings)
+
         status, next_action = derive_status(
             has_eob=has_eob,
             has_itemization=has_itemization,
@@ -417,6 +467,7 @@ def main() -> int:
             "has_itemization": has_itemization,
             "itemization_signals": bill.get("itemization_signals", ""),
             "benchmarks_available": benchmarks_available,
+            "findings": ";".join(merged_findings),
             "status": status,
             "next_action": next_action,
             "next_action_due": prior.get("next_action_due", ""),
@@ -438,6 +489,8 @@ def main() -> int:
             "small_claims_filed_date": small_claims_filed,
             "small_claims_case_number": prior.get("small_claims_case_number", ""),
             "small_claims_court": prior.get("small_claims_court", ""),
+            "drafted_hipaa_records_request":
+                prior.get("drafted_hipaa_records_request", ""),
             "response_due_date": prior.get("response_due_date", ""),
             "notes": prior.get("notes", ""),
         }

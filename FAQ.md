@@ -212,7 +212,61 @@ See [`references/cpt_quick_reference.md`](references/cpt_quick_reference.md) for
 
 **My hospital's price file looks weird. How do I read it?**
 
-See [`references/hpt_mrf_format.md`](references/hpt_mrf_format.md) for the CMS machine-readable file format. Common compliance failures (missing cash price, opaque algorithms, login walls) are themselves CMS HPT-complaint hooks.
+See [`references/hpt_mrf_format.md`](references/hpt_mrf_format.md) for the CMS machine-readable file format. Common compliance failures (missing cash price, opaque algorithms, login walls) are themselves CMS HPT-complaint hooks. To pull specific CPT prices from the file programmatically, [`scripts/fetch_mrf.py`](scripts/fetch_mrf.py) handles the four most common MRF schemas (CMS template JSON or CSV, Turquoise legacy CSV, TransparentRx JSON, Epic-native wide CSV).
+
+## v0.13.0 pipeline questions
+
+**What is the price-benchmarking step and how do I run it?**
+
+[`scripts/fetch_price_benchmarks.py`](scripts/fetch_price_benchmarks.py) walks every `_bills.csv` in your `Billers/<slug>/` tree, extracts the CPT/HCPCS codes that appear next to dollar amounts in the OCR sidecar, joins each one against `references/medicare_pfs_common.csv` (~150 codes at CY2025 national rates), and writes `_benchmarks.csv` per folder with the billed-to-Medicare ratio plus FAIR Health and Bluebook URLs. If `_mrf_lookups/` has been populated by `fetch_mrf.py`, the hospital's published cash price and contracted-rate columns merge in automatically. The result is the evidence base the counter-offer drafter renders in `LETTER_COUNTER_OFFER.md`.
+
+**What's the difference between the regular dispute letter and the counter-offer letter?**
+
+The regular `letter_initial_dispute.md` argues the bill is wrong on specific findings: an NCCI unbundling violation, an EOB-vs-bill discrepancy, a service not documented in the record. The counter-offer letter `letter_negotiation_counter_offer.md` argues the price itself is not a good-faith open price term under UCC § 2-305(2). It includes a line-item table comparing your billed amounts to Medicare, the hospital's cash price, and the EOB allowed amount, and concretely offers to pay an anchor amount (default 200% of Medicare). Use the dispute letter when something is wrong about the bill; use the counter-offer when the bill is correctly itemized but priced 3-10x what the hospital actually accepts from any payer.
+
+**How does the kit detect billing errors automatically?**
+
+[`scripts/audit_billing_errors.py`](scripts/audit_billing_errors.py) scans each bill's OCR sidecar for the patterns Marshall Allen catalogues: duplicate CPTs on the same date of service, NCCI unbundling pairs (e.g., a comprehensive metabolic panel billed alongside a basic metabolic panel that's already included), modifier-25 stacking, late fees and finance charges (most states cap or prohibit these on medical debt), service-not-received language, and quantity inflation. The detected findings flow into `tracker.csv` `findings` column and into `_audit.csv` per folder. The dispute drafter then cites them by code rather than relying on the LLM to re-discover them.
+
+**The audit flagged service_not_received_suspected on one of my bills. What happens?**
+
+The drafter auto-generates `LETTER_RECORDS_REQUEST_HIPAA.md` for that bill in addition to whatever other letters apply. The HIPAA § 164.524 records request invokes the federal 30-day clock and the relevant state per-page fee cap. Once you receive the chart, compare it line-by-line against the itemized bill. Services billed without supporting documentation become the strongest possible dispute basis.
+
+**What is encounter clustering and what does it do?**
+
+[`scripts/check_completeness.py`](scripts/check_completeness.py) groups bills with overlapping date-of-service (±1 day) into the same encounter, assigning each cluster a stable id of the form `E-YYYY-NNN`. A typical hospital admission generates four to six separate bills (facility, ER physician, radiology, anesthesia, pathology, ambulance); the encounter id links them. When an encounter has 4+ distinct billers and at least one bill with an EOB on file, [`scripts/draft_letters_by_state.py`](scripts/draft_letters_by_state.py) drafts a single `LETTER_ENCOUNTER_COMBINED.md` that argues the NSA ancillary-provider theory across the whole encounter at once, with one CC list covering every provider.
+
+**How do I keep an action log without spreadsheet fatigue?**
+
+[`scripts/log_interaction.py`](scripts/log_interaction.py) is a one-line CLI that appends a row to `actions.csv` for every phone call, mailing, or received response. The script auto-increments action ids as `A-YYYY-NNN`, validates the action_type against the schema, and refuses to log against a bill id that isn't in the tracker. The dispute drafter pulls relevant actions into its prompt context when drafting later letters, so a logged call ("rep promised hold on collections through 2026-06-30") flows into the next dispute letter automatically.
+
+**Should I make phone calls or stick to certified mail?**
+
+The kit is mail-first because Marshall Allen's discipline is "every paper trail needs a paper trail". Verbal promises are deniable; certified mail is not. If you do make calls, [`references/phone_call_scripts.md`](references/phone_call_scripts.md) ships six scripts plus universal protocols (rep ID, call-reference number, three-step confirmation, same-day follow-up letter) and a state-by-state one-party/two-party consent list for legal recording.
+
+**How do I back up my evidence offsite?**
+
+[`scripts/bundle_evidence.py`](scripts/bundle_evidence.py) zips each dispute group's full artifact set (bill, EOB, all drafted letters, benchmark and audit rows, action log, manifest) into a single timestamped archive. [`scripts/bundle_to_cloud.py`](scripts/bundle_to_cloud.py) pushes them to any rclone-supported backend (Backblaze B2, Wasabi, S3, Google Drive, etc.) with `--immutable` so existing remote files are never overwritten. Pair with rclone's `crypt` backend for client-side encryption.
+
+**How does the SOL tracker work?**
+
+`scripts/deadline_watch.py --sol --state TN` (replace TN with your state) computes the written-contract statute of limitations for each open tracker row from the bill's statement_date plus the state's SOL years from [`references/sol_by_state.md`](references/sol_by_state.md). It surfaces accounts past SOL and accounts approaching SOL, and prints a reminder that confirming the debt or making a partial payment can restart the clock in most states.
+
+**My bill is for a work-related injury. What does the kit do?**
+
+The drafter detects work-related-injury keywords in the bill's OCR sidecar and auto-drafts `LETTER_WC_CARRIER_REDIRECT.md` redirecting the bill to the workers'-comp carrier under the state WC anti-balance-billing statute. The redirect runs alongside (not instead of) the regular dispute flow. The same pattern handles motor-vehicle injuries via `LETTER_AUTO_MED_PAY.md`.
+
+**My bill is from a non-profit hospital. What additional leverage do I have?**
+
+Three federal levers: § 501(r) FAP screening obligation (use `letter_hardship_negotiation.md` + `letter_financial_assistance_application.md`); § 501(r)(6) restrictions on extraordinary collection action; and IRS Form 13909 complaint when the hospital's conduct contradicts its Schedule H representations. The kit ships [`references/irs_990_review.md`](references/irs_990_review.md) walking through which Schedule H fields to pull from the hospital's most recent 990 and how to use them, plus [`templates/complaint_irs_form_13909.md`](templates/complaint_irs_form_13909.md) for the federal complaint.
+
+**When should I engage an attorney?**
+
+When the dispute hits any of: a hospital lien interfering with a tort settlement; amount in controversy approaching or exceeding the state's small-claims jurisdictional limit; an ERISA fiduciary-breach claim; an FCRA private right of action; or any case where the kit's free flow has produced diminishing returns. [`templates/attorney_intake_packet.md`](templates/attorney_intake_packet.md) generates a two-page case summary (page 1 facts and ask, page 2 artifact index) you can hand to an attorney for an intake consult.
+
+**Self-pay election under NSA — when is it worth doing instead of letting insurance bill?**
+
+[`scripts/analyze_self_pay_election.py`](scripts/analyze_self_pay_election.py) compares the two paths per bill: the insurance path (deductible + coinsurance up to OOP max, using your parsed SPD profile if available) vs the self-pay path (lowest of 200% Medicare, hospital's cash price from the MRF, or 60% AGB if FAP-eligible). For patients with high deductibles and access to charity care, self-pay frequently costs less. Allen's argument concretized.
 
 ## Contributing
 

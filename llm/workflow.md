@@ -36,14 +36,26 @@ Run these checks on every bill:
 
 For each bill, choose the highest-leverage next action it qualifies for. The order matters; do these in this sequence, not in parallel:
 
-1. `request_itemization` if there's no itemized bill yet. Template: `templates/letter_itemization_request.md`. Deadline: 30 days from receipt of request, per most state itemization statutes.
-2. `appeal_insurance_denial` if the bill stems from a claim denial. Template: `templates/letter_insurance_appeal_erisa.md` for ERISA plans; otherwise the state-plan equivalent. Deadline: per the plan's appeal window, typically 180 days.
-3. `dispute_no_surprises_violation` if the No Surprises Act check fired. Template: `templates/letter_no_surprises_violation.md`. Pair with a CMS complaint (1-800-985-3059 or cms.gov/nosurprises) the same day.
-4. `initial_dispute` for general billing errors, price gouging, or CPT mismatches. Template: `templates/letter_initial_dispute.md`. Deadline: request response within 15 business days.
-5. `negotiate` if the bill is correct but unaffordable. Aim for the cash price or a hardship reduction; reference financial-assistance rules under IRS § 501(r) for non-profit hospitals.
-6. `30day_warning` if 30+ days have passed since the initial dispute with no substantive response. Template: `templates/letter_30day_warning.md`. Trigger small claims after.
-7. `file_state_complaint` if a regulator can pressure the provider or insurer. Template: `templates/complaint_state_doi.md`.
-8. `small_claims` if the dispute is between $100 and the state small-claims limit (typically $5,000-$25,000). Reference `rules/06_small_claims.md` for state-by-state procedure.
+1. `request_eob` if a bill has arrived but the corresponding Explanation of Benefits has not. Template: `templates/letter_request_eob.md` (under ERISA § 1024(b)(4) for plan documents).
+2. `request_itemization` if there's no itemized bill yet. Template: `templates/letter_itemization_request.md`. Deadline: 30 days from receipt of request, per most state itemization statutes.
+3. `request_records_hipaa` if the audit detector or your review surfaces a service-not-received suspicion. Template: `templates/letter_records_request_hipaa.md`. Federal § 164.524 30-day clock.
+4. `appeal_insurance_denial` if the bill stems from a claim denial. Template: `templates/letter_insurance_appeal_erisa.md` for ERISA plans; otherwise the state-plan equivalent. Deadline: per the plan's appeal window, typically 180 days.
+5. `dispute_no_surprises_violation` if the No Surprises Act check fired. Templates: `templates/letter_no_surprises_violation.md` to the provider; `templates/letter_request_insurer_initiate_idr.md` to the plan demanding federal IDR. Pair with a CMS complaint (1-800-985-3059 or cms.gov/nosurprises) the same day.
+6. `initiate_ppdr` if the patient is uninsured / self-pay and the bill exceeds a Good Faith Estimate by $400+. Templates: `templates/letter_good_faith_estimate_request.md` first if no GFE on file; `templates/letter_ppdr_initiate.md` for the federal portal filing.
+7. `negotiate_counter_offer` if both gates are open (EOB and itemized bill in hand) and the bill is priced 1.5x or more above the Medicare allowable. Template: `templates/letter_negotiation_counter_offer.md` with the line-item benchmark table.
+8. `initial_dispute` for general billing errors, price gouging, or CPT mismatches not covered above. Template: `templates/letter_initial_dispute.md`. Deadline: request response within 15 business days.
+9. `dispute_reply` if a prior dispute received a non-substantive response (form letter, new statement at the original balance, "we reviewed" conclusion, invitation to call). Template: `templates/letter_dispute_reply.md`.
+10. `wc_carrier_redirect` or `auto_med_pay` for work-related or motor-vehicle injuries. Templates: `templates/letter_wc_carrier_redirect.md` or `templates/letter_auto_med_pay.md`. Runs in parallel with the regular dispute flow.
+11. `challenge_hospital_lien` if a hospital lien has been filed against a tort recovery. Template: `templates/letter_challenge_hospital_lien.md`.
+12. `subrogation_response` if the plan is asserting subrogation against a tort recovery. Template: `templates/letter_subrogation_response.md`.
+13. `credit_report_dispute` if the disputed debt has been reported to a consumer credit bureau. Template: `templates/letter_credit_report_dispute_fcra.md` (one letter per bureau plus the furnisher).
+14. `erisa_502c_penalty` if the plan administrator missed the 30-day window to produce plan documents under § 1024(b)(4). Template: `templates/letter_erisa_502c_penalty.md` ($110/day demand).
+15. `encounter_combined_dispute` when an encounter has 4+ distinct providers and at least one EOB on file. Template: `templates/encounter_combined_dispute.md`. The local-ops drafter auto-triggers this when running against tracker.csv.
+16. `negotiate` if the bill is correct, the benchmark argument doesn't apply, and the patient cannot afford the bill. Template: `templates/letter_hardship_negotiation.md`. For non-profit hospitals, pair with `templates/letter_financial_assistance_application.md` under § 501(r).
+17. `30day_warning` if 30+ days have passed since the initial dispute with no substantive response. Template: `templates/letter_30day_warning.md`. Trigger small claims after.
+18. `file_state_complaint` if a regulator can pressure the provider or insurer. Template: `templates/complaint_state_doi.md`. For non-profit hospitals also: `templates/complaint_irs_form_13909.md`.
+19. `small_claims` if the dispute is between $100 and the state small-claims limit (typically $5,000-$25,000). Template: `templates/small_claims_civil_warrant.md` (county-agnostic skeleton with five claim theories preserved). Reference `rules/06_small_claims.md` for state-by-state procedure.
+20. `engage_counsel` when the case has outgrown the kit. Template: `templates/attorney_intake_packet.md` (two-page case summary for an intake consult).
 
 Always offer to draft the letter or complaint in the same response. Don't make the user ask twice.
 

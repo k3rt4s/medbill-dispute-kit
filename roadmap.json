@@ -4,7 +4,7 @@
   "description": "LLM-droppable instruction toolkit for analyzing US medical bills, deduplicating follow-up statements, and running a months-long dispute process",
   "repository": "https://github.com/k3rt4s/medbill-dispute-kit",
   "license": "MIT",
-  "updated": "2026-05-18",
+  "updated": "2026-05-21",
   "features": [
     {
       "id": "kit-scaffold",
@@ -565,6 +565,160 @@
       "description": "18+ new FAQ entries covering EMTALA, HIPAA, auto med-pay, workers' comp, bankruptcy, TRICARE, VA, telehealth, ground/air ambulance, observation, ACA marketplace, Section 1557, plus process-and-tooling questions",
       "status": "implemented",
       "release": { "version": "v0.12.0", "date": "2026-05-19" }
+    },
+    {
+      "id": "allen-price-benchmarking",
+      "title": "Price benchmarking against Medicare PFS",
+      "description": "Per-folder _benchmarks.csv with Medicare ratio, FAIR Health and Bluebook URLs; bundles ~150 codes at CY2025 national rates; drives the counter-offer gate",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-counter-offer",
+      "title": "UCC 2-305 negotiated counter-offer template and drafter integration",
+      "description": "letter_negotiation_counter_offer.md with embedded benchmark table; auto-computed counter at 200% Medicare (20% of balance fallback); state-machine branch in draft_letters_by_state.py",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-doi-portals",
+      "title": "State DOI / AG portal directory and parallel complaint draft",
+      "description": "references/doi_portals.md covers 35 states plus federal parallel filings; drafter emits COMPLAINT_DOI.md alongside the main letter",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-small-claims",
+      "title": "Small-claims civil-warrant skeleton with five claim theories",
+      "description": "templates/small_claims_civil_warrant.md county-agnostic; UCC 2-305, NSA, HPT, state itemization, FDCPA",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-billing-audit",
+      "title": "Billing-error audit detector",
+      "description": "scripts/audit_billing_errors.py emits _audit.csv from duplicate-CPT, NCCI unbundling, modifier-25, late-fee, service-not-received, quantity-inflation detectors",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-records-hipaa",
+      "title": "HIPAA medical records request template",
+      "description": "templates/letter_records_request_hipaa.md invoking 45 CFR 164.524 with state per-page fee caps and the 30-day statutory clock",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-gfe-ppdr",
+      "title": "GFE request and PPDR initiate templates for the NSA self-pay path",
+      "description": "templates/letter_good_faith_estimate_request.md and templates/letter_ppdr_initiate.md for uninsured / self-pay patients",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-lien-subrogation",
+      "title": "Hospital lien challenge and subrogation response templates",
+      "description": "templates/letter_challenge_hospital_lien.md (six grounds) and templates/letter_subrogation_response.md (made-whole, common-fund, allocation defenses)",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-fcra-credit",
+      "title": "FCRA credit-report dispute template",
+      "description": "templates/letter_credit_report_dispute_fcra.md with eight grounds (CFPB rule, bureau policies, state bans, active dispute, paid-by-insurance, identity theft, outdated)",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-idr-request",
+      "title": "Insurer-IDR request template",
+      "description": "templates/letter_request_insurer_initiate_idr.md demanding the plan initiate federal IDR while protecting patient cost-sharing at the in-network amount",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-encounter-clustering",
+      "title": "Encounter clustering and combined dispute letter",
+      "description": "check_completeness.py clusters bills with overlapping DOS into E-YYYY-NNN encounters; drafter emits a single LETTER_ENCOUNTER_COMBINED.md for encounters with 4+ billers and an EOB on file",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-action-log",
+      "title": "Interaction log producer",
+      "description": "scripts/log_interaction.py appends rows to actions.csv, validates against schemas/action.toml, refuses unknown bill_ids",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-evidence-bundle",
+      "title": "Evidence bundler and cloud push",
+      "description": "scripts/bundle_evidence.py zips per-dispute artifacts with MANIFEST.md; scripts/bundle_to_cloud.py pushes via rclone with --immutable",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-aging-ladder",
+      "title": "Second-written-dispute (aging-letter ladder) template",
+      "description": "templates/letter_dispute_reply.md for non-substantive responses; blocks A-E for the common reply patterns",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-sol-tracker",
+      "title": "Medical-debt SOL tracking",
+      "description": "references/sol_by_state.md plus deadline_watch.py --sol --state flag surfacing SOL-expired and SOL-approaching accounts",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-erisa-penalty",
+      "title": "ERISA 502(c)(1) statutory-penalty template",
+      "description": "templates/letter_erisa_502c_penalty.md computing $110/day from the 30-day window, with a 15-day cure period",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-wc-auto-routing",
+      "title": "WC and auto med-pay payer redirect",
+      "description": "templates/letter_wc_carrier_redirect.md plus drafter sidecar-keyword detection that routes accident_related and work_related_injury bills to the right redirect template in parallel with the dispute flow",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-state-debt-protection",
+      "title": "State medical-debt protection summary",
+      "description": "references/medical_debt_protection_by_state.md covering 15 states across credit-reporting, interest cap, charity-care screening, itemized-bill statute",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-irs-990",
+      "title": "IRS Form 990 community-benefit review reference",
+      "description": "references/irs_990_review.md describing Schedule H Part I/V/VI fields, where to find them, and how to use them in dispute letters and Form 13909 complaints",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-mrf-fetch",
+      "title": "Hospital MRF lookup and per-CPT price extraction",
+      "description": "scripts/fetch_mrf.py with four-format adapter (CMS JSON, CMS CSV, Turquoise CSV, TransparentRx JSON, Epic CSV); references/mrf_vendor_adapters.md",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-spd-parser",
+      "title": "SPD parser",
+      "description": "scripts/parse_spd.py emits structured plan profile JSON via Azure OpenAI gpt-5.2; references/spd_parsing_guide.md describes the field set and use cases",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
+    },
+    {
+      "id": "allen-phone-scripts",
+      "title": "Phone-call scripts and protocols (community use)",
+      "description": "references/phone_call_scripts.md ships six scripts plus universal protocols and a state-by-state recording-law list. Kit remains mail-first; scripts are for users who choose to call.",
+      "status": "implemented",
+      "release": { "version": "v0.13.0", "date": "2026-05-21" }
     },
     {
       "id": "state-long-tail",
