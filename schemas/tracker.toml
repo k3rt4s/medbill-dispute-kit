@@ -116,10 +116,10 @@ required = false
 description = "Most recent certified-mail tracking number used for this bill."
 
 [[columns]]
-name = "status"
+name = "current_status"
 type = "string"
 required = true
-description = "current_status of this bill on the dispute state machine. Enum: gathering_evidence | ready_to_dispute | disputed | escalated | settled | closed | superseded."
+description = "Current state of this bill on the dispute state machine. Enum: gathering_evidence | ready_to_dispute | disputed | escalated | settled | closed | superseded."
 
 [[columns]]
 name = "last_statement_date"

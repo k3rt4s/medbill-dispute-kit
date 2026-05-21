@@ -35,7 +35,9 @@ The full chain, in order:
 
 ```text
 classify_rename_medical_bills.py    intake — split mixed inbox/ into Billers/ and EOB/
-extract_health_bills_text.py        (vendored separately; OCR each file, write sidecars)
+text-extraction step                 (out of scope for this kit — use ai-toolkit's file_management
+                                      Stage 5 `extract_documents.py` or any equivalent that produces
+                                      `<file>.extracted.txt` sidecars next to each source file)
 restructure_to_billers_eob.py       one-time migration if older `providers/` layout exists
 index_bills_and_claims.py           per-folder _bills.csv and _claims.csv via Azure
 match_claims_to_bills.py            link each EOB claim to a bill it adjudicates
@@ -76,7 +78,7 @@ Links each EOB claim row to the bill that adjudicates it. Two-stage:
 1. **Deterministic** (no API call): same biller_slug + amount within $0.50 + DOS overlap (or claim DOS within 60 days of the bill's statement date if no bill DOS).
 2. **Azure OpenAI fallback** when deterministic returns multiple candidates or none: gpt-5.2 sees the claim row and the candidate bills with a strict "respond UNKNOWN if not confident" prompt. False positives are worse than false negatives.
 
-Output: `C:/Code_data/medbill-dispute-kit/tracker/matches.csv` with one row per attempted match. Match types: `deterministic`, `azure`, `unmatched`, `bill_only` (no claim for this slug), `claim_only` (no bill for this slug).
+Output: `<log-dir>/matches.csv` with one row per attempted match. Match types: `deterministic`, `azure`, `azure_unknown`, `unmatched`, `bill_only` (no claim for this slug), `claim_only` (no bill for this slug). The log directory defaults to `~/.medbill-dispute-kit/tracker/`; override via `$HEALTHBILLS_LOG_DIR`.
 
 ```bash
 python scripts/match_claims_to_bills.py
@@ -84,7 +86,7 @@ python scripts/match_claims_to_bills.py
 
 ### `check_completeness.py`
 
-Joins the per-folder CSVs with `matches.csv` and writes the master `tracker.csv` to `C:/Code_data/medbill-dispute-kit/tracker/`. Each bill row carries:
+Joins the per-folder CSVs with `matches.csv` and writes the master `tracker.csv` to the log directory (default `~/.medbill-dispute-kit/tracker/`, override via `$HEALTHBILLS_LOG_DIR`). Each bill row carries:
 
 - `has_eob` (Y/N, derived from matches.csv)
 - `has_itemization` (Y/N, from `_bills.csv`)
@@ -132,9 +134,9 @@ python scripts/classify_rename_medical_bills.py --dry-run
 
 ## Privacy notes
 
-The local-ops scripts upload bill / EOB images and extracted text to Azure OpenAI. They also write index CSVs and the master tracker to `C:/Code_data/medbill-dispute-kit/tracker/` containing patient name, provider name, claim numbers, dates of service, and dollar amounts. Treat `Code_data/` as sensitive: keep it on local disk (not synced to multi-user storage), and back up encrypted.
+The local-ops scripts upload bill / EOB images and extracted text to Azure OpenAI. They also write index CSVs and the master tracker to your log directory (default `~/.medbill-dispute-kit/tracker/`, override via `$HEALTHBILLS_LOG_DIR`) containing patient name, provider name, claim numbers, dates of service, and dollar amounts. Treat that directory as sensitive: keep it on local disk (not synced to multi-user storage), and back up encrypted.
 
-The Azure deployment is configured to read credentials from a workstation `.env` file at `C:/Code/projects/ai-toolkit/.env` per the workspace-wide AGENTS.md §4 pattern. Edit the `ENV_FILE` constant near the top of each script if your workstation keeps the credentials somewhere else.
+The Azure deployment reads credentials from a workstation `.env` file. The default location is `~/.medbill-dispute-kit/.env`; override via `$MEDBILL_KIT_ENV_FILE`. The `.env` file must contain `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, and `AZURE_OPENAI_DEPLOYMENT`. Do not commit this file to any repo.
 
 ## Requirements
 

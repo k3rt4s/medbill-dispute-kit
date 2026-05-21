@@ -14,7 +14,8 @@ it adjudicates, using:
    not confident" prompt.
 
 Outputs:
-   C:/Code_data/medbill-dispute-kit/tracker/matches.csv
+   <log-dir>/matches.csv (default ~/.medbill-dispute-kit/tracker/,
+   override via $HEALTHBILLS_LOG_DIR)
    one row per attempted match with:
      - bill_id (a stable Bills/<slug>/<file> identifier)
      - claim_id (Bills/<slug>/<file> + claim_number)

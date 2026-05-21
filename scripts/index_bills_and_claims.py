@@ -146,11 +146,21 @@ def detect_is_itemized(body: str) -> tuple[bool, str]:
     if EOB_KEYWORDS.search(body) and len(EOB_KEYWORDS.findall(body)) >= 4:
         signals.append("eob_override")
         return False, ";".join(signals)
-    only_aging = (dcl_count > 0 and
-                  all(m for m in AGING_KEYWORDS.finditer(body)))
-    if only_aging:
-        signals.append("aging_only_override")
-        return False, ";".join(signals)
+    # Aging-only override: dated charge lines are present but each
+    # dated line sits within 50 chars of an aging keyword (statement
+    # date, due date, billing cycle). Indicates an aging report rather
+    # than itemized services.
+    if dcl_count > 0 and AGING_KEYWORDS.search(body):
+        aging_dominant = True
+        for m in DATED_LINE_RE.finditer(body):
+            window_start = max(0, m.start() - 50)
+            window_end = min(len(body), m.end() + 50)
+            if not AGING_KEYWORDS.search(body[window_start:window_end]):
+                aging_dominant = False
+                break
+        if aging_dominant:
+            signals.append("aging_only_override")
+            return False, ";".join(signals)
 
     # Override-to-true signals
     if UB04_HEADERS_RE.search(body):

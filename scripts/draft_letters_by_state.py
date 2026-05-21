@@ -501,11 +501,10 @@ def main() -> int:
             if r["bill_id"] != bill_id:
                 r["current_status"] = "superseded"
                 r["next_action"] = "see_canonical"
-                r["notes"] = (
-                    (r.get("notes") or "")
-                    + f" superseded by {bill_id} on "
-                    f"{datetime.date.today().isoformat()}"
-                ).strip()
+                prior_note = (r.get("notes") or "").strip()
+                stamp = (f"superseded by {bill_id} on "
+                         f"{datetime.date.today().isoformat()}")
+                r["notes"] = f"{prior_note}; {stamp}" if prior_note else stamp
 
     if not args.dry_run:
         write_tracker(tracker_rows)
