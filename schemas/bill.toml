@@ -228,8 +228,14 @@ description = "Date by which the next action should be taken, ISO 8601."
 [fields.status]
 type = "string"
 required = true
-enum = ["open", "awaiting_response", "in_dispute", "settled", "closed"]
-description = "High-level status of this bill."
+enum = [
+  # Original coarse-grained lifecycle (LLM-driven workflow):
+  "open", "awaiting_response", "in_dispute", "settled", "closed",
+  # Fine-grained state machine (the local-ops pipeline in scripts/):
+  "gathering_evidence", "ready_to_dispute", "disputed", "escalated",
+  "superseded",
+]
+description = "High-level status of this bill. The instruction-only workflow uses the first five values; the local-ops state machine in scripts/ uses the second set. Both are accepted."
 
 [fields.last_statement_date]
 type = "date"

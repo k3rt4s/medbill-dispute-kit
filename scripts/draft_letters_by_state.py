@@ -87,7 +87,7 @@ TRACKER_COLUMNS = [
     "total_billed", "current_balance",
     "has_eob", "matched_claim_numbers", "has_itemization",
     "itemization_signals",
-    "current_status", "next_action", "next_action_due",
+    "status", "next_action", "next_action_due",
     "eob_request_sent_date", "eob_request_tracking",
     "itemization_request_sent_date", "itemization_request_tracking",
     "dispute_letter_sent_date", "dispute_letter_tracking",
@@ -224,12 +224,21 @@ def dispute_key(row: dict) -> tuple[str, str]:
     return (slug, f"file:{row.get('file', '')}")
 
 
+_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
 def pick_canonical(rows: list[dict]) -> dict:
     """Pick the canonical bill row within a dispute group: prefer the
-    latest statement_date, breaking ties by file name lexicographic
-    sort (deterministic)."""
-    def sort_key(r: dict) -> tuple[str, str]:
-        return (r.get("statement_date", ""), r.get("file", ""))
+    latest valid ISO statement_date, then fall back to dos_start,
+    then to file name for deterministic tie-breaking. Rows whose
+    statement_date is missing or malformed sort last (treated as
+    `0000-00-00` so they don't randomly outrank a real date)."""
+    def sort_key(r: dict) -> tuple[str, str, str]:
+        stmt = (r.get("statement_date") or "").strip()
+        stmt_norm = stmt if _DATE_RE.match(stmt) else "0000-00-00"
+        dos = (r.get("dos_start") or "").strip()
+        dos_norm = dos if _DATE_RE.match(dos) else "0000-00-00"
+        return (stmt_norm, dos_norm, r.get("file", ""))
     return sorted(rows, key=sort_key, reverse=True)[0]
 
 
@@ -430,7 +439,7 @@ def main() -> int:
         sent_eob = canonical.get("eob_request_sent_date", "").strip()
         sent_item = canonical.get("itemization_request_sent_date", "").strip()
         sent_dispute = canonical.get("dispute_letter_sent_date", "").strip()
-        status = canonical.get("current_status", "")
+        status = canonical.get("status", "")
         next_action = canonical.get("next_action", "")
         bills_folder = BILLERS_DIR / slug
 
@@ -480,8 +489,18 @@ def main() -> int:
 
         # Dispute letter (only when BOTH gates are open)
         if has_eob and has_item and not sent_dispute:
-            evidence = gather_evidence_text(canonical) if not args.dry_run else ""
-            template_key = pick_dispute_template(slug, evidence)
+            # Use the folder override if available so we don't need to
+            # gather evidence twice when not in dry-run; only gather
+            # the (cheap) sidecar text for the template picker when
+            # actually drafting and no override exists.
+            if slug in FOLDER_TEMPLATE_OVERRIDES:
+                template_key = FOLDER_TEMPLATE_OVERRIDES[slug]
+            elif args.dry_run:
+                template_key = "initial_dispute"
+            else:
+                template_key = pick_dispute_template(
+                    slug, gather_evidence_text(canonical),
+                )
             dest = bills_folder / f"{bill_id}_DISPUTE_LETTER.md"
             path = draft_letter_if_needed(
                 canonical=canonical, all_rows=members,
@@ -499,7 +518,7 @@ def main() -> int:
         # Mark superseded members
         for r in members:
             if r["bill_id"] != bill_id:
-                r["current_status"] = "superseded"
+                r["status"] = "superseded"
                 r["next_action"] = "see_canonical"
                 prior_note = (r.get("notes") or "").strip()
                 stamp = (f"superseded by {bill_id} on "
