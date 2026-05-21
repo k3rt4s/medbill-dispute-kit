@@ -5,6 +5,15 @@
   "repository": "https://github.com/k3rt4s/medbill-dispute-kit",
   "license": "MIT",
   "updated": "2026-05-21",
+  "patches": [
+    {
+      "id": "fix-wc-auto-form-label-false-positive",
+      "title": "Fix WC / auto detector false positive on form-label checkbox blocks",
+      "description": "scripts/draft_letters_by_state.py now strips 'Please indicate if applicable:' form-label blocks before counting WC_INJURY_RE / AUTO_INJURY_RE keyword hits, so UB-04 / CMS-1500 / Imagine-Pay style bill templates no longer mis-route to WC carrier redirect or auto-medpay letters.",
+      "status": "implemented",
+      "release": { "version": "v0.13.1", "date": "2026-05-21" }
+    }
+  ],
   "features": [
     {
       "id": "kit-scaffold",
