@@ -50,9 +50,11 @@ import datetime
 import os
 import re
 import sys
-import tomllib
 from collections import defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _kit_config import load_kit_config, str_str_dict  # noqa: E402
 
 HEALTH_ROOT = Path(
     os.environ.get("HEALTHBILLS_ROOT")
@@ -113,25 +115,7 @@ BENCHMARKS_FILENAME = "_benchmarks.csv"
 COUNTER_OFFER_MULTIPLIER = 2.0  # 200% of Medicare allowable, see template
 
 
-def _load_kit_config() -> dict:
-    """Load workstation-local overrides from kit_config.toml at the
-    Health_Bills root. Returns empty dict if missing or unreadable —
-    the kit ships with safe empty defaults so the pipeline still
-    works without this file. Override path via MEDBILL_KIT_CONFIG_FILE."""
-    config_path = Path(
-        os.environ.get("MEDBILL_KIT_CONFIG_FILE")
-        or (HEALTH_ROOT / "kit_config.toml")
-    )
-    if not config_path.exists():
-        return {}
-    try:
-        with config_path.open("rb") as fh:
-            return tomllib.load(fh)
-    except (OSError, tomllib.TOMLDecodeError):
-        return {}
-
-
-_KIT_CONFIG = _load_kit_config()
+_KIT_CONFIG = load_kit_config(HEALTH_ROOT)
 
 # Per-folder dispute-template overrides for known cases. Populated
 # from kit_config.toml [folder_template_overrides] table on the
@@ -143,8 +127,8 @@ _KIT_CONFIG = _load_kit_config()
 #   my_er_ancillary_radiology_slug = "no_surprises"  # ER ancillary, NSA
 #   my_dental_insurer_slug         = "dental_dispute"  # dental denial in flight
 #   my_lab_collector_slug          = "fdcpa"  # collection notices
-FOLDER_TEMPLATE_OVERRIDES: dict[str, str] = dict(
-    _KIT_CONFIG.get("folder_template_overrides", {})
+FOLDER_TEMPLATE_OVERRIDES: dict[str, str] = str_str_dict(
+    _KIT_CONFIG.get("folder_template_overrides")
 )
 
 # Patterns that pick the dispute template if no override applies
@@ -570,8 +554,8 @@ def load_template(key: str) -> str:
 # Example workstation config:
 #   [biller_state_overrides]
 #   my_out_of_state_hospital_slug = "ga"  # services rendered in Georgia
-BILLER_STATE_OVERRIDES: dict[str, str] = dict(
-    _KIT_CONFIG.get("biller_state_overrides", {})
+BILLER_STATE_OVERRIDES: dict[str, str] = str_str_dict(
+    _KIT_CONFIG.get("biller_state_overrides")
 )
 
 # Patient's home state code (two-letter, lowercase). Used to load the

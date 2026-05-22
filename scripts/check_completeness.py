@@ -35,9 +35,11 @@ import hashlib
 import os
 import re
 import sys
-import tomllib
 from collections import defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _kit_config import load_kit_config, str_list  # noqa: E402
 
 HEALTH_ROOT = Path(
     os.environ.get("HEALTHBILLS_ROOT")
@@ -73,25 +75,7 @@ AUDIT_FINDING_TO_SLUG: dict[str, str] = {
 # negotiable per Marshall Allen's UCC § 2-305 framing.
 COUNTER_OFFER_RATIO_THRESHOLD = 1.50
 
-def _load_kit_config() -> dict:
-    """Load workstation-local overrides from kit_config.toml at the
-    Health_Bills root. Returns empty dict if missing or unreadable —
-    the kit ships with safe empty defaults so the pipeline still
-    works without this file. Override path via MEDBILL_KIT_CONFIG_FILE."""
-    config_path = Path(
-        os.environ.get("MEDBILL_KIT_CONFIG_FILE")
-        or (HEALTH_ROOT / "kit_config.toml")
-    )
-    if not config_path.exists():
-        return {}
-    try:
-        with config_path.open("rb") as fh:
-            return tomllib.load(fh)
-    except (OSError, tomllib.TOMLDecodeError):
-        return {}
-
-
-_KIT_CONFIG = _load_kit_config()
+_KIT_CONFIG = load_kit_config(HEALTH_ROOT)
 
 # Slugs whose folders should always derive `status = closed`
 # rather than triggering dispute actions. Used for insurer / agency
@@ -102,7 +86,7 @@ _KIT_CONFIG = _load_kit_config()
 # an empty set — those rows just appear with a `gathering_evidence`
 # status until you mark them resolved.
 ALWAYS_SKIP_SLUGS: set[str] = set(
-    _KIT_CONFIG.get("always_skip_slugs", {}).get("slugs", [])
+    str_list(_KIT_CONFIG.get("always_skip_slugs", {}).get("slugs"))
 )
 
 TRACKER_COLUMNS = [
