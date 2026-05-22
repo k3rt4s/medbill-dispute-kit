@@ -92,6 +92,7 @@ description = "Semicolon-separated list of finding slugs from bill.toml.findings
 name = "next_action"
 type = "string"
 required = true
+description = "Computed next dispute action. Enum: request_eob | request_itemization | request_eob_and_itemization | draft_dispute | negotiate_counter_offer | file_doi_complaint | file_small_claims | await_eob | await_itemization | await_response | await_counter_offer_response | await_doi_response | await_court_date | monitor | see_canonical | await_response_or_file_small_claims | review."
 
 [[columns]]
 name = "next_action_due"
@@ -155,16 +156,6 @@ name = "itemization_signals"
 type = "string"
 required = false
 description = "Brief audit trail of which itemization signals matched (dcl=N, ub04_headers, etc.). Useful for debugging false negatives."
-
-# ============================================================================
-# State machine — populated by check_completeness.py
-# ============================================================================
-
-[[columns]]
-name = "next_action"
-type = "string"
-required = false
-description = "Computed next dispute action. Enum: request_eob | request_itemization | request_eob_and_itemization | draft_dispute | negotiate_counter_offer | file_doi_complaint | file_small_claims | await_eob | await_itemization | await_response | await_counter_offer_response | await_doi_response | await_court_date | monitor | see_canonical | await_response_or_file_small_claims | review."
 
 # ============================================================================
 # Operational: dates and certified-mail tracking numbers. Filled by the

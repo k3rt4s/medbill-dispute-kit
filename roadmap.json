@@ -19,6 +19,13 @@
       "description": "ALWAYS_SKIP_SLUGS, FOLDER_TEMPLATE_OVERRIDES, and BILLER_STATE_OVERRIDES now load from <HEALTHBILLS_ROOT>/kit_config.toml (override path via MEDBILL_KIT_CONFIG_FILE). Removes the recurring 'do not commit this hunk' risk on workstation-tuned kits; the public sources ship with safe empty defaults and the actual values live outside any tracked tree.",
       "status": "implemented",
       "release": { "version": "v0.13.2", "date": "2026-05-22" }
+    },
+    {
+      "id": "fix-tracker-schema-and-template",
+      "title": "Fix duplicate next_action in tracker.toml and regenerate tracker_template.csv",
+      "description": "schemas/tracker.toml had next_action declared twice (the v0.13.0 state-machine work appended a second block instead of editing the original); merged the enum description into the original block and removed the duplicate. tracker/tracker_template.csv was still on the v0.1 22-column schema after v0.13.x added 31 columns; regenerated from the schema's authoritative column order so scripts/validate_tracker.py passes in CI.",
+      "status": "implemented",
+      "release": { "version": "v0.13.3", "date": "2026-05-22" }
     }
   ],
   "features": [

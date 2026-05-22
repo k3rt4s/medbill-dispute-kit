@@ -6,7 +6,12 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
-## [v0.13.2] — 2026-05-22
+## [v0.13.3] — 2026-05-22
+
+### Fixed
+
+- **`schemas/tracker.toml` had `next_action` declared twice.** The v0.13.0 work that added the state-machine pipeline appended a second `next_action` block instead of editing the original in place. The duplicate broke `scripts/validate_tracker.py` (which is what CI runs against `tracker/tracker_template.csv`) and would have silently confused any downstream consumer that iterated `[[columns]]`. Merged the v0.13.0 state-machine enum description into the original block; removed the duplicate.
+- **`tracker/tracker_template.csv` had been frozen on the v0.1 22-column schema** even after v0.13.x added 31 new columns to `schemas/tracker.toml`. The validator's column-order assertion (header in CSV must match `[[columns]]` order in the schema) failed on every push since v0.13.0. Regenerated the template from the schema's authoritative column order so the example row keeps the v0.1 values and every new column lands as an empty cell.
 
 ### Added
 
