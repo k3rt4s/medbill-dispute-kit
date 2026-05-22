@@ -4,7 +4,7 @@
   "description": "LLM-droppable instruction toolkit for analyzing US medical bills, deduplicating follow-up statements, and running a months-long dispute process",
   "repository": "https://github.com/k3rt4s/medbill-dispute-kit",
   "license": "MIT",
-  "updated": "2026-05-21",
+  "updated": "2026-05-22",
   "patches": [
     {
       "id": "fix-wc-auto-form-label-false-positive",
@@ -12,6 +12,13 @@
       "description": "scripts/draft_letters_by_state.py now strips 'Please indicate if applicable:' form-label blocks before counting WC_INJURY_RE / AUTO_INJURY_RE keyword hits, so UB-04 / CMS-1500 / Imagine-Pay style bill templates no longer mis-route to WC carrier redirect or auto-medpay letters.",
       "status": "implemented",
       "release": { "version": "v0.13.1", "date": "2026-05-21" }
+    },
+    {
+      "id": "workstation-config-toml",
+      "title": "Workstation-local overrides via kit_config.toml at HEALTHBILLS_ROOT",
+      "description": "ALWAYS_SKIP_SLUGS, FOLDER_TEMPLATE_OVERRIDES, and BILLER_STATE_OVERRIDES now load from <HEALTHBILLS_ROOT>/kit_config.toml (override path via MEDBILL_KIT_CONFIG_FILE). Removes the recurring 'do not commit this hunk' risk on workstation-tuned kits; the public sources ship with safe empty defaults and the actual values live outside any tracked tree.",
+      "status": "implemented",
+      "release": { "version": "v0.13.2", "date": "2026-05-22" }
     }
   ],
   "features": [

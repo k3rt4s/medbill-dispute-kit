@@ -277,11 +277,49 @@ python scripts/classify_rename_medical_bills.py
 python scripts/classify_rename_medical_bills.py --dry-run
 ```
 
+## Workstation configuration (`kit_config.toml`)
+
+Three pipeline overrides — which biller slugs to always-close as correspondence-only, which slugs to route to a specific dispute template, and which slugs to load an additional state-pack for — load from a TOML config file outside the kit's source tree. Default location: `<HEALTHBILLS_ROOT>/kit_config.toml`. Override path via the `MEDBILL_KIT_CONFIG_FILE` env var. Missing file is fine; the kit ships with empty defaults.
+
+Schema:
+
+```toml
+[always_skip_slugs]
+# Slugs whose folders should always derive status = closed rather
+# than triggering dispute actions. Used for insurer / agency /
+# coverage correspondence that is not a billable provider claim.
+slugs = ["my_insurer_correspondence_slug", "my_state_medicaid_slug"]
+
+[folder_template_overrides]
+# Map biller_slug -> dispute template key (from TEMPLATE_PATHS in
+# draft_letters_by_state.py). Drives the dispute-letter branch when
+# both gates are open. Valid keys: itemization, initial_dispute,
+# no_surprises, fdcpa, erisa_appeal, dental_dispute, counter_offer,
+# request_eob, records_request_hipaa, good_faith_estimate_request,
+# ppdr_initiate, challenge_hospital_lien, subrogation_response,
+# credit_report_dispute_fcra, request_insurer_initiate_idr,
+# auto_med_pay, wc_carrier_redirect, dispute_reply,
+# erisa_502c_penalty, encounter_combined.
+my_dental_insurer_slug = "dental_dispute"
+my_collector_slug      = "fdcpa"
+
+[biller_state_overrides]
+# Map biller_slug -> two-letter US state code (lowercase). Used when
+# services were rendered in a different state from the patient's
+# residence; the drafter loads the additional state pack so letters
+# can cite that state's statutes.
+out_of_state_hospital_slug = "ga"
+```
+
+The config file is per-workstation and must never be committed to any repo. The public kit ships with empty defaults so the pipeline runs without modification on a fresh checkout.
+
 ## Privacy notes
 
 The local-ops scripts upload bill / EOB images and extracted text to Azure OpenAI. They also write index CSVs and the master tracker to your log directory (default `~/.medbill-dispute-kit/tracker/`, override via `$HEALTHBILLS_LOG_DIR`) containing patient name, provider name, claim numbers, dates of service, and dollar amounts. Treat that directory as sensitive: keep it on local disk (not synced to multi-user storage), and back up encrypted.
 
 The Azure deployment reads credentials from a workstation `.env` file. The default location is `~/.medbill-dispute-kit/.env`; override via `$MEDBILL_KIT_ENV_FILE`. The `.env` file must contain `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, and `AZURE_OPENAI_DEPLOYMENT`. Do not commit this file to any repo.
+
+Same rule for `kit_config.toml` (see the "Workstation configuration" section above): per-workstation, never committed.
 
 ## Requirements
 
