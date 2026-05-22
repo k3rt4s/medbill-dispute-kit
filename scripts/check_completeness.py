@@ -35,6 +35,7 @@ import hashlib
 import os
 import re
 import sys
+import tomllib
 from collections import defaultdict
 from pathlib import Path
 
@@ -72,17 +73,37 @@ AUDIT_FINDING_TO_SLUG: dict[str, str] = {
 # negotiable per Marshall Allen's UCC § 2-305 framing.
 COUNTER_OFFER_RATIO_THRESHOLD = 1.50
 
+def _load_kit_config() -> dict:
+    """Load workstation-local overrides from kit_config.toml at the
+    Health_Bills root. Returns empty dict if missing or unreadable —
+    the kit ships with safe empty defaults so the pipeline still
+    works without this file. Override path via MEDBILL_KIT_CONFIG_FILE."""
+    config_path = Path(
+        os.environ.get("MEDBILL_KIT_CONFIG_FILE")
+        or (HEALTH_ROOT / "kit_config.toml")
+    )
+    if not config_path.exists():
+        return {}
+    try:
+        with config_path.open("rb") as fh:
+            return tomllib.load(fh)
+    except (OSError, tomllib.TOMLDecodeError):
+        return {}
+
+
+_KIT_CONFIG = _load_kit_config()
+
 # Slugs whose folders should always derive `status = closed`
 # rather than triggering dispute actions. Used for insurer / agency
 # correspondence that is not a billable provider claim.
 #
-# This list is intentionally empty in the public kit. Populate it on
-# your own workstation with slugs that are always-correspondence on
-# YOUR plan (e.g. your plan's claims-processor slug, your Medicaid
-# state agency slug, your COBRA administrator slug). The pipeline
-# still works if you leave it empty — those rows just appear with a
-# `gathering_evidence` status until you mark them resolved.
-ALWAYS_SKIP_SLUGS: set[str] = set()
+# Populated from kit_config.toml [always_skip_slugs] section on the
+# workstation. Empty in the public kit. The pipeline still works with
+# an empty set — those rows just appear with a `gathering_evidence`
+# status until you mark them resolved.
+ALWAYS_SKIP_SLUGS: set[str] = set(
+    _KIT_CONFIG.get("always_skip_slugs", {}).get("slugs", [])
+)
 
 TRACKER_COLUMNS = [
     # Identity

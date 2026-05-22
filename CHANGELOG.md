@@ -6,6 +6,18 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v0.13.2] — 2026-05-22
+
+### Added
+
+- **Workstation-local configuration via `kit_config.toml`.** Previously, three pipeline overrides (`ALWAYS_SKIP_SLUGS`, `FOLDER_TEMPLATE_OVERRIDES`, `BILLER_STATE_OVERRIDES`) had to be edited inline in the kit's Python sources, which created a recurring "do not commit this hunk" risk and made it impossible to push a workstation-tuned kit without scrubbing first. The three overrides now load from a single TOML file at `<HEALTHBILLS_ROOT>/kit_config.toml` (overridable via the `MEDBILL_KIT_CONFIG_FILE` env var). The public kit ships with safe empty defaults; the workstation's config lives outside the kit's source tree entirely and is never tracked in any repo.
+- TOML config sections: `[always_skip_slugs] slugs = [...]`, `[folder_template_overrides] <slug> = "<template_key>"`, `[biller_state_overrides] <slug> = "<two-letter-code>"`.
+- Both `scripts/check_completeness.py` and `scripts/draft_letters_by_state.py` ship a private `_load_kit_config()` helper using `tomllib` (stdlib, Python 3.11+). Missing or unreadable config file returns an empty dict so the pipeline still works on a fresh checkout.
+
+### Changed
+
+- `scripts/check_completeness.py` and `scripts/draft_letters_by_state.py` — three formerly-inline workstation dicts are now loaded from config; the inline-comment "WORKSTATION-LOCAL — do not commit" markers are gone because the data simply doesn't live in source any more.
+
 ## [v0.13.1] — 2026-05-21
 
 ### Fixed
