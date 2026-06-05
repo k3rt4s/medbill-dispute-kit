@@ -1,4 +1,4 @@
-# Rule 13 — EMTALA (Emergency Medical Treatment and Active Labor Act)
+# Rule 13, EMTALA (Emergency Medical Treatment and Active Labor Act)
 
 EMTALA is the federal statute that prevents hospitals participating in Medicare from "dumping" patients with emergency conditions or active labor. It is not primarily a billing statute, but it bears on billing in three ways: (a) hospitals cannot delay or refuse stabilizing emergency care over inability to pay or insurance verification; (b) patients harmed by EMTALA violations have a private civil action against the hospital; (c) the existence of EMTALA strengthens the patient's negotiation posture when a hospital threatens to deny future emergency care over an unpaid bill.
 
@@ -31,10 +31,10 @@ The kit fires this rule when:
 
 A patient who suffers "personal harm as a direct result" of a hospital's EMTALA violation may sue the hospital in federal or state court for damages. The statute imports state-law damages and limitations rules for the medical malpractice claim's substantive components, but the federal cause of action provides the basis.
 
-- **Statute of limitations:** **2 years from the date of the violation** — 42 U.S.C. § 1395dd(d)(2)(C)
+- **Statute of limitations:** **2 years from the date of the violation**, 42 U.S.C. § 1395dd(d)(2)(C)
 - **Damages:** state-law damages standard
 - **Forum:** federal or state court
-- **Counsel strongly recommended** — EMTALA litigation is technical and the damages analysis depends on state malpractice doctrine
+- **Counsel strongly recommended**, EMTALA litigation is technical and the damages analysis depends on state malpractice doctrine
 
 ### CMS regulatory complaint
 
@@ -58,9 +58,9 @@ Most states have an analog through the state health department. Often parallel t
 
 EMTALA's existence and the CMP exposure on the hospital change the dynamic when a billing department threatens consequences for unpaid bills:
 
-- "We won't see you again" — for emergency care, this is empty. The patient is entitled to MSE and stabilization regardless.
-- "We'll send you to collections" — that's a collection matter, not an emergency-access matter; EMTALA is not the lever here.
-- "We'll deny prior authorization for future scheduled care" — possible but separate from EMTALA.
+- "We won't see you again", for emergency care, this is empty. The patient is entitled to MSE and stabilization regardless.
+- "We'll send you to collections", that's a collection matter, not an emergency-access matter; EMTALA is not the lever here.
+- "We'll deny prior authorization for future scheduled care", possible but separate from EMTALA.
 
 The kit's posture: do not let an EMTALA-protected emergency-care threat distort the billing dispute. If a billing department invokes future emergency-care access as leverage, log it and treat the bill on its merits.
 
@@ -79,6 +79,6 @@ The LLM logs EMTALA cases with new schema findings:
 
 ## Related
 
-- `templates/complaint_emtala.md` — for the CMS regulatory complaint
-- [[04_no_surprises_act]] — the related federal protection for emergency-services billing
-- [[07_appeal_insurance_denial]] — for insurance denials of emergency-service claims
+- `templates/complaint_emtala.md`, for the CMS regulatory complaint
+- [[04_no_surprises_act]], the related federal protection for emergency-services billing
+- [[07_appeal_insurance_denial]], for insurance denials of emergency-service claims

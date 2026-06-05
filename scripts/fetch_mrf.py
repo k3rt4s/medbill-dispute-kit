@@ -1,4 +1,4 @@
-"""fetch_mrf.py — pull a hospital's machine-readable price file and
+"""fetch_mrf.py, pull a hospital's machine-readable price file and
 extract per-CPT prices for use in the counter-offer letter.
 
 The federal Hospital Price Transparency Rule (45 CFR Part 180) requires

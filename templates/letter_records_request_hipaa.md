@@ -1,4 +1,4 @@
-# Template — HIPAA medical records request
+# Template, HIPAA medical records request
 
 Use to obtain the patient's medical record under the federal right of access at 45 CFR § 164.524 (HIPAA Privacy Rule) before, during, or in support of a billing dispute. The record is the only way to verify that every service line on the bill corresponds to a service actually delivered in the documented chart. Marshall Allen recommends running this in parallel with the itemization request on any bill where the line-item count or quantity looks inflated, where a "service not received" finding has surfaced, or where the patient's recollection of the encounter does not match what was billed.
 
@@ -22,11 +22,11 @@ Date of birth: [DOB]
 [PROVIDER NAME]
 [PROVIDER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
 RE: Request for individual access to protected health information
-    pursuant to 45 CFR § 164.524 —
+    pursuant to 45 CFR § 164.524, 
     Patient: [PATIENT FULL NAME]
     DOB: [DOB]
     Medical record number (if known): [MRN]
@@ -115,7 +115,7 @@ cc:
 ## Placeholders and rendering notes
 
 - `[STATE]` controls one piece of substance: many states cap per-page copy fees below the federal rule. If `references/laws_state_<code>.md` lists a state cap, the drafter renders the cap in the "Fees" section. Common caps: TN $0.50/page after first 5 pages free, NY $0.75/page, CA $0.25/page or $10 minimum, TX $25 for first 20 pages.
-- `[MRN]` — if the patient knows their medical record number from a portal or prior letter, fill it in. Otherwise leave blank; date of service + DOB is sufficient.
+- `[MRN]`, if the patient knows their medical record number from a portal or prior letter, fill it in. Otherwise leave blank; date of service + DOB is sufficient.
 - Many large hospital systems route records requests through a third-party vendor (Sharecare, MRO, ScanSTAT, Verisma). The patient may receive a fee quote from the vendor rather than the provider. The federal rule still binds the covered entity; vendor pricing is constrained by the same § 164.524(c)(4) limits.
 
 ## Parallel actions to take the same day

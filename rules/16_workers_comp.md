@@ -1,6 +1,6 @@
-# Rule 16 — Workers' compensation medical bills
+# Rule 16, Workers' compensation medical bills
 
-When an injury or illness arises out of and in the course of employment, workers' compensation is the exclusive remedy in nearly all US states. Workers' comp has its own medical-fee schedule, its own provider network, its own claims process, and — critically — its own balance-billing prohibition. A worker who receives a balance bill for accepted workers' comp care is being charged something they almost certainly do not owe.
+When an injury or illness arises out of and in the course of employment, workers' compensation is the exclusive remedy in nearly all US states. Workers' comp has its own medical-fee schedule, its own provider network, its own claims process, and, critically, its own balance-billing prohibition. A worker who receives a balance bill for accepted workers' comp care is being charged something they almost certainly do not owe.
 
 This rule fires whenever a medical bill stems from a work-related injury or illness.
 
@@ -78,11 +78,11 @@ Each state has its own workers' comp statute. Common patterns:
 
 ## When this is not the right frame
 
-- **The patient is an independent contractor** rather than an employee — workers' comp typically does not apply; the patient may have employer-side common-law negligence claims if applicable.
-- **The injury is not work-related** — ordinary medical-billing rules apply.
-- **The patient is in Texas with a non-subscriber employer** — workers' comp does not apply; the patient may have negligence claims and ordinary medical-billing rules apply to the medical care.
-- **Federal workers** — different system (Federal Employees' Compensation Act, administered by DOL OWCP).
-- **Maritime workers** — Jones Act and Longshore and Harbor Workers' Compensation Act, different again.
+- **The patient is an independent contractor** rather than an employee, workers' comp typically does not apply; the patient may have employer-side common-law negligence claims if applicable.
+- **The injury is not work-related**, ordinary medical-billing rules apply.
+- **The patient is in Texas with a non-subscriber employer**, workers' comp does not apply; the patient may have negligence claims and ordinary medical-billing rules apply to the medical care.
+- **Federal workers**, different system (Federal Employees' Compensation Act, administered by DOL OWCP).
+- **Maritime workers**, Jones Act and Longshore and Harbor Workers' Compensation Act, different again.
 
 ## Free help
 
@@ -103,6 +103,6 @@ Each state has its own workers' comp statute. Common patterns:
 
 ## Related
 
-- [[15_auto_med_pay]] — for accident-related billing where the auto-insurance / WC interaction matters
-- `references/laws_state_*.md` — state-specific WC statutes and procedures
+- [[15_auto_med_pay]], for accident-related billing where the auto-insurance / WC interaction matters
+- `references/laws_state_*.md`, state-specific WC statutes and procedures
 - This rule does not yet ship a dedicated workers' comp template. The patient's primary tools are direct contact with the state workers' comp board, a workers' comp attorney for contested claims, and the general dispute templates (`letter_initial_dispute.md` with WC-specific citations) for improper balance bills.

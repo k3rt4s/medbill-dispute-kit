@@ -1,4 +1,4 @@
-# Template — CMS Hospital Price Transparency complaint
+# Template, CMS Hospital Price Transparency complaint
 
 For when a hospital has failed to publish a compliant machine-readable file (MRF) of standard charges under 45 CFR Part 180. Filed at the federal CMS complaint portal; produces real regulatory pressure because CMS can impose civil monetary penalties up to approximately $2 million per year for non-compliant large hospitals. PatientRightsAdvocate.org audits suggest only 34-36% of hospitals are fully compliant, so this complaint has very high probability of success.
 
@@ -19,7 +19,7 @@ Centers for Medicare and Medicaid Services
 Hospital Price Transparency Compliance
 [Filed online at https://www.cms.gov/hospital-price-transparency/contact-us]
 
-RE: Complaint — Hospital Price Transparency Rule non-compliance
+RE: Complaint, Hospital Price Transparency Rule non-compliance
     Hospital: [HOSPITAL LEGAL NAME]
     CMS Certification Number (CCN): [CCN IF KNOWN, OTHERWISE NOTE "unknown"]
     Hospital address: [HOSPITAL ADDRESS]
@@ -33,11 +33,11 @@ I. Summary of non-compliance observed
 
 [The LLM renders the applicable subset of these blocks based on what the patient actually observed. Be specific; CMS triages complaints on specificity.]
 
-[BLOCK A — No MRF posted at all]
+[BLOCK A, No MRF posted at all]
 
 I have searched the hospital's website at [HOSPITAL WEBSITE URL] on [DATES] and was unable to locate any machine-readable file of standard charges. The hospital's website does not include a link labeled "price transparency," "machine-readable file," "standard charges," or similar, in any location reasonable consumers would discover (homepage footer, billing page, patient information page). I also searched for the file at the standard discoverable location [hospitalwebsite.example.com/standardcharges] without success.
 
-[BLOCK B — MRF posted but materially incomplete]
+[BLOCK B, MRF posted but materially incomplete]
 
 The hospital's machine-readable file at [URL OF MRF] is materially incomplete. Specifically:
 
@@ -45,11 +45,11 @@ The hospital's machine-readable file at [URL OF MRF] is materially incomplete. S
 - [If applicable per CY 2026 OPPS final rule:] The file does not appear to include the median allowed amount or 10th/90th percentile allowed amounts required as of [APPLICABLE EFFECTIVE DATE].
 - The hospital's attestation of accuracy, required by 45 CFR § 180.50, is [not present / dated more than one year ago / signed by someone who does not appear to be the CEO or other delegated executive].
 
-[BLOCK C — No consumer-friendly display]
+[BLOCK C, No consumer-friendly display]
 
 The hospital does not maintain a consumer-friendly display of at least 300 shoppable services as required by 45 CFR § 180.60, or its display includes fewer than 300 services without providing the standard charges file in a sortable format as an alternative. Specifically: [describe what is or is not on the hospital's website].
 
-[BLOCK D — MRF posted but locked behind login or other access barrier]
+[BLOCK D, MRF posted but locked behind login or other access barrier]
 
 The MRF appears to exist at [URL] but is [behind a login wall / requires the user to agree to terms / only accessible after providing personal information]. 45 CFR § 180.50(d)(1) requires the file to be "easily accessible," "without barriers" including without requiring users to establish a user account.
 

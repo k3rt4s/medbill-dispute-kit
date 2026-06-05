@@ -1,4 +1,4 @@
-# Rule 20 — Telehealth billing
+# Rule 20, Telehealth billing
 
 Telehealth went from niche to mainstream during COVID-19 and has remained mainstream. The billing practices have not entirely caught up. Telehealth visits routinely produce three patient-side billing problems: site-of-service confusion (the provider bills as in-person), modifier-and-place-of-service errors (denials over technical coding), and parity-rule violations (some states require insurers to pay the same rate for telehealth as in-person, but enforcement is uneven).
 
@@ -8,10 +8,10 @@ This rule fires whenever a patient receives a bill for a telehealth visit.
 
 A telehealth visit can be one of several billing patterns:
 
-1. **Telehealth as primary modality** — patient is at home, provider is at a clinic or remote. Place-of-service code 02 (telehealth provided other than in home) or 10 (in home).
-2. **Facility-based telehealth** — patient is at one healthcare facility, provider is at another (telestroke, teleICU). Different billing pattern.
-3. **Telephone-only (audio-only)** — different CPT codes (99441-99443 for new patients, generally lower-paying than video).
-4. **Asynchronous / store-and-forward** — provider reviews data submitted by patient (e-visit codes 99421-99423).
+1. **Telehealth as primary modality**, patient is at home, provider is at a clinic or remote. Place-of-service code 02 (telehealth provided other than in home) or 10 (in home).
+2. **Facility-based telehealth**, patient is at one healthcare facility, provider is at another (telestroke, teleICU). Different billing pattern.
+3. **Telephone-only (audio-only)**, different CPT codes (99441-99443 for new patients, generally lower-paying than video).
+4. **Asynchronous / store-and-forward**, provider reviews data submitted by patient (e-visit codes 99421-99423).
 
 Each has different coverage and reimbursement rules under Medicare, Medicaid, and commercial plans.
 
@@ -21,10 +21,10 @@ Each has different coverage and reimbursement rules under Medicare, Medicaid, an
 
 Pull the itemized bill or EOB. Confirm the place-of-service code matches the actual encounter:
 
-- **02** — telehealth provided other than in home
-- **10** — telehealth provided in home (post-2022 distinction)
-- **11** — office (should NOT appear on a telehealth bill)
-- **22** — outpatient hospital (should NOT appear on a telehealth bill)
+- **02**, telehealth provided other than in home
+- **10**, telehealth provided in home (post-2022 distinction)
+- **11**, office (should NOT appear on a telehealth bill)
+- **22**, outpatient hospital (should NOT appear on a telehealth bill)
 
 If the bill shows POS 11 or 22 for what was a home telehealth visit, the bill is mis-coded. The hospital's "facility fee" attached to POS 22 is particularly inflated.
 
@@ -36,11 +36,11 @@ Telehealth services typically require modifier 95 (synchronous interactive audio
 
 Many states have telehealth parity statutes requiring commercial insurers to cover telehealth at the same rate as in-person care for the same service. State law varies widely:
 
-- **California**: Cal. Health & Safety Code § 1374.13 — strong parity for HMOs and PPOs.
-- **New York**: NY Ins. Law § 3217-h — parity required.
-- **Tennessee**: Tenn. Code § 56-7-1002 — parity for medically necessary telehealth.
-- **Texas**: Tex. Ins. Code § 1455.004 — parity required.
-- **Massachusetts**: M.G.L. c. 175 § 47BB — parity for behavioral health telehealth, broader for some services.
+- **California**: Cal. Health & Safety Code § 1374.13, strong parity for HMOs and PPOs.
+- **New York**: NY Ins. Law § 3217-h, parity required.
+- **Tennessee**: Tenn. Code § 56-7-1002, parity for medically necessary telehealth.
+- **Texas**: Tex. Ins. Code § 1455.004, parity required.
+- **Massachusetts**: M.G.L. c. 175 § 47BB, parity for behavioral health telehealth, broader for some services.
 
 For other states, the kit looks up via the state pack or via the [Center for Connected Health Policy](https://www.cchpca.org/) state law tracker.
 
@@ -76,12 +76,12 @@ Telehealth across state lines has licensure implications. A provider must be lic
 
 ## Resources
 
-- **Center for Connected Health Policy** — [cchpca.org](https://www.cchpca.org/). The single best resource for state-by-state telehealth law tracking.
-- **CMS telehealth page** — [cms.gov/medicare/coverage/telehealth](https://www.cms.gov/medicare/coverage/telehealth).
-- **CTeL (Center for Telehealth and e-Health Law)** — telehealth law tracking.
+- **Center for Connected Health Policy**, [cchpca.org](https://www.cchpca.org/). The single best resource for state-by-state telehealth law tracking.
+- **CMS telehealth page**, [cms.gov/medicare/coverage/telehealth](https://www.cms.gov/medicare/coverage/telehealth).
+- **CTeL (Center for Telehealth and e-Health Law)**, telehealth law tracking.
 
 ## Related
 
-- [[03_check_cpt_codes]] — for telehealth coding disputes
-- [[07_appeal_insurance_denial]] — for denied telehealth claims
-- `references/laws_state_*.md` — state-specific telehealth-parity statutes
+- [[03_check_cpt_codes]], for telehealth coding disputes
+- [[07_appeal_insurance_denial]], for denied telehealth claims
+- `references/laws_state_*.md`, state-specific telehealth-parity statutes

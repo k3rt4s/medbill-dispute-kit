@@ -20,7 +20,7 @@ For long-context LLMs (Claude Opus, Claude Sonnet 4.6+, GPT-5, Gemini 2.5 Pro), 
 
 - All files in [`llm/`](../llm/)
 - All files in [`rules/`](../rules/)
-- All files in [`references/`](../references/) — but if your state has a dedicated pack, you only need that one state file plus `laws_federal.md` plus `cpt_codes_em.md` plus `resources.md` plus `glossary.md`
+- All files in [`references/`](../references/), but if your state has a dedicated pack, you only need that one state file plus `laws_federal.md` plus `cpt_codes_em.md` plus `resources.md` plus `glossary.md`
 - All files in [`schemas/`](../schemas/)
 - All files in [`templates/`](../templates/)
 - [`tracker/tracker_template.csv`](../tracker/tracker_template.csv) and [`tracker/tracker_columns.md`](../tracker/tracker_columns.md)
@@ -59,7 +59,7 @@ Upload the bill and the denial letter. Tell the LLM:
 
 > My insurance denied this claim. Help me appeal.
 
-The LLM will identify your plan type (ERISA, Medicare, Medicaid, individual market, etc.) — the very first move in any denial appeal — and route to the right appeal track.
+The LLM will identify your plan type (ERISA, Medicare, Medicaid, individual market, etc.), the very first move in any denial appeal, and route to the right appeal track.
 
 ### "A debt collector is calling me about a medical bill"
 
@@ -126,7 +126,7 @@ Do not put this folder in a public cloud-sync without encryption. These contain 
 
 ## State packs currently shipped
 
-Tennessee, Georgia, California, Texas, New York, Florida, Pennsylvania, Illinois, Ohio, North Carolina, Michigan, Washington, New Jersey, Virginia, Arizona, Massachusetts. If your state isn't on this list, the kit uses [`references/laws_state_template.md`](../references/laws_state_template.md) to look up your state's statutes — with a warning to verify the citations before mailing.
+Tennessee, Georgia, California, Texas, New York, Florida, Pennsylvania, Illinois, Ohio, North Carolina, Michigan, Washington, New Jersey, Virginia, Arizona, Massachusetts. If your state isn't on this list, the kit uses [`references/laws_state_template.md`](../references/laws_state_template.md) to look up your state's statutes, with a warning to verify the citations before mailing.
 
 If you'd like to contribute your state's pack, see [CONTRIBUTING.md](../CONTRIBUTING.md).
 
@@ -151,10 +151,10 @@ LLMs are imperfect. The kit's [`llm/compatibility.md`](../llm/compatibility.md) 
 
 ## Where to ask for help
 
-- **[FAQ.md](../FAQ.md)** — common patient questions.
+- **[FAQ.md](../FAQ.md)**, common patient questions.
 - **GitHub Issues:** [github.com/k3rt4s/medbill-dispute-kit/issues](https://github.com/k3rt4s/medbill-dispute-kit/issues). Bugs in the kit, requests for new state packs, content corrections.
 - **State-specific patient-advocacy resources:** see [`references/resources.md`](../references/resources.md).
-- **For Medicare**: [shiphelp.org](https://www.shiphelp.org) — free SHIP counselor in every state.
+- **For Medicare**: [shiphelp.org](https://www.shiphelp.org), free SHIP counselor in every state.
 - **For ERISA self-funded plans**: DOL EBSA at 1-866-444-3272, free informal intervention.
 
 ## What this kit will not do

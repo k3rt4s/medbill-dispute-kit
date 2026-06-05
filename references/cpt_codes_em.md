@@ -1,4 +1,4 @@
-# CPT codes — E/M (evaluation and management)
+# CPT codes, E/M (evaluation and management)
 
 Documentation requirements for the visit-level codes that drive the largest fraction of patient-side billing disputes. These are the codes patients most often see upcoded.
 
@@ -13,7 +13,7 @@ The LLM should not redistribute full AMA CPT descriptors verbatim. Paraphrase or
 
 ---
 
-## Emergency Department visits — 99281 through 99285
+## Emergency Department visits, 99281 through 99285
 
 Source for E/M revisions: [AMA 2023 E/M descriptors and guidelines (PDF)](https://www.ama-assn.org/system/files/2023-e-m-descriptors-guidelines.pdf). ACEP coverage of the 2023 changes: [acep.org](https://www.acep.org/freestanding/newsroom/fs-newsroom-articles/april2023/2023-ama-cpt-documentation-guideline-changes-for-ed-em-codes-99281-99285).
 
@@ -53,7 +53,7 @@ A 15-20 minute visit for one straightforward complaint with focused exam and sim
 
 ---
 
-## Office or other outpatient visits — 99202 through 99215
+## Office or other outpatient visits, 99202 through 99215
 
 Source: [AMA E/M revisions FAQs](https://www.ama-assn.org/practice-management/cpt/cpt-evaluation-and-management-em-revisions-faqs).
 

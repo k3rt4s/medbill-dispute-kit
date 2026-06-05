@@ -16,7 +16,7 @@ Authoritative citations for every federal law referenced in the rules. The LLM s
 ### What the Act actually prohibits
 
 1. **Balance billing for emergency services** at any facility, in- or out-of-network. Includes emergency behavioral health.
-2. **Balance billing for non-emergency services delivered by out-of-network providers at in-network facilities.** This is the "ER doc is out-of-network at an in-network hospital" trap — also covers anesthesiology, radiology, pathology, laboratory services, assistant surgeons, hospitalists, intensivists, and neonatology.
+2. **Balance billing for non-emergency services delivered by out-of-network providers at in-network facilities.** This is the "ER doc is out-of-network at an in-network hospital" trap, also covers anesthesiology, radiology, pathology, laboratory services, assistant surgeons, hospitalists, intensivists, and neonatology.
 3. **Balance billing for out-of-network air ambulance.**
 4. Requires **Good Faith Estimates** (GFEs) for uninsured and self-pay patients; see PPDR below.
 
@@ -130,7 +130,7 @@ A patient signing a hospital admissions form agreeing to pay "all charges" witho
 
 ### Caveats
 
-UCC Article 2 governs sale of goods, not pure services. Courts split on whether a hospital admission is a hybrid goods-and-services contract for Article 2 purposes. Cite § 2-305 as a negotiation lever and a credible small-claims argument — not as a guaranteed legal win. The strongest pairings are with common-law unconscionability, quantum meruit, and the implied covenant of good faith and fair dealing.
+UCC Article 2 governs sale of goods, not pure services. Courts split on whether a hospital admission is a hybrid goods-and-services contract for Article 2 purposes. Cite § 2-305 as a negotiation lever and a credible small-claims argument, not as a guaranteed legal win. The strongest pairings are with common-law unconscionability, quantum meruit, and the implied covenant of good faith and fair dealing.
 
 ---
 
@@ -156,7 +156,7 @@ Send a § 1692g validation request within 30 days of first contact from any thir
 
 ---
 
-## IRS § 501(r) — Hospital Charity Care
+## IRS § 501(r), Hospital Charity Care
 
 - **Citation:** 26 U.S.C. § 501(r); regs at 26 CFR § 1.501(r)
 - **IRS page:** [irs.gov/charities-non-profits/financial-assistance-policy-and-emergency-medical-care-policy-section-501r4](https://www.irs.gov/charities-non-profits/financial-assistance-policy-and-emergency-medical-care-policy-section-501r4)

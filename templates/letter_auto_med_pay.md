@@ -1,4 +1,4 @@
-# Template — Auto insurance med-pay / PIP demand and accident-related billing dispute
+# Template, Auto insurance med-pay / PIP demand and accident-related billing dispute
 
 Use when a medical bill stems from a motor-vehicle accident and the patient needs to (a) force the auto insurer to apply med-pay/PIP coverage, (b) force a hospital to bill health insurance instead of relying on a settlement lien, or (c) challenge a hospital lien against an eventual personal-injury settlement.
 
@@ -8,7 +8,7 @@ For non-trivial accident cases, the kit recommends retaining a personal-injury a
 
 ---
 
-## Variant A — Demand to auto insurer to apply med-pay/PIP
+## Variant A, Demand to auto insurer to apply med-pay/PIP
 
 For when the patient has med-pay or PIP coverage on their own auto policy and the carrier has not paid or has paid less than the policy limit.
 
@@ -25,7 +25,7 @@ Claims Department
 [AUTO INSURANCE CARRIER NAME]
 [CARRIER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
 RE: Demand for med-pay / PIP coverage application
@@ -46,23 +46,23 @@ II. Bills incurred
 
 The following accident-related medical bills have been incurred to date, totaling $[TOTAL]:
 
-- [Provider], date of service [DATE], amount $[AMOUNT] — attached as Exhibit B1
-- [Provider], date of service [DATE], amount $[AMOUNT] — attached as Exhibit B2
+- [Provider], date of service [DATE], amount $[AMOUNT], attached as Exhibit B1
+- [Provider], date of service [DATE], amount $[AMOUNT], attached as Exhibit B2
 - [continue as applicable]
 
 III. Application of coverage
 
 [The LLM picks the applicable block.]
 
-[BLOCK A — Med-pay (tort state)]
+[BLOCK A, Med-pay (tort state)]
 
 [Med-pay / "MedPay" / "Medical Payments Coverage"] is no-fault first-party coverage that pays accident-related medical bills regardless of who caused the accident. Please apply the remaining $[REMAINING] of med-pay coverage to the unpaid balances listed above, in chronological order of service, until the policy limit is exhausted. Send payment directly to the providers and send me a copy of the explanation of benefits for each.
 
-[BLOCK B — PIP (no-fault state)]
+[BLOCK B, PIP (no-fault state)]
 
 Under [STATE]'s no-fault statute, PIP is primary for accident-related medical bills regardless of fault, up to the policy limit. Please apply the remaining $[REMAINING] of PIP coverage to the unpaid balances listed above, with payments coordinated to avoid duplicate billing and any overpayment to providers. If you contend that any specific bill is not covered, please identify the bill and the specific statutory or policy basis for exclusion in writing within fifteen (15) business days.
 
-[BLOCK C — UM/UIM (uninsured/underinsured)]
+[BLOCK C, UM/UIM (uninsured/underinsured)]
 
 Coverage under my Uninsured/Underinsured Motorist provision applies because the at-fault driver, [AT-FAULT DRIVER NAME], was [uninsured / under-insured with $[AMOUNT] limits insufficient to cover my damages]. Please open the UM/UIM claim and confirm the applicable limits in writing.
 
@@ -89,7 +89,7 @@ Claim #: [CLAIM NUMBER]
 Date of accident: [DATE]
 
 cc:
-    [STATE INSURANCE DEPARTMENT — Consumer Services]
+    [STATE INSURANCE DEPARTMENT, Consumer Services]
     [Patient's personal-injury attorney, if engaged]
 
 Enclosures: declarations page (Exhibit A); copies of bills (Exhibits B1-B[N])
@@ -97,7 +97,7 @@ Enclosures: declarations page (Exhibit A); copies of bills (Exhibits B1-B[N])
 
 ---
 
-## Variant B — Demand to hospital to bill health insurance instead of relying on lien
+## Variant B, Demand to hospital to bill health insurance instead of relying on lien
 
 For when a hospital has refused to bill the patient's health insurance and is preserving the bill for a lien against the eventual personal-injury settlement.
 
@@ -114,10 +114,10 @@ Email: [PATIENT EMAIL]
 [HOSPITAL NAME]
 [HOSPITAL MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Demand to bill health insurance — Account #[ACCOUNT NUMBER]
+RE: Demand to bill health insurance, Account #[ACCOUNT NUMBER]
     Date of service: [DATE]
     Health plan: [HEALTH PLAN NAME], member ID [MEMBER ID]
 
@@ -133,7 +133,7 @@ II. Demand
 
 I demand that [HOSPITAL NAME] submit a complete claim to [HEALTH PLAN NAME] within fifteen (15) business days of the date of this letter. Failing to bill my health insurance and instead reserving the bill for settlement recovery is:
 
-1. **Contrary to [STATE]'s hospital-lien statute** to the extent state law requires insurance-first attempts (e.g., O.C.G.A. § 44-14-471(c) for Georgia; analogous provisions in other states — verify your state).
+1. **Contrary to [STATE]'s hospital-lien statute** to the extent state law requires insurance-first attempts (e.g., O.C.G.A. § 44-14-471(c) for Georgia; analogous provisions in other states, verify your state).
 2. **Likely to result in a higher charge to me** than my health-insurance contracted rate. The hospital's chargemaster rate is many multiples of the negotiated rate that would have applied through my plan. Recovering the chargemaster from my settlement instead of accepting the contracted rate is a windfall that is not yours to take, and may be unconscionable under state law.
 3. **Potentially a violation of my health-plan contract** if my plan requires in-network providers (or the contracted facility you are) to submit claims through the plan rather than out-of-network alternative routes.
 
@@ -171,7 +171,7 @@ Health plan: [HEALTH PLAN NAME], member ID [MEMBER ID]
 
 cc:
     [STATE INSURANCE DEPARTMENT / STATE ATTORNEY GENERAL Consumer Protection]
-    [HEALTH PLAN — Member Services]
+    [HEALTH PLAN, Member Services]
     [PATIENT'S PERSONAL-INJURY ATTORNEY, if engaged]
 
 Enclosures: copy of the bill, copy of health insurance card / coverage summary
@@ -179,7 +179,7 @@ Enclosures: copy of the bill, copy of health insurance card / coverage summary
 
 ---
 
-## Variant C — Challenge to a perfected hospital lien
+## Variant C, Challenge to a perfected hospital lien
 
 For when a hospital has already filed a lien and the patient (or counsel) is contesting it.
 
@@ -198,10 +198,10 @@ Email: [PATIENT EMAIL]
 [HOSPITAL NAME]
 [HOSPITAL MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Challenge to hospital lien — Lien filed [DATE]
+RE: Challenge to hospital lien, Lien filed [DATE]
     Account #: [ACCOUNT NUMBER]
     Date of service: [DATE]
 
@@ -213,19 +213,19 @@ I. Grounds for the challenge
 
 [The LLM renders applicable blocks.]
 
-[BLOCK A — Failure to bill insurance first (state law-dependent)]
+[BLOCK A, Failure to bill insurance first (state law-dependent)]
 
-[STATE] law requires that hospital liens be supported by first submitting the bill to the patient's health insurance, and that the claim be rejected before the lien is enforceable [cite specific state statute — e.g., O.C.G.A. § 44-14-471(c)]. I provided my health insurance information at the time of service. To my knowledge, the claim was not submitted to [HEALTH PLAN NAME]. The lien is therefore defective.
+[STATE] law requires that hospital liens be supported by first submitting the bill to the patient's health insurance, and that the claim be rejected before the lien is enforceable [cite specific state statute, e.g., O.C.G.A. § 44-14-471(c)]. I provided my health insurance information at the time of service. To my knowledge, the claim was not submitted to [HEALTH PLAN NAME]. The lien is therefore defective.
 
-[BLOCK B — Statutory perfection defect]
+[BLOCK B, Statutory perfection defect]
 
-The lien notice does not comply with [STATE]'s perfection requirements under [STATUTE]. Specifically: [identify the defect — failure to provide 15-day notice to required parties; failure to file the verified statement within the statutory window; missing required content in the verified statement; etc.].
+The lien notice does not comply with [STATE]'s perfection requirements under [STATUTE]. Specifically: [identify the defect, failure to provide 15-day notice to required parties; failure to file the verified statement within the statutory window; missing required content in the verified statement; etc.].
 
-[BLOCK C — Chargemaster amount unconscionable]
+[BLOCK C, Chargemaster amount unconscionable]
 
 The lien claims $[CHARGEMASTER AMOUNT] against my settlement. This amount is the hospital's gross chargemaster price and is many multiples of (a) the Medicare allowable rate of approximately $[MEDICARE RATE] for the services rendered, (b) the contracted rate my health insurance would have paid had the bill been submitted, and (c) the hospital's published cash price under the federal Hospital Price Transparency Rule (45 CFR Part 180) of approximately $[CASH PRICE]. Recovery of the chargemaster amount, when the hospital could have collected a lower amount through other channels, is unconscionable.
 
-[BLOCK D — Made-whole doctrine]
+[BLOCK D, Made-whole doctrine]
 
 [STATE] applies the made-whole doctrine [or common-fund doctrine], under which a lien claimant may not recover from a settlement until the injured party has been made whole for the underlying injury. My damages exceed the settlement amount; the lien claim must be reduced or denied accordingly.
 

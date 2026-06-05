@@ -1,4 +1,4 @@
-"""index_bills_and_claims.py — walk Billers/<slug>/ and EOB/<slug>/ and
+"""index_bills_and_claims.py, walk Billers/<slug>/ and EOB/<slug>/ and
 write per-folder index CSVs derived from the sidecar text.
 
 Per-folder outputs:

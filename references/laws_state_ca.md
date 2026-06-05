@@ -7,7 +7,7 @@ California is the single most patient-favorable state in this kit. Four structur
 1. The **Hospital Fair Pricing Act** (Health & Safety Code § 127400 et seq.) applies to **all general acute-care hospitals** (non-profit, for-profit, district, county), not just § 501(r) non-profits, and caps charges at the Medicare/Medi-Cal/highest-government-payor rate for eligible patients.
 2. **AB 716 closes the federal No Surprises Act's ground-ambulance gap** for fully-insured Californians and caps uninsured/self-pay ambulance liability at the Medi-Cal or Medicare rate.
 3. **SB 1061** bans medical debt from California credit reports entirely (effective Jan 1, 2025) and voids the debt itself if knowingly reported in violation.
-4. California has the country's strongest first-party insurance **bad-faith** doctrine — *Gruenberg / Egan* tort liability with full consequential and emotional-distress damages, plus *Brandt* fees, for fully-insured plans.
+4. California has the country's strongest first-party insurance **bad-faith** doctrine, *Gruenberg / Egan* tort liability with full consequential and emotional-distress damages, plus *Brandt* fees, for fully-insured plans.
 
 ## Hospital itemization right
 
@@ -26,12 +26,12 @@ California does not have a single "itemized statement on request" statute analog
 
 ## Unfair Insurance Practices Act
 
-- **Statute:** **Cal. Ins. Code § 790.03 et seq.** — the Unfair Insurance Practices Act (UIPA); enumerated unfair claims-settlement acts at **§ 790.03(h)**
+- **Statute:** **Cal. Ins. Code § 790.03 et seq.**, the Unfair Insurance Practices Act (UIPA); enumerated unfair claims-settlement acts at **§ 790.03(h)**
 - **Source:** [leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=790.03](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=790.03.); regulations at 10 C.C.R. § 2695.1 et seq. (Fair Claims Settlement Practices Regulations)
-- **Substance:** Prohibits 16 enumerated unfair claims-settlement practices — misrepresenting policy provisions, failing to acknowledge claims promptly, denying without reasonable investigation, not attempting good-faith settlement where liability is reasonably clear, compelling insureds to litigate to recover amounts ultimately due, etc.
-- **Critical caveat — Moradi-Shalal:** Cal. Supreme Court in **Moradi-Shalal v. Fireman's Fund Ins. Cos.**, 46 Cal.3d 287 (1988), held there is **no private right of action** under § 790.03(h). Overruled *Royal Globe Ins. Co. v. Superior Court*, 23 Cal.3d 880 (1979), prospectively. Source: [scocal.stanford.edu/opinion/moradi-shalal-v-firemans-fund-ins-companies-28538](https://scocal.stanford.edu/opinion/moradi-shalal-v-firemans-fund-ins-companies-28538).
+- **Substance:** Prohibits 16 enumerated unfair claims-settlement practices, misrepresenting policy provisions, failing to acknowledge claims promptly, denying without reasonable investigation, not attempting good-faith settlement where liability is reasonably clear, compelling insureds to litigate to recover amounts ultimately due, etc.
+- **Critical caveat, Moradi-Shalal:** Cal. Supreme Court in **Moradi-Shalal v. Fireman's Fund Ins. Cos.**, 46 Cal.3d 287 (1988), held there is **no private right of action** under § 790.03(h). Overruled *Royal Globe Ins. Co. v. Superior Court*, 23 Cal.3d 880 (1979), prospectively. Source: [scocal.stanford.edu/opinion/moradi-shalal-v-firemans-fund-ins-companies-28538](https://scocal.stanford.edu/opinion/moradi-shalal-v-firemans-fund-ins-companies-28538).
 - **Enforcement:** Insurance Commissioner only, via administrative action (cease-and-desist, monetary penalties under Cal. Ins. Code §§ 790.035, 790.05).
-- **UCL workaround:** Conduct that violates § 790.03 can still ground a **Business & Professions Code § 17200** (Unfair Competition Law) claim brought on grounds **independent** of § 790.03. *Zhang v. Superior Court*, 57 Cal.4th 364 (2013). UCL remedies are limited to injunction and restitution — no damages, no fees — but the threat of class-wide injunctive relief is itself leverage.
+- **UCL workaround:** Conduct that violates § 790.03 can still ground a **Business & Professions Code § 17200** (Unfair Competition Law) claim brought on grounds **independent** of § 790.03. *Zhang v. Superior Court*, 57 Cal.4th 364 (2013). UCL remedies are limited to injunction and restitution, no damages, no fees, but the threat of class-wide injunctive relief is itself leverage.
 - **Use in this kit:** Cite § 790.03 violations when filing a CDI or DMHC regulatory complaint, and when pleading the predicate "unlawful" prong of a UCL claim. Do not plead § 790.03 as a stand-alone count for damages.
 - **ERISA:** Preempted as applied to self-funded employer plans; intact for fully-insured, individual/marketplace, and government plans.
 
@@ -39,12 +39,12 @@ California does not have a single "itemized statement on request" statute analog
 
 - **Common-law tort:** Breach of the **implied covenant of good faith and fair dealing**, recognized as an independent tort against an insurer in first-party claims.
 - **Foundational cases:**
-  - **Gruenberg v. Aetna Ins. Co.**, 9 Cal.3d 566 (1973) — first recognized the tort in first-party claims; the implied covenant means neither party will injure the other's right to receive the benefits of the contract. Source: [law.justia.com/cases/california/supreme-court/3d/9/566.html](https://law.justia.com/cases/california/supreme-court/3d/9/566.html).
-  - **Egan v. Mutual of Omaha Ins. Co.**, 24 Cal.3d 809 (1979) — an insurer breaches the covenant when it fails to conduct a reasonable investigation before denying a claim; an insurer "cannot reasonably and in good faith deny payments to its insured without thoroughly investigating the foundation for its denial." Source: [law.justia.com/cases/california/supreme-court/3d/24/809.html](https://law.justia.com/cases/california/supreme-court/3d/24/809.html).
-  - **Brandt v. Superior Court**, 37 Cal.3d 813 (1985) — attorney's fees incurred to compel payment of the policy benefit are recoverable as tort damages ("Brandt fees").
+  - **Gruenberg v. Aetna Ins. Co.**, 9 Cal.3d 566 (1973), first recognized the tort in first-party claims; the implied covenant means neither party will injure the other's right to receive the benefits of the contract. Source: [law.justia.com/cases/california/supreme-court/3d/9/566.html](https://law.justia.com/cases/california/supreme-court/3d/9/566.html).
+  - **Egan v. Mutual of Omaha Ins. Co.**, 24 Cal.3d 809 (1979), an insurer breaches the covenant when it fails to conduct a reasonable investigation before denying a claim; an insurer "cannot reasonably and in good faith deny payments to its insured without thoroughly investigating the foundation for its denial." Source: [law.justia.com/cases/california/supreme-court/3d/24/809.html](https://law.justia.com/cases/california/supreme-court/3d/24/809.html).
+  - **Brandt v. Superior Court**, 37 Cal.3d 813 (1985), attorney's fees incurred to compel payment of the policy benefit are recoverable as tort damages ("Brandt fees").
 - **Substance:** California allows recovery of (1) the contract benefit, (2) all consequential damages proximately caused by the bad-faith conduct including emotional distress (no physical-injury requirement), (3) Brandt fees, and (4) punitive damages under Cal. Civ. Code § 3294 on a showing of oppression, fraud, or malice by clear and convincing evidence.
 - **Standard:** Bad faith requires conduct that is unreasonable or without proper cause. Mere negligence is not enough; a *genuine dispute* over coverage defeats bad faith (*Chateau Chamberay Homeowners Assn. v. Associated Int'l Ins. Co.*, 90 Cal.App.4th 335 (2001)). Once liability becomes reasonably clear, continued refusal can convert a coverage dispute into bad faith.
-- **ERISA:** **Preempted** for self-funded ERISA employer plans (*Pilot Life Ins. Co. v. Dedeaux*, 481 U.S. 41 (1987)). For ERISA self-funded plans, the federal remedy is 29 U.S.C. § 1132(a)(1)(B) plus possible § 1132(g) attorney's fees — no state bad-faith penalty. Intact for fully-insured plans, individual/marketplace plans, and self-funded plans not covered by ERISA (e.g., church plans, government plans).
+- **ERISA:** **Preempted** for self-funded ERISA employer plans (*Pilot Life Ins. Co. v. Dedeaux*, 481 U.S. 41 (1987)). For ERISA self-funded plans, the federal remedy is 29 U.S.C. § 1132(a)(1)(B) plus possible § 1132(g) attorney's fees, no state bad-faith penalty. Intact for fully-insured plans, individual/marketplace plans, and self-funded plans not covered by ERISA (e.g., church plans, government plans).
 - **Why it matters:** California's bad-faith doctrine is the most expansive in the US. Even without a damages claim ripe for litigation, a credible *Gruenberg/Egan* citation in a demand letter to a fully-insured carrier carries substantial weight.
 
 ## Surprise billing (AB 72)
@@ -54,9 +54,9 @@ California does not have a single "itemized statement on request" statute analog
   - **Cal. Ins. Code § 10112.8, § 10112.81, § 10112.82** (PPO/indemnity insurers regulated by CDI)
 - **Enactment:** AB 72 (2016), Ch. 492 Stats. 2016, effective July 1, 2017
 - **Sources:** [leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201520160AB72](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201520160AB72); CDI consumer fact sheet at [insurance.ca.gov/01-consumers/110-health/60-resources/nosuprisebills.cfm](https://www.insurance.ca.gov/01-consumers/110-health/60-resources/nosuprisebills.cfm)
-- **What it does:** For **non-emergency services** rendered by an out-of-network provider at an in-network facility (the "ancillary services" scenario — anesthesia, radiology, pathology, lab, assistant surgeon), the patient is liable only for the **in-network cost-share**. Amounts above that count toward the in-network deductible and out-of-pocket maximum. Out-of-network providers may not balance bill above the in-network cost-share.
+- **What it does:** For **non-emergency services** rendered by an out-of-network provider at an in-network facility (the "ancillary services" scenario, anesthesia, radiology, pathology, lab, assistant surgeon), the patient is liable only for the **in-network cost-share**. Amounts above that count toward the in-network deductible and out-of-pocket maximum. Out-of-network providers may not balance bill above the in-network cost-share.
 - **Insurer reimbursement:** the greater of (i) the average contracted rate or (ii) **125% of the Medicare rate** for the same service in the same geographic area (Ins. Code § 10112.82). Independent dispute-resolution process administered by DMHC/CDI for provider-payer rate disputes; the patient is held harmless from the rate fight.
-- **Emergency services:** AB 72 expressly does not apply to emergency services, but California already prohibits balance billing of emergency-services patients enrolled in Knox-Keene plans under *Prospect Medical Group, Inc. v. Northridge Emergency Medical Group*, 45 Cal.4th 497 (2009) (the "Prospect" rule — emergency providers must seek payment from the plan, not the patient). Source: [law.justia.com/cases/california/supreme-court/4th/45/497.html](https://law.justia.com/cases/california/supreme-court/4th/45/497.html).
+- **Emergency services:** AB 72 expressly does not apply to emergency services, but California already prohibits balance billing of emergency-services patients enrolled in Knox-Keene plans under *Prospect Medical Group, Inc. v. Northridge Emergency Medical Group*, 45 Cal.4th 497 (2009) (the "Prospect" rule, emergency providers must seek payment from the plan, not the patient). Source: [law.justia.com/cases/california/supreme-court/4th/45/497.html](https://law.justia.com/cases/california/supreme-court/4th/45/497.html).
 - **Interaction with federal No Surprises Act (NSA):** California's law and the federal NSA layer rather than displace; the patient gets whichever is more protective. The federal NSA reaches **self-funded ERISA plans** that AB 72 cannot reach; AB 72 still applies to fully-insured plans regulated by California. For Knox-Keene plans, AB 72's reimbursement methodology (125% Medicare floor) is more favorable to providers than the federal NSA's qualifying-payment-amount methodology; this does **not** change the patient's in-network cost-share cap.
 - **Caveats:**
   - Self-funded ERISA plans: federal NSA applies, AB 72 does not.
@@ -67,8 +67,8 @@ California does not have a single "itemized statement on request" statute analog
 ## Independent Medical Review (IMR)
 
 - **Statutes:**
-  - **DMHC IMR (Knox-Keene plans):** Cal. Health & Safety Code §§ 1370.4 (experimental/investigational), 1374.30 (medical-necessity IMR), 1374.30–1374.36 generally
-  - **CDI IMR (PPO/indemnity plans):** Cal. Ins. Code §§ 10169–10169.5
+  - **DMHC IMR (Knox-Keene plans):** Cal. Health & Safety Code §§ 1370.4 (experimental/investigational), 1374.30 (medical-necessity IMR), 1374.30-1374.36 generally
+  - **CDI IMR (PPO/indemnity plans):** Cal. Ins. Code §§ 10169-10169.5
 - **Sources:** [leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.30](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.30.); DMHC IMR portal at [healthhelp.ca.gov](https://healthhelp.ca.gov); program reports at [dmhc.ca.gov/fileacomplaint/independentmedicalreviewandcomplaintreports.aspx](https://www.dmhc.ca.gov/fileacomplaint/independentmedicalreviewandcomplaintreports.aspx)
 - **Substance:** Free external review by an independent physician of a health plan's denial based on medical necessity, experimental/investigational status, or emergency-services determination. The IMR physician's decision is **binding on the plan**; the patient retains the right to sue if the IMR is adverse.
 - **Process:**
@@ -78,11 +78,11 @@ California does not have a single "itemized statement on request" statute analog
   - **File via:** DMHC online IMR/Complaint Form at [healthhelp.ca.gov](https://healthhelp.ca.gov) for Knox-Keene plans (the great majority of California HMOs and many PPOs that opted into DMHC jurisdiction); CDI online IMR for non-Knox-Keene PPO/indemnity plans regulated by CDI.
 - **Success rates:** DMHC's annual reports show that roughly **65-75% of IMR outcomes favor the enrollee**, counting both IMR-overturned denials and plan-reversed denials before IMR completion. 2024 reporting cited overall favorable-to-enrollee rate near 73%. Confirm current year via [dmhc.ca.gov/DataResearch.aspx](https://www.dmhc.ca.gov/DataResearch.aspx) and the CHHS open-data dataset at [data.chhs.ca.gov/dataset/independent-medical-review-imr-determinations-trend](https://data.chhs.ca.gov/dataset/independent-medical-review-imr-determinations-trend).
 - **Caveats:**
-  - IMR covers **medical-necessity, coverage-of-experimental-treatment, and emergency-services** disputes. It does **not** cover purely contractual coverage disputes (e.g., "this service is excluded by the plan language") or billing/balance-billing disputes — those use the DMHC/CDI complaint process.
+  - IMR covers **medical-necessity, coverage-of-experimental-treatment, and emergency-services** disputes. It does **not** cover purely contractual coverage disputes (e.g., "this service is excluded by the plan language") or billing/balance-billing disputes, those use the DMHC/CDI complaint process.
   - **ERISA preemption:** California's IMR has been held to **survive ERISA preemption** for fully-insured plans because the federal claims-procedure regulation (29 C.F.R. § 2560.503-1(c)(4)) and the ACA external-review requirement (29 C.F.R. § 2590.715-2719) explicitly defer to state external-review processes. Self-funded ERISA plans use the federal IRO process under the ACA.
-  - **Self-pay/uninsured patients:** IMR is an insured-member remedy. Not available for uninsured patients — those route via the Hospital Bill Complaint Program or direct dispute.
+  - **Self-pay/uninsured patients:** IMR is an insured-member remedy. Not available for uninsured patients, those route via the Hospital Bill Complaint Program or direct dispute.
 
-## Department of Managed Health Care (DMHC) — Knox-Keene plans
+## Department of Managed Health Care (DMHC), Knox-Keene plans
 
 - **Online complaint / IMR portal:** [healthhelp.ca.gov](https://healthhelp.ca.gov) (the DMHC Help Center)
 - **Phone (Help Center):** **1-888-466-2219**; TDD **1-877-688-9891**
@@ -90,11 +90,11 @@ California does not have a single "itemized statement on request" statute analog
 - **Hours:** Monday-Friday 8:00 a.m. - 6:00 p.m. Pacific, with after-hours/holiday coverage for urgent issues.
 - **Mail:** Help Center, Department of Managed Health Care, 980 9th Street, Suite 500, Sacramento, CA 95814 (the downtown office is appointment-only; mail and online routing preferred)
 - **Source:** [dmhc.ca.gov/AbouttheDMHC/ContactUs.aspx](https://www.dmhc.ca.gov/AbouttheDMHC/ContactUs.aspx)
-- **Authority over:** all **Knox-Keene-licensed health care service plans** — virtually all California HMOs (including Kaiser, Anthem Blue Cross HMO, Blue Shield HMO, Health Net HMO, Aetna HMO), most Medi-Cal managed care plans, dental and vision plans that opted in, and a substantial number of PPO products operated by entities that hold a Knox-Keene license. Administers the IMR program, AB 72 enforcement for Knox-Keene plans, and Knox-Keene grievance enforcement. **No authority** over self-funded ERISA plans (route to DOL EBSA at 1-866-444-3272); shared jurisdiction with CDI on some PPO products (use the plan's evidence-of-coverage to confirm regulator).
+- **Authority over:** all **Knox-Keene-licensed health care service plans**, virtually all California HMOs (including Kaiser, Anthem Blue Cross HMO, Blue Shield HMO, Health Net HMO, Aetna HMO), most Medi-Cal managed care plans, dental and vision plans that opted in, and a substantial number of PPO products operated by entities that hold a Knox-Keene license. Administers the IMR program, AB 72 enforcement for Knox-Keene plans, and Knox-Keene grievance enforcement. **No authority** over self-funded ERISA plans (route to DOL EBSA at 1-866-444-3272); shared jurisdiction with CDI on some PPO products (use the plan's evidence-of-coverage to confirm regulator).
 
-## Department of Insurance (CDI) — PPO and indemnity plans
+## Department of Insurance (CDI), PPO and indemnity plans
 
-- **Online complaint:** [insurance.ca.gov/01-consumers/101-help/](https://www.insurance.ca.gov/01-consumers/101-help/) — direct portal at [cdiapps.insurance.ca.gov/CP/login/](https://cdiapps.insurance.ca.gov/CP/login/)
+- **Online complaint:** [insurance.ca.gov/01-consumers/101-help/](https://www.insurance.ca.gov/01-consumers/101-help/), direct portal at [cdiapps.insurance.ca.gov/CP/login/](https://cdiapps.insurance.ca.gov/CP/login/)
 - **Phone (Consumer Hotline):** **1-800-927-4357 (1-800-927-HELP)**; TTY 1-800-482-4833
 - **Hours:** Monday-Friday 8:00 a.m. - 5:00 p.m. Pacific
 - **Mail (health claims):**
@@ -103,9 +103,9 @@ California does not have a single "itemized statement on request" statute analog
   > 300 South Spring Street, South Tower
   > Los Angeles, CA 90013
 - **Authority over:** indemnity health insurance plans, most PPO plans not under DMHC, life, auto, homeowners, and other lines. Administers AB 72 for CDI-regulated plans and CDI's parallel IMR under Cal. Ins. Code § 10169. **No authority** over self-funded ERISA plans, Knox-Keene plans (route to DMHC), or providers/hospitals/debt collectors.
-- **Route-of-first-resort heuristic:** if the plan card shows an HMO, EPO, or "Kaiser/Health Net HMO/Anthem HMO" type, file with DMHC; if the card shows an indemnity PPO not under DMHC, file with CDI. When in doubt, file with DMHC — DMHC will refer to CDI if it lacks jurisdiction; CDI will not always forward to DMHC.
+- **Route-of-first-resort heuristic:** if the plan card shows an HMO, EPO, or "Kaiser/Health Net HMO/Anthem HMO" type, file with DMHC; if the card shows an indemnity PPO not under DMHC, file with CDI. When in doubt, file with DMHC, DMHC will refer to CDI if it lacks jurisdiction; CDI will not always forward to DMHC.
 
-## Attorney General — Consumer Protection
+## Attorney General, Consumer Protection
 
 - **Online complaint:** [oag.ca.gov/report](https://oag.ca.gov/report); business-complaint form at [oag.ca.gov/contact/consumer-complaint-against-business-or-company](https://oag.ca.gov/contact/consumer-complaint-against-business-or-company)
 - **Phone (Public Inquiry Unit):** **1-800-952-5225** (in-state) or **1-916-210-6276**
@@ -115,7 +115,7 @@ California does not have a single "itemized statement on request" statute analog
   > P.O. Box 944255
   > Sacramento, CA 94244-2550
 - **Healthcare Rights and Access (HRA) unit:** handles healthcare privacy/civil-rights complaints, medical-debt complaints, and deceptive/unfair healthcare-marketplace practices. Does not provide individual legal representation; pattern-and-practice referrals trigger enforcement. Source: [oag.ca.gov/consumers/general/health-care](https://oag.ca.gov/consumers/general/health-care).
-- **Authority over:** providers, hospitals, debt collectors, and original creditors for unfair/deceptive practices under the Unfair Competition Law (Bus. & Prof. Code § 17200) and the Consumer Legal Remedies Act (Civ. Code § 1750 et seq.). Useful where DMHC/CDI lacks reach — especially provider-side billing disputes and original-creditor (hospital) conduct.
+- **Authority over:** providers, hospitals, debt collectors, and original creditors for unfair/deceptive practices under the Unfair Competition Law (Bus. & Prof. Code § 17200) and the Consumer Legal Remedies Act (Civ. Code § 1750 et seq.). Useful where DMHC/CDI lacks reach, especially provider-side billing disputes and original-creditor (hospital) conduct.
 
 ## Hospital Bill Complaint Program (HCAI)
 
@@ -138,8 +138,8 @@ California does not have a single "itemized statement on request" statute analog
   - **Entity (corporation, LLC, partnership, association, public entity):** **$6,250**
   - **COVID-19 rental-debt actions and certain personal-injury claims arising from automobile accidents involving uninsured-motorist exposure:** higher caps in narrow scenarios; not relevant to medical-billing disputes.
   - **Frequency limit:** unlimited claims up to $2,500; not more than two claims per calendar year above $2,500 (§ 116.231).
-- **Attorney rule (§ 116.530):** **No attorney may take part in the conduct or defense of a small claims action at the initial hearing**, with narrow exceptions (an attorney appearing in her own case as an individual; an attorney-partnership in which all partners are attorneys, etc.). Attorneys may advise either party before or after the hearing and may represent a party on appeal. **This is a structural advantage for self-represented patients** — corporate defendants generally must send a non-attorney officer or employee, and a hospital-billing-office staffer is rarely a formidable witness.
-- **Corporate appearance:** Cal. Code Civ. Proc. § 116.540 permits a corporation, partnership, or other entity to appear through a regular employee, officer, or director (no attorney). The plaintiff must appear personally — no agents.
+- **Attorney rule (§ 116.530):** **No attorney may take part in the conduct or defense of a small claims action at the initial hearing**, with narrow exceptions (an attorney appearing in her own case as an individual; an attorney-partnership in which all partners are attorneys, etc.). Attorneys may advise either party before or after the hearing and may represent a party on appeal. **This is a structural advantage for self-represented patients**, corporate defendants generally must send a non-attorney officer or employee, and a hospital-billing-office staffer is rarely a formidable witness.
+- **Corporate appearance:** Cal. Code Civ. Proc. § 116.540 permits a corporation, partnership, or other entity to appear through a regular employee, officer, or director (no attorney). The plaintiff must appear personally, no agents.
 - **Filing fees:**
   - Claims up to $1,500: $30
   - Claims $1,501 - $5,000: $50
@@ -148,18 +148,18 @@ California does not have a single "itemized statement on request" statute analog
   - Fee waivers available via FW-001 for low-income plaintiffs
   - Source: [courts.ca.gov/selfhelp-smallclaims.htm](https://www.courts.ca.gov/selfhelp-smallclaims.htm)
 - **Appeal:** Defendants may appeal to the Superior Court (civil division) for a **trial de novo** within **30 days** of the clerk's notice of entry. Cal. Code Civ. Proc. § 116.710. Plaintiffs may not appeal but may appeal a denial of a motion to vacate. Attorneys are permitted on appeal.
-- **Jury trial:** not available in Small Claims; the de novo appeal does not afford a jury either — it is a bench trial in the Superior Court.
+- **Jury trial:** not available in Small Claims; the de novo appeal does not afford a jury either, it is a bench trial in the Superior Court.
 
 ## Statute of limitations
 
-- **Written contracts:** **4 years from breach** — **Cal. Code Civ. Proc. § 337(a)**
-- **Oral contracts:** **2 years from breach** — **Cal. Code Civ. Proc. § 339(1)**
-- **Open book accounts:** 4 years — Cal. Code Civ. Proc. § 337(b) (calculated from the last entry on the account)
-- **Statutory liability (e.g., violations of the Hospital Fair Pricing Act, Knox-Keene):** generally 3 years — Cal. Code Civ. Proc. § 338
-- **Unfair Competition Law:** 4 years — Bus. & Prof. Code § 17208
+- **Written contracts:** **4 years from breach**, **Cal. Code Civ. Proc. § 337(a)**
+- **Oral contracts:** **2 years from breach**, **Cal. Code Civ. Proc. § 339(1)**
+- **Open book accounts:** 4 years, Cal. Code Civ. Proc. § 337(b) (calculated from the last entry on the account)
+- **Statutory liability (e.g., violations of the Hospital Fair Pricing Act, Knox-Keene):** generally 3 years, Cal. Code Civ. Proc. § 338
+- **Unfair Competition Law:** 4 years, Bus. & Prof. Code § 17208
 - **Source:** [leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CCP&sectionNum=337](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CCP&sectionNum=337.); [leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CCP&sectionNum=339](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CCP&sectionNum=339.)
 
-Most hospital admissions involve a signed financial-responsibility form, which is a written contract — **4 years** under § 337(a). Medical care without a signed agreement may be treated as an oral or implied contract (2 years under § 339) or as an open book account (4 years under § 337(b)). The discovery rule may toll the start of the clock for fraudulent concealment. Partial payment or written acknowledgment can restart the clock (Cal. Code Civ. Proc. § 360). **Do not make a partial payment on a time-barred debt without legal advice.**
+Most hospital admissions involve a signed financial-responsibility form, which is a written contract, **4 years** under § 337(a). Medical care without a signed agreement may be treated as an oral or implied contract (2 years under § 339) or as an open book account (4 years under § 337(b)). The discovery rule may toll the start of the clock for fraudulent concealment. Partial payment or written acknowledgment can restart the clock (Cal. Code Civ. Proc. § 360). **Do not make a partial payment on a time-barred debt without legal advice.**
 
 ## Ground ambulance balance-billing (AB 716)
 
@@ -183,18 +183,18 @@ Most hospital admissions involve a signed financial-responsibility form, which i
 - **Sources:** [leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240SB1061](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240SB1061); Attorney General alert at [oag.ca.gov/news/press-releases/california-it-remains-illegal-medical-debt-appear-credit-reports-attorney](https://oag.ca.gov/news/press-releases/california-it-remains-illegal-medical-debt-appear-credit-reports-attorney)
 - **What it does:**
   - **Effective Jan 1, 2025:** prohibits any person, including a healthcare provider or its agent, from furnishing medical-debt information to a consumer credit reporting agency, regardless of the amount. Prohibits CRAs from including medical debt on a California consumer credit report and from using it in any credit decision.
-  - **Voidance:** if a person knowingly violates the furnishing prohibition, the medical debt itself is **void and unenforceable** — this is unusual and aggressive remedial language not present in most state credit-reporting laws.
+  - **Voidance:** if a person knowingly violates the furnishing prohibition, the medical debt itself is **void and unenforceable**, this is unusual and aggressive remedial language not present in most state credit-reporting laws.
   - **Effective July 1, 2025:** any contract or financial agreement creating a medical debt must include specific consumer-protection language; absence renders the debt void and unenforceable.
 - **Caveats:**
   - **Federal preemption is contested.** The CFPB's October 2025 interpretive rule took the position that the federal FCRA preempts state credit-reporting restrictions on medical debt. California maintains SB 1061 is intact; litigation outcomes will be controlling. As of the date of this pack, the Cal AG's public guidance is that SB 1061 remains enforceable.
   - **Scope:** covers all medical debt held by any furnisher. Does not bar furnishers from internal credit decisions or from suing for the debt (subject to § 1788.14/§ 1788.18 and the SOL).
-  - **Does not displace** the 2022-2023 voluntary CRA changes (paid medical debt removed; debt under $500 not reported; 1-year delay before reporting) — those still apply nationwide.
+  - **Does not displace** the 2022-2023 voluntary CRA changes (paid medical debt removed; debt under $500 not reported; 1-year delay before reporting), those still apply nationwide.
 
 ## Hospital Fair Pricing Act
 
 - **Statute:** **Cal. Health & Safety Code §§ 127400-127446**, as amended by **AB 1020** (Ch. 473 Stats. 2021) and **AB 2297** (Ch. 543 Stats. 2024)
 - **Sources:** [leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=HSC&division=107.&title=&part=2.&chapter=2.5.&article=1.](https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=HSC&division=107.&title=&part=2.&chapter=2.5.&article=1.); HCAI laws page at [hcai.ca.gov/affordability/hospital-fair-billing-program/laws-and-regulations/](https://hcai.ca.gov/affordability/hospital-fair-billing-program/laws-and-regulations/)
-- **Scope:** **all general acute-care hospitals** licensed under § 1250(a) — non-profit, for-profit, district, and county. This is the structural CA-specific advantage over federal § 501(r), which reaches only non-profit hospitals.
+- **Scope:** **all general acute-care hospitals** licensed under § 1250(a), non-profit, for-profit, district, and county. This is the structural CA-specific advantage over federal § 501(r), which reaches only non-profit hospitals.
 - **Substance:**
   - Each hospital must maintain a written charity-care policy and a written discount-payment policy.
   - **Eligibility:** uninsured patients or patients with high medical costs at or below **400% of the federal poverty level** (FPL) are eligible. AB 2297 (2024) extended the income threshold up from 350% and prohibited consideration of monetary assets.
@@ -203,11 +203,11 @@ Most hospital admissions involve a signed financial-responsibility form, which i
   - **No adverse credit reporting** before completion of the eligibility determination, and following SB 1061, **never** for medical debt.
   - **Extended payment plan** at the patient's option, negotiated based on family income and essential living expenses; statutory cap on interest.
   - **180-day pre-collection window** before assignment to collections, credit reporting, or suit (HSC § 127425(a)).
-  - **§ 127425 notice** required before any collection action — includes the patient's right to request an itemized bill, charity-care application, and the eligibility-screening process.
+  - **§ 127425 notice** required before any collection action, includes the patient's right to request an itemized bill, charity-care application, and the eligibility-screening process.
 - **Enforcement:**
   - **HCAI Hospital Bill Complaint Program** (see Regulatory Agencies above) investigates and enforces; civil penalties under HSC § 127446.
   - **Patient remedies:** under HSC § 127446 and §§ 127440-127442, a patient who paid more than they should have under a hospital's policies is entitled to reimbursement plus interest. No express private right of action for damages beyond restitution, but the violation also predicates a UCL § 17200 action and may ground common-law claims (unjust enrichment, fraudulent concealment, money had and received).
-- **Why it matters:** this is the kit's single most important California-specific cite for any **uninsured, underinsured, or financially eligible patient** facing an acute-care hospital bill — irrespective of whether the hospital is non-profit. Federal § 501(r) is silent for for-profit hospitals; § 127400 et seq. is not.
+- **Why it matters:** this is the kit's single most important California-specific cite for any **uninsured, underinsured, or financially eligible patient** facing an acute-care hospital bill, irrespective of whether the hospital is non-profit. Federal § 501(r) is silent for for-profit hospitals; § 127400 et seq. is not.
 
 ## Hospital lien
 
@@ -216,14 +216,14 @@ Most hospital admissions involve a signed financial-responsibility form, which i
 - **Substance:** A hospital may file a lien against **proceeds of the patient's personal-injury claim against a third party** (e.g., the at-fault driver) for the reasonable and necessary charges of treatment, **capped at 50% of the net recovery** (after attorney's fees and costs and prior liens).
 - **Perfection:** notice by **registered or certified mail, return receipt** to the third party and its insurer **before payment of proceeds** to the injured patient (§ 3045.3-3045.4).
 - **Scope:** lien attaches only to third-party tort settlement proceeds, **not** to the patient's home, wages, or bank accounts.
-- **Use:** rarely controlling in routine billing disputes; matters when the bill stems from an accident with a third-party tortfeasor. Verify notice compliance — defects invalidate the lien.
+- **Use:** rarely controlling in routine billing disputes; matters when the bill stems from an accident with a third-party tortfeasor. Verify notice compliance, defects invalidate the lien.
 
 ## Wage garnishment
 
 - **Statute:** **Cal. Code Civ. Proc. §§ 706.010-706.154** (Wage Garnishment Law); exemption procedure at § 706.105; necessary-expenses exemption at § 706.051
 - **Source:** [leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CCP&division=&title=9.&part=2.&chapter=5.](https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CCP&division=&title=9.&part=2.&chapter=5.)
 - **Substance:** Medical-debt creditors cannot garnish wages without first obtaining a court judgment. Post-judgment, garnishment is limited to the **lesser of** (a) 25% of disposable earnings or (b) the amount by which weekly disposable earnings exceed **40 times the state minimum wage** (CCP § 706.050; California's threshold is higher than the federal 30× floor in the CCPA). For high earners, additional restrictions in CCP § 706.052.
-- **Necessary-expenses exemption (§ 706.051):** the debtor may apply to exempt the portion of earnings necessary for support of the debtor and family — frequently reduces or eliminates the garnishable amount for low-income debtors.
+- **Necessary-expenses exemption (§ 706.051):** the debtor may apply to exempt the portion of earnings necessary for support of the debtor and family, frequently reduces or eliminates the garnishable amount for low-income debtors.
 - **Fair Pricing Act overlay:** under HSC § 127425, the hospital must screen for charity-care/discount-payment eligibility before pursuing collection; a garnishment pursued in violation of that screening is itself a Fair Pricing Act violation and subject to HCAI enforcement.
 - **Use:** in response letters to collectors threatening garnishment without a judgment in hand, and in opposition to wage-garnishment notices where charity-care eligibility was never offered.
 
@@ -238,7 +238,7 @@ When the LLM renders a California-bound letter, substitute these defaults:
 | Pre-collection 180-day rule                             | **Cal. Health & Safety Code § 127425**                                                                                                                                                                 |
 | Uninsured pre-service estimate                          | **Cal. Health & Safety Code § 1339.585**                                                                                                                                                               |
 | Unfair claims practices (regulatory only)               | **Cal. Ins. Code § 790.03(h)** (no private action per *Moradi-Shalal* 46 Cal.3d 287)                                                                                                                   |
-| Bad-faith failure to pay (common law)                   | *Gruenberg v. Aetna*, 9 Cal.3d 566 (1973); *Egan v. Mutual of Omaha*, 24 Cal.3d 809 (1979); *Brandt v. Superior Ct.*, 37 Cal.3d 813 (1985) — fully-insured plans only; ERISA-preempted for self-funded |
+| Bad-faith failure to pay (common law)                   | *Gruenberg v. Aetna*, 9 Cal.3d 566 (1973); *Egan v. Mutual of Omaha*, 24 Cal.3d 809 (1979); *Brandt v. Superior Ct.*, 37 Cal.3d 813 (1985), fully-insured plans only; ERISA-preempted for self-funded |
 | Surprise billing (non-emergency at in-network facility) | **Cal. Health & Safety Code § 1371.9** (Knox-Keene); **Cal. Ins. Code §§ 10112.8, 10112.81, 10112.82** (PPO/indemnity)                                                                                 |
 | Emergency-services balance billing                      | *Prospect Med. Group*, 45 Cal.4th 497 (2009) (Knox-Keene); AB 72 emergency provisions                                                                                                                  |
 | Ground ambulance balance billing                        | **Cal. Health & Safety Code §§ 1371.56, 1797.233**; **Cal. Ins. Code § 10126.66** (AB 716, effective Jan 1, 2024)                                                                                      |
@@ -250,20 +250,20 @@ When the LLM renders a California-bound letter, substitute these defaults:
 | Hospital billing regulator (Fair Pricing Act)           | HCAI Hospital Bill Complaint Program, [hbcp.hcai.ca.gov](https://hbcp.hcai.ca.gov), 2020 W. El Camino Ave., Ste. 1101, Sacramento, CA 95833                                                            |
 | State AG consumer protection                            | Cal. AG Public Inquiry Unit, 1-800-952-5225, P.O. Box 944255, Sacramento, CA 94244-2550, [oag.ca.gov/report](https://oag.ca.gov/report)                                                                |
 | Small-claims court name                                 | **Small Claims Division, Superior Court of California, County of [county]**                                                                                                                            |
-| Small-claims limit                                      | **$12,500** (natural person); **$6,250** (entity) — Cal. Code Civ. Proc. § 116.220                                                                                                                     |
+| Small-claims limit                                      | **$12,500** (natural person); **$6,250** (entity), Cal. Code Civ. Proc. § 116.220                                                                                                                     |
 | Filing fee                                              | $30 / $50 / $75 depending on amount in controversy                                                                                                                                                     |
 | Attorney rule                                           | **No attorneys at initial hearing** under Cal. Code Civ. Proc. § 116.530                                                                                                                               |
-| Statute of limitations (written contract)               | **4 years** — Cal. Code Civ. Proc. § 337(a)                                                                                                                                                            |
-| Statute of limitations (oral contract)                  | **2 years** — Cal. Code Civ. Proc. § 339(1)                                                                                                                                                            |
-| UCL claim (insurer or provider)                         | **Bus. & Prof. Code § 17200** — restitution + injunction only, but 4-year SOL and class potential                                                                                                      |
+| Statute of limitations (written contract)               | **4 years**, Cal. Code Civ. Proc. § 337(a)                                                                                                                                                            |
+| Statute of limitations (oral contract)                  | **2 years**, Cal. Code Civ. Proc. § 339(1)                                                                                                                                                            |
+| UCL claim (insurer or provider)                         | **Bus. & Prof. Code § 17200**, restitution + injunction only, but 4-year SOL and class potential                                                                                                      |
 
 ## Key California-specific advantages
 
 Worth keeping in mind when triaging a California patient's bills:
 
-1. **Hospital Fair Pricing Act reaches every acute-care hospital.** Unlike federal § 501(r), § 127400 et seq. binds for-profit, district, and county hospitals — not just non-profits. The patient's charity-care entitlement and the 180-day pre-collection window apply universally. This is the single most important opening cite for an uninsured or 400%-FPL-eligible CA patient.
+1. **Hospital Fair Pricing Act reaches every acute-care hospital.** Unlike federal § 501(r), § 127400 et seq. binds for-profit, district, and county hospitals, not just non-profits. The patient's charity-care entitlement and the 180-day pre-collection window apply universally. This is the single most important opening cite for an uninsured or 400%-FPL-eligible CA patient.
 
-2. **Bad-faith tort is the strongest in the US.** *Gruenberg/Egan* allow consequential damages including emotional distress (no physical-injury requirement), *Brandt* fees, and punitives — none of which is available under ERISA. For a fully-insured CA carrier acting unreasonably on a coverage or denial decision, a credible bad-faith citation in a demand letter is high-leverage. Verify the plan is **not** self-funded ERISA before citing.
+2. **Bad-faith tort is the strongest in the US.** *Gruenberg/Egan* allow consequential damages including emotional distress (no physical-injury requirement), *Brandt* fees, and punitives, none of which is available under ERISA. For a fully-insured CA carrier acting unreasonably on a coverage or denial decision, a credible bad-faith citation in a demand letter is high-leverage. Verify the plan is **not** self-funded ERISA before citing.
 
 3. **Ground ambulance is covered.** AB 716 closes the federal NSA's biggest gap for fully-insured patients; § 1797.233 also caps uninsured/self-pay ambulance liability at the Medi-Cal or Medicare rate, which is **far below** the typical billed charge. Always check whether a ground-ambulance bill post-dates Jan 1, 2024.
 

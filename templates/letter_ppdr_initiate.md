@@ -1,4 +1,4 @@
-# Template — Initiate Patient-Provider Dispute Resolution (PPDR)
+# Template, Initiate Patient-Provider Dispute Resolution (PPDR)
 
 Use when the patient is uninsured or self-pay, received a Good Faith Estimate before the service (or should have under 45 CFR § 149.610), and the final bill for any single provider or facility exceeds that provider's or facility's GFE by $400 or more. The federal No Surprises Act at 45 CFR § 149.620 establishes the Patient-Provider Dispute Resolution process, administered by certified Selected Dispute Resolution Entities (SDREs) under CMS oversight.
 
@@ -22,7 +22,7 @@ CENTERS FOR MEDICARE AND MEDICAID SERVICES
 Patient-Provider Dispute Resolution Program
 [Filed via the federal IDR portal at https://nsa-idr.cms.gov/consumer/]
 
-RE: Patient-Provider Dispute Resolution initiation under 45 CFR § 149.620 —
+RE: Patient-Provider Dispute Resolution initiation under 45 CFR § 149.620, 
     Patient: [PATIENT FULL NAME]
     DOB: [DOB]
     Provider or facility in dispute: [PROVIDER OR FACILITY NAME]
@@ -51,7 +51,7 @@ I. Eligibility (each element is met)
 
 II. Items / services and code-level comparison
 
-The following table compares the codes on the Good Faith Estimate against the codes on the final bill. Items present on the GFE are matched to billed items; items billed but not on the GFE are flagged separately as ineligible for charge under the rule (§ 149.620(a)(2)(ii) — items not on the GFE cannot exceed the GFE amount, period).
+The following table compares the codes on the Good Faith Estimate against the codes on the final bill. Items present on the GFE are matched to billed items; items billed but not on the GFE are flagged separately as ineligible for charge under the rule (§ 149.620(a)(2)(ii), items not on the GFE cannot exceed the GFE amount, period).
 
 [The drafter renders this table from the GFE itself and from `Billers/<slug>/_benchmarks.csv` for the billed side.]
 
@@ -113,21 +113,21 @@ DOB: [DOB]
 Address: [STREET ADDRESS, CITY, STATE ZIP]
 
 Exhibits attached / uploaded:
-A — Final bill from [PROVIDER OR FACILITY NAME], account [ACCOUNT NUMBER], dated [STATEMENT DATE]
-B — Good Faith Estimate dated [GFE DATE] (or evidence that no GFE was issued)
-C — Receipt(s) for any payment(s) already made, if applicable
-D — Copy of notice to provider of PPDR initiation (recommended courtesy)
-E — Provider's machine-readable file excerpt under 45 CFR Part 180 for the codes billed, if applicable
-F — Line-item benchmark analysis (Medicare PFS rates for context)
-G — Filing-fee receipt or hardship-fee-waiver request
+A, Final bill from [PROVIDER OR FACILITY NAME], account [ACCOUNT NUMBER], dated [STATEMENT DATE]
+B, Good Faith Estimate dated [GFE DATE] (or evidence that no GFE was issued)
+C, Receipt(s) for any payment(s) already made, if applicable
+D, Copy of notice to provider of PPDR initiation (recommended courtesy)
+E, Provider's machine-readable file excerpt under 45 CFR Part 180 for the codes billed, if applicable
+F, Line-item benchmark analysis (Medicare PFS rates for context)
+G, Filing-fee receipt or hardship-fee-waiver request
 ```
 
 ---
 
 ## Placeholders and rendering notes
 
-- `[PROVIDER OR FACILITY NAME]` — PPDR is per-provider. If a patient received bills from a hospital, an ER physician, a radiologist, and an anesthesiologist for the same encounter, each one that exceeds its own GFE by $400+ requires its own PPDR submission. The drafter generates one letter per qualifying biller and queues them.
-- `[GFE AMOUNT]` and `[BILLED AMOUNT]` — both must be on a per-provider, per-facility basis. Multi-provider GFEs (where one "convening provider" assembles a combined GFE including co-providers) still measure the $400 threshold per individual provider line within the GFE, not against the combined total.
+- `[PROVIDER OR FACILITY NAME]`, PPDR is per-provider. If a patient received bills from a hospital, an ER physician, a radiologist, and an anesthesiologist for the same encounter, each one that exceeds its own GFE by $400+ requires its own PPDR submission. The drafter generates one letter per qualifying biller and queues them.
+- `[GFE AMOUNT]` and `[BILLED AMOUNT]`, both must be on a per-provider, per-facility basis. Multi-provider GFEs (where one "convening provider" assembles a combined GFE including co-providers) still measure the $400 threshold per individual provider line within the GFE, not against the combined total.
 - The structured form fields in the CMS portal will ask for the same data; this letter fills the narrative-attachment slot.
 - The $25 filing fee can be waived. The drafter should suggest the hardship waiver if `tracker.csv` already shows an active financial-assistance application or if the patient flags hardship in `notes`.
 

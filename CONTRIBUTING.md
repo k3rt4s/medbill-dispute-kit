@@ -34,7 +34,7 @@ The single most valuable contribution. Use this checklist:
    - Medical-debt credit-reporting protections (most states defer to federal)
    - Charity care / state-level FAP requirements
    - Hospital lien statute
-3. Source every citation with a URL — Justia, Cornell LII, or the state's official code website.
+3. Source every citation with a URL, Justia, Cornell LII, or the state's official code website.
 4. Date the file in the opening paragraph ("All citations verified against public sources as of YYYY-MM-DD").
 5. Conclude with a "Quick reference for letter rendering" table.
 6. Conclude with a "Key [State]-specific advantages" section listing 3-5 structural patient-side levers worth knowing about.
@@ -77,7 +77,7 @@ Schemas live in `schemas/`. When extending:
 - If the field is part of a controlled vocabulary used by rules, update both the schema and the consuming rule.
 - Bump the schema_version in the meta section.
 
-## Coding style — when scripts are involved
+## Coding style, when scripts are involved
 
 The kit ships with optional helper scripts in `scripts/`. Style:
 
@@ -98,7 +98,7 @@ For maintainers reviewing a PR:
 
 - [ ] Cites public, verifiable sources for any factual claim
 - [ ] No PII, no real-patient data
-- [ ] Tests no claims that have already been disproved (e.g., "TN UCSPA gives a private right of action" — it does not; § 56-7-105 does)
+- [ ] Tests no claims that have already been disproved (e.g., "TN UCSPA gives a private right of action", it does not; § 56-7-105 does)
 - [ ] Cross-references match (template → story → BUILD_PLAN entry → CHANGELOG entry)
 - [ ] Markdown renders cleanly on github.com
 - [ ] Tone is helpful and patient-focused, not adversarial or paranoid

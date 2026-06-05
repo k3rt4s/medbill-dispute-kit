@@ -1,4 +1,4 @@
-# Template — Combined dispute across all providers in one encounter
+# Template, Combined dispute across all providers in one encounter
 
 Use when a single care encounter generated bills from three or more separate providers (typical pattern: hospital facility + ER physician group + radiology + anesthesia + pathology + ambulance) and the dispute theory is the same for all of them. The classic case is a No Surprises Act ancillary-provider scenario: the patient went to an in-network facility, every billable clinician inside that facility is treated as in-network for cost-sharing purposes under § 300gg-111(b), and any out-of-network ancillary bill is balance-billed in violation of federal law.
 
@@ -22,19 +22,19 @@ Email: [PATIENT EMAIL]
 
 [DATE]
 
-[RECIPIENT — chosen by the drafter from one of: the in-network facility, the plan administrator, or each provider in parallel]
+[RECIPIENT, chosen by the drafter from one of: the in-network facility, the plan administrator, or each provider in parallel]
 [RECIPIENT MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
 cc by certified mail with full enclosure set:
     Each other provider in the encounter (see Section II below)
-    [PATIENT'S HEALTH PLAN — Member Services]
+    [PATIENT'S HEALTH PLAN, Member Services]
     [STATE] Department of Insurance, Consumer Services
     Federal No Surprises Help Desk (cms.gov/nosurprises)
 
-RE: Combined encounter dispute under the No Surprises Act —
+RE: Combined encounter dispute under the No Surprises Act, 
     Patient: [PATIENT FULL NAME]
     DOB: [DOB]
     Member ID: [MEMBER ID]
@@ -79,7 +79,7 @@ I demand:
 
 1. **For the in-network facility** (provider 1, if applicable): confirm in writing whether the facility provided me with the required No Surprises Act disclosure regarding the network status of ancillary providers, and, if not, take such steps as your facility's compliance program requires.
 
-2. **For each out-of-network ancillary provider** (providers 2–N above): rebill me at no more than the in-network cost-sharing amount per the EOB, withdraw any prior statements asserting the balance-billed amount, and withdraw any collection referral on this account. The plan-vs-provider dispute over the spread is properly resolved through the federal IDR process under 45 CFR § 149.510, not by balance-billing me.
+2. **For each out-of-network ancillary provider** (providers 2-N above): rebill me at no more than the in-network cost-sharing amount per the EOB, withdraw any prior statements asserting the balance-billed amount, and withdraw any collection referral on this account. The plan-vs-provider dispute over the spread is properly resolved through the federal IDR process under 45 CFR § 149.510, not by balance-billing me.
 
 3. **For the plan** (CC'd above): if any of the ancillary providers' claims were adjudicated as out-of-network cost-sharing in violation of § 300gg-111, reprocess the claims at in-network cost-sharing and notify the providers of the reprocessing.
 
@@ -119,10 +119,10 @@ Encounter ID (internal): [ENCOUNTER_ID]
 Date(s) of service: [DATE OF SERVICE]
 
 Enclosures:
-A — Copy of the bill from each provider listed in Section II
-B — Copy of the EOB for each claim corresponding to those bills
-C — Line-item benchmark analysis across the encounter
-D — (If applicable) Copy of any NSA disclosure that was provided at registration
+A, Copy of the bill from each provider listed in Section II
+B, Copy of the EOB for each claim corresponding to those bills
+C, Line-item benchmark analysis across the encounter
+D, (If applicable) Copy of any NSA disclosure that was provided at registration
 
 Coordinated CC list (each receives the full enclosure set with a cover note identifying this letter as the encounter-wide combined dispute):
 - [PROVIDER 1 NAME], [PROVIDER 1 ADDRESS]
@@ -137,7 +137,7 @@ Coordinated CC list (each receives the full enclosure set with a cover note iden
 
 ## Placeholders and rendering notes
 
-- `[RECIPIENT]` — when the encounter has a clearly in-network facility, address to the facility's patient-experience executive or compliance officer. When the encounter involves out-of-network billing across multiple ancillary providers without a single anchor facility, address to the patient's plan administrator with each provider on the CC list. The drafter picks based on whether the canonical bill's biller_slug matches a facility-type provider and the bill's `in_network_status` is `in_network`.
+- `[RECIPIENT]`, when the encounter has a clearly in-network facility, address to the facility's patient-experience executive or compliance officer. When the encounter involves out-of-network billing across multiple ancillary providers without a single anchor facility, address to the patient's plan administrator with each provider on the CC list. The drafter picks based on whether the canonical bill's biller_slug matches a facility-type provider and the bill's `in_network_status` is `in_network`.
 - The Section II table is built from `tracker.csv` filtered to the canonical bill's `encounter_id`. The drafter sums billed, EOB-allowed, and cost-sharing across the table for the totals row.
 - The encounter must have at least one provider type that qualifies for NSA ancillary protection (anesthesiology, emergency_physician, pathology, radiology, neonatology, lab, assistant_surgery). If the encounter does not, this template does not apply; use the per-provider `letter_no_surprises_violation.md` or `letter_initial_dispute.md` instead.
 

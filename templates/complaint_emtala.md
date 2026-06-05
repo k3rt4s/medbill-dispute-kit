@@ -1,4 +1,4 @@
-# Template — EMTALA complaint to CMS
+# Template, EMTALA complaint to CMS
 
 For when a Medicare-participating hospital with a dedicated emergency department refused screening, refused stabilizing treatment, inappropriately transferred or discharged, or denied emergency care over insurance/payment concerns.
 
@@ -17,18 +17,18 @@ Email: [PATIENT EMAIL]
 
 [DATE]
 
-[CMS Regional Office — find at cms.gov/medicare/regulations-guidance/legislation/emergency-medical-treatment-labor-act/contacts]
+[CMS Regional Office, find at cms.gov/medicare/regulations-guidance/legislation/emergency-medical-treatment-labor-act/contacts]
 [REGIONAL OFFICE MAILING ADDRESS]
 
 with copy to:
 
-[State survey agency for hospital licensure — typically the state health department]
+[State survey agency for hospital licensure, typically the state health department]
 [STATE SURVEY AGENCY MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: EMTALA complaint — 42 U.S.C. § 1395dd; 42 CFR § 489.24
+RE: EMTALA complaint, 42 U.S.C. § 1395dd; 42 CFR § 489.24
     Hospital: [HOSPITAL LEGAL NAME]
     Hospital address: [HOSPITAL ADDRESS]
     CMS Certification Number (if known): [CCN]
@@ -36,7 +36,7 @@ RE: EMTALA complaint — 42 U.S.C. § 1395dd; 42 CFR § 489.24
     Complainant: [PATIENT or relative/representative name]
     Patient: [PATIENT FULL NAME, if different from complainant]
     Date of birth: [DOB]
-    Sex: [SEX, as recorded by the hospital — relevant if violation involved active labor]
+    Sex: [SEX, as recorded by the hospital, relevant if violation involved active labor]
 
 To the CMS Regional Office:
 
@@ -46,23 +46,23 @@ I. Summary of facts
 
 [Describe in chronological order, in plain language, what happened. Stick to facts you observed directly or that are documented in records you have. Examples below; the LLM should render only the applicable subset and add any additional facts the patient describes.]
 
-[BLOCK A — Failure to provide a medical screening examination]
+[BLOCK A, Failure to provide a medical screening examination]
 
 On [DATE] at approximately [TIME], I arrived at [HOSPITAL]'s emergency department complaining of [SYMPTOMS]. Upon arrival, [registration staff / a nurse / triage personnel] asked about my insurance status. After I [told them I was uninsured / said I could not pay / mentioned a prior unpaid bill], I was told [exact words or paraphrase] and I [was sent away without examination / was made to wait without screening for X hours while other patients were seen / other]. I did not receive a medical screening examination by qualified personnel.
 
-[BLOCK B — Failure to provide stabilizing treatment]
+[BLOCK B, Failure to provide stabilizing treatment]
 
-On [DATE], after a medical screening examination at [HOSPITAL] identified [emergency medical condition — example: active chest pain, acute appendicitis, hemorrhage, active labor], I was [discharged in an unstable condition / refused further treatment / told to seek care elsewhere] before stabilization. The connection to insurance or payment was [explicit — staff stated they would not treat without payment / implicit — the conversation about payment immediately preceded the decision to discharge].
+On [DATE], after a medical screening examination at [HOSPITAL] identified [emergency medical condition, example: active chest pain, acute appendicitis, hemorrhage, active labor], I was [discharged in an unstable condition / refused further treatment / told to seek care elsewhere] before stabilization. The connection to insurance or payment was [explicit, staff stated they would not treat without payment / implicit, the conversation about payment immediately preceded the decision to discharge].
 
-[BLOCK C — Inappropriate transfer]
+[BLOCK C, Inappropriate transfer]
 
 On [DATE], I was transferred from [HOSPITAL] to [RECEIVING FACILITY] while in an unstable condition. The transfer occurred [without my informed consent / without physician certification that benefits outweigh risks / without the receiving facility's confirmed acceptance / without appropriate transport equipment and personnel]. The connection to payment was [as above].
 
-[BLOCK D — Refusal of emergency care over a prior unpaid bill]
+[BLOCK D, Refusal of emergency care over a prior unpaid bill]
 
 On [DATE], I sought emergency care at [HOSPITAL] for [SYMPTOMS]. Hospital staff [refused to admit me / told me I could not return until I paid a prior bill / threatened to refuse care for future emergencies]. The hospital is a Medicare-participating facility with a dedicated emergency department; the refusal is a direct violation of EMTALA.
 
-[BLOCK E — Active labor]
+[BLOCK E, Active labor]
 
 On [DATE], I (or [PATIENT]) presented at [HOSPITAL]'s emergency department in active labor. The hospital [refused to admit me / discharged me before delivery / inappropriately transferred me while in active labor]. The connection to insurance or payment was [as above].
 
@@ -122,8 +122,8 @@ Enclosures: as listed in Section III
 ## Placeholders and rendering notes
 
 - The LLM must render only the scenario block(s) that match the patient's facts; do not pad with unused blocks.
-- Witness statements (Exhibit D) are valuable — if a friend or family member witnessed the events, get a brief signed statement from them describing what they observed. Date the statement.
-- If records are not yet obtained, that is fine; the complaint can still be filed and CMS will request them as part of the investigation. The patient can also separately file a HIPAA right-of-access request — see `templates/complaint_hipaa_access.md`.
+- Witness statements (Exhibit D) are valuable, if a friend or family member witnessed the events, get a brief signed statement from them describing what they observed. Date the statement.
+- If records are not yet obtained, that is fine; the complaint can still be filed and CMS will request them as part of the investigation. The patient can also separately file a HIPAA right-of-access request, see `templates/complaint_hipaa_access.md`.
 
 ## Where to file
 
@@ -147,4 +147,4 @@ The LLM logs this with `action_type = "emtala_complaint_filed"`. Set `response_d
 
 ## Counsel referral
 
-For the civil action: state bar lawyer referral services often have specialized panels for medical malpractice and patient-injury cases. Many take EMTALA cases on contingency. Patients should not delay — the 2-year clock runs from the date of the violation.
+For the civil action: state bar lawyer referral services often have specialized panels for medical malpractice and patient-injury cases. Many take EMTALA cases on contingency. Patients should not delay, the 2-year clock runs from the date of the violation.

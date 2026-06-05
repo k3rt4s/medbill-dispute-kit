@@ -1,6 +1,6 @@
-# Rule 18 — TRICARE billing
+# Rule 18, TRICARE billing
 
-TRICARE is the health-care program for active-duty service members, retirees, National Guard and Reserve members, and their families. It has its own statute, its own rate schedule, its own provider network rules, and its own appeal process — none of which look like commercial or Medicare appeals.
+TRICARE is the health-care program for active-duty service members, retirees, National Guard and Reserve members, and their families. It has its own statute, its own rate schedule, its own provider network rules, and its own appeal process, none of which look like commercial or Medicare appeals.
 
 This rule fires whenever the patient is a TRICARE beneficiary with a medical bill. It does not displace the kit's other rules; it adds TRICARE-specific overlays.
 
@@ -22,9 +22,9 @@ A TRICARE-authorized provider has agreed to:
 
 Providers fall into three categories:
 
-1. **Network providers** — under contract with the TRICARE regional contractor. Cannot balance-bill. Cost-share is lowest.
-2. **TRICARE-authorized non-network providers** — authorized to treat TRICARE patients and agree to TRICARE rules (including the 15% balance-billing cap; see below). Cost-share is higher.
-3. **Non-authorized providers** — not authorized to provide services to TRICARE patients. Treatment by them is typically not covered.
+1. **Network providers**, under contract with the TRICARE regional contractor. Cannot balance-bill. Cost-share is lowest.
+2. **TRICARE-authorized non-network providers**, authorized to treat TRICARE patients and agree to TRICARE rules (including the 15% balance-billing cap; see below). Cost-share is higher.
+3. **Non-authorized providers**, not authorized to provide services to TRICARE patients. Treatment by them is typically not covered.
 
 ### The 15% balance-billing cap
 
@@ -69,11 +69,11 @@ Parallel: contact the regional contractor to report the billing violation. Contr
 
 TRICARE has its own appeal process under 32 CFR § 199.10:
 
-- **Reconsideration** by the regional contractor — 90-day filing window from the date of the initial determination.
-- **Formal review** by the DHA — for non-medical-necessity appeals.
-- **Hearing** — for cases above $300 in dispute on appealable issues.
+- **Reconsideration** by the regional contractor, 90-day filing window from the date of the initial determination.
+- **Formal review** by the DHA, for non-medical-necessity appeals.
+- **Hearing**, for cases above $300 in dispute on appealable issues.
 - **Final decision** by the Director, DHA.
-- **Federal court** — possible for some final decisions under the Administrative Procedure Act.
+- **Federal court**, possible for some final decisions under the Administrative Procedure Act.
 
 ### 5. Beneficiary Counseling and Assistance Coordinator (BCAC)
 
@@ -107,6 +107,6 @@ A TRICARE billing or claims problem that does not resolve through the regional c
 
 ## Related
 
-- `templates/letter_initial_dispute.md` — adapt with TRICARE citations
-- [[19_va_community_care]] — Veterans Affairs Mission Act / Community Care (a separate federal program, often confused with TRICARE)
-- `references/laws_federal.md` — TRICARE statutory authority overview
+- `templates/letter_initial_dispute.md`, adapt with TRICARE citations
+- [[19_va_community_care]], Veterans Affairs Mission Act / Community Care (a separate federal program, often confused with TRICARE)
+- `references/laws_federal.md`, TRICARE statutory authority overview

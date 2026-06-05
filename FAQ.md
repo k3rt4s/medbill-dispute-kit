@@ -12,7 +12,7 @@ US patients with one or more medical bills they suspect are wrong, unfair, or un
 
 **Do I need to write code or run anything?**
 
-No. The kit is instruction-only. You upload the files to an LLM (Claude.ai, ChatGPT, Gemini, a local model — any with file upload) and tell it you want to dispute medical bills. The LLM does the work using the rules in the kit. The only optional code is a small Python tracker validator in `scripts/`.
+No. The kit is instruction-only. You upload the files to an LLM (Claude.ai, ChatGPT, Gemini, a local model, any with file upload) and tell it you want to dispute medical bills. The LLM does the work using the rules in the kit. The only optional code is a small Python tracker validator in `scripts/`.
 
 **Is this legal advice?**
 
@@ -44,11 +44,11 @@ No. The kit's rules and statutes are US-only.
 
 **The bill due date is in 5 days. What do I do?**
 
-Do not panic and do not pay. The due date on the bill is the provider's preferred date, not a legal deadline. Your actual deadline — the point at which the bill could become collectible or affect your credit — is typically 180+ days out under federal rules. You have time to verify the bill before paying.
+Do not panic and do not pay. The due date on the bill is the provider's preferred date, not a legal deadline. Your actual deadline, the point at which the bill could become collectible or affect your credit, is typically 180+ days out under federal rules. You have time to verify the bill before paying.
 
 **I missed the 30-day deadline for [itemization / FDCPA validation / something else]. What now?**
 
-Most deadlines in the kit are "best practice" deadlines that increase your leverage, not statutes of limitations. Missing a 30-day window for FDCPA validation, for example, doesn't bar you from disputing the debt — it just means you don't get the automatic collection-pause that § 1692g provides. The dispute itself remains available. Tell the LLM what deadline you missed and it will route to the next-best path.
+Most deadlines in the kit are "best practice" deadlines that increase your leverage, not statutes of limitations. Missing a 30-day window for FDCPA validation, for example, doesn't bar you from disputing the debt, it just means you don't get the automatic collection-pause that § 1692g provides. The dispute itself remains available. Tell the LLM what deadline you missed and it will route to the next-best path.
 
 **The hospital sent me to collections. Is it too late to dispute?**
 
@@ -138,7 +138,7 @@ That is a HIPAA right-of-access violation under 45 CFR § 164.524. The provider 
 
 **My bill is from a motor-vehicle accident.**
 
-Different track. See [`rules/15_auto_med_pay.md`](rules/15_auto_med_pay.md). You have multiple potential payers (med-pay/PIP, UM/UIM, at-fault driver's liability, your health insurance) and the order matters. Hospitals sometimes try to preserve the bill for a personal-injury settlement lien at chargemaster rates instead of billing health insurance at the contracted rate — this is challengeable in most states. Use the three-variant template [`templates/letter_auto_med_pay.md`](templates/letter_auto_med_pay.md).
+Different track. See [`rules/15_auto_med_pay.md`](rules/15_auto_med_pay.md). You have multiple potential payers (med-pay/PIP, UM/UIM, at-fault driver's liability, your health insurance) and the order matters. Hospitals sometimes try to preserve the bill for a personal-injury settlement lien at chargemaster rates instead of billing health insurance at the contracted rate, this is challengeable in most states. Use the three-variant template [`templates/letter_auto_med_pay.md`](templates/letter_auto_med_pay.md).
 
 **I was injured at work.**
 
@@ -162,7 +162,7 @@ Common. Telehealth has its own coding rules. See [`rules/20_telehealth.md`](rule
 
 **My bill is from a ground ambulance, $4,000.**
 
-Federal No Surprises Act does not cover ground ambulance — the biggest gap in the NSA. State law may cover. See [`rules/10_ground_ambulance.md`](rules/10_ground_ambulance.md) for the state-by-state table. Where covered, use [`templates/letter_ground_ambulance.md`](templates/letter_ground_ambulance.md) Variant A; where not, Variant B argues UCC § 2-305 with the Medicare ambulance fee schedule as the floor.
+Federal No Surprises Act does not cover ground ambulance, the biggest gap in the NSA. State law may cover. See [`rules/10_ground_ambulance.md`](rules/10_ground_ambulance.md) for the state-by-state table. Where covered, use [`templates/letter_ground_ambulance.md`](templates/letter_ground_ambulance.md) Variant A; where not, Variant B argues UCC § 2-305 with the Medicare ambulance fee schedule as the floor.
 
 **My bill is from an air ambulance, $40,000.**
 
@@ -188,7 +188,7 @@ Use [`scripts/deadline_watch.py`](scripts/deadline_watch.py) against your tracke
 
 **Can I just print one page that tells me where to start?**
 
-Yes — [`docs/DECISION_TREE.md`](docs/DECISION_TREE.md) is intended as a printable single-page index from "what kind of bill" to "which template applies."
+Yes, [`docs/DECISION_TREE.md`](docs/DECISION_TREE.md) is intended as a printable single-page index from "what kind of bill" to "which template applies."
 
 **What's the realistic outcome for my type of dispute?**
 
@@ -264,7 +264,7 @@ Three federal levers: § 501(r) FAP screening obligation (use `letter_hardship_n
 
 When the dispute hits any of: a hospital lien interfering with a tort settlement; amount in controversy approaching or exceeding the state's small-claims jurisdictional limit; an ERISA fiduciary-breach claim; an FCRA private right of action; or any case where the kit's free flow has produced diminishing returns. [`templates/attorney_intake_packet.md`](templates/attorney_intake_packet.md) generates a two-page case summary (page 1 facts and ask, page 2 artifact index) you can hand to an attorney for an intake consult.
 
-**Self-pay election under NSA — when is it worth doing instead of letting insurance bill?**
+**Self-pay election under NSA, when is it worth doing instead of letting insurance bill?**
 
 [`scripts/analyze_self_pay_election.py`](scripts/analyze_self_pay_election.py) compares the two paths per bill: the insurance path (deductible + coinsurance up to OOP max, using your parsed SPD profile if available) vs the self-pay path (lowest of 200% Medicare, hospital's cash price from the MRF, or 60% AGB if FAP-eligible). For patients with high deductibles and access to charity care, self-pay frequently costs less. Allen's argument concretized.
 
@@ -276,7 +276,7 @@ Use `references/laws_state_template.md` as the checklist and follow the structur
 
 **I found a bug in a rule or template.**
 
-Open an issue at the GitHub repo with as much detail as you can — what the rule/template says, what the correct content should be, the source URL for the corrected information. PRs welcome.
+Open an issue at the GitHub repo with as much detail as you can, what the rule/template says, what the correct content should be, the source URL for the corrected information. PRs welcome.
 
 **I have a real-world dispute outcome I'd like to share.**
 

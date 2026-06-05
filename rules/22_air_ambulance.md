@@ -1,6 +1,6 @@
-# Rule 22 — Air ambulance billing
+# Rule 22, Air ambulance billing
 
-Air ambulance (helicopter EMS, fixed-wing critical-care transport) is covered by the federal No Surprises Act — unlike ground ambulance, which is the federal NSA's biggest gap. Despite federal protection, air ambulance bills routinely produce patient-side problems because the underlying charges are enormous, network status is often unclear, and the federal Airline Deregulation Act preempts most state air-ambulance billing regulation.
+Air ambulance (helicopter EMS, fixed-wing critical-care transport) is covered by the federal No Surprises Act, unlike ground ambulance, which is the federal NSA's biggest gap. Despite federal protection, air ambulance bills routinely produce patient-side problems because the underlying charges are enormous, network status is often unclear, and the federal Airline Deregulation Act preempts most state air-ambulance billing regulation.
 
 This rule fires whenever a patient receives a bill for an air-ambulance transport.
 
@@ -8,7 +8,7 @@ This rule fires whenever a patient receives a bill for an air-ambulance transpor
 
 The No Surprises Act prohibits balance billing for out-of-network air ambulance. Specifically:
 
-- **42 U.S.C. § 300gg-112** (added by NSA) — bans balance billing for out-of-network air ambulance services.
+- **42 U.S.C. § 300gg-112** (added by NSA), bans balance billing for out-of-network air ambulance services.
 - Patient cost-sharing is calculated as if the service were in-network and counts toward in-network deductible and out-of-pocket maximum.
 - Provider-payer disputes over the actual payment amount go through the federal Independent Dispute Resolution (IDR) process; the patient is held harmless.
 
@@ -20,7 +20,7 @@ The No Surprises Act prohibits balance billing for out-of-network air ambulance.
 
 ## The Airline Deregulation Act preemption problem
 
-Air-ambulance carriers are regulated as "air carriers" under federal aviation law, including the Airline Deregulation Act of 1978 (ADA, 49 U.S.C. § 41713(b)(1)). The ADA preempts state laws that "relate to a price, route, or service of an air carrier" — which courts have applied broadly to state attempts to regulate air-ambulance billing.
+Air-ambulance carriers are regulated as "air carriers" under federal aviation law, including the Airline Deregulation Act of 1978 (ADA, 49 U.S.C. § 41713(b)(1)). The ADA preempts state laws that "relate to a price, route, or service of an air carrier", which courts have applied broadly to state attempts to regulate air-ambulance billing.
 
 The practical consequence: state surprise-billing laws, state rate-setting, and state consumer-protection laws generally **cannot** be applied against air-ambulance charges in the same way they can against ordinary medical providers. The federal NSA is the principal floor.
 
@@ -70,14 +70,14 @@ File state complaints anyway; the regulatory pressure can move billing departmen
 
 ### 6. Federal patient-side advocacy
 
-- **Patient Advocate Foundation**: [patientadvocate.org](https://www.patientadvocate.org) — has handled air-ambulance billing cases.
+- **Patient Advocate Foundation**: [patientadvocate.org](https://www.patientadvocate.org), has handled air-ambulance billing cases.
 - **Center for Air Ambulance Patient Rights**: search current advocacy resources; the policy landscape changes frequently.
 
 ## When this is not the right frame
 
-- **Ground ambulance** — see `rules/10_ground_ambulance.md`. Different federal-NSA posture (ground ambulance is **not** covered by the NSA; state law is the primary protection).
-- **Patient cost-share is correct and in-network** — that's a hardship-negotiation matter, not an NSA violation.
-- **Self-funded ERISA plan with pre-2022 effective date** — verify NSA applicability; vast majority are covered but edge cases exist.
+- **Ground ambulance**, see `rules/10_ground_ambulance.md`. Different federal-NSA posture (ground ambulance is **not** covered by the NSA; state law is the primary protection).
+- **Patient cost-share is correct and in-network**, that's a hardship-negotiation matter, not an NSA violation.
+- **Self-funded ERISA plan with pre-2022 effective date**, verify NSA applicability; vast majority are covered but edge cases exist.
 
 ## Tracker tagging
 
@@ -90,7 +90,7 @@ Air-ambulance pricing reform is an active federal policy area. The NSA is the fl
 
 ## Related
 
-- [[04_no_surprises_act]] — the federal Act that covers air ambulance
-- [[10_ground_ambulance]] — the federal Act explicitly excludes ground ambulance
-- `templates/letter_no_surprises_violation.md` — for the NSA balance-billing dispute
-- `templates/letter_hardship_negotiation.md` — for the underlying in-network cost-share if unaffordable
+- [[04_no_surprises_act]], the federal Act that covers air ambulance
+- [[10_ground_ambulance]], the federal Act explicitly excludes ground ambulance
+- `templates/letter_no_surprises_violation.md`, for the NSA balance-billing dispute
+- `templates/letter_hardship_negotiation.md`, for the underlying in-network cost-share if unaffordable

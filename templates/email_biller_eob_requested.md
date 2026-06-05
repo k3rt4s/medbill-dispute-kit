@@ -1,4 +1,4 @@
-# Template — Courtesy email to biller: EOB has been requested
+# Template, Courtesy email to biller: EOB has been requested
 
 Companion to `letter_request_eob.md`. Sent from the patient's personal email account to the biller's billing email address (if one is on file). The email mirrors the certified letter so the biller has a record across both channels and cannot claim they were unaware the patient is gathering documentation.
 
@@ -10,7 +10,7 @@ If no biller email address is available, do not send anything by email. The cert
 
 ```email
 To: [BILLER BILLING EMAIL]
-Subject: [PATIENT NAME] — Account [PROVIDER ACCOUNT NUMBER] — EOB requested from insurer, please hold collection activity
+Subject: [PATIENT NAME], Account [PROVIDER ACCOUNT NUMBER], EOB requested from insurer, please hold collection activity
 
 To whom it may concern,
 

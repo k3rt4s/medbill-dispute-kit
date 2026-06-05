@@ -1,4 +1,4 @@
-# Rule 11 — Patient-Provider Dispute Resolution (PPDR) walkthrough
+# Rule 11, Patient-Provider Dispute Resolution (PPDR) walkthrough
 
 For uninsured and self-pay patients whose final bill exceeds the Good Faith Estimate (GFE) they were entitled to receive. PPDR is the federal dispute resolution process created by the No Surprises Act. It is **portal-driven**, not letter-driven, so this is a rule with a checklist, not a template.
 
@@ -29,17 +29,17 @@ The filing fee is **$25**, refundable if the Selected Dispute Resolution (SDR) e
 
 ## Where the process lives
 
-- **Federal IDR portal:** [nsa-idr.cms.gov](https://nsa-idr.cms.gov) — this is the same portal used for provider-payer IDR; PPDR is a separate workflow within it.
-- **CMS PPDR page:** [cms.gov/nosurprises/providers-payment-resolution-with-patients](https://www.cms.gov/nosurprises/providers-payment-resolution-with-patients) — explains the process from the provider's perspective; relevant context for what the SDR entity is looking at.
-- **CMS PPDR overview for patients:** [cms.gov/medical-bill-rights](https://www.cms.gov/medical-bill-rights) — patient-facing summary.
+- **Federal IDR portal:** [nsa-idr.cms.gov](https://nsa-idr.cms.gov), this is the same portal used for provider-payer IDR; PPDR is a separate workflow within it.
+- **CMS PPDR page:** [cms.gov/nosurprises/providers-payment-resolution-with-patients](https://www.cms.gov/nosurprises/providers-payment-resolution-with-patients), explains the process from the provider's perspective; relevant context for what the SDR entity is looking at.
+- **CMS PPDR overview for patients:** [cms.gov/medical-bill-rights](https://www.cms.gov/medical-bill-rights), patient-facing summary.
 
-## Checklist — what the patient needs before filing
+## Checklist, what the patient needs before filing
 
 The LLM walks the patient through this checklist. Each item should be collected, scanned, and named for upload.
 
 ### 1. The Good Faith Estimate (if one was provided)
 
-If the patient received a GFE — usually delivered before scheduled service or, for self-pay scheduled services, automatically — locate it. Common forms:
+If the patient received a GFE, usually delivered before scheduled service or, for self-pay scheduled services, automatically, locate it. Common forms:
 
 - A document titled "Good Faith Estimate," "GFE," or "estimate of charges"
 - A printed estimate from the provider's patient portal
@@ -55,7 +55,7 @@ The bill that exceeds the GFE. PPDR is filed against a **single provider's bill*
 
 ### 3. Evidence of self-pay or uninsured status
 
-PPDR is for uninsured or self-pay patients. Self-pay means the patient chose not to submit the claim through insurance for this service, even if they have insurance. If the patient submitted to insurance and the claim was processed, PPDR is not available — the dispute path is internal appeal to the plan instead.
+PPDR is for uninsured or self-pay patients. Self-pay means the patient chose not to submit the claim through insurance for this service, even if they have insurance. If the patient submitted to insurance and the claim was processed, PPDR is not available, the dispute path is internal appeal to the plan instead.
 
 ### 4. The $400 threshold per provider
 
@@ -86,11 +86,11 @@ The compressed sequence:
 
 Beyond the basic filing, the SDR entity will weigh:
 
-1. **The provider's own published cash price** (from the hospital's Hospital Price Transparency machine-readable file, if applicable — see [`templates/complaint_cms_hpt.md`](../templates/complaint_cms_hpt.md) for how to compel one).
+1. **The provider's own published cash price** (from the hospital's Hospital Price Transparency machine-readable file, if applicable, see [`templates/complaint_cms_hpt.md`](../templates/complaint_cms_hpt.md) for how to compel one).
 2. **Reasonable fair-market data** for the CPT codes in question (Turquoise Health, FAIR Health Consumer; see [`references/resources.md`](../references/resources.md)).
 3. **Medicare allowable rates** for the same CPT codes (CMS Physician Fee Schedule Lookup).
 4. **The GFE itself** as the patient's reasonable expectation.
-5. **Any clinical-necessity context** — if the bill includes services beyond what was on the GFE because of an intra-procedure decision, the patient should not be liable for those add-ons absent the patient's informed consent to a new GFE.
+5. **Any clinical-necessity context**, if the bill includes services beyond what was on the GFE because of an intra-procedure decision, the patient should not be liable for those add-ons absent the patient's informed consent to a new GFE.
 
 ## When PPDR is the wrong tool
 
@@ -107,10 +107,10 @@ Beyond the basic filing, the SDR entity will weigh:
 
 ## Follow-up
 
-The LLM logs the filing with `action_type = "ppdr_filed"`. Set `response_due_by` to 60 days from filing (typical end-to-end PPDR resolution timeline). Note in `notes` field that collections-pause and credit-protection apply during the pendency. If the patient receives any collections contact during pendency, that contact itself violates federal law — log a separate finding and file an immediate complaint with the No Surprises Help Desk.
+The LLM logs the filing with `action_type = "ppdr_filed"`. Set `response_due_by` to 60 days from filing (typical end-to-end PPDR resolution timeline). Note in `notes` field that collections-pause and credit-protection apply during the pendency. If the patient receives any collections contact during pendency, that contact itself violates federal law, log a separate finding and file an immediate complaint with the No Surprises Help Desk.
 
 ## Related rules
 
-- [[01_never_pay_first]] — the general principle PPDR enforces for self-pay patients
-- [[04_no_surprises_act]] — PPDR's parent framework
-- [[09_pricing_resources]] — the price data that anchors the patient's PPDR submission
+- [[01_never_pay_first]], the general principle PPDR enforces for self-pay patients
+- [[04_no_surprises_act]], PPDR's parent framework
+- [[09_pricing_resources]], the price data that anchors the patient's PPDR submission

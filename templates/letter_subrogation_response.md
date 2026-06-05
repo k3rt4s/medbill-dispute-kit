@@ -1,8 +1,8 @@
-# Template — Subrogation response
+# Template, Subrogation response
 
 Use when the patient's health insurance plan has asserted a subrogation or reimbursement claim against a tort recovery the patient is pursuing (motor-vehicle, slip-and-fall, premises liability, product liability). The plan typically sends a "subrogation questionnaire" or a "letter of representation" to the patient, claiming the right to be reimbursed out of any settlement.
 
-The legal landscape is split. ERISA self-funded plans with proper plan-document language usually have strong subrogation rights under Sereboff v. Mid Atlantic Medical Services, 547 U.S. 356 (2006) and US Airways v. McCutchen, 569 U.S. 88 (2013). Fully-insured plans and government plans (Medicare, Medicaid, TRICARE) operate under different rules, with state anti-subrogation statutes potentially in play. In every case, the plan's claim is limited by the plan-document language — most plans cannot recover until the patient has been made whole, and most cannot recover from the patient personally beyond the recovery itself.
+The legal landscape is split. ERISA self-funded plans with proper plan-document language usually have strong subrogation rights under Sereboff v. Mid Atlantic Medical Services, 547 U.S. 356 (2006) and US Airways v. McCutchen, 569 U.S. 88 (2013). Fully-insured plans and government plans (Medicare, Medicaid, TRICARE) operate under different rules, with state anti-subrogation statutes potentially in play. In every case, the plan's claim is limited by the plan-document language, most plans cannot recover until the patient has been made whole, and most cannot recover from the patient personally beyond the recovery itself.
 
 This template (a) demands the plan identify its claim in writing with the plan provisions it relies on, (b) preserves the made-whole defense, (c) reduces the claim by the common-fund (attorney's-fees) doctrine, and (d) opens the door to negotiation.
 
@@ -19,14 +19,14 @@ Email: [PATIENT EMAIL]
 
 [DATE]
 
-[SUBROGATION DEPARTMENT — Plan or Recovery Vendor]
+[SUBROGATION DEPARTMENT, Plan or Recovery Vendor]
 [INSURER NAME or RECOVERY VENDOR NAME]
 [MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Response to subrogation / reimbursement claim —
+RE: Response to subrogation / reimbursement claim, 
     Member: [PATIENT FULL NAME]
     DOB: [DOB]
     Member ID: [MEMBER ID]
@@ -63,23 +63,23 @@ Until I receive and review the plan documents, my position is as follows:
 
 [The drafter renders the positions that apply, drawing from the available context.]
 
-[POSITION A — Made-whole doctrine]
+[POSITION A, Made-whole doctrine]
 
 I have not been and will not be made whole by any reasonably expected recovery in this matter. My damages include economic loss (the unreimbursed medical bills and out-of-pocket expense of $[OOP AMOUNT]), lost earnings of $[LOST EARNINGS], future medical care reasonably expected to cost $[FUTURE CARE], and non-economic damages including pain and suffering valued at no less than $[PAIN AND SUFFERING]. The total is approximately $[TOTAL DAMAGES]. Any recovery substantially below that total fails to make me whole. Unless the plan-document language expressly disclaims the made-whole doctrine, the plan's reimbursement claim does not attach until I have been made whole, which I have not been.
 
-[POSITION B — Common-fund / attorney's-fees reduction]
+[POSITION B, Common-fund / attorney's-fees reduction]
 
 The plan's recovery, if any, is subject to a pro rata reduction for the attorney's fees and litigation costs that produced the recovery. The fee in my case is [N]% pursuant to a written contingency agreement. After attorney's fees and litigation costs, my net recovery before any subrogation reduction is $[NET RECOVERY]. The plan's pro rata share of fees and costs is $[PRO RATA FEES]; any subrogation reimbursement must be reduced by that amount before payment.
 
-[POSITION C — Allocation between economic and non-economic damages]
+[POSITION C, Allocation between economic and non-economic damages]
 
 In any settlement, the parties intend to allocate the proceeds between economic damages (medical, lost wages) and non-economic damages (pain and suffering, loss of consortium). Subrogation reaches only the economic component, not the non-economic component. The allocation of [ECONOMIC %] economic and [NON-ECONOMIC %] non-economic is fair given the nature of the injury, the duration of recovery, and comparable verdicts. The plan's recoverable interest is limited to the economic portion.
 
-[POSITION D — No Surprises Act amounts are not subrogation-eligible]
+[POSITION D, No Surprises Act amounts are not subrogation-eligible]
 
 To the extent any portion of the medical claims giving rise to the plan's reimbursement claim were emergency or out-of-network ancillary services governed by the federal No Surprises Act, the plan's payment for those claims was a contractual obligation under the plan's compliance with 42 U.S.C. § 300gg-111, not an injury-related expenditure subject to subrogation. The amount adjudicated under the NSA in-network cost-sharing rule cannot be subrogated against a tort recovery as if it had been a discretionary plan expenditure.
 
-[POSITION E — Disputed billing not yet resolved]
+[POSITION E, Disputed billing not yet resolved]
 
 A portion of the medical bills the plan paid is still in active dispute with the provider for amounts above the EOB-allowed amount. To the extent that disputed amounts are reduced, the plan's reimbursement basis is correspondingly reduced. The plan should not press a subrogation claim on amounts the provider has not yet been finally determined to be entitled to.
 
@@ -117,17 +117,17 @@ Subrogation file #: [SUBRO FILE #]
 Date of incident: [DATE OF INCIDENT]
 
 Enclosures:
-A — Plan ID card / Summary of Benefits and Coverage on file
-B — Subrogation notice from the plan / recovery vendor
-C — (If applicable) Notice of representation by [ATTORNEY NAME]
+A, Plan ID card / Summary of Benefits and Coverage on file
+B, Subrogation notice from the plan / recovery vendor
+C, (If applicable) Notice of representation by [ATTORNEY NAME]
 ```
 
 ---
 
 ## Placeholders and rendering notes
 
-- `[INSURER NAME]` vs. `[RECOVERY VENDOR NAME]` — many plans contract subrogation out to vendors (Optum, Equian/Optum Recovery, The Rawlings Group, Trover Solutions). The vendor letterhead is often what the patient sees. The letter is sent to the vendor with a CC to the plan administrator on file.
-- `[STATE STATUTE]` — state anti-subrogation rules vary widely. The drafter loads `references/laws_state_<code>.md` for any subrogation entry. Some states (e.g., VA for fully-insured plans, KS for certain plan types) limit subrogation more than others.
+- `[INSURER NAME]` vs. `[RECOVERY VENDOR NAME]`, many plans contract subrogation out to vendors (Optum, Equian/Optum Recovery, The Rawlings Group, Trover Solutions). The vendor letterhead is often what the patient sees. The letter is sent to the vendor with a CC to the plan administrator on file.
+- `[STATE STATUTE]`, state anti-subrogation rules vary widely. The drafter loads `references/laws_state_<code>.md` for any subrogation entry. Some states (e.g., VA for fully-insured plans, KS for certain plan types) limit subrogation more than others.
 - ERISA preempts most state law for self-funded plans; the made-whole and common-fund defenses then turn entirely on the plan-document language. That is why item I.1 (the plan-document request) is at the top of the letter.
 
 ## Before sending

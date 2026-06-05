@@ -1,6 +1,6 @@
 # Reading a non-profit hospital's IRS Form 990
 
-Approximately 2,900 of the 5,200 acute-care hospitals in the United States are organized as 501(c)(3) tax-exempt entities. Each one must file IRS Form 990 annually and, since 2009, must include Schedule H — Hospitals as part of the filing. Schedule H discloses charity-care spending, community-benefit activity, billing-and-collection policy, debt-collection practices, and compensation of top executives.
+Approximately 2,900 of the 5,200 acute-care hospitals in the United States are organized as 501(c)(3) tax-exempt entities. Each one must file IRS Form 990 annually and, since 2009, must include Schedule H, Hospitals as part of the filing. Schedule H discloses charity-care spending, community-benefit activity, billing-and-collection policy, debt-collection practices, and compensation of top executives.
 
 Marshall Allen and other patient-advocacy writers (Pat Palmer, Sarah Kliff, Jay Hancock) repeatedly cite Schedule H as a pressure tool: a hospital that bills patients $200,000 for a $20,000 service while claiming $50M in community benefit on its 990 has an obvious credibility problem when challenged.
 
@@ -10,10 +10,10 @@ This reference explains what to pull from a 990 and how to use it.
 
 ## Where to find the 990
 
-- **ProPublica Nonprofit Explorer** at projectsroprublica.org/nonprofits — free, searchable, includes 990s back to 2001 for most hospitals. The fastest single source.
-- **GuideStar (Candid)** at candid.org — free with registration; same underlying IRS data.
-- **IRS Tax Exempt Organization Search** at apps.irs.gov/app/eos — the original source; works but less convenient than ProPublica.
-- The hospital's own website — § 501(r)(4)(B) requires posting the FAP, FAP application, and plain-language summary, but not the full 990. Some hospitals link the 990 anyway.
+- **ProPublica Nonprofit Explorer** at projectsroprublica.org/nonprofits, free, searchable, includes 990s back to 2001 for most hospitals. The fastest single source.
+- **GuideStar (Candid)** at candid.org, free with registration; same underlying IRS data.
+- **IRS Tax Exempt Organization Search** at apps.irs.gov/app/eos, the original source; works but less convenient than ProPublica.
+- The hospital's own website, § 501(r)(4)(B) requires posting the FAP, FAP application, and plain-language summary, but not the full 990. Some hospitals link the 990 anyway.
 
 Filings have an 18- to 24-month lag. A 990 filed in November 2025 typically covers fiscal year 2024.
 
@@ -21,18 +21,18 @@ Filings have an 18- to 24-month lag. A 990 filed in November 2025 typically cove
 
 ## Key fields to extract (in order of dispute utility)
 
-### Schedule H, Part I — Financial Assistance and Certain Other Community Benefits
+### Schedule H, Part I, Financial Assistance and Certain Other Community Benefits
 
-- **Part I, Line 7a — Financial Assistance at Cost**: dollars the hospital reports spending on patients eligible for charity care under its FAP. Most defensible Schedule H number for patient-advocacy purposes.
+- **Part I, Line 7a, Financial Assistance at Cost**: dollars the hospital reports spending on patients eligible for charity care under its FAP. Most defensible Schedule H number for patient-advocacy purposes.
 
-- **Part I, Line 7e — Net Community Benefit Expense**: total community-benefit number the hospital points to in PR. Includes Medicaid shortfalls (a subsidy the hospital chose to accept) and education/research spending unrelated to charity care. Use cautiously.
+- **Part I, Line 7e, Net Community Benefit Expense**: total community-benefit number the hospital points to in PR. Includes Medicaid shortfalls (a subsidy the hospital chose to accept) and education/research spending unrelated to charity care. Use cautiously.
 
-- **Part I, Line 7g — Bad Debt**: amount of patient debt the hospital wrote off as uncollectible. Distinct from charity care: bad debt is debt the hospital tried to collect and failed. A hospital with high bad debt and low charity-care spending may be screening too narrowly for FAP eligibility.
+- **Part I, Line 7g, Bad Debt**: amount of patient debt the hospital wrote off as uncollectible. Distinct from charity care: bad debt is debt the hospital tried to collect and failed. A hospital with high bad debt and low charity-care spending may be screening too narrowly for FAP eligibility.
 
-### Schedule H, Part V — Facility Information
+### Schedule H, Part V, Facility Information
 
-- **Section A — Hospital Facilities**: list of every facility under the EIN. A multi-hospital system may report consolidated 990 data; the patient should pull the system-level filing.
-- **Section B — Facility Policies and Practices**: per-facility yes/no responses to questions including:
+- **Section A, Hospital Facilities**: list of every facility under the EIN. A multi-hospital system may report consolidated 990 data; the patient should pull the system-level filing.
+- **Section B, Facility Policies and Practices**: per-facility yes/no responses to questions including:
   - Has the facility conducted a Community Health Needs Assessment (CHNA) in the last three years?
   - Does the facility have a written FAP?
   - Does the FAP specify income eligibility criteria, the basis for calculating AGB (Amounts Generally Billed), and the methods for applying?
@@ -42,7 +42,7 @@ Filings have an 18- to 24-month lag. A 990 filed in November 2025 typically cove
 
 A "No" answer to any of the CHNA / FAP / EMC policy questions is direct evidence of § 501(r) non-compliance and a strong attachment to an IRS Form 13909 complaint.
 
-### Schedule H, Part VI — Supplemental Information
+### Schedule H, Part VI, Supplemental Information
 
 Free-text narrative on:
 
@@ -52,15 +52,15 @@ Free-text narrative on:
 
 The narrative is where hospitals describe their "reasonable efforts" to determine eligibility before suing patients. If the narrative says the hospital uses a vendor or screens every patient for FAP, and the patient was sued without being screened, the narrative is exhibit A in the dispute.
 
-### Form 990, Part VII — Compensation of Officers, Directors, Trustees, Key Employees
+### Form 990, Part VII, Compensation of Officers, Directors, Trustees, Key Employees
 
 The CEO and top-5 highest-compensated employees are listed with total compensation. Hospital CEO compensation in the multi-million-dollar range while bad-debt and charity-care numbers are anemic is a routine pressure point.
 
-### Form 990, Schedule J — Compensation Information
+### Form 990, Schedule J, Compensation Information
 
 For each highly compensated executive, Schedule J shows base salary, bonus, retirement, deferred compensation, and non-taxable benefits. Total compensation packages can run 3-5x the headline salary.
 
-### Form 990, Part III — Statement of Program Service Accomplishments
+### Form 990, Part III, Statement of Program Service Accomplishments
 
 Top three program services with revenue, expense, and grant numbers. Use to verify the hospital's claimed program scope matches what the patient observed.
 
@@ -80,7 +80,7 @@ Schedule H Part V Section B answers are sworn declarations to the IRS. A patient
 
 ### 3. As the substantive basis of an IRS Form 13909 complaint
 
-If the hospital's conduct is inconsistent with the 990 answers — for example, the hospital reports having a FAP but the patient was sued without being screened — file IRS Form 13909 (Tax-Exempt Organization Complaint Referral). The IRS does not typically revoke 501(c)(3) status over a single complaint, but it does add the complaint to the file used for the next IRS audit cycle and can lead to follow-up correspondence with the hospital.
+If the hospital's conduct is inconsistent with the 990 answers, for example, the hospital reports having a FAP but the patient was sued without being screened, file IRS Form 13909 (Tax-Exempt Organization Complaint Referral). The IRS does not typically revoke 501(c)(3) status over a single complaint, but it does add the complaint to the file used for the next IRS audit cycle and can lead to follow-up correspondence with the hospital.
 
 Mailing address:
 IRS EO Examinations Classification Office
@@ -112,7 +112,7 @@ A power user can extract every hospital's Schedule H Part I and Part V data into
 
 ## Related templates and references
 
-- `templates/letter_financial_assistance_application.md` — § 501(r) FAP application.
-- `templates/letter_hardship_negotiation.md` — references FAP and § 501(r) duties.
-- `templates/complaint_state_doi.md` — Category B / E / F for consumer-protection violations the 990 may help establish.
-- `references/medical_debt_protection_by_state.md` — state-level charity-care screening mandates.
+- `templates/letter_financial_assistance_application.md`, § 501(r) FAP application.
+- `templates/letter_hardship_negotiation.md`, references FAP and § 501(r) duties.
+- `templates/complaint_state_doi.md`, Category B / E / F for consumer-protection violations the 990 may help establish.
+- `references/medical_debt_protection_by_state.md`, state-level charity-care screening mandates.

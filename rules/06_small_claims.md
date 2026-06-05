@@ -1,4 +1,4 @@
-# Rule 06 — Use small claims court as leverage, then as a venue
+# Rule 06, Use small claims court as leverage, then as a venue
 
 Small claims court is the single biggest piece of leverage a patient has against a provider or insurer. The threat is usually enough; the filing usually settles before hearing; the hearing is winnable for prepared self-represented plaintiffs.
 
@@ -40,7 +40,7 @@ Medical billing disputes are typically breach-of-contract claims. The breach-of-
 - The itemized bill (if you obtained one)
 - The Explanation of Benefits from your insurance, if applicable
 - Every letter you sent (with certified-mail receipts) and every response received
-- Evidence of the fair-market price (Turquoise screenshots, Healthcare Bluebook printouts, Medicare rates, retail-equivalent screenshots — with dates)
+- Evidence of the fair-market price (Turquoise screenshots, Healthcare Bluebook printouts, Medicare rates, retail-equivalent screenshots, with dates)
 - A printed copy of the relevant CPT documentation requirements if coding is at issue
 - A printed copy of the relevant statutes (state itemization law, No Surprises Act sections, UCC § 2-305 if applicable)
 - A one-page chronology of events
@@ -52,7 +52,7 @@ Make three copies of every exhibit: one for the judge, one for the defendant, on
 
 Plain language. Chronological order. State the legal basis once, then prove the facts:
 
-> "Your Honor, I went to [facility] on [date] for [reason]. The bill they sent me contained [specific problem: a charge for a service I didn't receive / an upcoded ER visit / a price ten times the local fair-market rate]. Exhibit A is the itemized bill. Exhibit B is [evidence of the problem]. I asked them to correct it on [date 1], on [date 2], and on [date 3] — Exhibits C, D, E. They have not corrected it. I'm asking the court to order the disputed amount of $X removed from my account, plus my filing fee."
+> "Your Honor, I went to [facility] on [date] for [reason]. The bill they sent me contained [specific problem: a charge for a service I didn't receive / an upcoded ER visit / a price ten times the local fair-market rate]. Exhibit A is the itemized bill. Exhibit B is [evidence of the problem]. I asked them to correct it on [date 1], on [date 2], and on [date 3], Exhibits C, D, E. They have not corrected it. I'm asking the court to order the disputed amount of $X removed from my account, plus my filing fee."
 
 Don't lead with emotion. Lead with documents.
 
@@ -70,6 +70,6 @@ Use this in the 30-day warning, not the initial dispute. The initial dispute is 
 
 ## Related rules
 
-- [[02_request_itemization]] — the paper trail starts here
-- [[05_negotiate_fair_price]] — the evidence you bring to court
-- [[07_appeal_insurance_denial]] — for insurer disputes (note: ERISA-covered plans go through federal court, not small claims)
+- [[02_request_itemization]], the paper trail starts here
+- [[05_negotiate_fair_price]], the evidence you bring to court
+- [[07_appeal_insurance_denial]], for insurer disputes (note: ERISA-covered plans go through federal court, not small claims)

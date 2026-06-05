@@ -1,16 +1,16 @@
-"""check_completeness.py — derive per-bill state by joining
+"""check_completeness.py, derive per-bill state by joining
 Billers/<slug>/_bills.csv with the master matches.csv (in the log
 directory, default ~/.medbill-dispute-kit/tracker/). Writes/updates
 the master tracker.csv with one row per bill, including:
 
-  - has_eob (Y/N) — derived from matches.csv
-  - has_itemization (Y/N) — read from _bills.csv (set by indexer's
+  - has_eob (Y/N), derived from matches.csv
+  - has_itemization (Y/N), read from _bills.csv (set by indexer's
     peer-reviewed dated-charge-line heuristic)
-  - status — gathering_evidence | ready_to_dispute |
+  - status, gathering_evidence | ready_to_dispute |
     disputed | escalated | settled | closed
-  - next_action — request_eob | request_itemization | draft_dispute |
+  - next_action, request_eob | request_itemization | draft_dispute |
     monitor | (and others depending on prior sent letters)
-  - matched_claim_numbers — semicolon-joined list of EOB claim ids
+  - matched_claim_numbers, semicolon-joined list of EOB claim ids
     linked to this bill
 
 The script PRESERVES user-supplied operational columns (sent dates,
@@ -83,7 +83,7 @@ _KIT_CONFIG = load_kit_config(HEALTH_ROOT)
 #
 # Populated from kit_config.toml [always_skip_slugs] section on the
 # workstation. Empty in the public kit. The pipeline still works with
-# an empty set — those rows just appear with a `gathering_evidence`
+# an empty set, those rows just appear with a `gathering_evidence`
 # status until you mark them resolved.
 ALWAYS_SKIP_SLUGS: set[str] = set(
     str_list(_KIT_CONFIG.get("always_skip_slugs", {}).get("slugs"))
@@ -222,7 +222,7 @@ def assign_encounter_ids(rows: list[dict],
     counters: dict[int, int] = defaultdict(int)
     cluster_id_for: dict[int, str] = {}
     for c, idxs in members.items():
-        # Honor any preserved id for this cluster — pick the first
+        # Honor any preserved id for this cluster, pick the first
         # bill_id with a prior encounter_id.
         prior_eid = ""
         for i in idxs:
@@ -298,7 +298,7 @@ def load_matches_by_bill() -> dict[tuple[str, str], list[dict]]:
     """Return {(biller_slug, bill_file): [claim_match_rows]} for matches
     where a bill was linked to one or more claims.
 
-    Keyed by (slug, file) — not file alone — so basename collisions
+    Keyed by (slug, file), not file alone, so basename collisions
     across slugs (e.g. two billers each having a "statement_v1.pdf")
     do not silently cross-link."""
     matches = read_csv(MATCHES_CSV)

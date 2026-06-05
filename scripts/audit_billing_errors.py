@@ -1,4 +1,4 @@
-"""audit_billing_errors.py — scan each bill sidecar for common billing
+"""audit_billing_errors.py, scan each bill sidecar for common billing
 errors Marshall Allen describes in "Never Pay the First Bill": duplicate
 CPTs on the same date of service, common unbundling-violation pairs
 (NCCI edits), modifier-25 stacking, and aging / late-fee charges that

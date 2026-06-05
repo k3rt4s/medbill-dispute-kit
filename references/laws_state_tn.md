@@ -41,7 +41,7 @@ Use this as the citation in `templates/letter_itemization_request.md` for any Te
 
 ## Surprise billing
 
-Tennessee did **not** enact its own pre-No-Surprises-Act surprise-billing statute for fully-insured plans. The federal No Surprises Act (effective Jan 1, 2022) is the operative protection. See [`laws_federal.md`](laws_federal.md). For ground ambulance — which the federal Act excludes — there is no Tennessee state-level protection as of this writing; the dispute path is general negotiation under UCC § 2-305 and the provider's billing practices.
+Tennessee did **not** enact its own pre-No-Surprises-Act surprise-billing statute for fully-insured plans. The federal No Surprises Act (effective Jan 1, 2022) is the operative protection. See [`laws_federal.md`](laws_federal.md). For ground ambulance, which the federal Act excludes, there is no Tennessee state-level protection as of this writing; the dispute path is general negotiation under UCC § 2-305 and the provider's billing practices.
 
 ## Regulatory agencies
 
@@ -70,7 +70,7 @@ Tennessee did **not** enact its own pre-No-Surprises-Act surprise-billing statut
 ## Small claims court
 
 - **Court name:** **General Sessions Court** (civil docket)
-- **Jurisdictional limit:** **$25,000** — highest in the US
+- **Jurisdictional limit:** **$25,000**, highest in the US
 - **Source:** [ctas.tennessee.edu/eli/jurisdiction-general-sessions-court](https://www.ctas.tennessee.edu/eli/jurisdiction-general-sessions-court)
 - **Filing fees:** typically $55-$150 (varies by county)
 - **Attorney:** not required; permitted
@@ -81,10 +81,10 @@ Plan for the possibility that a corporate defendant appeals de novo to Circuit C
 
 ## Statute of limitations
 
-- **Breach of contract (written):** 6 years — Tenn. Code Ann. § 28-3-109
-- **Breach of contract (oral):** 6 years — same statute
-- **Tort (most):** 1 year — Tenn. Code Ann. § 28-3-104
-- **Consumer Protection Act:** 1 year from discovery, 5 years from the deceptive act, whichever is shorter — Tenn. Code Ann. § 47-18-110
+- **Breach of contract (written):** 6 years, Tenn. Code Ann. § 28-3-109
+- **Breach of contract (oral):** 6 years, same statute
+- **Tort (most):** 1 year, Tenn. Code Ann. § 28-3-104
+- **Consumer Protection Act:** 1 year from discovery, 5 years from the deceptive act, whichever is shorter, Tenn. Code Ann. § 47-18-110
 
 Medical billing disputes are usually breach-of-contract claims, so the 6-year clock applies. Don't wait that long; the paper trail is stronger when events are recent.
 

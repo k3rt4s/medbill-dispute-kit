@@ -1,4 +1,4 @@
-"""draft_letters_by_state.py — state-machine letter generator.
+"""draft_letters_by_state.py, state-machine letter generator.
 
 For each (biller_slug, account_number) dispute group in tracker.csv,
 draft the single most-appropriate letter based on the gate state:
@@ -226,7 +226,7 @@ AUTO_INJURY_RE = re.compile(
 # `_FORM_HEADER_RE` matches the "please indicate if applicable" header
 # at any position within a line (OCR sometimes prefixes line numbers).
 # `_FORM_LABEL_TOKENS_RE` is the keyword confirmation that gates
-# stripping — without one of these tokens appearing in the next 10
+# stripping, without one of these tokens appearing in the next 10
 # lines after the header, the header is left alone (so a narrative
 # sentence containing "please indicate if applicable" does not
 # accidentally suppress later legitimate WC / auto content).
@@ -338,8 +338,7 @@ def _strip_form_label_blocks(body: str) -> str:
     header phrase; when found, scans the next `_FORM_BLOCK_MAX_LINES`
     for canonical form-label tokens (AUTO ACCIDENT / WORKER'S COMP /
     DATE OF INJURY). If at least one matches, drops the header line
-    and every line through the LAST token line within the window —
-    preserving anything after that boundary. Narrative text mentioning
+    and every line through the LAST token line within the window, preserving anything after that boundary. Narrative text mentioning
     "please indicate if applicable" without nearby form tokens is left
     untouched, and the strip never over-runs into adjacent content."""
     lines = body.split("\n")
@@ -561,7 +560,7 @@ BILLER_STATE_OVERRIDES: dict[str, str] = str_str_dict(
 # Patient's home state code (two-letter, lowercase). Used to load the
 # kit's state-specific law pack into every letter's context. Override
 # via $HEALTHBILLS_PATIENT_STATE env var. Default loads federal only
-# — letters will work, just without state citations.
+#, letters will work, just without state citations.
 PATIENT_STATE = (os.environ.get("HEALTHBILLS_PATIENT_STATE") or "").lower()
 
 
@@ -791,7 +790,7 @@ def main() -> int:
         # follow. Computed once and passed via extras.
         encounter_block = gather_encounter_siblings(canonical, tracker_rows)
 
-        # Encounter-combined dispute — drafted once per encounter when
+        # Encounter-combined dispute, drafted once per encounter when
         # the encounter has 4+ distinct billers (a hospital-admission
         # signature pattern with facility + ER physician + radiology +
         # anesthesia or similar) and at least one bill in the
@@ -895,7 +894,7 @@ def main() -> int:
                 )
                 canonical["dispute_template_used"] = template_key
 
-        # HIPAA records request — when the audit detector has surfaced
+        # HIPAA records request, when the audit detector has surfaced
         # `service_not_received_suspected` on the canonical bill, we
         # draft the records-access letter automatically so the patient
         # can verify each billed service is in the chart before
@@ -923,7 +922,7 @@ def main() -> int:
                     Path(path).relative_to(HEALTH_ROOT)
                 )
 
-        # WC / auto-medpay redirect — when the bill is for a work-
+        # WC / auto-medpay redirect, when the bill is for a work-
         # related or motor-vehicle injury, the first move is to
         # redirect billing to the right payer. We draft the redirect
         # in addition to (not instead of) the regular dispute flow so
@@ -956,7 +955,7 @@ def main() -> int:
             if path:
                 written[bill_id + "_auto"] = path
 
-        # DOI complaint — parallel pressure track, drafted as soon as
+        # DOI complaint, parallel pressure track, drafted as soon as
         # the main letter (dispute or counter-offer) is in the queue or
         # already sent. Filed via the state portal same day as mailing.
         if (sent_dispute or sent_counter or canonical.get("drafted_dispute_letter")
@@ -982,7 +981,7 @@ def main() -> int:
                     Path(path).relative_to(HEALTH_ROOT)
                 )
 
-        # Small claims civil-warrant — drafted only when the 30-day
+        # Small claims civil-warrant, drafted only when the 30-day
         # warning has gone unanswered for 15 days. We don't try to
         # compute "elapsed days" here; the user signals readiness by
         # populating thirty_day_warning_sent_date and clearing any

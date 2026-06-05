@@ -1,4 +1,4 @@
-# Template — Hospital financial assistance application request
+# Template, Hospital financial assistance application request
 
 For non-profit hospital bills, this letter triggers the hospital's obligation under IRS § 501(r) to consider you for financial assistance (charity care). Most hospitals have their own application form; submit the form if provided. This letter is for when the hospital is slow to provide one, refuses to acknowledge the patient's eligibility for screening, or proceeds with collection action before completing the eligibility determination.
 
@@ -21,10 +21,10 @@ Email: [PATIENT EMAIL]
 [HOSPITAL NAME]
 [HOSPITAL MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Request for Financial Assistance Policy and application —
+RE: Request for Financial Assistance Policy and application, 
     Account #[ACCOUNT NUMBER]
     Patient: [PATIENT FULL NAME]
     Date(s) of service: [DATE OF SERVICE]
@@ -50,37 +50,37 @@ I believe I am eligible for assistance under your FAP based on the following:
 
 [The LLM renders one or more of the blocks below. Do not embellish; understate where possible.]
 
-[BLOCK A — Household income relative to federal poverty level]
+[BLOCK A, Household income relative to federal poverty level]
 
 My household consists of [N] persons. My household's gross annual income is approximately $[INCOME]. The federal poverty level for a household of [N] for the most recent year is approximately $[FPL]. My household income is approximately [N]% of the federal poverty level. Most non-profit hospital FAPs provide a discount or full coverage at incomes up to [200% / 300% / 400%] of the FPL depending on the institution.
 
-[BLOCK B — Medical-debt burden relative to income]
+[BLOCK B, Medical-debt burden relative to income]
 
 Inclusive of the above-referenced account, I currently have $[TOTAL MEDICAL DEBT] in medical-debt liability across [N] providers from related care. This amount exceeds [X]% of my gross annual income.
 
-[BLOCK C — Presumptive eligibility indicators]
+[BLOCK C, Presumptive eligibility indicators]
 
 I am [enrolled in / eligible for] [Medicaid / TennCare / SNAP / WIC / state heating-assistance program / housing assistance / other means-tested public-assistance program]. Many non-profit hospital FAPs treat enrollment in such programs as presumptive eligibility for financial assistance.
 
-[BLOCK D — Other circumstances]
+[BLOCK D, Other circumstances]
 
-[Briefly state any additional facts that bear on eligibility — job loss, disability, dependents, sole caregiver responsibilities, recent bankruptcy. Two or three sentences; the goal is candor, not pity.]
+[Briefly state any additional facts that bear on eligibility, job loss, disability, dependents, sole caregiver responsibilities, recent bankruptcy. Two or three sentences; the goal is candor, not pity.]
 
 [END BLOCKS]
 
 III. Procedural protections during the application process
 
-Pursuant to 26 CFR § 1.501(r)-6, while my eligibility application is pending, your hospital must not engage in any "extraordinary collection action" against me — including but not limited to: lawsuits, wage garnishment, credit reporting, denying necessary future medical care because of unpaid bills, or referring this account to an outside collection agency.
+Pursuant to 26 CFR § 1.501(r)-6, while my eligibility application is pending, your hospital must not engage in any "extraordinary collection action" against me, including but not limited to: lawsuits, wage garnishment, credit reporting, denying necessary future medical care because of unpaid bills, or referring this account to an outside collection agency.
 
 If you have already begun any such action, please immediately suspend that action and notify any third-party agent (including any debt collector and any consumer reporting agency) of the suspension.
 
 IV. Application I am submitting
 
-[OPTIONAL — render only if the patient is including a completed application]
+[OPTIONAL, render only if the patient is including a completed application]
 
 I am enclosing my completed Financial Assistance Application along with [list of supporting documents: most recent pay stubs, prior year tax return, household-size documentation, public-assistance enrollment letter, bank statements].
 
-[OR — alternative phrasing if no application is being submitted yet]
+[OR, alternative phrasing if no application is being submitted yet]
 
 Please send me your hospital's FAP application form and I will return it completed within thirty (30) days of receipt, along with supporting documentation.
 
@@ -116,7 +116,7 @@ Enclosures: copy of bill; [if applicable: completed FAP application and supporti
 
 - Most non-profit hospitals publish their FAP and AGB calculation on their website. The LLM should attempt to find both before drafting and reference them by name in the letter ("In your published Financial Assistance Policy dated [DATE], you state that..."). This signals the patient has done the homework.
 - Many FAPs set sliding-scale discounts. The patient may be eligible for a partial discount even if not full charity care. The application should be submitted even if the patient is over the income threshold for full free care.
-- AGB (Amounts Generally Billed) is the cap: a FAP-eligible patient cannot be charged more than what insured patients are generally charged for the same services. Most hospitals calculate AGB by the "look-back method" — average of insurance-paid amounts over the prior 12 months as a percentage of gross charges. The patient is entitled to know this number.
+- AGB (Amounts Generally Billed) is the cap: a FAP-eligible patient cannot be charged more than what insured patients are generally charged for the same services. Most hospitals calculate AGB by the "look-back method", average of insurance-paid amounts over the prior 12 months as a percentage of gross charges. The patient is entitled to know this number.
 
 ## Parallel actions
 

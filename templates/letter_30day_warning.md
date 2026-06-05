@@ -1,4 +1,4 @@
-# Template — 30-day warning before small claims
+# Template, 30-day warning before small claims
 
 Use when an initial dispute letter has gone unanswered for 30+ days and the disputed amount is within the state's small-claims jurisdictional limit. This is the formal pre-litigation notice. CC the state insurance department, the state attorney general's consumer protection division, and the Better Business Bureau.
 
@@ -17,7 +17,7 @@ Email: [PATIENT EMAIL]
 [PROVIDER NAME]
 [PROVIDER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
                     FORMAL 30-DAY NOTICE
@@ -30,14 +30,14 @@ RE: Account #[ACCOUNT NUMBER]
 
 Dear [PROVIDER NAME]:
 
-This letter serves as formal notice that I intend to file a civil action against [PROVIDER NAME] in [STATE SMALL-CLAIMS COURT NAME — e.g. Tennessee General Sessions Court] if the disputed charges on the above-referenced account are not corrected within thirty (30) days from the date of this letter.
+This letter serves as formal notice that I intend to file a civil action against [PROVIDER NAME] in [STATE SMALL-CLAIMS COURT NAME, e.g. Tennessee General Sessions Court] if the disputed charges on the above-referenced account are not corrected within thirty (30) days from the date of this letter.
 
 Chronology of good-faith resolution efforts:
 
-- [DATE] — Initial bill received.
-- [DATE] — Written request for itemized statement sent (certified mail tracking #[NUMBER]).
-- [DATE] — Itemized statement received / itemization request remained unanswered.
-- [DATE] — Formal dispute letter sent (certified mail tracking #[NUMBER]) identifying [N] specific findings with supporting evidence.
+- [DATE], Initial bill received.
+- [DATE], Written request for itemized statement sent (certified mail tracking #[NUMBER]).
+- [DATE], Itemized statement received / itemization request remained unanswered.
+- [DATE], Formal dispute letter sent (certified mail tracking #[NUMBER]) identifying [N] specific findings with supporting evidence.
 - [List all subsequent contacts, calls, follow-up letters, with dates and tracking numbers.]
 
 To date, I have received no substantive response addressing the disputed charges.
@@ -65,10 +65,10 @@ The disputed amount is $[TOTAL DISPUTED AMOUNT]. Defending a small-claims case i
 
 I have copied this letter to the following regulators and oversight bodies:
 
-- [STATE INSURANCE DEPARTMENT NAME] — Consumer Insurance Services
-- [STATE ATTORNEY GENERAL] — Division of Consumer Affairs
+- [STATE INSURANCE DEPARTMENT NAME], Consumer Insurance Services
+- [STATE ATTORNEY GENERAL], Division of Consumer Affairs
 - Better Business Bureau (consumer review)
-- [If applicable: Centers for Medicare and Medicaid Services — No Surprises Help Desk]
+- [If applicable: Centers for Medicare and Medicaid Services, No Surprises Help Desk]
 
 I remain willing to resolve this without court action. I can be reached at [PATIENT PHONE] or [PATIENT EMAIL]. I am preserving all legal rights, including any rights under ERISA § 502(a) for any portion of this dispute that involves an ERISA-covered health plan.
 

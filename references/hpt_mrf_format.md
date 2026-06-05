@@ -1,6 +1,6 @@
 # Hospital Price Transparency machine-readable file format
 
-The CMS Hospital Price Transparency Rule (45 CFR Part 180) requires every US hospital to publish a machine-readable file of its standard charges. The MRF is the strongest single piece of pricing evidence a patient can use in a billing dispute — it's the hospital's own statement of what it charges, in a format the hospital is legally required to maintain.
+The CMS Hospital Price Transparency Rule (45 CFR Part 180) requires every US hospital to publish a machine-readable file of its standard charges. The MRF is the strongest single piece of pricing evidence a patient can use in a billing dispute, it's the hospital's own statement of what it charges, in a format the hospital is legally required to maintain.
 
 This document covers how to find the MRF, how to read it, and what to do with the data.
 
@@ -18,7 +18,7 @@ Quick way to find a hospital's MRF:
 - **Search:** `[hospital name] price transparency machine readable file`
 - **Standardized location:** `https://[hospital-domain]/cms-hpt.txt` (the txt file links to the actual MRF)
 - **Aggregators:**
-  - [Turquoise Health](https://turquoise.health) — patient-facing search
+  - [Turquoise Health](https://turquoise.health), patient-facing search
   - [PatientRightsAdvocate.org Hospital Price Files Finder](https://hospitalpricingfiles.patientrightsadvocate.org)
   - [Hospital Pricing Files (CMS-hosted aggregator)](https://hospitalpricingfiles.org)
 
@@ -36,7 +36,7 @@ The CMS template requires hospitals to include for each item or service:
 - **Modifier**(s) where applicable
 - **Gross charge** (the chargemaster price)
 - **Discounted cash price** (the cash-pay rate the hospital accepts)
-- **Payer-specific negotiated charges** — separate rate for each contracted insurer
+- **Payer-specific negotiated charges**, separate rate for each contracted insurer
 - **De-identified minimum negotiated charge** across all payers
 - **De-identified maximum negotiated charge** across all payers
 - **Methodology** description (fee schedule, percent of charges, per diem, case rate, etc.)
@@ -116,7 +116,7 @@ For patient-side work, the kit recommends starting at [Turquoise Health](https:/
 
 ## When the MRF supports the hospital
 
-Sometimes the MRF supports the hospital's bill — the contracted rate matches what was charged. In that case, the dispute is on different grounds: medical necessity, coding accuracy, services not received, or the contract itself. The MRF only resolves the price-vs-published-price question.
+Sometimes the MRF supports the hospital's bill, the contracted rate matches what was charged. In that case, the dispute is on different grounds: medical necessity, coding accuracy, services not received, or the contract itself. The MRF only resolves the price-vs-published-price question.
 
 ## Limits and caveats
 
@@ -127,7 +127,7 @@ Sometimes the MRF supports the hospital's bill — the contracted rate matches w
 
 ## Related
 
-- [[../rules/05_negotiate_fair_price]] — using MRFs as the primary anchor for negotiation
-- [[../templates/complaint_cms_hpt]] — for hospitals that don't publish a compliant MRF
-- [[../templates/letter_initial_dispute]] — the dispute letter that cites the MRF
-- [[cpt_quick_reference]] — common CPT codes to look up in the MRF
+- [[../rules/05_negotiate_fair_price]], using MRFs as the primary anchor for negotiation
+- [[../templates/complaint_cms_hpt]], for hospitals that don't publish a compliant MRF
+- [[../templates/letter_initial_dispute]], the dispute letter that cites the MRF
+- [[cpt_quick_reference]], common CPT codes to look up in the MRF

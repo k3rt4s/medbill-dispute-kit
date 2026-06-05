@@ -1,6 +1,6 @@
-# Template — Hardship negotiation
+# Template, Hardship negotiation
 
-Use when a bill is correctly coded for services you actually received, but the amount exceeds what you can pay. This is **not** a dispute letter — it's a negotiation. The goal is a reduction, a payment plan, or both, ideally with the Medicare rate as the anchor and the hospital's published cash price as the ceiling.
+Use when a bill is correctly coded for services you actually received, but the amount exceeds what you can pay. This is **not** a dispute letter, it's a negotiation. The goal is a reduction, a payment plan, or both, ideally with the Medicare rate as the anchor and the hospital's published cash price as the ceiling.
 
 For non-profit hospitals (most US hospitals), pair this with an IRS § 501(r) Financial Assistance Policy (FAP) application. The hospital is **required** to consider you for charity care before any extraordinary collection action. Screen for eligibility through [Dollar For](https://dollarfor.org) first if you're not sure whether you qualify.
 
@@ -19,10 +19,10 @@ Email: [PATIENT EMAIL]
 [PROVIDER NAME]
 [PROVIDER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Request for hardship reduction and payment plan —
+RE: Request for hardship reduction and payment plan, 
     Account #[ACCOUNT NUMBER]
     Patient: [PATIENT FULL NAME]
     Date(s) of service: [DATE OF SERVICE]
@@ -44,19 +44,19 @@ II. Financial circumstances
 
 [The LLM renders one or more of the blocks below based on the patient's situation. Do not embellish; understate if anything.]
 
-[BLOCK A — Income relative to federal poverty level]
+[BLOCK A, Income relative to federal poverty level]
 
 My household consists of [N] persons. My household's gross annual income is approximately $[INCOME]. The federal poverty level for a household of [N] in 2026 is approximately $[FPL]. My income is approximately [N]% of the federal poverty level.
 
-[BLOCK B — Existing medical-debt burden]
+[BLOCK B, Existing medical-debt burden]
 
 In addition to this account, I currently have $[TOTAL OTHER MEDICAL DEBT] in other medical debt across [N] other providers from the same time period. The cumulative balance exceeds my ability to pay without significant hardship.
 
-[BLOCK C — Insurance gap]
+[BLOCK C, Insurance gap]
 
 [I was uninsured at the time of service / My insurance applied a deductible of $[AMOUNT] that I have not yet met / My insurance denied coverage and the appeal is pending / Other relevant insurance facts]. I am not seeking to avoid payment; I am asking for a fair price given that I am the one paying it.
 
-[BLOCK D — Other circumstances]
+[BLOCK D, Other circumstances]
 
 [Briefly state any additional facts: job loss, divorce, disability, primary caregiver responsibilities, etc. One or two sentences; the goal is candor, not pity.]
 
@@ -119,7 +119,7 @@ Enclosures: copy of bill; [if attaching: proof of income, household size, other 
 The LLM should confirm with the patient:
 
 1. The bill is actually correct (CPT codes verified, no No Surprises Act issue, no duplicate or services-not-received findings). If any of those apply, use `letter_initial_dispute.md` first or in parallel. Hardship is the wrong frame when the underlying bill is wrong.
-2. The patient has run the Dollar For screener (or has decided independently they don't want to) — Dollar For will often file the FAP application on the patient's behalf and is faster than mailing this letter.
+2. The patient has run the Dollar For screener (or has decided independently they don't want to), Dollar For will often file the FAP application on the patient's behalf and is faster than mailing this letter.
 3. The patient has gathered the supporting documentation they will need if the hospital asks for income verification: pay stubs, prior tax return, household-size proof.
 
 ## Parallel actions

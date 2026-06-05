@@ -1,4 +1,4 @@
-# Template — Insurance appeal (ERISA self-funded plan)
+# Template, Insurance appeal (ERISA self-funded plan)
 
 Use when an ERISA-covered employer health plan has denied a claim and you are filing the internal appeal (or the final-level appeal). For non-ERISA plans (individual market, government, church), the structure is similar but the closing legal citations differ; the LLM should adapt accordingly.
 
@@ -20,7 +20,7 @@ Appeals Department
 [PLAN MAILING ADDRESS]
 [CITY, STATE ZIP]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
 RE: Formal appeal of denied claim
@@ -54,7 +54,7 @@ I have reviewed [PLAN NAME]'s Summary Plan Description (SPD). The SPD obligates 
 - [Quote any SPD provision about respecting the treating physician's medical decision-making.]
 - [Quote any SPD provision about medical necessity standards.]
 
-The denial reason cited — [DENIAL REASON] — does not match the SPD's actual language. [Explain the mismatch concretely.]
+The denial reason cited, [DENIAL REASON], does not match the SPD's actual language. [Explain the mismatch concretely.]
 
 III. Medical necessity (if denied as not medically necessary)
 
@@ -62,7 +62,7 @@ The service is medically necessary for my specific case. Attached as Exhibit A i
 
 The service is also supported by published clinical practice guidelines:
 
-- Exhibit B: [Guideline source — e.g. specialty society name, year, citation]
+- Exhibit B: [Guideline source, e.g. specialty society name, year, citation]
 - Exhibit C: [Peer-reviewed study or evidence-based guideline if applicable]
 
 [Quote the specific recommendation language from the guideline that supports the service for the patient's condition.]
@@ -125,8 +125,8 @@ Group #: [GROUP NUMBER]
 Claim #: [CLAIM NUMBER]
 
 cc:
-    [STATE INSURANCE DEPARTMENT NAME] — Consumer Insurance Services
-    US Department of Labor — Employee Benefits Security Administration (1-866-444-3272)
+    [STATE INSURANCE DEPARTMENT NAME], Consumer Insurance Services
+    US Department of Labor, Employee Benefits Security Administration (1-866-444-3272)
 
 Enclosures: Exhibits A-G as listed above
 ```

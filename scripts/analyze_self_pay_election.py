@@ -1,4 +1,4 @@
-"""analyze_self_pay_election.py — compare insured-billing vs self-pay
+"""analyze_self_pay_election.py, compare insured-billing vs self-pay
 election for a given encounter and recommend the cheaper path.
 
 The federal No Surprises Act at 45 CFR § 149.610(c)(3) lets a patient

@@ -1,4 +1,4 @@
-# Rule 10 — Ground ambulance balance billing
+# Rule 10, Ground ambulance balance billing
 
 The federal No Surprises Act explicitly excludes ground ambulance from its balance-billing protections. This is the single largest gap in federal law. Ground ambulance bills are the most common surprise medical bill that remains legal under federal law, and they routinely run $1,500-$5,000 for short transports.
 
@@ -39,7 +39,7 @@ Re-verify your state's current status using the Commonwealth Fund's state-protec
 
 ## ERISA preemption (critical)
 
-Every state ground-ambulance protection is **preempted as to self-funded ERISA employer plans**. If the patient's plan is self-funded (most large-employer plans), state law does not apply — even if the patient is in a state with strong protections. The only available leverage for self-funded plans is general negotiation under UCC § 2-305 and the federal Patient-Provider Dispute Resolution process if the patient is technically self-pay for this bill.
+Every state ground-ambulance protection is **preempted as to self-funded ERISA employer plans**. If the patient's plan is self-funded (most large-employer plans), state law does not apply, even if the patient is in a state with strong protections. The only available leverage for self-funded plans is general negotiation under UCC § 2-305 and the federal Patient-Provider Dispute Resolution process if the patient is technically self-pay for this bill.
 
 The LLM must ask the patient: is your health plan self-funded or fully-insured? If the patient doesn't know, ask them to check their plan documents or call HR. The Summary Plan Description typically discloses this.
 
@@ -51,7 +51,7 @@ Use `templates/letter_ground_ambulance.md` with the state-specific citation subs
 
 There is no specific legal hook prohibiting the balance bill. The dispute is on the merits:
 
-### Track 1 — Insurance side
+### Track 1, Insurance side
 
 Verify the plan paid what it owed:
 
@@ -59,13 +59,13 @@ Verify the plan paid what it owed:
 2. Did the plan pay the Medicare-equivalent rate or higher? Some plans contractually pay 200% of Medicare for ambulance services. Pull the plan's Summary Plan Description and check.
 3. If the plan denied or paid less than reasonable-and-customary, appeal using `templates/letter_insurance_appeal_erisa.md` (for ERISA plans) or the equivalent for non-ERISA plans.
 
-### Track 2 — Provider side, fair-price argument
+### Track 2, Provider side, fair-price argument
 
 The Medicare ambulance fee schedule sets a defensible floor. The CMS Ambulance Fee Schedule lookup is at [cms.gov/medicare/medicare-fee-for-service-payment/ambulancefeeschedule](https://www.cms.gov/medicare/medicare-fee-for-service-payment/ambulancefeeschedule). A common pattern: an ambulance provider charges $3,500; Medicare allows ~$450 for the same transport; the plan paid 200% of Medicare ($900); the patient is left with $2,600 in "balance." The provider's $3,500 charge is the chargemaster, not the negotiated rate. Argue down using UCC § 2-305 and Medicare as the floor.
 
 Use `templates/letter_initial_dispute.md` with a single price-gouging block; cite the Medicare ambulance fee schedule and any state UDAP statute.
 
-### Track 3 — Hardship and municipal-discount path
+### Track 3, Hardship and municipal-discount path
 
 For municipal ambulance services (city or county-owned): most run formal financial-assistance programs. Ask in writing for the municipality's ambulance billing financial-assistance policy. Many waive the balance entirely for low-income residents.
 
@@ -81,7 +81,7 @@ If the patient relies on ambulance services regularly (e.g. dialysis transport) 
 
 ## Related rules
 
-- [[04_no_surprises_act]] — the federal Act that does not cover ground ambulance
-- [[05_negotiate_fair_price]] — the playbook when state law gives you no specific hook
-- [[06_small_claims]] — where unresolved ground-ambulance disputes often land
-- [[07_appeal_insurance_denial]] — for the insurance-side track
+- [[04_no_surprises_act]], the federal Act that does not cover ground ambulance
+- [[05_negotiate_fair_price]], the playbook when state law gives you no specific hook
+- [[06_small_claims]], where unresolved ground-ambulance disputes often land
+- [[07_appeal_insurance_denial]], for the insurance-side track

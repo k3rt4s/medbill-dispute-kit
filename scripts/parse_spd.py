@@ -1,4 +1,4 @@
-"""parse_spd.py — extract the structured profile from a Summary Plan
+"""parse_spd.py, extract the structured profile from a Summary Plan
 Description PDF using Azure OpenAI gpt-5.2.
 
 The SPD is the federally-required plain-language summary of an ERISA

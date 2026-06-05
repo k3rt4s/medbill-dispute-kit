@@ -1,6 +1,6 @@
-# Rule 19 — VA Community Care and the Mission Act
+# Rule 19, VA Community Care and the Mission Act
 
-Veterans who receive care from non-VA providers under the VA Community Care program are protected from direct billing by federal law. Yet veterans regularly receive bills from Community Care providers — sometimes for the entire visit, sometimes for the portion they believe VA should have paid. The kit's role is to identify when a veteran is being improperly billed and route to the right resolution channel.
+Veterans who receive care from non-VA providers under the VA Community Care program are protected from direct billing by federal law. Yet veterans regularly receive bills from Community Care providers, sometimes for the entire visit, sometimes for the portion they believe VA should have paid. The kit's role is to identify when a veteran is being improperly billed and route to the right resolution channel.
 
 This rule fires whenever the patient is a veteran with a medical bill from a non-VA provider authorized through VA Community Care, or from a VA medical center.
 
@@ -28,24 +28,24 @@ Care for service-connected disabilities is free to the veteran. The veteran does
 
 - A veteran receives a bill from a community provider after Community Care-authorized care.
 - A veteran receives a bill from VA for what should have been service-connected care.
-- A veteran's claim was denied by VA's third-party administrator (currently Optum Public Sector for some regions, TriWest for others — verify).
+- A veteran's claim was denied by VA's third-party administrator (currently Optum Public Sector for some regions, TriWest for others, verify).
 - A veteran received emergency care at a non-VA facility and is being billed.
 
 ## The two TPA contractors
 
 VA Community Care claims are processed by Third Party Administrators:
 
-- **Optum Public Sector** — handles many regions as of 2024-2026 reorganization; check current assignment for the veteran's region at va.gov/communitycare.
-- **TriWest Healthcare Alliance** — handles some regions; same source for current assignment.
+- **Optum Public Sector**, handles many regions as of 2024-2026 reorganization; check current assignment for the veteran's region at va.gov/communitycare.
+- **TriWest Healthcare Alliance**, handles some regions; same source for current assignment.
 
 The veteran's authorization documentation indicates which TPA processes their claims.
 
-## Emergency care — special rules
+## Emergency care, special rules
 
 A veteran receiving emergency care at a non-VA facility may be covered under either:
 
-1. **Veterans Choice / Mission Act emergency care provisions** (38 U.S.C. § 1725) — if VA care was not feasibly available and other conditions are met.
-2. **Service-connected emergency** (38 U.S.C. § 1728) — broader coverage for service-connected veterans.
+1. **Veterans Choice / Mission Act emergency care provisions** (38 U.S.C. § 1725), if VA care was not feasibly available and other conditions are met.
+2. **Service-connected emergency** (38 U.S.C. § 1728), broader coverage for service-connected veterans.
 
 In both cases, the veteran must usually notify VA within **72 hours** of the emergency. Late notification can void coverage.
 
@@ -93,9 +93,9 @@ DAV, VFW, American Legion, and other VSOs have benefits counselors who help vete
 
 ## When the kit's other rules still apply
 
-- **HIPAA right of access** — VA and Community Care providers are HIPAA-covered entities. See `rules/14_hipaa_right_of_access.md`.
-- **EMTALA** — applies at any Medicare-participating facility, including those treating veterans.
-- **State UDAP** — may apply to a Community Care provider's billing practices.
+- **HIPAA right of access**, VA and Community Care providers are HIPAA-covered entities. See `rules/14_hipaa_right_of_access.md`.
+- **EMTALA**, applies at any Medicare-participating facility, including those treating veterans.
+- **State UDAP**, may apply to a Community Care provider's billing practices.
 
 ## Tracker tagging
 
@@ -118,6 +118,6 @@ This area is complex and worth a VSO benefits counselor.
 
 ## Related
 
-- [[18_tricare]] — TRICARE is a separate program for active-duty, retirees, and dependents
-- `references/laws_federal.md` — MISSION Act statutory citation overview
-- `templates/letter_initial_dispute.md` — adapt with MISSION Act citations for improper direct billing
+- [[18_tricare]], TRICARE is a separate program for active-duty, retirees, and dependents
+- `references/laws_federal.md`, MISSION Act statutory citation overview
+- `templates/letter_initial_dispute.md`, adapt with MISSION Act citations for improper direct billing

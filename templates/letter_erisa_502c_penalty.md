@@ -1,4 +1,4 @@
-# Template — ERISA § 502(c) statutory penalty claim
+# Template, ERISA § 502(c) statutory penalty claim
 
 Use when the patient sent a written request for plan documents under ERISA § 104(b)(4) / 29 U.S.C. § 1024(b)(4) and the plan administrator failed to furnish the documents within 30 days. ERISA § 502(c)(1) / 29 U.S.C. § 1132(c)(1) imposes a per-day statutory penalty (currently up to $110/day per ERISA § 502(c)(1), as adjusted for inflation under 29 CFR § 2575.502c-1) the participant or beneficiary can claim. The penalty is payable to the participant, not the plan, and is in addition to any other relief.
 
@@ -27,15 +27,15 @@ Email: [PATIENT EMAIL]
 [c/o PLAN SPONSOR if applicable]
 [MAILING ADDRESS FOR PLAN ADMINISTRATOR]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
 cc by certified mail:
-    [PLAN SPONSOR — typically the employer]
+    [PLAN SPONSOR, typically the employer]
     [PLAN'S INSURER / THIRD-PARTY ADMINISTRATOR if separate]
     [U.S. Department of Labor, Employee Benefits Security Administration, regional office]
 
-RE: Notice of § 502(c)(1) statutory-penalty claim for failure to provide plan documents —
+RE: Notice of § 502(c)(1) statutory-penalty claim for failure to provide plan documents, 
     Participant: [PATIENT FULL NAME]
     DOB: [DOB]
     Member ID: [MEMBER ID]
@@ -92,7 +92,7 @@ IV. Consequence of non-cure
 
 If the plan administrator does not cure within 15 calendar days, I will:
 
-1. File a civil action in the United States District Court for the [DISTRICT — typically where the plan is administered or where I reside] under 29 U.S.C. § 1132(a)(1)(A) and § 1132(c)(1) seeking the statutory penalty, plus reasonable attorney's fees and costs of suit under § 1132(g).
+1. File a civil action in the United States District Court for the [DISTRICT, typically where the plan is administered or where I reside] under 29 U.S.C. § 1132(a)(1)(A) and § 1132(c)(1) seeking the statutory penalty, plus reasonable attorney's fees and costs of suit under § 1132(g).
 
 2. File a parallel complaint with the U.S. Department of Labor, Employee Benefits Security Administration. The DOL regional office for the patient's jurisdiction can investigate plan-document violations and, in some cases, file an enforcement action.
 
@@ -124,10 +124,10 @@ Member ID: [MEMBER ID]
 Plan name: [PLAN NAME]
 
 Enclosures:
-A — Copy of the § 104(b)(4) request dated [REQUEST DATE], with USPS green card
-B — Copy of any partial response from the plan administrator, if any
-C — Copy of the plan's most recent Summary of Benefits and Coverage (if previously received)
-D — Computation of the accrued penalty
+A, Copy of the § 104(b)(4) request dated [REQUEST DATE], with USPS green card
+B, Copy of any partial response from the plan administrator, if any
+C, Copy of the plan's most recent Summary of Benefits and Coverage (if previously received)
+D, Computation of the accrued penalty
 ```
 
 ---

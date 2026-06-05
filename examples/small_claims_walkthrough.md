@@ -1,4 +1,4 @@
-# Worked example — small claims court filing
+# Worked example, small claims court filing
 
 A patient files in small claims court against a hospital that ignored a documented dispute. Walks through the kit's small-claims escalation: filing decision, evidence preparation, the hearing, and post-judgment collection.
 
@@ -20,15 +20,15 @@ Disputed amount well under Tennessee's $25,000 small-claims limit. Patient decid
 
 ---
 
-## Session 1 — Filing decision and preparation
+## Session 1, Filing decision and preparation
 
-### Turn 1 — Patient
+### Turn 1, Patient
 
 > The walking boot people never responded. Time to file in small claims.
 
 Uploads current `tracker_dispute.csv` showing the open dispute.
 
-### Turn 1 — LLM
+### Turn 1, LLM
 
 > Reading the tracker. Bill B-walking-boot, disputed amount $310, two certified letters sent with no response, 30-day warning window expired 5 months ago. You're well within Tennessee's 6-year breach-of-contract SOL.
 >
@@ -40,13 +40,13 @@ Uploads current `tracker_dispute.csv` showing the open dispute.
 >
 > Want to proceed?
 
-### Turn 2 — Patient
+### Turn 2, Patient
 
 > Yes. Worth doing on principle.
 
-### Turn 2 — LLM
+### Turn 2, LLM
 
-> Filing checklist for Tennessee General Sessions Court — Civil docket:
+> Filing checklist for Tennessee General Sessions Court, Civil docket:
 >
 > 1. **Court of proper venue.** Where DME Direct is registered or where the dispute occurred. From the address on the bills, DME Direct is in Davidson County. We file in Davidson County General Sessions Court.
 > 2. **Civil warrant form.** That's General Sessions's name for the small-claims complaint. Available at the clerk's office and online.
@@ -57,7 +57,7 @@ Uploads current `tracker_dispute.csv` showing the open dispute.
 >
 > Let me draft the statement of claim for you.
 
-### Turn 3 — LLM (statement of claim)
+### Turn 3, LLM (statement of claim)
 
 > ```text
 > Statement of Claim
@@ -69,7 +69,7 @@ Uploads current `tracker_dispute.csv` showing the open dispute.
 >
 > This is short on purpose. General Sessions doesn't require detailed pleading; the case will be presented orally with exhibits at the hearing.
 
-### Turn 4 — LLM (exhibits checklist)
+### Turn 4, LLM (exhibits checklist)
 
 > Bring three copies of every exhibit to the hearing (one for the judge, one for the defendant, one for you). Label A, B, C, etc.
 >
@@ -82,11 +82,11 @@ Uploads current `tracker_dispute.csv` showing the open dispute.
 >
 > Don't bring anything irrelevant. The judge wants a clean story.
 
-### Turn 5 — Patient
+### Turn 5, Patient
 
 > Got it. Filing tomorrow.
 
-### Turn 5 — LLM (Phase 5)
+### Turn 5, LLM (Phase 5)
 
 > Updating the tracker:
 >
@@ -98,13 +98,13 @@ Uploads current `tracker_dispute.csv` showing the open dispute.
 
 ---
 
-## Session 2 — One week later
+## Session 2, One week later
 
-### Turn 1 — Patient
+### Turn 1, Patient
 
 > Filed. Case #GS-2026-cv-12345. Hearing on July 22, 2026 at 9:00 AM, Courtroom 3B. Total filing + service was $121.
 
-### Turn 1 — LLM
+### Turn 1, LLM
 
 > Logged:
 >
@@ -117,17 +117,17 @@ Uploads current `tracker_dispute.csv` showing the open dispute.
 
 ---
 
-## Session 3 — Two weeks before hearing
+## Session 3, Two weeks before hearing
 
-### Turn 1 — Patient
+### Turn 1, Patient
 
 > Hearing is in two weeks. Walk me through it.
 
-### Turn 1 — LLM
+### Turn 1, LLM
 
 > Tennessee General Sessions civil hearings are informal. Here's the rough sequence:
 >
-> 1. **Calendar call.** The clerk reads case names. You answer "present, Your Honor." If the defendant doesn't answer, you may get a default judgment without a hearing — be prepared either way.
+> 1. **Calendar call.** The clerk reads case names. You answer "present, Your Honor." If the defendant doesn't answer, you may get a default judgment without a hearing, be prepared either way.
 > 2. **If defendant appears.** The judge will call your case to the bench or have you both sit down at a table. Each side gets a few minutes to present. Strict rules of evidence don't apply; the judge weighs what's helpful.
 > 3. **Your presentation.** Two to three minutes. Stick to your story. I'll give you a script.
 > 4. **Defendant's response.** They'll respond. Don't interrupt. Take notes.
@@ -137,17 +137,17 @@ Uploads current `tracker_dispute.csv` showing the open dispute.
 >
 > Your presentation script:
 >
-> > "Your Honor, on [date of service], I was charged $385 by [DME Direct] for an Aircast SP walking boot — Exhibit A. The same item retails at $48 to $75 nationally — Exhibit D. I disputed the charge in writing on [date1] and [date2] by certified mail, requesting reduction to $75 — Exhibits B and C. The defendant did not respond.
+> > "Your Honor, on [date of service], I was charged $385 by [DME Direct] for an Aircast SP walking boot, Exhibit A. The same item retails at $48 to $75 nationally, Exhibit D. I disputed the charge in writing on [date1] and [date2] by certified mail, requesting reduction to $75, Exhibits B and C. The defendant did not respond.
 > >
 > > Under Uniform Commercial Code Section 2-305, when a contract leaves the price open, the seller must fix it in good faith and the price must be reasonable. A 5-to-7x markup over the retail price is not reasonable and is not in good faith. I'm asking the court to enter judgment for $310 plus my filing costs of $121."
 >
 > Total: about 90 seconds. Long enough to make the point, short enough that the judge doesn't lose patience.
 
-### Turn 2 — Patient
+### Turn 2, Patient
 
 > What if they show up and argue?
 
-### Turn 2 — LLM
+### Turn 2, LLM
 
 > Possible counter-arguments from a billing-department rep:
 >
@@ -159,21 +159,21 @@ Uploads current `tracker_dispute.csv` showing the open dispute.
 >
 > Don't get drawn into rhetorical fights. Be polite, address each point briefly, return to your facts.
 
-### Turn 3 — Patient
+### Turn 3, Patient
 
 > What if I lose?
 
-### Turn 3 — LLM
+### Turn 3, LLM
 
-> Defendant gets a judgment for $385 (the bill amount). They can collect via wage garnishment, bank levy, or hospital lien — same as if you'd never filed. Net cost to you of filing: $121 in filing/service fees plus a few hours of time. Some judges award the defendant a token cost (rare for small-claims).
+> Defendant gets a judgment for $385 (the bill amount). They can collect via wage garnishment, bank levy, or hospital lien, same as if you'd never filed. Net cost to you of filing: $121 in filing/service fees plus a few hours of time. Some judges award the defendant a token cost (rare for small-claims).
 >
 > Tennessee allows de novo appeal to Circuit Court within 10 days of judgment. For $310, the appeal cost and effort generally outweigh the recovery. Most people don't appeal.
 
-### Turn 4 — Patient
+### Turn 4, Patient
 
 > What if I win and they don't pay?
 
-### Turn 4 — LLM
+### Turn 4, LLM
 
 > Possible. Judgment-collection steps after a Tennessee General Sessions win:
 >
@@ -181,7 +181,7 @@ Uploads current `tracker_dispute.csv` showing the open dispute.
 > 2. **Request a writ of execution** from the clerk. Tells the sheriff to levy on the defendant's bank account or seize personal property.
 > 3. **Garnishment of bank account or wages.** Defendant is a business; bank-account garnishment is easier than wage garnishment.
 > 4. **Examination on judgment.** Court order requiring the defendant's officer to appear and disclose assets.
-> 5. **In rare cases — judgment lien on the defendant's real property.** For a $310 judgment this is overkill but the option exists.
+> 5. **In rare cases, judgment lien on the defendant's real property.** For a $310 judgment this is overkill but the option exists.
 >
 > Most corporate defendants pay the judgment promptly once the appeal window closes. Refusing to pay a $310 judgment costs them more in legal fees than paying.
 
@@ -189,7 +189,7 @@ Uploads current `tracker_dispute.csv` showing the open dispute.
 
 ## Hearing day
 
-The patient appears at 9:00 AM. Defendant — represented by a billing-department supervisor, not an attorney — appears. The judge calls the case at 9:18.
+The patient appears at 9:00 AM. Defendant, represented by a billing-department supervisor, not an attorney, appears. The judge calls the case at 9:18.
 
 Patient presents the script. Defendant argues #1 (the admission-form agreement) and #5 (chargemaster reasonable). Patient rebuts briefly. Judge asks two questions: (a) was the walking boot returned? (no), (b) did the patient sign for the walking boot specifically? (no, only a generic admission form).
 
@@ -197,13 +197,13 @@ Judge enters judgment for $310 plus $121 in costs. Total: $431.
 
 ---
 
-## Session 4 — One week after hearing
+## Session 4, One week after hearing
 
-### Turn 1 — Patient
+### Turn 1, Patient
 
 > Won the case. They paid the $431. Closing this out.
 
-### Turn 1 — LLM
+### Turn 1, LLM
 
 > Logging:
 >

@@ -1,14 +1,14 @@
-# Template — Ground ambulance balance bill
+# Template, Ground ambulance balance bill
 
 Two distinct letters depending on whether the patient's state has a ground-ambulance balance-billing protection. The LLM picks based on `rules/10_ground_ambulance.md`.
 
-If the state has a protection: use Variant A (state-law violation). Pattern matches the No Surprises Act letter — cite the specific state statute, demand reprocessing at in-network cost-sharing, CC the state insurance department.
+If the state has a protection: use Variant A (state-law violation). Pattern matches the No Surprises Act letter, cite the specific state statute, demand reprocessing at in-network cost-sharing, CC the state insurance department.
 
 If the state does not have a protection: use Variant B (fair-price negotiation). Pattern is general dispute under UCC § 2-305 and the Medicare ambulance fee schedule as the floor anchor.
 
 ---
 
-## Variant A — State has a ground-ambulance protection
+## Variant A, State has a ground-ambulance protection
 
 ```letter
 [PATIENT FULL NAME]
@@ -23,10 +23,10 @@ Email: [PATIENT EMAIL]
 [AMBULANCE PROVIDER NAME]
 [PROVIDER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Improper balance billing in violation of [STATE] law —
+RE: Improper balance billing in violation of [STATE] law, 
     Account #[ACCOUNT NUMBER]
     Patient: [PATIENT FULL NAME]
     Date of transport: [DATE OF SERVICE]
@@ -34,13 +34,13 @@ RE: Improper balance billing in violation of [STATE] law —
 
 Dear Billing Department:
 
-The above-referenced charges balance-bill me for ground ambulance services in violation of [STATE STATUTE — e.g. O.C.G.A. § 33-20E-1 et seq. as amended by HB 286 effective January 1, 2024; or California Health & Safety Code § 1797.225; or other applicable state citation].
+The above-referenced charges balance-bill me for ground ambulance services in violation of [STATE STATUTE, e.g. O.C.G.A. § 33-20E-1 et seq. as amended by HB 286 effective January 1, 2024; or California Health & Safety Code § 1797.225; or other applicable state citation].
 
 Facts:
 
 On [DATE OF SERVICE], I received ground ambulance transport from [PROVIDER NAME] from [PICKUP LOCATION] to [DESTINATION]. My health plan, [PLAN NAME], is regulated by [STATE]. [STATE STATUTE] prohibits balance billing for ground ambulance services by an out-of-network provider where my plan covers the service. My cost-sharing must be calculated as if the service were provided in-network and applied toward my in-network deductible and out-of-pocket maximum.
 
-[OPTIONAL — IF PLAN IS SELF-FUNDED ERISA, OMIT THIS LETTER ENTIRELY AND USE VARIANT B. The LLM should ask up-front whether the plan is self-funded.]
+[OPTIONAL, IF PLAN IS SELF-FUNDED ERISA, OMIT THIS LETTER ENTIRELY AND USE VARIANT B. The LLM should ask up-front whether the plan is self-funded.]
 
 Required actions:
 
@@ -64,15 +64,15 @@ Account number: [ACCOUNT NUMBER]
 Date of service: [DATE OF SERVICE]
 
 cc:
-    [STATE INSURANCE DEPARTMENT NAME] — Consumer Services
-    [INSURANCE PLAN NAME] — Member Services
+    [STATE INSURANCE DEPARTMENT NAME], Consumer Services
+    [INSURANCE PLAN NAME], Member Services
 
 Enclosure: copy of the bill; copy of the Explanation of Benefits from [INSURANCE PLAN NAME]
 ```
 
 ---
 
-## Variant B — State has no ground-ambulance protection (or plan is ERISA self-funded)
+## Variant B, State has no ground-ambulance protection (or plan is ERISA self-funded)
 
 ```letter
 [PATIENT FULL NAME]
@@ -87,10 +87,10 @@ Email: [PATIENT EMAIL]
 [AMBULANCE PROVIDER NAME]
 [PROVIDER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Dispute of ground ambulance charges —
+RE: Dispute of ground ambulance charges, 
     Account #[ACCOUNT NUMBER]
     Patient: [PATIENT FULL NAME]
     Date of transport: [DATE OF SERVICE]
@@ -111,15 +111,15 @@ II. Insurance payment to date
 
 My health plan, [PLAN NAME], has [paid $[AMOUNT] / denied / processed as out-of-network with $[AMOUNT] paid] toward this bill, leaving a patient balance of $[CURRENT BALANCE].
 
-[OPTIONAL — IF DENIED, ADD: I am pursuing an internal appeal with my health plan; this letter concerns the provider-side balance independent of that appeal.]
+[OPTIONAL, IF DENIED, ADD: I am pursuing an internal appeal with my health plan; this letter concerns the provider-side balance independent of that appeal.]
 
 III. Legal basis
 
-Under Uniform Commercial Code § 2-305(2), an open-price term must be fixed by the seller in good faith. I did not receive an itemized price quote prior to transport — I could not have, given the emergency nature of the call — and your bill therefore reflects an open-price contract. The charged amount is approximately [N] times the Medicare allowable rate and is not, on its face, a reasonable price set in good faith. [STATE] further provides remedies under the [STATE UDAP STATUTE — e.g. Tennessee Consumer Protection Act, Tenn. Code Ann. § 47-18-104; Georgia Fair Business Practices Act, O.C.G.A. § 10-1-393].
+Under Uniform Commercial Code § 2-305(2), an open-price term must be fixed by the seller in good faith. I did not receive an itemized price quote prior to transport, I could not have, given the emergency nature of the call, and your bill therefore reflects an open-price contract. The charged amount is approximately [N] times the Medicare allowable rate and is not, on its face, a reasonable price set in good faith. [STATE] further provides remedies under the [STATE UDAP STATUTE, e.g. Tennessee Consumer Protection Act, Tenn. Code Ann. § 47-18-104; Georgia Fair Business Practices Act, O.C.G.A. § 10-1-393].
 
 IV. Proposed corrected amount
 
-I propose a corrected balance of $[PROPOSED — typically 150% to 250% of Medicare] in full satisfaction of this account, payable [as a lump sum / on a payment plan of $[MONTHLY] per month for [N] months, with no interest or fees].
+I propose a corrected balance of $[PROPOSED, typically 150% to 250% of Medicare] in full satisfaction of this account, payable [as a lump sum / on a payment plan of $[MONTHLY] per month for [N] months, with no interest or fees].
 
 V. Request
 
@@ -139,8 +139,8 @@ Account number: [ACCOUNT NUMBER]
 Date of service: [DATE OF SERVICE]
 
 cc:
-    [STATE INSURANCE DEPARTMENT NAME] — Consumer Services (where applicable)
-    [STATE ATTORNEY GENERAL] — Consumer Protection Division
+    [STATE INSURANCE DEPARTMENT NAME], Consumer Services (where applicable)
+    [STATE ATTORNEY GENERAL], Consumer Protection Division
 
 Enclosure: copy of the bill; copy of the Explanation of Benefits; CMS Ambulance Fee Schedule lookup printout
 ```

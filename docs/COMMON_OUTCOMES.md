@@ -1,6 +1,6 @@
 # Common dispute outcomes
 
-A reference for calibrating expectations. Public reporting and patient-advocacy data give us a rough sense of what patients can expect from medical-bill disputes — settlement rates, reduction amounts, time-to-resolution. None of these are guarantees, but they help patients decide whether a fight is worth picking.
+A reference for calibrating expectations. Public reporting and patient-advocacy data give us a rough sense of what patients can expect from medical-bill disputes, settlement rates, reduction amounts, time-to-resolution. None of these are guarantees, but they help patients decide whether a fight is worth picking.
 
 Note: this document compiles publicly reported figures from advocacy organizations, journalism, and government statistics. It does not contain proprietary data. Patterns shift over time; verify recent figures before relying.
 
@@ -41,7 +41,7 @@ Note: this document compiles publicly reported figures from advocacy organizatio
 
 **What hurts:**
 
-- Ground ambulance — federal NSA does not cover. State-by-state.
+- Ground ambulance, federal NSA does not cover. State-by-state.
 
 ## Insurance denial appeals
 
@@ -63,9 +63,9 @@ Note: this document compiles publicly reported figures from advocacy organizatio
 
 **What helps:**
 
-- Run [Dollar For](https://dollarfor.org)'s screener first — they handle the application for free and have negotiated relationships with many hospital systems.
-- Apply early — before extraordinary collection actions begin.
-- Be honest about income and assets — providing false information can be ground for denial.
+- Run [Dollar For](https://dollarfor.org)'s screener first, they handle the application for free and have negotiated relationships with many hospital systems.
+- Apply early, before extraordinary collection actions begin.
+- Be honest about income and assets, providing false information can be ground for denial.
 
 **Real-world figures:**
 
@@ -74,7 +74,7 @@ Note: this document compiles publicly reported figures from advocacy organizatio
 
 ## FDCPA § 1692g debt validation requests
 
-**Typical outcome (within 30-day window):** Around 30-50% of disputed third-party medical debts simply disappear — the collector cannot produce the documentation FDCPA requires (original contract, full itemization, chain of assignment) and the file is closed.
+**Typical outcome (within 30-day window):** Around 30-50% of disputed third-party medical debts simply disappear, the collector cannot produce the documentation FDCPA requires (original contract, full itemization, chain of assignment) and the file is closed.
 
 **What helps:**
 
@@ -146,7 +146,7 @@ Rough averages:
 
 ## What this all adds up to
 
-Most patients who dispute a medical bill recover something. The fraction who recover everything is smaller but meaningful. The fraction who recover nothing is small — usually because the underlying bill was actually correct and the patient didn't realize the leverage was in negotiation rather than dispute.
+Most patients who dispute a medical bill recover something. The fraction who recover everything is smaller but meaningful. The fraction who recover nothing is small, usually because the underlying bill was actually correct and the patient didn't realize the leverage was in negotiation rather than dispute.
 
 The strongest predictor of a successful dispute is the patient's willingness to engage in the paper trail: certified-mail letters, exhibits, evidence, escalation. The system bets on patient fatigue. Pushing through fatigue is the actual work.
 

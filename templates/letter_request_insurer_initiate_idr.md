@@ -1,10 +1,10 @@
-# Template — Request insurer to initiate federal IDR (No Surprises Act)
+# Template, Request insurer to initiate federal IDR (No Surprises Act)
 
 Use when an out-of-network provider has billed a service that is governed by the federal No Surprises Act's balance-billing protections (emergency services under 42 U.S.C. § 300gg-111, out-of-network ancillary services at an in-network facility under § 300gg-111(b), or air-ambulance services under § 300gg-112), the patient's plan has paid an out-of-network allowed amount that the provider is contesting, and the provider is balance-billing the patient for the spread.
 
-The patient's own option here is to dispute the provider directly under `templates/letter_no_surprises_violation.md`. The parallel — and often faster — option is to ask the patient's plan to initiate the federal Independent Dispute Resolution (IDR) process against the provider. IDR is a binding arbitration between the plan and the provider over the amount; the patient is held to in-network cost-sharing during and after, with the plan and provider fighting over the spread.
+The patient's own option here is to dispute the provider directly under `templates/letter_no_surprises_violation.md`. The parallel, and often faster, option is to ask the patient's plan to initiate the federal Independent Dispute Resolution (IDR) process against the provider. IDR is a binding arbitration between the plan and the provider over the amount; the patient is held to in-network cost-sharing during and after, with the plan and provider fighting over the spread.
 
-Patients cannot initiate IDR directly (that right belongs to the plan and the provider after a 30-business-day open-negotiation period). But patients can formally request, and document the plan's response — which becomes useful evidence if the plan later fails to protect the patient from balance billing.
+Patients cannot initiate IDR directly (that right belongs to the plan and the provider after a 30-business-day open-negotiation period). But patients can formally request, and document the plan's response, which becomes useful evidence if the plan later fails to protect the patient from balance billing.
 
 Legal anchors: 42 U.S.C. § 300gg-111 (NSA balance-billing prohibition), 45 CFR § 149.510 (federal IDR process), 45 CFR § 149.410 (open-negotiation period preceding IDR), 29 U.S.C. § 1133 (ERISA claims-procedure rights).
 
@@ -19,18 +19,18 @@ Email: [PATIENT EMAIL]
 
 [DATE]
 
-[INSURER NAME] — Member Services / Plan Administrator
+[INSURER NAME], Member Services / Plan Administrator
 [INSURER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
 cc by certified mail:
-    [PROVIDER NAME], [PROVIDER MAILING ADDRESS] — courtesy notice
+    [PROVIDER NAME], [PROVIDER MAILING ADDRESS], courtesy notice
     [STATE] Department of Insurance, Consumer Services
     Federal No Surprises Help Desk (cms.gov/nosurprises)
 
-RE: Request for plan to initiate federal Independent Dispute Resolution under 45 CFR § 149.510 —
+RE: Request for plan to initiate federal Independent Dispute Resolution under 45 CFR § 149.510, 
     Plan participant: [PATIENT FULL NAME]
     DOB: [DOB]
     Member ID: [MEMBER ID]
@@ -56,15 +56,15 @@ The services on the claim(s) referenced above qualify for No Surprises Act balan
 
 [The drafter renders whichever applies.]
 
-[BASIS A — Emergency services]
+[BASIS A, Emergency services]
 
 The services were emergency services within the meaning of 42 U.S.C. § 300gg-111(a)(3)(C)(i). I received care at the emergency department of [FACILITY], an [in-network / out-of-network] emergency department, on [DATE]. Under § 300gg-111(a)(1), my cost-sharing for these services must be calculated as if the services were provided by an in-network provider; the provider is prohibited from balance-billing me for any amount above in-network cost-sharing.
 
-[BASIS B — Out-of-network ancillary at in-network facility]
+[BASIS B, Out-of-network ancillary at in-network facility]
 
 The services were furnished by an out-of-network provider at [FACILITY], an in-network facility on [DATE]. The provider type is one of the categories covered by § 300gg-111(b)(1)(B) (anesthesiology, emergency medicine, pathology, radiology, neonatology, laboratory services, or assistant-surgery services). I did not receive prior written notice of out-of-network status, and the notice-and-consent exception under § 300gg-111(d) does not apply because [the service category is one of the categories for which consent is statutorily unavailable / no compliant notice was provided]. The provider is therefore prohibited from balance-billing me for any amount above in-network cost-sharing.
 
-[BASIS C — Air ambulance]
+[BASIS C, Air ambulance]
 
 The services were air-ambulance services within the meaning of 42 U.S.C. § 300gg-112. The patient's cost-sharing is fixed at in-network cost-sharing; the provider is prohibited from balance-billing me.
 
@@ -103,7 +103,7 @@ Irrespective of how the IDR is resolved:
 
 2. The provider is statutorily prohibited from billing me for any amount above the in-network cost-sharing. Any communication from the provider asserting a balance above that amount is, on its face, a violation of § 300gg-111.
 
-3. The plan is obligated under the federal rule and under the plan's ERISA fiduciary duties (29 U.S.C. § 1104) to ensure I am not balance-billed for these services. Please confirm in writing what steps the plan will take if the provider persists in balance-billing me — including but not limited to direct communication with the provider, complaint to the federal No Surprises Help Desk, and reporting to the state insurance department of the provider's domicile.
+3. The plan is obligated under the federal rule and under the plan's ERISA fiduciary duties (29 U.S.C. § 1104) to ensure I am not balance-billed for these services. Please confirm in writing what steps the plan will take if the provider persists in balance-billing me, including but not limited to direct communication with the provider, complaint to the federal No Surprises Help Desk, and reporting to the state insurance department of the provider's domicile.
 
 VI. ERISA § 503 / 29 U.S.C. § 1133 claims-procedure rights
 
@@ -144,17 +144,17 @@ Date(s) of service: [DATE OF SERVICE]
 Claim number(s): [CLAIM NUMBER(S)]
 
 Enclosures:
-A — Copy of the provider's billing statement showing the balance-billed amount
-B — Copy of the Explanation of Benefits dated [EOB DATE], claim [CLAIM NUMBER]
-C — Copy of the No Surprises Act disclosure notice the provider was required to provide (or notice that none was provided)
-D — Copy of any prior correspondence between me and the provider on this dispute
+A, Copy of the provider's billing statement showing the balance-billed amount
+B, Copy of the Explanation of Benefits dated [EOB DATE], claim [CLAIM NUMBER]
+C, Copy of the No Surprises Act disclosure notice the provider was required to provide (or notice that none was provided)
+D, Copy of any prior correspondence between me and the provider on this dispute
 ```
 
 ---
 
 ## Placeholders and rendering notes
 
-- The drafter selects the qualifying basis (A, B, or C) from the bill's `findings` column on `tracker.csv` and from the EOB's `network_status` and place-of-service codes. If none of the three bases clearly applies, this template is the wrong tool — the patient should use the direct provider dispute via `letter_no_surprises_violation.md` instead.
+- The drafter selects the qualifying basis (A, B, or C) from the bill's `findings` column on `tracker.csv` and from the EOB's `network_status` and place-of-service codes. If none of the three bases clearly applies, this template is the wrong tool, the patient should use the direct provider dispute via `letter_no_surprises_violation.md` instead.
 - "Out-of-network ancillary at in-network facility" requires the specific provider type to be one of the protected categories. The drafter should confirm the provider type from the bill's `provider_type` field (anesthesiology, emergency_medicine, pathology, radiology). If the type is something else (e.g., orthopedist), Basis B does not apply.
 - The CC list is important. Sending a courtesy copy to the provider does two useful things: it puts the provider on notice that the patient understands NSA protections (often enough to stop balance-billing on its own), and it makes the provider's continued balance-billing actionable as a "knowing" violation rather than an oversight.
 
@@ -162,9 +162,9 @@ D — Copy of any prior correspondence between me and the provider on this dispu
 
 The drafter confirms:
 
-1. The EOB clearly shows the plan adjudicated the claim with in-network cost-sharing applied per NSA. If the EOB shows out-of-network cost-sharing being passed to the patient, the underlying issue is the plan's adjudication, not the provider's bill — handle via ERISA appeal first (`letter_insurance_appeal_erisa.md`).
+1. The EOB clearly shows the plan adjudicated the claim with in-network cost-sharing applied per NSA. If the EOB shows out-of-network cost-sharing being passed to the patient, the underlying issue is the plan's adjudication, not the provider's bill, handle via ERISA appeal first (`letter_insurance_appeal_erisa.md`).
 2. The provider has actually balance-billed (i.e., sent a statement showing patient owes more than EOB cost-sharing). If only a single statement at the EOB cost-sharing amount has arrived, there's no balance-billing yet.
-3. The 30-business-day open-negotiation clock is not yet exhausted on the plan's side. If open negotiation has already closed without an IDR filing, that itself is the violation — note it in the letter and request the plan explain why IDR was not filed.
+3. The 30-business-day open-negotiation clock is not yet exhausted on the plan's side. If open negotiation has already closed without an IDR filing, that itself is the violation, note it in the letter and request the plan explain why IDR was not filed.
 
 ## Parallel actions (same day as mailing)
 

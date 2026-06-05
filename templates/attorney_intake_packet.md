@@ -1,4 +1,4 @@
-# Template — Attorney intake packet
+# Template, Attorney intake packet
 
 Use when the patient has run the kit's dispute flow to a point where engaging counsel makes sense and needs a clean one-document summary to hand to an attorney for an intake consult. The packet is two pages: page one is the case summary; page two is the artifact index. The attorney decides whether to take the case based on page one and can find anything they want on page two.
 
@@ -17,7 +17,7 @@ Most kit users will not need this template. Most disputes resolve through the ce
 ---
 
 ```letter
-Attorney Intake Packet — [PATIENT FULL NAME]
+Attorney Intake Packet, [PATIENT FULL NAME]
 
 Prepared: [DATE]
 Patient: [PATIENT FULL NAME], DOB [DOB]
@@ -27,7 +27,7 @@ Email: [PATIENT EMAIL]
 
 ---
 
-PAGE 1 — CASE SUMMARY
+PAGE 1, CASE SUMMARY
 
 Type of case (check what applies):
 [ ] Hospital lien dispute (tort-recovery interference)
@@ -59,16 +59,16 @@ Specific legal theories the dispute has invoked (from prior correspondence):
 
 [The drafter lists each theory cited in a prior letter, with the controlling authority.]
 
-- [42 U.S.C. § 300gg-111 — NSA balance-billing prohibition / § 300gg-111(b) ancillary protection]
-- [45 CFR Part 180 — Hospital Price Transparency Rule]
-- [UCC § 2-305(2) (or state common-law analogue) — good-faith open price term]
-- [STATE STATUTE — e.g., Tenn. Code § 68-11-220 itemization, GA O.C.G.A. § 10-1-393(b)(14) FBPA]
-- [15 U.S.C. § 1692g — FDCPA validation; § 1692e — false or misleading representations]
-- [15 U.S.C. § 1681i — FCRA reinvestigation; § 1681s-2(b) — furnisher accuracy]
-- [29 U.S.C. § 1024(b)(4) — ERISA plan-document right; § 1132(c)(1) — § 502(c) statutory penalty; § 1133 — claims procedure]
-- [26 U.S.C. § 501(r) — non-profit hospital obligations; § 1.501(r)-6 — reasonable efforts before collection action]
-- [STATE WC STATUTE — anti-balance-billing for work-related injuries]
-- [Hospital-lien statute — STATE-SPECIFIC]
+- [42 U.S.C. § 300gg-111, NSA balance-billing prohibition / § 300gg-111(b) ancillary protection]
+- [45 CFR Part 180, Hospital Price Transparency Rule]
+- [UCC § 2-305(2) (or state common-law analogue), good-faith open price term]
+- [STATE STATUTE, e.g., Tenn. Code § 68-11-220 itemization, GA O.C.G.A. § 10-1-393(b)(14) FBPA]
+- [15 U.S.C. § 1692g, FDCPA validation; § 1692e, false or misleading representations]
+- [15 U.S.C. § 1681i, FCRA reinvestigation; § 1681s-2(b), furnisher accuracy]
+- [29 U.S.C. § 1024(b)(4), ERISA plan-document right; § 1132(c)(1), § 502(c) statutory penalty; § 1133, claims procedure]
+- [26 U.S.C. § 501(r), non-profit hospital obligations; § 1.501(r)-6, reasonable efforts before collection action]
+- [STATE WC STATUTE, anti-balance-billing for work-related injuries]
+- [Hospital-lien statute, STATE-SPECIFIC]
 
 What I have already done (chronological):
 
@@ -106,15 +106,15 @@ Statute-of-limitations posture:
 
 ---
 
-PAGE 2 — ARTIFACT INDEX
+PAGE 2, ARTIFACT INDEX
 
 The artifacts below are organized in the patient's evidence bundle (`<HEALTHBILLS_ROOT>/_bundles/<bill_id>_<date>.zip`), which is available on request. The MANIFEST.md inside the bundle indexes every artifact by category.
 
 Bill and EOB:
 - Bill from [PROVIDER]: account [ACCOUNT NUMBER], dated [STATEMENT DATE], current balance $[BALANCE]
 - EOB from [INSURER]: claim [CLAIM NUMBER], dated [EOB DATE]
-- Itemization on file: [YES — line-count, NO]
-- HIPAA medical record on file: [YES — request date, response date, NO]
+- Itemization on file: [YES, line-count, NO]
+- HIPAA medical record on file: [YES, request date, response date, NO]
 
 Dispute correspondence:
 - Initial dispute letter: [DATE], USPS tracking [N], response [received / none / non-substantive]
@@ -200,7 +200,7 @@ The drafter confirms:
 
 ## Related templates and scripts
 
-- `scripts/bundle_evidence.py` — produces the evidence bundle the artifact index references.
-- `scripts/log_interaction.py` — populates the action log the narrative pulls from.
-- `templates/letter_challenge_hospital_lien.md` — most common single-template motivation for attorney engagement.
-- `templates/letter_erisa_502c_penalty.md` — common federal-court doorway.
+- `scripts/bundle_evidence.py`, produces the evidence bundle the artifact index references.
+- `scripts/log_interaction.py`, populates the action log the narrative pulls from.
+- `templates/letter_challenge_hospital_lien.md`, most common single-template motivation for attorney engagement.
+- `templates/letter_erisa_502c_penalty.md`, common federal-court doorway.

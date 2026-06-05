@@ -74,11 +74,11 @@ To find a specific CPT, filter rows where `code|1 == "<CPT>"` (or `code|2`, etc.
 
 ---
 
-## Pre-CMS-template legacy formats (2021–2024)
+## Pre-CMS-template legacy formats (2021-2024)
 
 Most hospitals still publish in one of three legacy patterns, especially for files generated before July 2024. The kit's MRF adapter must handle these.
 
-### Format A — Turquoise Health flat CSV
+### Format A, Turquoise Health flat CSV
 
 Vendor: Turquoise Health (commonly referenced as "Turquoise" in filenames).
 
@@ -95,7 +95,7 @@ Columns (typical):
 
 One row per (code, payer, plan). Many hospitals produce 50,000-200,000 rows in this format.
 
-### Format B — TransparentRx / Trizetto JSON
+### Format B, TransparentRx / Trizetto JSON
 
 Older nested JSON pattern:
 
@@ -121,7 +121,7 @@ Older nested JSON pattern:
 
 Field names vary slightly: `ItemCode`, `ProcedureCode`, `Code`, `HCPCSCode`, `CPTCode` all appear. Always check the first three or four item records before writing a parser.
 
-### Format C — Epic-native wide CSV
+### Format C, Epic-native wide CSV
 
 Hospitals that use Epic's billing-export workflow often publish an Epic-native CSV with columns:
 
@@ -181,8 +181,8 @@ The output CSV slots in as Exhibit X for any of the dispute-letter templates tha
 
 ## Related templates and scripts
 
-- `scripts/fetch_mrf.py` — the adapter referenced above.
-- `scripts/fetch_price_benchmarks.py` — Medicare PFS baseline; the MRF lookup adds a second benchmark column.
-- `templates/letter_negotiation_counter_offer.md` — the primary use case for MRF data in a letter.
-- `templates/complaint_cms_hpt.md` — file when the MRF is missing, incomplete, or non-machine-readable.
-- `references/resources.md` — Turquoise Health, PatientRightsAdvocate, hospital MRF lookup pointers.
+- `scripts/fetch_mrf.py`, the adapter referenced above.
+- `scripts/fetch_price_benchmarks.py`, Medicare PFS baseline; the MRF lookup adds a second benchmark column.
+- `templates/letter_negotiation_counter_offer.md`, the primary use case for MRF data in a letter.
+- `templates/complaint_cms_hpt.md`, file when the MRF is missing, incomplete, or non-machine-readable.
+- `references/resources.md`, Turquoise Health, PatientRightsAdvocate, hospital MRF lookup pointers.
