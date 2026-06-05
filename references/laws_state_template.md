@@ -19,7 +19,7 @@ A complete state pack covers all of:
 - **Response deadline:** 30 days is common; some states are 60
 - **Request window:** how long after discharge a patient may request
 
-If the state has no such statute, say so explicitly — the patient still has the federal Hospital Price Transparency Rule (45 CFR Part 180) as a fallback, but the state-law leverage is weaker.
+If the state has no such statute, say so explicitly, the patient still has the federal Hospital Price Transparency Rule (45 CFR Part 180) as a fallback, but the state-law leverage is weaker.
 
 ### 2. Unfair Claims Settlement Practices Act
 
@@ -35,7 +35,7 @@ If the state has no such statute, say so explicitly — the patient still has th
 
 ### 4. State surprise-billing statute (if broader than federal NSA)
 
-- Some states (CA AB 72, NY Article 49, TX SB 1264, MD all-payer, WA Balance Billing Protection Act, GA HB 888) have broader protections than the federal floor. Where state law is broader, it usually still applies — the federal Act is a floor, not a ceiling.
+- Some states (CA AB 72, NY Article 49, TX SB 1264, MD all-payer, WA Balance Billing Protection Act, GA HB 888) have broader protections than the federal floor. Where state law is broader, it usually still applies, the federal Act is a floor, not a ceiling.
 - Where no broader state law exists, say so; the federal No Surprises Act stands alone.
 
 ### 5. Ground-ambulance protection
@@ -59,15 +59,15 @@ The federal NSA explicitly excludes ground ambulance. Some states (CA, MD, NY, O
 
 ### 8. Small-claims court
 
-- Court name (Justice Court, Magistrate Court, Civil Court, General Sessions Court, Small Claims Court — terminology varies)
+- Court name (Justice Court, Magistrate Court, Civil Court, General Sessions Court, Small Claims Court, terminology varies)
 - Jurisdictional limit
 - Typical filing fee
 - Attorney rules: required, permitted, or prohibited
 
 ### 9. Statute of limitations
 
-- Written contract — most states 4 to 6 years
-- Oral contract — usually shorter
+- Written contract, most states 4 to 6 years
+- Oral contract, usually shorter
 - The relevant citation (for the 30-day warning letter and any small-claims filing)
 
 ### 10. Medical-debt credit-reporting protections (state-level)
@@ -88,7 +88,7 @@ The federal NSA explicitly excludes ground ambulance. Some states (CA, MD, NY, O
 
 ## Resources for finding the equivalents
 
-- **Justia state codes:** [law.justia.com/codes](https://law.justia.com/codes/) — searchable by state
+- **Justia state codes:** [law.justia.com/codes](https://law.justia.com/codes/), searchable by state
 - **Cornell Legal Information Institute:** [law.cornell.edu](https://www.law.cornell.edu/)
 - **State insurance department directory (NAIC):** [content.naic.org/state-insurance-departments](https://content.naic.org/state-insurance-departments)
 - **State attorney general directory (NAAG):** [naag.org/find-my-ag](https://www.naag.org/find-my-ag/)

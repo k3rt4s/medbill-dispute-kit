@@ -2,13 +2,13 @@
 
 Marshall Allen's methodology favors written, certified correspondence as the primary track. Phone calls leave no defensible paper trail, are easily denied by the other side, and rarely produce the durable outcomes that letters do. The kit's main workflow is mail-only for that reason.
 
-That said, some readers will prefer phones or need them — for example, an immediate hold on a collection referral, or a question the provider's website does not answer. This file collects the scripts and protocols Allen and other patient-advocacy practitioners (Pat Palmer, Adria Gross, Mark Stebbins) recommend. Use them, log each call in the action log via `scripts/log_interaction.py`, and follow every meaningful call with a written confirmation letter the same day.
+That said, some readers will prefer phones or need them, for example, an immediate hold on a collection referral, or a question the provider's website does not answer. This file collects the scripts and protocols Allen and other patient-advocacy practitioners (Pat Palmer, Adria Gross, Mark Stebbins) recommend. Use them, log each call in the action log via `scripts/log_interaction.py`, and follow every meaningful call with a written confirmation letter the same day.
 
 ## Protocols that apply to every call
 
 1. **Set up before dialing.** Have the bill, the EOB, the most recent dispute letter, and the action log open in front of you. Identify the specific account number, date of service, and dollar amount.
 
-2. **Take notes in real time.** Date, time, the rep's full name and employee ID, the call-reference number (every major billing system generates one — ask for it), every promise made, every deadline named.
+2. **Take notes in real time.** Date, time, the rep's full name and employee ID, the call-reference number (every major billing system generates one, ask for it), every promise made, every deadline named.
 
 3. **Identify yourself fully and verify them.** "This is [your full name], date of birth [DOB], account [account number]. May I have your full name and employee or rep ID, please? Is this the [Billing / Patient Financial Services / Customer Service / Subrogation] department for [provider name]?"
 
@@ -16,13 +16,13 @@ That said, some readers will prefer phones or need them — for example, an imme
 
 5. **Stay on script, do not negotiate against yourself.** If you have a written counter-offer at $X, do not verbally offer less just to make the call go faster. The rep's job is to extract a payment commitment; your job is to confirm written next steps.
 
-6. **End with three confirmations.** Before hanging up: "To confirm what we discussed: (a) [the substantive promise — e.g., hold on collection through [date], itemization to be mailed by [date], appeal escalated to medical director], (b) the call-reference number is [number], and (c) the rep's name and ID are [name, ID]. I will send a written follow-up summarizing this call today. Is there anything I have wrong?"
+6. **End with three confirmations.** Before hanging up: "To confirm what we discussed: (a) [the substantive promise, e.g., hold on collection through [date], itemization to be mailed by [date], appeal escalated to medical director], (b) the call-reference number is [number], and (c) the rep's name and ID are [name, ID]. I will send a written follow-up summarizing this call today. Is there anything I have wrong?"
 
 7. **Send the confirmation letter the same day.** A short letter, certified, reciting what was promised on the call. This converts the verbal promise into a paper-trail asset.
 
 ---
 
-## Script 1 — Initial call to billing (you just received a bill you intend to dispute)
+## Script 1, Initial call to billing (you just received a bill you intend to dispute)
 
 You: "Hello, this is [your full name], DOB [DOB], calling about account [account number] from [provider]. May I have your name and employee ID?"
 
@@ -34,19 +34,19 @@ You: "Thank you, [rep name]. I have three questions about this bill before I tak
 
 You: "I am not in a position to pay this bill today because [I have not yet received the EOB / the itemization shows fewer line items than I expected / the EOB shows a lower patient responsibility than this bill]. I will be sending a written dispute by certified mail today. Will you please:
 (a) place a hold on collection activity for this account for 30 days while the dispute is resolved;
-(b) confirm in writing — by email if your system allows, or by letter — that the hold is in place; and
+(b) confirm in writing, by email if your system allows, or by letter, that the hold is in place; and
 (c) provide a call-reference number for today's call?"
 
 [Get all three. End with the closing confirmation.]
 
-## Script 2 — Insurance company about an EOB
+## Script 2, Insurance company about an EOB
 
 You: "Hello, this is [name], member ID [member ID], DOB [DOB], group [group number]. May I have your name and ID, please?"
 
 [After introduction.]
 
 You: "I'm calling about claim number [claim number] from [provider] for date of service [DOS]. I want to verify three things on this EOB:
-(1) the provider's network status as adjudicated — in-network or out-of-network — and how that was determined;
+(1) the provider's network status as adjudicated, in-network or out-of-network, and how that was determined;
 (2) whether any No Surprises Act protection was applied for these services; and
 (3) the patient responsibility amount as you have it, broken down between deductible, coinsurance, and copay."
 
@@ -56,7 +56,7 @@ You: "Two follow-up questions: (a) was the qualifying payment amount used to cal
 
 [If they don't know, ask for a supervisor or claims-analyst callback. Do not let them transfer to "we'll review and call you back" without a written reference. Ask for the case number and the analyst's name.]
 
-## Script 3 — Hold on collection referral
+## Script 3, Hold on collection referral
 
 Use when the provider has sent a "final notice" stating an account will be referred to collections within X days.
 
@@ -72,7 +72,7 @@ You: "This is an account in active dispute. I sent a written dispute letter on [
 
 [Do not accept "I'll make a note" alone. Insist on a written acknowledgment. If the rep refuses, request a supervisor. If the supervisor refuses, ask for the name and contact information of the office's patient advocate.]
 
-## Script 4 — Escalation to patient advocate / financial counselor
+## Script 4, Escalation to patient advocate / financial counselor
 
 Most non-profit hospitals have a patient advocate, ombudsman, or financial counselor whose job is to mediate disputes the billing department refuses to escalate. Allen recommends asking for this person directly when billing is stonewalling.
 
@@ -82,13 +82,13 @@ You: "Hello, this is [name], DOB [DOB], account [account number]. I would like t
 
 [Once connected to the advocate or supervisor:]
 
-You: "Thank you for taking my call. I am [name], DOB [DOB]. I have an account in active written dispute with the billing department for [reason — e.g., the bill exceeds the EOB allowed amount; the line items don't match the medical record; the bill does not show a No Surprises Act adjustment that should have applied]. I have sent a written dispute by certified mail and the billing department has [not responded / responded but did not address the substance / continued to send statements].
+You: "Thank you for taking my call. I am [name], DOB [DOB]. I have an account in active written dispute with the billing department for [reason, e.g., the bill exceeds the EOB allowed amount; the line items don't match the medical record; the bill does not show a No Surprises Act adjustment that should have applied]. I have sent a written dispute by certified mail and the billing department has [not responded / responded but did not address the substance / continued to send statements].
 
 I would like your help in one of two ways: either (a) escalate this internally to whoever is authorized to issue a written response addressing the specific items in dispute, or (b) refer me to the hospital's Chief Financial Officer or General Counsel for a written response, since the dispute is now beyond what front-line billing can resolve. May I have your decision in writing today by email?"
 
 [Wait. Patient advocates often have authority billing reps do not. Once a written acknowledgment comes, you have a documented escalation path.]
 
-## Script 5 — CFO / general counsel direct (last resort before legal)
+## Script 5, CFO / general counsel direct (last resort before legal)
 
 Use only when the patient advocate path has been exhausted. The CFO of a hospital is usually findable through the hospital's public IRS Form 990 filing or the "About Us" page.
 
@@ -102,7 +102,7 @@ Before I escalate to the [state DOI / state Attorney General / civil court], I a
 
 [Follow up the same day with an email or letter to the CFO's office repeating the substance. Most CFO calls do not result in a callback; they result in the case being kicked to outside counsel who then handles it. Either outcome is progress.]
 
-## Script 6 — Collection-agency validation request (FDCPA)
+## Script 6, Collection-agency validation request (FDCPA)
 
 You: "Hello, this is [name], DOB [DOB]. You contacted me about an alleged debt. I am exercising my rights under the Fair Debt Collection Practices Act, 15 U.S.C. § 1692g. I dispute the debt and request validation in writing. May I have your name, your company's full name and address, and the call-reference number for this interaction?"
 
@@ -136,7 +136,7 @@ When in doubt, ask. The recording is a tool, not the case; a clear contemporaneo
 
 2. After every meaningful call, mail a written follow-up letter the same day. The kit has no built-in "confirm-after-call" template, but a one-paragraph letter on letterhead works:
 
-   *"Re: account [N]. This is to confirm our telephone conversation today, [date], at approximately [time], between me and [rep name, ID], regarding [topic]. During the call, [rep name] confirmed that [the substantive promise — e.g., a hold on collections through [date], an itemization to be mailed by [date], a supervisor callback by [date]]. Please direct any disagreement with this summary, in writing, to the address above within ten business days. Otherwise this summary will be treated as accurate."*
+   *"Re: account [N]. This is to confirm our telephone conversation today, [date], at approximately [time], between me and [rep name, ID], regarding [topic]. During the call, [rep name] confirmed that [the substantive promise, e.g., a hold on collections through [date], an itemization to be mailed by [date], a supervisor callback by [date]]. Please direct any disagreement with this summary, in writing, to the address above within ten business days. Otherwise this summary will be treated as accurate."*
 
 3. If the call yielded a tracking artifact (a fax number, an escalation case number, a supervisor's email), record it in the `notes` field of the action log entry.
 

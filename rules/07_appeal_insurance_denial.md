@@ -1,4 +1,4 @@
-# Rule 07 — Appeal an insurance denial with evidence, not emotion
+# Rule 07, Appeal an insurance denial with evidence, not emotion
 
 When the insurance company denies coverage, the dispute is between you and the insurer, not you and the provider. The right venue is the plan's internal appeal process, then external review, then federal court for ERISA-covered plans.
 
@@ -73,11 +73,11 @@ If your plan is ERISA-covered (most employer plans are; government and church pl
 
 ## What's NOT ERISA
 
-- **Medicare and Medicaid** — different appeal systems entirely
-- **TRICARE** — federal
-- **Church plans and government employer plans** — exempt unless they opted in
-- **Individual market plans** (those purchased on the ACA exchange or directly) — governed by ACA appeal rules and state law, not ERISA
-- **TennCare** in Tennessee — Medicaid managed care, separate appeal process
+- **Medicare and Medicaid**, different appeal systems entirely
+- **TRICARE**, federal
+- **Church plans and government employer plans**, exempt unless they opted in
+- **Individual market plans** (those purchased on the ACA exchange or directly), governed by ACA appeal rules and state law, not ERISA
+- **TennCare** in Tennessee, Medicaid managed care, separate appeal process
 
 For non-ERISA plans, the structure is similar but you don't have ERISA § 502(a) as your eventual hammer; you have state insurance department complaints and state-law remedies.
 
@@ -102,5 +102,5 @@ Whether ERISA or not, file a complaint with your state insurance department in p
 
 ## Related rules
 
-- [[04_no_surprises_act]] — if the denial is for an out-of-network charge that the No Surprises Act prohibits
-- [[06_small_claims]] — note that small claims is for provider disputes; ERISA insurer disputes go to federal court instead
+- [[04_no_surprises_act]], if the denial is for an out-of-network charge that the No Surprises Act prohibits
+- [[06_small_claims]], note that small claims is for provider disputes; ERISA insurer disputes go to federal court instead

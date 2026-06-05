@@ -1,4 +1,4 @@
-# Rule 24 — Medicare observation status and the two-midnight rule
+# Rule 24, Medicare observation status and the two-midnight rule
 
 A Medicare patient admitted to a hospital may be placed in either "inpatient" status or "observation" (outpatient) status. The clinical care can look identical to the patient; the billing consequences are very different. Many Medicare patients discover only after discharge that they were "outpatient under observation" the entire time, which exposes them to substantial Medicare Part B cost-sharing instead of Part A coverage and disqualifies the encounter for the three-day hospital-stay requirement for Skilled Nursing Facility coverage.
 
@@ -9,7 +9,7 @@ This rule fires when a Medicare beneficiary was hospitalized and the bill or pos
 ### Part A vs Part B
 
 - **Inpatient (Part A):** flat per-discharge payment to the hospital. Patient pays the Part A deductible (around $1,632 in 2024-2026). Drugs, services, and procedures during the stay are covered without separate cost-sharing.
-- **Observation (Part B):** outpatient services. Patient pays the Part B deductible plus 20% coinsurance on each separately-billed item — physician visits, drugs, lab tests, imaging. Self-administered drugs (the patient's own home medications administered in the hospital) typically not covered at all.
+- **Observation (Part B):** outpatient services. Patient pays the Part B deductible plus 20% coinsurance on each separately-billed item, physician visits, drugs, lab tests, imaging. Self-administered drugs (the patient's own home medications administered in the hospital) typically not covered at all.
 
 ### The Skilled Nursing Facility three-day rule
 
@@ -28,7 +28,7 @@ The rule is not absolute; clinical judgment governs. But it sets a presumption.
 
 ## The MOON notice
 
-The Medicare Outpatient Observation Notice (MOON) — required under the NOTICE Act (Pub. L. 114-42, 2015) — must be delivered to Medicare beneficiaries within **36 hours** of starting to receive observation services. The notice tells the patient:
+The Medicare Outpatient Observation Notice (MOON), required under the NOTICE Act (Pub. L. 114-42, 2015), must be delivered to Medicare beneficiaries within **36 hours** of starting to receive observation services. The notice tells the patient:
 
 - They are an outpatient receiving observation services, not an inpatient
 - The Part B financial consequences
@@ -97,10 +97,10 @@ In *Alexander v. Azar* (now *Alexander v. Becerra*), the Center for Medicare Adv
 ## When this rule does not apply
 
 - **Patient is not on Medicare.** Observation status is primarily a Medicare problem because of the Part A/Part B distinction and the SNF three-day rule.
-- **Medicare Advantage observation issues** — Medicare Advantage plans have their own appeal process; see `rules/12_medicare_appeals.md` and check the plan's specific rules for observation-status disputes. Many MA plans have eliminated the SNF three-day rule, simplifying things for those enrollees.
+- **Medicare Advantage observation issues**, Medicare Advantage plans have their own appeal process; see `rules/12_medicare_appeals.md` and check the plan's specific rules for observation-status disputes. Many MA plans have eliminated the SNF three-day rule, simplifying things for those enrollees.
 
 ## Related
 
-- [[12_medicare_appeals]] — the appeals framework that observation-status disputes route into
-- [[14_hipaa_right_of_access]] — for getting the medical records to support the dispute
-- `templates/letter_medicare_appeal.md` — adapt with observation-status-specific arguments
+- [[12_medicare_appeals]], the appeals framework that observation-status disputes route into
+- [[14_hipaa_right_of_access]], for getting the medical records to support the dispute
+- `templates/letter_medicare_appeal.md`, adapt with observation-status-specific arguments

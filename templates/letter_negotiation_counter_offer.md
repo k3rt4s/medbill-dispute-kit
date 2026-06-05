@@ -1,4 +1,4 @@
-# Template — Negotiated counter-offer with benchmarked pricing
+# Template, Negotiated counter-offer with benchmarked pricing
 
 Use when the bill is for services the patient actually received, the EOB and itemization are both in hand, and the line-item charges are materially above fair market value. This is Marshall Allen's "I'll pay what's fair, not what you wrote down" play, anchored in UCC § 2-305(2) (open price term must be fixed in good faith), the federal Hospital Price Transparency Rule (45 CFR Part 180), and the Medicare Physician Fee Schedule as the most defensible public-data benchmark.
 
@@ -21,10 +21,10 @@ Email: [PATIENT EMAIL]
 [PROVIDER NAME]
 [PROVIDER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Counter-offer on disputed charges —
+RE: Counter-offer on disputed charges, 
     Account #[ACCOUNT NUMBER]
     Patient: [PATIENT FULL NAME]
     Date(s) of service: [DATE OF SERVICE]
@@ -63,7 +63,7 @@ Your facility's own published cash price under 45 CFR § 180.50 for [PROCEDURE] 
 
 III. Counter-offer
 
-In full and final satisfaction of this account, I offer to pay $[COUNTER OFFER AMOUNT]. This figure represents [200 % of the Medicare allowable / the EOB allowed amount / the published cash price — whichever frame the LLM chose; pick the one most defensible from the evidence].
+In full and final satisfaction of this account, I offer to pay $[COUNTER OFFER AMOUNT]. This figure represents [200 % of the Medicare allowable / the EOB allowed amount / the published cash price, whichever frame the LLM chose; pick the one most defensible from the evidence].
 
 Payment terms:
 
@@ -107,8 +107,8 @@ Enclosures:
 - [If applicable: screenshot of your published cash price from the MRF]
 
 cc:
-- [STATE] Department of Insurance — Consumer Services
-- [STATE AG Division of Consumer Affairs — for the same complaint]
+- [STATE] Department of Insurance, Consumer Services
+- [STATE AG Division of Consumer Affairs, for the same complaint]
 - file
 ```
 
@@ -127,7 +127,7 @@ The drafter checks:
 
 1. `has_eob == "Y"` (the EOB is the second leg of the comparison; without it the letter cannot reference plan-allowed amounts).
 2. `has_itemization == "Y"` (a line-item analysis requires line items).
-3. `_benchmarks.csv` exists for this biller folder with at least one row where `ratio_billed_to_medicare >= 1.50`. If every line is in fair-market range, this letter is the wrong tool — there is no price-gouging argument to make.
+3. `_benchmarks.csv` exists for this biller folder with at least one row where `ratio_billed_to_medicare >= 1.50`. If every line is in fair-market range, this letter is the wrong tool, there is no price-gouging argument to make.
 
 If any of these are missing, the drafter falls back to `letter_initial_dispute.md` or `letter_hardship_negotiation.md` as appropriate.
 

@@ -1,4 +1,4 @@
-"""restructure_to_billers_eob.py — one-time migration that collapses
+"""restructure_to_billers_eob.py, one-time migration that collapses
 the current providers/<slug>/ tree (mixed bills + EOBs) into the new
 two-track structure:
 
@@ -18,7 +18,7 @@ Rules:
   and "NOT A BILL" itemized chargemasters (which still document the
   bill's contents).
 - DISPUTE_LETTER.md files in any provider folder get archived to
-  Health_Bills/_archive_old_letters/<slug>/ — the state machine in
+  Health_Bills/_archive_old_letters/<slug>/, the state machine in
   draft_letters_by_state.py will draft fresh ones based on the new
   gating rules (must have both EOB and itemization).
 - Sidecars (<file>.extracted.txt) follow their source file.
@@ -82,7 +82,7 @@ def is_eob_file(path: Path) -> bool:
     extracted text explicitly identifies it as an Explanation of
     Benefits document from a health plan.
 
-    Important: "THIS IS NOT A BILL" alone is NOT enough — hospital
+    Important: "THIS IS NOT A BILL" alone is NOT enough, hospital
     itemizations carry that label by law even though they are bill
     artifacts (the documented contents of a bill). The signal we need
     is the document's own title text identifying it as an EOB."""

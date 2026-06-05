@@ -1,4 +1,4 @@
-# Template — Medicare appeal (Levels 1 and 2)
+# Template, Medicare appeal (Levels 1 and 2)
 
 Use for a written Medicare appeal request at Level 1 (Redetermination for Parts A/B, Reconsideration for Part C, or Redetermination for Part D) or Level 2 (QIC for A/B, IRE for Part D). Levels 3-5 use specific OMHA / DAB / federal-court forms; for those, see `rules/12_medicare_appeals.md`.
 
@@ -17,7 +17,7 @@ Email: [PATIENT EMAIL]
 
 [DATE]
 
-[APPEALS DEPARTMENT — name depends on level/part. Examples:
+[APPEALS DEPARTMENT, name depends on level/part. Examples:
  - Original Medicare Level 1: The MAC named on the MSN
  - MA Level 1: The Medicare Advantage plan's appeals department
  - Part D Level 1: The Part D plan's appeals department
@@ -25,7 +25,7 @@ Email: [PATIENT EMAIL]
  - Level 2 D: Maximus Federal Services Part D Appeals]
 [APPEALS DEPARTMENT MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
 RE: [Pick one:
@@ -60,23 +60,23 @@ III. Why this denial is in error
 
 [The LLM renders one or more of the following blocks based on the actual denial reason.]
 
-[BLOCK A — Medical necessity]
+[BLOCK A, Medical necessity]
 
 The service is medically necessary for my specific clinical condition. My treating physician, [PHYSICIAN NAME, NPI, CREDENTIALS], has determined that this service is appropriate and necessary; their written statement is attached as Exhibit A. The relevant Local Coverage Determination [LCD ID: L#####] / National Coverage Determination [NCD ID: ###.#] includes my clinical situation as a covered indication. Specifically, [briefly map the patient's diagnosis and clinical history to the covered-indication language in the LCD/NCD].
 
-[BLOCK B — Coding correction]
+[BLOCK B, Coding correction]
 
 The denial appears to rest on a coding issue. The service should have been billed using [CORRECT CPT/HCPCS code] rather than [CODE AS BILLED]. The patient does not control the provider's coding; if the provider submitted an incorrect code, the appropriate remedy is to require the provider to resubmit. I am simultaneously asking the provider to correct the submission.
 
-[BLOCK C — Documentation supplemented]
+[BLOCK C, Documentation supplemented]
 
-The denial appears to rest on insufficient documentation. I am submitting additional documentation as Exhibit [X]: [list — clinical notes, imaging reports, lab results, treating-physician letter, prior conservative-treatment records]. This additional documentation establishes [the medical necessity / the diagnosis required by the LCD / the prior-conservative-treatment requirement / the specific clinical fact at issue].
+The denial appears to rest on insufficient documentation. I am submitting additional documentation as Exhibit [X]: [list, clinical notes, imaging reports, lab results, treating-physician letter, prior conservative-treatment records]. This additional documentation establishes [the medical necessity / the diagnosis required by the LCD / the prior-conservative-treatment requirement / the specific clinical fact at issue].
 
-[BLOCK D — Formulary or step-therapy exception (Part D)]
+[BLOCK D, Formulary or step-therapy exception (Part D)]
 
 The denied drug is medically necessary for my condition because the preferred formulary alternatives are [inappropriate / contraindicated / have been tried and failed / pose unacceptable risk]. Specifically: [explain]. My prescribing physician's statement supporting this exception is attached as Exhibit A.
 
-[BLOCK E — Wrong patient or duplicate]
+[BLOCK E, Wrong patient or duplicate]
 
 The denied claim was filed for a service I did not receive, or duplicates another already-paid claim. [Provide specifics.] Please reverse the denial and correct the claim history.
 
@@ -120,7 +120,7 @@ Date of service: [DATE OF SERVICE]
 Date of prior decision: [DATE OF MSN / EOB / PRIOR-LEVEL DECISION]
 
 cc:
-    [State Health Insurance Assistance Program (SHIP) for the patient's state — free Medicare appeals help]
+    [State Health Insurance Assistance Program (SHIP) for the patient's state, free Medicare appeals help]
     [Treating physician for this service]
     [Patient's representative if any]
 
@@ -134,7 +134,7 @@ Enclosures: as listed in Section VII
 - The LLM must ask up-front: which part of Medicare (A/B, C, D)? Which level? Date of the prior decision (to confirm the filing deadline hasn't run)?
 - For **Part C and Part D**, copy the plan's appeals department address from the denial notice. Never guess; plans use multiple addresses for different types of correspondence.
 - For **Original Medicare Level 1**, the MAC and its address are on the MSN.
-- For **Level 2 A/B**, the QIC is named in the Level 1 redetermination decision letter — typically C2C Innovative Solutions or Maximus, depending on the region.
+- For **Level 2 A/B**, the QIC is named in the Level 1 redetermination decision letter, typically C2C Innovative Solutions or Maximus, depending on the region.
 - For **Level 2 D**, the IRE is Maximus Federal Services. Their address is at [medicareappeals.com](https://medicareappeals.com).
 
 ## Required elements (per CMS-20027 and 42 CFR equivalents)
@@ -149,11 +149,11 @@ Every Medicare appeal at Levels 1 and 2 must include:
 
 The letter format above includes all five plus richer evidentiary support.
 
-## Free appeal help — the LLM must surface
+## Free appeal help, the LLM must surface
 
-- **State Health Insurance Assistance Program (SHIP)** — every state has one; lookup at [shiphelp.org](https://www.shiphelp.org). Free, unbiased, trained counselors.
-- **Medicare Rights Center** — [medicarerights.org](https://www.medicarerights.org). National counseling helpline.
-- **Center for Medicare Advocacy** — [medicareadvocacy.org](https://www.medicareadvocacy.org). Free templates and legal-services referrals.
+- **State Health Insurance Assistance Program (SHIP)**, every state has one; lookup at [shiphelp.org](https://www.shiphelp.org). Free, unbiased, trained counselors.
+- **Medicare Rights Center**, [medicarerights.org](https://www.medicarerights.org). National counseling helpline.
+- **Center for Medicare Advocacy**, [medicareadvocacy.org](https://www.medicareadvocacy.org). Free templates and legal-services referrals.
 
 For Levels 3-5 with significant amounts at stake, a Medicare-specialty attorney is appropriate. Many work on contingency or hourly with caps; the Medicare Rights Center can refer.
 
@@ -165,5 +165,5 @@ If the appeal is upheld in the patient's favor, log the closure and update the u
 
 ## Related
 
-- [[../rules/12_medicare_appeals]] — full five-level walkthrough
-- [[letter_insurance_appeal_erisa.md]] — for ERISA-covered employer plans (different process)
+- [[../rules/12_medicare_appeals]], full five-level walkthrough
+- [[letter_insurance_appeal_erisa.md]], for ERISA-covered employer plans (different process)

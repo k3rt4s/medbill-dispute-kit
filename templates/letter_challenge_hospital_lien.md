@@ -1,4 +1,4 @@
-# Template — Challenge hospital lien
+# Template, Challenge hospital lien
 
 Use when the patient was injured (motor-vehicle, slip-and-fall, on-the-job, third-party tort) and the hospital that treated them has filed a statutory hospital lien against the patient's recovery from the at-fault party or that party's insurer. Most states have a hospital-lien statute; the statutes vary widely on (a) whether the hospital must first attempt to bill the patient's health insurance, (b) the cap on the lien amount, (c) the notice requirements, and (d) the patient's right to challenge.
 
@@ -21,22 +21,22 @@ Email: [PATIENT EMAIL]
 [HOSPITAL LEGAL NAME]
 [HOSPITAL MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
 cc by certified mail with full enclosure set:
     [HOSPITAL'S OUTSIDE LIEN COUNSEL OR COLLECTOR, IF KNOWN]
-    [PATIENT'S HEALTH PLAN — Member Services]
+    [PATIENT'S HEALTH PLAN, Member Services]
     [AT-FAULT PARTY'S LIABILITY INSURER, IF KNOWN]
 
-RE: Challenge to and demand to withdraw or reduce hospital lien —
+RE: Challenge to and demand to withdraw or reduce hospital lien, 
     Patient: [PATIENT FULL NAME]
     DOB: [DOB]
     Account #: [ACCOUNT NUMBER]
     Date(s) of service: [DATE OF SERVICE]
     Lien recorded: [LIEN INSTRUMENT NUMBER] on [DATE LIEN FILED]
     Lien amount asserted: $[LIEN AMOUNT]
-    Underlying incident: [ACCIDENT TYPE — MVA / slip and fall / etc.] on [DATE OF INCIDENT]
+    Underlying incident: [ACCIDENT TYPE, MVA / slip and fall / etc.] on [DATE OF INCIDENT]
 
 To Hospital Counsel / Patient Financial Services:
 
@@ -44,35 +44,35 @@ I am the patient identified above. I have received notice that [HOSPITAL LEGAL N
 
 I. Authority and scope of challenge
 
-This letter is sent pursuant to [STATE STATUTE — e.g., Tennessee Code § 29-22-101 et seq., Tennessee Hospital Lien Act; or the equivalent provision in the patient's state]. Under that statute and applicable case law, the lien is enforceable only to the extent the hospital's claim is itself enforceable against the patient. A hospital cannot assert a lien at one amount while another payer (the patient's health plan) would discharge the same claim at a far lower contractual allowed amount.
+This letter is sent pursuant to [STATE STATUTE, e.g., Tennessee Code § 29-22-101 et seq., Tennessee Hospital Lien Act; or the equivalent provision in the patient's state]. Under that statute and applicable case law, the lien is enforceable only to the extent the hospital's claim is itself enforceable against the patient. A hospital cannot assert a lien at one amount while another payer (the patient's health plan) would discharge the same claim at a far lower contractual allowed amount.
 
 II. Grounds for the challenge
 
 [The drafter renders the grounds that apply, drawing from the dispute history. Number them sequentially.]
 
-[GROUND A — Lien filed at chargemaster, not contracted allowed amount]
+[GROUND A, Lien filed at chargemaster, not contracted allowed amount]
 
 The lien is asserted in the gross-charge ("chargemaster") amount of $[LIEN AMOUNT]. The contracted allowed amount for the same services under my health plan with [INSURER NAME] is materially lower; the EOB-allowed amount for the corresponding claim is $[EOB ALLOWED AMOUNT]. A hospital lien is not an independent right to collect chargemaster prices; it is a security interest in the patient's recovery securing whatever the hospital is otherwise legally entitled to collect. Filing a lien at chargemaster, when the underlying enforceable claim against the patient is a far lower contracted or commercially reasonable amount, is an abuse of the lien statute and (in many states) a violation of the state Consumer Protection Act.
 
-[GROUND B — Hospital failed to bill the patient's health insurance first]
+[GROUND B, Hospital failed to bill the patient's health insurance first]
 
-[STATE STATUTE — e.g., Tennessee Code § 29-22-101(c) or its equivalent] requires the hospital to first submit the bill for the services to the patient's health insurance plan and to credit the lien with any payment received from the plan. As of the date of this letter, the hospital has [failed to submit the claim to my health plan / submitted the claim but refused to accept the EOB-determined allowed amount in satisfaction of its claim, see Exhibit B]. I am an in-network member of [INSURER NAME], group [GROUP NUMBER], member ID [MEMBER ID]. The hospital has had complete insurance information from my admission paperwork dated [DATE], a copy of which is attached as Exhibit C. The hospital's failure to bill my insurance is a breach of the lien statute and independently a breach of the No Surprises Act if any services were emergency services under 42 U.S.C. § 300gg-111.
+[STATE STATUTE, e.g., Tennessee Code § 29-22-101(c) or its equivalent] requires the hospital to first submit the bill for the services to the patient's health insurance plan and to credit the lien with any payment received from the plan. As of the date of this letter, the hospital has [failed to submit the claim to my health plan / submitted the claim but refused to accept the EOB-determined allowed amount in satisfaction of its claim, see Exhibit B]. I am an in-network member of [INSURER NAME], group [GROUP NUMBER], member ID [MEMBER ID]. The hospital has had complete insurance information from my admission paperwork dated [DATE], a copy of which is attached as Exhibit C. The hospital's failure to bill my insurance is a breach of the lien statute and independently a breach of the No Surprises Act if any services were emergency services under 42 U.S.C. § 300gg-111.
 
-[GROUND C — No Surprises Act preemption for emergency services]
+[GROUND C, No Surprises Act preemption for emergency services]
 
 The services giving rise to the lien were [emergency services within the meaning of the No Surprises Act]. Under the No Surprises Act and 45 CFR § 149.110, I am obligated to pay only the in-network cost-sharing amount for those services. The hospital's assertion of a lien in any amount above the in-network cost-sharing amount is preempted by federal law for these services.
 
-[GROUND D — Lien exceeds statutory cap, where applicable]
+[GROUND D, Lien exceeds statutory cap, where applicable]
 
-[STATE STATUTE — many states cap hospital liens at a fraction of the patient's gross recovery; e.g., Tennessee Code § 29-22-101 caps at 1/3 of the recovery after attorney's fees]. The lien asserted exceeds the statutory cap on its face. Even were the underlying charges enforceable in full, the lien must be reduced to the statutory cap before any disbursement.
+[STATE STATUTE, many states cap hospital liens at a fraction of the patient's gross recovery; e.g., Tennessee Code § 29-22-101 caps at 1/3 of the recovery after attorney's fees]. The lien asserted exceeds the statutory cap on its face. Even were the underlying charges enforceable in full, the lien must be reduced to the statutory cap before any disbursement.
 
-[GROUND E — Defective notice or recording]
+[GROUND E, Defective notice or recording]
 
 The lien notice provided to me [does not identify the items and services giving rise to the lien with the specificity required by the statute / was not served on me within the statutory window / was not properly recorded with the [COUNTY] [Register of Deeds / Clerk] within the statutory window of [N] days from discharge]. Each defect independently warrants discharge of the lien under [STATE STATUTE].
 
-[GROUND F — Made-whole doctrine]
+[GROUND F, Made-whole doctrine]
 
-Under the made-whole doctrine recognized in [STATE], a healthcare provider's lien against a tort recovery does not attach until the patient has been made whole for all elements of damage — economic loss, pain and suffering, future medical care, lost earning capacity, and consortium losses. The current tort recovery, after attorney's fees and expenses, is insufficient to make me whole; the lien must yield to that priority and is not enforceable against the recovery in its asserted amount.
+Under the made-whole doctrine recognized in [STATE], a healthcare provider's lien against a tort recovery does not attach until the patient has been made whole for all elements of damage, economic loss, pain and suffering, future medical care, lost earning capacity, and consortium losses. The current tort recovery, after attorney's fees and expenses, is insufficient to make me whole; the lien must yield to that priority and is not enforceable against the recovery in its asserted amount.
 
 III. Demand
 
@@ -116,21 +116,21 @@ Date of service: [DATE OF SERVICE]
 Lien instrument: [LIEN INSTRUMENT NUMBER]
 
 Enclosures:
-A — Copy of the recorded lien instrument [LIEN INSTRUMENT NUMBER]
-B — Explanation of Benefits from [INSURER NAME], claim [CLAIM NUMBER], dated [EOB DATE]
-C — Admission paperwork dated [DATE] showing health insurance on file
-D — Itemized bill from the hospital, account [ACCOUNT NUMBER]
-E — Line-item benchmark analysis (Medicare PFS rates and the hospital's published cash price under 45 CFR Part 180)
-F — Notice to the at-fault party's liability insurer (if applicable, sent same day as a courtesy)
+A, Copy of the recorded lien instrument [LIEN INSTRUMENT NUMBER]
+B, Explanation of Benefits from [INSURER NAME], claim [CLAIM NUMBER], dated [EOB DATE]
+C, Admission paperwork dated [DATE] showing health insurance on file
+D, Itemized bill from the hospital, account [ACCOUNT NUMBER]
+E, Line-item benchmark analysis (Medicare PFS rates and the hospital's published cash price under 45 CFR Part 180)
+F, Notice to the at-fault party's liability insurer (if applicable, sent same day as a courtesy)
 ```
 
 ---
 
 ## Placeholders and rendering notes
 
-- `[STATE STATUTE]` — every state's lien statute is different. The drafter loads `references/laws_state_<code>.md`, looks for the hospital-lien section, and cites it. If the state file lacks lien content, the drafter falls back to a generic "[STATE]'s hospital-lien statute" reference and asks the patient to verify the specific section.
+- `[STATE STATUTE]`, every state's lien statute is different. The drafter loads `references/laws_state_<code>.md`, looks for the hospital-lien section, and cites it. If the state file lacks lien content, the drafter falls back to a generic "[STATE]'s hospital-lien statute" reference and asks the patient to verify the specific section.
 - The CC list is critical. A hospital lien affects three parties besides the hospital: the patient's health plan, the at-fault party's liability insurer, and the county recording office. Send the letter (and the enclosure set) to all of them.
-- For motor-vehicle cases the at-fault party's liability insurer is usually known. For premises-liability or product-liability cases, it may not be — leave the CC blank or send to "[PROPERTY OWNER OR PRODUCT MANUFACTURER]'s liability insurer".
+- For motor-vehicle cases the at-fault party's liability insurer is usually known. For premises-liability or product-liability cases, it may not be, leave the CC blank or send to "[PROPERTY OWNER OR PRODUCT MANUFACTURER]'s liability insurer".
 
 ## Before sending
 
@@ -142,7 +142,7 @@ The drafter confirms:
 
 ## Parallel actions (same day as mailing)
 
-- File a state DOI / AG complaint using `templates/complaint_state_doi.md` Category E (price gouging) and Category G (custom — add an "abuse of lien statute" category to that template or use the catch-all "other" line).
+- File a state DOI / AG complaint using `templates/complaint_state_doi.md` Category E (price gouging) and Category G (custom, add an "abuse of lien statute" category to that template or use the catch-all "other" line).
 - If the at-fault party's liability insurer is known, send them a courtesy notice that the lien is disputed and that any disbursement to the hospital should be held pending resolution.
 - If the hospital is a non-profit and has been pursuing the lien instead of offering Financial Assistance under § 501(r), file IRS Form 13909.
 

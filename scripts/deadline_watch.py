@@ -23,9 +23,9 @@ computed from the bill's earliest known statement_date plus the state's
 written-contract SOL years per `references/sol_by_state.md`.
 
 Exit codes:
-    0 — no overdue items
-    1 — one or more overdue items
-    2 — usage error or file not found
+    0, no overdue items
+    1, one or more overdue items
+    2, usage error or file not found
 """
 
 import argparse

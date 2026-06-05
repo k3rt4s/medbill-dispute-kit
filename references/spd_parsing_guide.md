@@ -10,7 +10,7 @@ The SPD controls when a billing dispute, claim denial, or subrogation issue turn
 - Find the external review procedure (every plan must offer one; the procedure varies).
 - Identify the plan's subrogation / reimbursement / equitable-lien language.
 - Identify the plan's "made-whole" and "common-fund" overrides for subrogation claims.
-- Identify the plan's funding status (self-funded ERISA vs fully insured) — this determines whether state insurance law overlays apply.
+- Identify the plan's funding status (self-funded ERISA vs fully insured), this determines whether state insurance law overlays apply.
 
 This guide describes what to look for and how to use it.
 
@@ -62,7 +62,7 @@ In the "Claims procedure" or "How to file a claim" section:
 - Internal appeal deadline from adverse determination (typically 180 days under 29 CFR § 2560.503-1(h)(3)(i)).
 - Number of internal appeal levels (one or two; most plans have one).
 - External review procedure (always available under 45 CFR § 147.136 for ACA-applicable plans).
-- The plan's discretionary-authority language (whether the SPD grants the plan administrator discretionary authority to interpret the plan — this affects the standard of review on judicial appeal).
+- The plan's discretionary-authority language (whether the SPD grants the plan administrator discretionary authority to interpret the plan, this affects the standard of review on judicial appeal).
 
 ### D. Subrogation / reimbursement language
 
@@ -71,7 +71,7 @@ In the "Subrogation" or "Right of recovery" section:
 - Whether the plan asserts a right to subrogation (against the third-party tortfeasor) or to reimbursement (from the participant's recovery) or both.
 - Whether the plan's language expressly disclaims the made-whole doctrine.
 - Whether the plan's language expressly disclaims the common-fund (attorney's-fees) reduction.
-- Whether the plan's right attaches at the moment of the injury, the filing of the claim, or the receipt of the recovery — affects priority over other liens.
+- Whether the plan's right attaches at the moment of the injury, the filing of the claim, or the receipt of the recovery, affects priority over other liens.
 - The plan's first-priority-lien language: "constructive trust" or "equitable lien" wording activates the Sereboff line of cases.
 
 ### E. Prior authorization and medical necessity
@@ -88,7 +88,7 @@ In the "Medical necessity" or "Prior authorization" section:
 In the "Provider network" or "Out-of-network" section:
 
 - The directory or look-up tool the plan publishes for in-network providers.
-- The cost-sharing applied when an in-network provider is unavailable (often the plan promises in-network cost-sharing for OON ancillary at IN facility — this is the plan's express NSA implementation).
+- The cost-sharing applied when an in-network provider is unavailable (often the plan promises in-network cost-sharing for OON ancillary at IN facility, this is the plan's express NSA implementation).
 - The "covered charges" definition for OON services (e.g., usual-and-customary, percentage of Medicare, fee schedule). This determines the plan's allowed amount for OON claims.
 
 ### G. ERISA disclosures and rights notice
@@ -150,8 +150,8 @@ The drafter reads this file when rendering:
 
 ## Related templates and scripts
 
-- `scripts/parse_spd.py` — the parser that produces the structured profile.
-- `templates/letter_insurance_appeal_erisa.md` — ERISA appeal that cites the parsed deadlines.
-- `templates/letter_subrogation_response.md` — uses parsed made-whole / common-fund flags.
-- `templates/letter_erisa_502c_penalty.md` — invokes the SPD-access right.
-- `templates/letter_request_insurer_initiate_idr.md` — uses parsed NSA-ancillary language.
+- `scripts/parse_spd.py`, the parser that produces the structured profile.
+- `templates/letter_insurance_appeal_erisa.md`, ERISA appeal that cites the parsed deadlines.
+- `templates/letter_subrogation_response.md`, uses parsed made-whole / common-fund flags.
+- `templates/letter_erisa_502c_penalty.md`, invokes the SPD-access right.
+- `templates/letter_request_insurer_initiate_idr.md`, uses parsed NSA-ancillary language.

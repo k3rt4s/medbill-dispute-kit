@@ -1,4 +1,4 @@
-# Template — Request for itemized bill
+# Template, Request for itemized bill
 
 Use this letter as the first action against any non-itemized bill. Send via certified mail with return receipt. The state-statute citation defaults to Tennessee; swap for the patient's state using `references/laws_state_template.md`.
 
@@ -11,23 +11,23 @@ Use this letter as the first action against any non-itemized bill. Send via cert
 Phone: [PATIENT PHONE]
 Email: [PATIENT EMAIL]
 
-[DATE — today, full month/day/year]
+[DATE, today, full month/day/year]
 
 [BILLING DEPARTMENT MANAGER]
 [PROVIDER NAME]
 [PROVIDER MAILING ADDRESS]
 [CITY, STATE ZIP]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Request for itemized statement — Account #[ACCOUNT NUMBER]
+RE: Request for itemized statement, Account #[ACCOUNT NUMBER]
     Patient: [PATIENT FULL NAME]
     Date(s) of service: [DATE OF SERVICE]
 
 Dear Billing Department:
 
-Pursuant to [APPLICABLE STATE STATUTE — e.g. Tennessee Code Annotated § 68-11-220], I am formally requesting a complete itemized statement of services and charges for the above-referenced account.
+Pursuant to [APPLICABLE STATE STATUTE, e.g. Tennessee Code Annotated § 68-11-220], I am formally requesting a complete itemized statement of services and charges for the above-referenced account.
 
 Please provide all of the following:
 
@@ -58,16 +58,16 @@ Date of service: [DATE OF SERVICE]
 
 ## Placeholders the LLM must fill
 
-- `[PATIENT FULL NAME]`, `[STREET ADDRESS]`, `[CITY, STATE ZIP]`, `[PATIENT PHONE]`, `[PATIENT EMAIL]` — from the patient's contact information
-- `[DATE]` — today's date, formatted "Month D, YYYY"
-- `[BILLING DEPARTMENT MANAGER]` — if unknown, use "Billing Department Manager"
-- `[PROVIDER NAME]`, `[PROVIDER MAILING ADDRESS]`, `[CITY, STATE ZIP]` — from the bill
-- `[CERTIFIED MAIL TRACKING NUMBER]` — the patient obtains this at the post office when they mail it; the LLM should leave it as `[NEEDS USER INPUT: certified mail tracking #]` until the patient provides it after mailing
-- `[ACCOUNT NUMBER]` — from the bill
-- `[PATIENT FULL NAME]` (subject line and signature) — same as header
-- `[DATE OF SERVICE]` — from the bill
-- `[APPLICABLE STATE STATUTE]` — Tennessee Code Annotated § 68-11-220 by default; for other states the LLM looks this up using `references/laws_state_template.md` and warns the patient to verify before mailing
-- `[DATE 30 DAYS FROM TODAY]` — calendar arithmetic from today's date
+- `[PATIENT FULL NAME]`, `[STREET ADDRESS]`, `[CITY, STATE ZIP]`, `[PATIENT PHONE]`, `[PATIENT EMAIL]`, from the patient's contact information
+- `[DATE]`, today's date, formatted "Month D, YYYY"
+- `[BILLING DEPARTMENT MANAGER]`, if unknown, use "Billing Department Manager"
+- `[PROVIDER NAME]`, `[PROVIDER MAILING ADDRESS]`, `[CITY, STATE ZIP]`, from the bill
+- `[CERTIFIED MAIL TRACKING NUMBER]`, the patient obtains this at the post office when they mail it; the LLM should leave it as `[NEEDS USER INPUT: certified mail tracking #]` until the patient provides it after mailing
+- `[ACCOUNT NUMBER]`, from the bill
+- `[PATIENT FULL NAME]` (subject line and signature), same as header
+- `[DATE OF SERVICE]`, from the bill
+- `[APPLICABLE STATE STATUTE]`, Tennessee Code Annotated § 68-11-220 by default; for other states the LLM looks this up using `references/laws_state_template.md` and warns the patient to verify before mailing
+- `[DATE 30 DAYS FROM TODAY]`, calendar arithmetic from today's date
 
 ## Variations
 

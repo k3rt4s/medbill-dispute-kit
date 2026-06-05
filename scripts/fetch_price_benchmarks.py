@@ -1,4 +1,4 @@
-"""fetch_price_benchmarks.py — extract CPT/HCPCS codes from each bill's
+"""fetch_price_benchmarks.py, extract CPT/HCPCS codes from each bill's
 sidecar text and produce a per-folder pricing benchmark file.
 
 For every itemized bill the kit knows about, this script:

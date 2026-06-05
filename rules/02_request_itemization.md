@@ -1,6 +1,6 @@
-# Rule 02 — Request the itemized bill
+# Rule 02, Request the itemized bill
 
-You cannot dispute a bill you can't see. Most "bills" providers send are summary statements showing only a total. The itemized bill — every charge, every CPT code, every supply, every date — is what you actually need.
+You cannot dispute a bill you can't see. Most "bills" providers send are summary statements showing only a total. The itemized bill, every charge, every CPT code, every supply, every date, is what you actually need.
 
 ## The rule
 
@@ -25,7 +25,7 @@ Asking for all of this up front is more efficient than serial requests.
 ## Why this is the first dispute action, every time
 
 - Until you have line items, you don't know what you're being charged for. You can't tell whether a charge is duplicated, upcoded, billed for a service you didn't receive, or correctly priced.
-- The act of requesting itemization signals to the billing department that you're a non-default patient — most patients never ask. Some bills get adjusted down at this stage before you even challenge them.
+- The act of requesting itemization signals to the billing department that you're a non-default patient, most patients never ask. Some bills get adjusted down at this stage before you even challenge them.
 - The 30-day statutory clock starts the formal paper trail you'll need if this ends in small claims court or a state complaint.
 
 ## What to do if they refuse or delay
@@ -40,8 +40,8 @@ Use `templates/letter_itemization_request.md`. Render it with the patient's info
 
 ## Related rules
 
-- [[03_check_cpt_codes]] — what to do once you have line items
-- [[06_small_claims]] — where this paper trail ends up if the provider stonewalls
+- [[03_check_cpt_codes]], what to do once you have line items
+- [[06_small_claims]], where this paper trail ends up if the provider stonewalls
 
 ## Hospital-bill-specific note
 

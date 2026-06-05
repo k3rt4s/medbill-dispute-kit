@@ -1,4 +1,4 @@
-# Template — State insurance department / consumer affairs complaint
+# Template, State insurance department / consumer affairs complaint
 
 Use to file a formal complaint with the patient's state insurance department or attorney general's consumer protection division. This template is the **content** of the complaint; the LLM renders it as a letter, and the patient submits it via the state's online portal (preferred), email, or mail. Most state portals accept attached letters.
 
@@ -14,7 +14,7 @@ Date of birth: [DOB]
 
 [DATE]
 
-[STATE INSURANCE DEPARTMENT OR AG OFFICE — full name]
+[STATE INSURANCE DEPARTMENT OR AG OFFICE, full name]
 [OFFICE ADDRESS]
 
 [For Tennessee, default:
@@ -22,11 +22,11 @@ Date of birth: [DOB]
  Consumer Insurance Services
  500 James Robertson Parkway, 4th Floor
  Nashville, TN 37243-0574
- — or submit online at https://www.tn.gov/commerce/insurance/consumer-resources/file-a-complaint.html ]
+, or submit online at https://www.tn.gov/commerce/insurance/consumer-resources/file-a-complaint.html ]
 
-Submitted via: [ONLINE PORTAL / CERTIFIED MAIL — TRACKING NUMBER]
+Submitted via: [ONLINE PORTAL / CERTIFIED MAIL, TRACKING NUMBER]
 
-RE: Formal complaint —
+RE: Formal complaint, 
     Complainant: [PATIENT FULL NAME]
     Subject company: [PROVIDER OR INSURER NAME]
     [INSURER STATE LICENSE #, if known]
@@ -42,7 +42,7 @@ I am filing a formal complaint against [PROVIDER OR INSURER NAME] regarding [the
 I. Summary of facts (chronological)
 
 1. On [DATE], I [received the service / submitted the claim / received the bill / received the denial].
-2. On [DATE], I [first action — phone call / letter / email] requesting [resolution].
+2. On [DATE], I [first action, phone call / letter / email] requesting [resolution].
 3. On [DATE], [provider/insurer's response or non-response].
 4. [Continue as needed.]
 5. As of the date of this complaint, the dispute remains unresolved.
@@ -51,27 +51,27 @@ II. Specific conduct at issue
 
 [The LLM picks the applicable category or categories.]
 
-[CATEGORY A — Failure to provide itemized bill]
+[CATEGORY A, Failure to provide itemized bill]
 
-[PROVIDER] failed to provide an itemized statement within [thirty (30) days for Tennessee] of my written request dated [DATE]. This appears to violate [STATE STATUTE — e.g. Tennessee Code § 68-11-220].
+[PROVIDER] failed to provide an itemized statement within [thirty (30) days for Tennessee] of my written request dated [DATE]. This appears to violate [STATE STATUTE, e.g. Tennessee Code § 68-11-220].
 
-[CATEGORY B — Balance billing in violation of the No Surprises Act]
+[CATEGORY B, Balance billing in violation of the No Surprises Act]
 
 [PROVIDER] balance-billed me for [emergency services / out-of-network ancillary services at an in-network facility / out-of-network air ambulance] in apparent violation of the federal No Surprises Act (Public Law 116-260, Division BB, Title I, effective January 1, 2022). A parallel complaint has been filed with the federal No Surprises Help Desk.
 
-[CATEGORY C — Improper claim denial / unfair claims practice]
+[CATEGORY C, Improper claim denial / unfair claims practice]
 
-[INSURER] denied claim #[NUMBER] dated [DATE] for [SERVICE]. The denial reason cited, [REASON], does not match the plan's Summary Plan Description and was issued without [a reasonable investigation / adequate clinical review]. This appears to violate [STATE STATUTE — e.g. Tennessee Code § 56-8-105 (unfair claims practices)].
+[INSURER] denied claim #[NUMBER] dated [DATE] for [SERVICE]. The denial reason cited, [REASON], does not match the plan's Summary Plan Description and was issued without [a reasonable investigation / adequate clinical review]. This appears to violate [STATE STATUTE, e.g. Tennessee Code § 56-8-105 (unfair claims practices)].
 
-[CATEGORY D — Bad-faith failure to pay]
+[CATEGORY D, Bad-faith failure to pay]
 
-[INSURER] has refused to pay claim #[NUMBER] for more than sixty (60) days following my written demand dated [DATE], without substantial legal grounds. This conduct appears to violate [STATE BAD-FAITH STATUTE — e.g. Tennessee Code § 56-7-105].
+[INSURER] has refused to pay claim #[NUMBER] for more than sixty (60) days following my written demand dated [DATE], without substantial legal grounds. This conduct appears to violate [STATE BAD-FAITH STATUTE, e.g. Tennessee Code § 56-7-105].
 
-[CATEGORY E — Price gouging / charges set in bad faith]
+[CATEGORY E, Price gouging / charges set in bad faith]
 
 [PROVIDER] charged amounts substantially in excess of fair-market rates and the provider's own posted prices under the federal Hospital Price Transparency Rule (45 CFR Part 180), in violation of the duty to set an open-price term in good faith under UCC § 2-305(2). Specifics are documented in the attached materials.
 
-[CATEGORY F — Hospital Price Transparency non-compliance]
+[CATEGORY F, Hospital Price Transparency non-compliance]
 
 [HOSPITAL] does not appear to have published a complete machine-readable file of standard charges as required by 45 CFR § 180.50. A parallel complaint has been filed with the Centers for Medicare and Medicaid Services.
 
@@ -88,8 +88,8 @@ IV. Attempts to resolve directly
 
 Prior to filing this complaint, I attempted to resolve the matter directly with [PROVIDER OR INSURER] by the following means:
 
-- [DATE], [phone / letter] — [summary; certified-mail tracking # if applicable]
-- [DATE], [phone / letter] — [summary]
+- [DATE], [phone / letter], [summary; certified-mail tracking # if applicable]
+- [DATE], [phone / letter], [summary]
 - [continue]
 
 V. Documents enclosed

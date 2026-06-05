@@ -1,4 +1,4 @@
-# Tracker — column dictionary
+# Tracker, column dictionary
 
 The tracker is the persistent state of your dispute process. It travels with you across LLM sessions. Each row is one bill; actions taken against a bill go in a parallel action log (see `schemas/action.toml`) or summarized in the `notes` field.
 
@@ -51,10 +51,10 @@ The example row in the template demonstrates the shape; delete it before using.
 
 ## Why not Excel / Google Sheets?
 
-CSV is the lowest common denominator. Every spreadsheet program opens it, and every LLM can read it. If you'd rather work in Excel or Sheets day-to-day, that's fine — export to CSV before uploading to the LLM, and let the LLM emit CSV back. Don't ask the LLM to read an `.xlsx` directly; CSV round-trips are more reliable.
+CSV is the lowest common denominator. Every spreadsheet program opens it, and every LLM can read it. If you'd rather work in Excel or Sheets day-to-day, that's fine, export to CSV before uploading to the LLM, and let the LLM emit CSV back. Don't ask the LLM to read an `.xlsx` directly; CSV round-trips are more reliable.
 
 ## Action log (separate file)
 
-The tracker holds current state. For the chronological history of every action you've taken on each bill — every letter sent, every phone call, every complaint filed — the LLM can also maintain an action log conforming to `schemas/action.toml`. This is optional; many users keep this history in the `notes` field of the tracker for simplicity. For multi-bill cases with many actions, a separate action log is easier to read.
+The tracker holds current state. For the chronological history of every action you've taken on each bill, every letter sent, every phone call, every complaint filed, the LLM can also maintain an action log conforming to `schemas/action.toml`. This is optional; many users keep this history in the `notes` field of the tracker for simplicity. For multi-bill cases with many actions, a separate action log is easier to read.
 
 The action log is append-only: never edit a prior action, only add a new one. If a prior action's outcome changes (e.g. settlement amount was renegotiated), append a new action superseding it.

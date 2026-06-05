@@ -1,4 +1,4 @@
-# Template — No Surprises Act violation
+# Template, No Surprises Act violation
 
 Use when a bill appears to violate the federal No Surprises Act. This template is **not** a general dispute letter; the legal basis is narrow and specific, and the audience includes both the provider and the federal regulator. Always pair with a parallel complaint at 1-800-985-3059 or [cms.gov/medical-bill-rights/help/submit-a-complaint](https://www.cms.gov/medical-bill-rights/help/submit-a-complaint).
 
@@ -17,10 +17,10 @@ Email: [PATIENT EMAIL]
 [PROVIDER NAME]
 [PROVIDER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Improper balance billing in violation of the No Surprises Act —
+RE: Improper balance billing in violation of the No Surprises Act, 
     Account #[ACCOUNT NUMBER]
     Patient: [PATIENT FULL NAME]
     Date(s) of service: [DATE OF SERVICE]
@@ -34,19 +34,19 @@ Facts:
 
 [Pick the applicable scenario below; the LLM renders only the one that applies.]
 
-[SCENARIO 1 — Emergency services]
+[SCENARIO 1, Emergency services]
 
 The services on [DATE OF SERVICE] were emergency services rendered at [FACILITY NAME]. Section 2799A-1 of the Public Health Service Act prohibits balance billing for emergency services provided by an out-of-network provider or at an out-of-network facility. Cost-sharing must be calculated as if the services were provided in-network, and the provider may not charge the patient more than the in-network cost-sharing amount.
 
-[SCENARIO 2 — Out-of-network ancillary at in-network facility]
+[SCENARIO 2, Out-of-network ancillary at in-network facility]
 
 The services on [DATE OF SERVICE] were rendered by an out-of-network [anesthesiology / radiology / pathology / laboratory / assistant surgeon / hospitalist / intensivist / neonatology] provider at [IN-NETWORK FACILITY NAME], which is in-network under my health plan, [PLAN NAME]. Section 2799A-1 of the Public Health Service Act prohibits balance billing in these circumstances; I am liable only for in-network cost-sharing.
 
-[SCENARIO 3 — Air ambulance]
+[SCENARIO 3, Air ambulance]
 
 The services on [DATE OF SERVICE] were out-of-network air ambulance services. Section 2799B-5 of the Public Health Service Act prohibits balance billing for out-of-network air ambulance services; cost-sharing must be calculated as in-network.
 
-[SCENARIO 4 — Self-pay/uninsured, no Good Faith Estimate]
+[SCENARIO 4, Self-pay/uninsured, no Good Faith Estimate]
 
 I was uninsured/self-pay at the time of the scheduled services on [DATE OF SERVICE]. The No Surprises Act, 45 CFR § 149.610, required that I be provided a Good Faith Estimate at least one business day before the scheduled service. No such Good Faith Estimate was provided. The bill received exceeds any estimate by $400 or more.
 
@@ -74,9 +74,9 @@ Account number: [ACCOUNT NUMBER]
 Date of service: [DATE OF SERVICE]
 
 cc:
-    Centers for Medicare and Medicaid Services — No Surprises Help Desk
-    [STATE INSURANCE DEPARTMENT NAME] — Consumer Insurance Services
-    [INSURANCE PLAN NAME] — Member Services (where applicable)
+    Centers for Medicare and Medicaid Services, No Surprises Help Desk
+    [STATE INSURANCE DEPARTMENT NAME], Consumer Insurance Services
+    [INSURANCE PLAN NAME], Member Services (where applicable)
 
 Enclosures: copy of bill; copy of Explanation of Benefits (if any); copy of Good Faith Estimate (if any was provided)
 ```

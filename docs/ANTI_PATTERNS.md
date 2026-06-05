@@ -10,11 +10,11 @@ The single most common patient-side mistake. The bill arrives, the due date is i
 
 ## Setting up auto-debit on a billing portal
 
-You went to the hospital's payment portal, saw "make this easy — auto-debit each month," and clicked yes. Now the provider takes money from your account every month regardless of any dispute.
+You went to the hospital's payment portal, saw "make this easy, auto-debit each month," and clicked yes. Now the provider takes money from your account every month regardless of any dispute.
 
 Auto-debit removes your single biggest piece of leverage in any dispute. The kit's standard letters explicitly refuse auto-debit because of this dynamic.
 
-**Don't do this.** If you set up auto-debit and now want to dispute, cancel it first — through your bank if necessary. Then dispute.
+**Don't do this.** If you set up auto-debit and now want to dispute, cancel it first, through your bank if necessary. Then dispute.
 
 ## Calling the billing department instead of writing
 
@@ -48,7 +48,7 @@ The opposite mistake: sending three letters that all say "could you please consi
 
 ## Conceding on the first counter-offer
 
-The provider responds with a 25% reduction. Patient says "great, I'll take it" — even though the disputed amount was 60% of the bill. The provider's first counter-offer is rarely their best.
+The provider responds with a 25% reduction. Patient says "great, I'll take it", even though the disputed amount was 60% of the bill. The provider's first counter-offer is rarely their best.
 
 **Don't do this.** Reasonable rule of thumb: if their offer is below half the disputed amount, push back once with new evidence or a new argument. They will often go higher.
 
@@ -86,7 +86,7 @@ Small claims is for definite-amount disputes between $100 and the state limit ($
 
 Bankruptcy discharges medical debt cleanly but carries a 7-10 year credit-report mark and can affect employment, housing, and security clearances. It's appropriate when the debt is genuinely unmanageable; it's not the first move on a $400 bill you disagree with.
 
-**Don't do this.** Bankruptcy is the kit's last move, not the first. Dispute, apply for charity care, hardship-negotiate, and only then consider bankruptcy. The exception is patients already in crisis — see `rules/17_bankruptcy_and_medical_debt.md`.
+**Don't do this.** Bankruptcy is the kit's last move, not the first. Dispute, apply for charity care, hardship-negotiate, and only then consider bankruptcy. The exception is patients already in crisis, see `rules/17_bankruptcy_and_medical_debt.md`.
 
 ## Hiring a "medical billing advocate" who takes a percentage
 

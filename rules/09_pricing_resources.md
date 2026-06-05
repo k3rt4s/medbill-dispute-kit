@@ -1,6 +1,6 @@
-# Rule 09 — Shop for price before service when you can
+# Rule 09, Shop for price before service when you can
 
-Most care is not emergency care. For elective procedures, imaging, lab work, and prescriptions, you can find the price before you commit. The variation is large enough to matter — a CT scan can cost $300 at an independent imaging center and $6,000 at a hospital outpatient department, with identical clinical quality.
+Most care is not emergency care. For elective procedures, imaging, lab work, and prescriptions, you can find the price before you commit. The variation is large enough to matter, a CT scan can cost $300 at an independent imaging center and $6,000 at a hospital outpatient department, with identical clinical quality.
 
 ## The rule
 
@@ -15,11 +15,11 @@ For any planned service:
 
 ### Procedures and surgeries
 
-- **Turquoise Health** (turquoise.health) — derived from hospital machine-readable files mandated by the CMS Hospital Price Transparency Rule. Searchable by CPT and zip.
-- **Healthcare Bluebook** (healthcarebluebook.com) — gives a "fair price" range; older but still widely used.
-- **FAIR Health Consumer** (fairhealthconsumer.org) — uses commercial-claims data; useful for out-of-network reasonable-and-customary disputes.
-- **Surgery Center of Oklahoma** (surgerycenterok.com) — publishes all-inclusive cash prices for common procedures. Use as a benchmark even if you're not going there.
-- **Hospital's own machine-readable file** — every US hospital is required to post one under 45 CFR § 180. Search "[hospital name] price transparency machine readable file" or check the hospital's website.
+- **Turquoise Health** (turquoise.health), derived from hospital machine-readable files mandated by the CMS Hospital Price Transparency Rule. Searchable by CPT and zip.
+- **Healthcare Bluebook** (healthcarebluebook.com), gives a "fair price" range; older but still widely used.
+- **FAIR Health Consumer** (fairhealthconsumer.org), uses commercial-claims data; useful for out-of-network reasonable-and-customary disputes.
+- **Surgery Center of Oklahoma** (surgerycenterok.com), publishes all-inclusive cash prices for common procedures. Use as a benchmark even if you're not going there.
+- **Hospital's own machine-readable file**, every US hospital is required to post one under 45 CFR § 180. Search "[hospital name] price transparency machine readable file" or check the hospital's website.
 
 ### Imaging (MRI, CT, X-ray, ultrasound)
 
@@ -31,9 +31,9 @@ Independent labs (Labcorp, Quest, regional independent labs) are usually cheaper
 
 ### Prescriptions
 
-- **GoodRx** (goodrx.com) — shows cash price at multiple pharmacies in your zip code, plus a coupon code if applicable. For many generics, GoodRx + cash is cheaper than your insurance copay.
-- **Cost Plus Drugs** (costplusdrugs.com) — Mark Cuban's transparent-pricing pharmacy; cost-plus-15% pricing on many generics.
-- **Good Shepherd Pharmacy** (Memphis-based, mail-order) — membership pharmacy charging a flat fee per generic per month.
+- **GoodRx** (goodrx.com), shows cash price at multiple pharmacies in your zip code, plus a coupon code if applicable. For many generics, GoodRx + cash is cheaper than your insurance copay.
+- **Cost Plus Drugs** (costplusdrugs.com), Mark Cuban's transparent-pricing pharmacy; cost-plus-15% pricing on many generics.
+- **Good Shepherd Pharmacy** (Memphis-based, mail-order), membership pharmacy charging a flat fee per generic per month.
 - For brand-name drugs: ask the manufacturer about patient assistance programs (PAPs); many cover the cost entirely for income-qualified patients.
 
 ### Direct primary care (DPC) and health-sharing plans
@@ -66,6 +66,6 @@ Emergencies. You don't shop the ER. The No Surprises Act exists in part because 
 
 ## Related rules
 
-- [[00_principles]] — Principle 1: prices vary enormously
-- [[05_negotiate_fair_price]] — for bills already received
-- [[08_avoid_unneeded_care]] — the highest-leverage form of "shopping" is not buying
+- [[00_principles]], Principle 1: prices vary enormously
+- [[05_negotiate_fair_price]], for bills already received
+- [[08_avoid_unneeded_care]], the highest-leverage form of "shopping" is not buying

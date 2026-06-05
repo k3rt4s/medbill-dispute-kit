@@ -1,4 +1,4 @@
-"""bundle_to_cloud.py — push evidence bundles to an offsite destination
+"""bundle_to_cloud.py, push evidence bundles to an offsite destination
 via rclone.
 
 Marshall Allen's discipline: every paper trail needs an offsite copy.
@@ -7,7 +7,7 @@ destroy the months of certified-mail receipts, drafted letters, and
 benchmark analyses that prove your case.
 
 PHI WARNING: the bundles produced by `scripts/bundle_evidence.py`
-contain protected health information — full bill text, EOBs, claim
+contain protected health information, full bill text, EOBs, claim
 numbers, dates of service, dollar amounts, and certified-mail
 tracking numbers. Do NOT push them to an unencrypted cloud remote.
 Configure rclone's `crypt` backend over your underlying storage

@@ -10,9 +10,9 @@ Usage:
     python validate_tracker.py path/to/tracker.csv --schemas-dir ../schemas
 
 Exit codes:
-    0 — file is valid
-    1 — file is invalid; problems printed to stderr
-    2 — usage error or file not found
+    0, file is valid
+    1, file is invalid; problems printed to stderr
+    2, usage error or file not found
 
 The script checks:
     - All required columns present, in the order specified by schemas/tracker.toml

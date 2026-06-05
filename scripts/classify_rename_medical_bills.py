@@ -1,4 +1,4 @@
-"""classify_rename_medical_bills.py — vision-classify every file in
+"""classify_rename_medical_bills.py, vision-classify every file in
 Health_Bills/inbox/, rename it using the file_management v1.1 naming
 convention, split multi-bill PDFs, and route into per-provider folders
 under providers/ (medical) or a flat other/ folder (financial / personal
@@ -43,8 +43,8 @@ import os
 import fitz  # PyMuPDF
 
 # Defaults. Override at runtime via CLI args or these env vars:
-#   $HEALTHBILLS_ROOT       — parent of inbox/, providers/ (or Billers/+EOB/), other/
-#   $MEDBILL_KIT_ENV_FILE   — path to the workstation .env that holds
+#   $HEALTHBILLS_ROOT, parent of inbox/, providers/ (or Billers/+EOB/), other/
+#   $MEDBILL_KIT_ENV_FILE, path to the workstation .env that holds
 #                             AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT,
 #                             AZURE_OPENAI_DEPLOYMENT
 ENV_FILE = Path(

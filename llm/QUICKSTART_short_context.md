@@ -1,10 +1,10 @@
-# Quickstart — short-context LLMs
+# Quickstart, short-context LLMs
 
 If your LLM has under 32k tokens of context, you cannot load the entire kit in one shot. Use this staged-load pattern instead.
 
 This applies to: smaller local models (Llama 3 8B, Mistral 7B variants), older chatbot interfaces with truncated context, mobile LLM apps with size limits.
 
-## Stage 1 — Boot
+## Stage 1, Boot
 
 Load these three files and tell the model to follow the system prompt. Total: ~15k tokens.
 
@@ -16,7 +16,7 @@ Tell the model:
 
 > Read these three files. The system prompt defines your role; the workflow is the end-to-end process; the principles are the foundation. Once you've read them, ask me what state I'm in and what I want to do.
 
-## Stage 2 — State pack
+## Stage 2, State pack
 
 The model asks your state. Load the relevant state file:
 
@@ -60,7 +60,7 @@ The model asks your state. Load the relevant state file:
 
 Also load: [`references/laws_federal.md`](../references/laws_federal.md).
 
-## Stage 3 — Bill ingest
+## Stage 3, Bill ingest
 
 Load: [`schemas/bill.toml`](../schemas/bill.toml), [`schemas/deduplication_rules.toml`](../schemas/deduplication_rules.toml).
 
@@ -68,7 +68,7 @@ Then upload your bills. The model should produce a TOML record per bill conformi
 
 If you're returning from a prior session, upload your `tracker.csv` and [`schemas/tracker.toml`](../schemas/tracker.toml) first. The model will summarize open actions.
 
-## Stage 4 — Diagnosis
+## Stage 4, Diagnosis
 
 For each bill, load the rule that matches the model's preliminary finding:
 
@@ -94,7 +94,7 @@ For each bill, load the rule that matches the model's preliminary finding:
 - Medicare observation-status issue → load [`rules/24_observation_status.md`](../rules/24_observation_status.md)
 - Third-party collector → no extra rule needed; go to Stage 5 with the FDCPA template.
 
-## Stage 5 — Draft
+## Stage 5, Draft
 
 For each action the workflow chooses, load only that template:
 
@@ -122,7 +122,7 @@ Plus: [`llm/output_contracts.md`](output_contracts.md) for the rendering format.
 
 The model produces the letter. Review it, give feedback, iterate.
 
-## Stage 6 — Save state
+## Stage 6, Save state
 
 Load: [`schemas/tracker.toml`](../schemas/tracker.toml), [`tracker/tracker_columns.md`](../tracker/tracker_columns.md).
 
@@ -130,7 +130,7 @@ Tell the model: "Emit the complete tracker as a CSV per the schema. Tell me what
 
 Save the CSV to your computer.
 
-## Stage 7 — Resume next time
+## Stage 7, Resume next time
 
 Next session, load:
 

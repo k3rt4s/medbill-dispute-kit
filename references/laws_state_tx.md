@@ -12,7 +12,7 @@ Ground-ambulance protection (SB 2476, extended by SB 916) is a fourth advantage 
 
 ## Hospital itemization right
 
-### Tex. Health & Safety Code § 311.002 — Itemized Statement of Billed Services (request-driven)
+### Tex. Health & Safety Code § 311.002, Itemized Statement of Billed Services (request-driven)
 
 - **Statute:** **Tex. Health & Safety Code § 311.002**
 - **Source:** [texas.public.law/statutes/tex._health_and_safety_code_section_311.002](https://texas.public.law/statutes/tex._health_and_safety_code_section_311.002); chapter at [statutes.capitol.texas.gov/Docs/HS/htm/HS.311.htm](https://statutes.capitol.texas.gov/Docs/HS/htm/HS.311.htm)
@@ -26,7 +26,7 @@ Ground-ambulance protection (SB 2476, extended by SB 916) is a fourth advantage 
 - **Scope:** Hospitals, chemical-dependency facilities, and mental-health facilities. Excludes hospitals operated by the federal government.
 - **No express private right of action** for an itemization-only violation under § 311.002 itself, but a non-compliant hospital is exposed under DTPA (Tex. Bus. & Com. Code § 17.46) and the SB 490 collection bar below.
 
-### Tex. Health & Safety Code Chapter 185 — SB 490 (2023), itemization-before-collection
+### Tex. Health & Safety Code Chapter 185, SB 490 (2023), itemization-before-collection
 
 - **Statute:** **Tex. Health & Safety Code Chapter 185** (Health Care Billing), added by SB 490, **effective September 1, 2023**
 - **Sources:** [capitol.texas.gov/tlodocs/88R/billtext/html/SB00490F.htm](https://capitol.texas.gov/tlodocs/88R/billtext/html/SB00490F.htm); plain-English summary at [forvismazars.us/forsights/2023/07/texas-medical-billing-transparency-law-takes-effect-sept-1](https://www.forvismazars.us/forsights/2023/07/texas-medical-billing-transparency-law-takes-effect-sept-1)
@@ -37,7 +37,7 @@ Ground-ambulance protection (SB 2476, extended by SB 916) is a fourth advantage 
 - **Disciplinary action:** licensing authority "shall take disciplinary action" for violations.
 - **Scope:** Facilities licensed by HHSC. Individual physician practices are not directly covered by Chapter 185 but remain subject to § 311.002 if hospital-based and to DTPA more generally.
 
-### Tex. Health & Safety Code § 311.0025 — Audits of billing (services-not-rendered bar)
+### Tex. Health & Safety Code § 311.0025, Audits of billing (services-not-rendered bar)
 
 - **Statute:** **Tex. Health & Safety Code § 311.0025**
 - **Source:** [texas.public.law/statutes/tex._health_and_safety_code_section_311.0025](https://texas.public.law/statutes/tex._health_and_safety_code_section_311.0025)
@@ -50,15 +50,15 @@ Ground-ambulance protection (SB 2476, extended by SB 916) is a fourth advantage 
 - **Statute:** **Tex. Ins. Code Chapter 541**; listed unfair settlement practices at **§ 541.060**; private right of action at **§ 541.151**; damages at **§ 541.152**; 60-day pre-suit notice at **§ 541.154**
 - **Sources:** [statutes.capitol.texas.gov/Docs/IN/htm/IN.541.htm](https://statutes.capitol.texas.gov/Docs/IN/htm/IN.541.htm); [law.justia.com/codes/texas/insurance-code/title-5/subtitle-c/chapter-541/subchapter-d](https://law.justia.com/codes/texas/insurance-code/title-5/subtitle-c/chapter-541/subchapter-d/); § 541.060 at [codes.findlaw.com/tx/insurance-code/ins-sect-541-060](https://codes.findlaw.com/tx/insurance-code/ins-sect-541-060/)
 - **Substance of § 541.060:** Prohibits misrepresenting a material fact or policy provision; failing in good faith to effectuate a prompt, fair, and equitable settlement when liability has become reasonably clear; failing to provide a reasonable explanation of the basis for denial; failing to affirm or deny coverage within a reasonable time; refusing to pay without conducting a reasonable investigation. (Tracks NAIC model.)
-- **Private right of action (§ 541.151):** **YES** — Texas is one of the states where Chapter 541 gives the insured a direct cause of action. **This is the single most important Texas-specific difference from Tennessee and Georgia.** Tennessee's § 56-8-105 and Georgia's § 33-6-30 et seq. are regulator-only; Texas is not.
+- **Private right of action (§ 541.151):** **YES**, Texas is one of the states where Chapter 541 gives the insured a direct cause of action. **This is the single most important Texas-specific difference from Tennessee and Georgia.** Tennessee's § 56-8-105 and Georgia's § 33-6-30 et seq. are regulator-only; Texas is not.
 - **Damages (§ 541.152):**
   - **Actual damages.**
   - **Reasonable and necessary attorney's fees** and court costs.
   - **Up to three times actual damages** ("treble") if the trier of fact finds the violation was committed **knowingly**.
   - Court-equitable relief as deemed proper.
 - **Procedural requirement (§ 541.154):** Send a written notice not later than the **61st day before suit is filed** (the "60-day notice letter"), identifying (i) the specific complaint, (ii) actual damages and expenses, and (iii) reasonable attorney's fees already incurred. Failure to send notice does not bar the action but gives the defendant grounds to abate the case until 60 days after notice is received.
-- **ERISA preemption:** Chapter 541 is **preempted** as applied to self-funded ERISA employer plans. For ERISA self-funded plans, the federal remedy is 29 U.S.C. § 1132(a)(1)(B) plus possible § 1132(g) attorney's fees — no state treble. Chapter 541 remains in play for fully-insured plans, individual/marketplace plans, ERS, TRS, and Medicaid managed-care plans regulated by Texas.
-- **Practical use:** Cite § 541.060(a)(2)(A) (failure to settle in good faith when liability reasonably clear) and § 541.060(a)(7) (refusal to pay without reasonable investigation) in any Texas insurer dispute letter. The 60-day notice letter is itself a powerful settlement lever — most insurers prefer to pay the underlying claim than face treble exposure.
+- **ERISA preemption:** Chapter 541 is **preempted** as applied to self-funded ERISA employer plans. For ERISA self-funded plans, the federal remedy is 29 U.S.C. § 1132(a)(1)(B) plus possible § 1132(g) attorney's fees, no state treble. Chapter 541 remains in play for fully-insured plans, individual/marketplace plans, ERS, TRS, and Medicaid managed-care plans regulated by Texas.
+- **Practical use:** Cite § 541.060(a)(2)(A) (failure to settle in good faith when liability reasonably clear) and § 541.060(a)(7) (refusal to pay without reasonable investigation) in any Texas insurer dispute letter. The 60-day notice letter is itself a powerful settlement lever, most insurers prefer to pay the underlying claim than face treble exposure.
 
 ## Texas Prompt Payment of Claims Act (Chapter 542, Subchapter B)
 
@@ -75,7 +75,7 @@ Ground-ambulance protection (SB 2476, extended by SB 916) is a fourth advantage 
 - **Statutes:** **Tex. Ins. Code Chapter 1301, Subchapter C** (Preferred Provider Benefit Plans / PPOs) and **Chapter 843** (HMOs)
 - **Source:** [statutes.capitol.texas.gov/docs/in/pdf/in.1301.pdf](https://statutes.capitol.texas.gov/docs/in/pdf/in.1301.pdf); TDI FAQ at [tdi.texas.gov/hprovider/ppsb418faq.html](https://www.tdi.texas.gov/hprovider/ppsb418faq.html)
 - **Substance:** For "clean claims" from contracted in-network providers, the payor must pay within **30 days (electronic claims) or 45 days (paper claims)** of receipt. Late payment triggers penalties of 50%-100% of the contract discount, capped at $100,000-$200,000.
-- **Caveat:** Chapter 1301/843 prompt-pay is provider-vs-payor remedy; the **patient is not directly entitled to the penalty**. Cite Chapter 1301 in dispute letters where a provider is balance-billing the patient because the insurer paid late — this often shifts the dispute back to the insurer where it belongs.
+- **Caveat:** Chapter 1301/843 prompt-pay is provider-vs-payor remedy; the **patient is not directly entitled to the penalty**. Cite Chapter 1301 in dispute letters where a provider is balance-billing the patient because the insurer paid late, this often shifts the dispute back to the insurer where it belongs.
 
 ## Bad-faith failure to pay
 
@@ -89,12 +89,12 @@ Texas bad-faith law splits along third-party vs first-party lines.
 
 ### First-party: Chapter 541 + Chapter 542 (statutory) + common-law duty of good faith
 
-- **Statutory route:** Tex. Ins. Code Chapter 541 (treble damages, attorney's fees — see above) + Chapter 542 (18% prompt-pay penalty — see above). These are the workhorse first-party bad-faith claims.
+- **Statutory route:** Tex. Ins. Code Chapter 541 (treble damages, attorney's fees, see above) + Chapter 542 (18% prompt-pay penalty, see above). These are the workhorse first-party bad-faith claims.
 - **Common-law duty:** Texas recognizes a **common-law duty of good faith and fair dealing** between insurer and insured for first-party claims (*Arnold v. National County Mutual Fire Ins. Co.*, 725 S.W.2d 165 (Tex. 1987)). Breach exposes the insurer to extra-contractual damages including mental anguish and (in extreme cases) punitives.
 - **DTPA tie-in (§ 541.151(2)):** A Chapter 541 violation is also actionable under the Texas Deceptive Trade Practices-Consumer Protection Act, Tex. Bus. & Com. Code § 17.50, which carries its own treble-damages provision.
 - **ERISA caveat:** All three routes (Chapter 541, Chapter 542, common-law duty) are **preempted** for self-funded ERISA plans. Use only for fully-insured, individual/marketplace, ERS, TRS, or Medicaid managed-care plans.
 
-## Balance billing — SB 1264 and Chapter 1467
+## Balance billing, SB 1264 and Chapter 1467
 
 - **Statute:** **Tex. Ins. Code Chapter 1467** (Out-of-Network Claim Dispute Resolution), enacted by **SB 1264 (86th Leg., 2019)**, effective **January 1, 2020**
 - **Sources:** [statutes.capitol.texas.gov/Docs/IN/htm/IN.1467.htm](https://statutes.capitol.texas.gov/Docs/IN/htm/IN.1467.htm); TDI consumer portal at [tdi.texas.gov/medical-billing/index.html](https://www.tdi.texas.gov/medical-billing/index.html); Texas Medical Association overview at [texmed.org/WorkArea/DownloadAsset.aspx?id=52219](https://www.texmed.org/WorkArea/DownloadAsset.aspx?id=52219)
@@ -122,9 +122,9 @@ Texas bad-faith law splits along third-party vs first-party lines.
 
 - **Scope:** state-regulated health plans, ERS, TRS. **ERISA self-funded plans may opt in** to Texas IDR (HB 1592, 2021) but most do not.
 - Excludes air ambulance (federal NSA covers air ambulance), workers' compensation, Medicare, and Medicaid.
-- The protection applies to the plan, not the provider — a Texas resident with an out-of-state ERISA plan is covered by federal NSA only.
+- The protection applies to the plan, not the provider, a Texas resident with an out-of-state ERISA plan is covered by federal NSA only.
 
-## Ground-ambulance balance billing — SB 2476 / SB 916
+## Ground-ambulance balance billing, SB 2476 / SB 916
 
 - **Statute:** **Tex. Ins. Code Chapter 1271 and related** (added by SB 2476, 88th Leg., 2023; extended and modified by SB 916, 89th Leg., 2025)
 - **Sources:** [tahp.org/new-texas-law-bans-surprise-ambulance-bills](https://tahp.org/new-texas-law-bans-surprise-ambulance-bills/); [capitol.texas.gov/tlodocs/89R/analysis/html/SB00916F.htm](https://capitol.texas.gov/tlodocs/89R/analysis/html/SB00916F.htm); [txemsa.com/the-texas-legislature-extends-the-landmark-ems-law-to-protect-texas-patients](https://txemsa.com/the-texas-legislature-extends-the-landmark-ems-law-to-protect-texas-patients/)
@@ -143,7 +143,7 @@ Texas bad-faith law splits along third-party vs first-party lines.
 ### Caveats
 
 - **State-regulated plans only:** the law reaches plans regulated by TDI, plus ERS and TRS. Approximately one-third of insured Texans. Self-funded ERISA plans are not covered unless they opt in.
-- **Sunset:** September 1, 2027 — re-verify status before relying on this citation in late-2027 / 2028 dispute letters. The federal NSA still excludes ground ambulance (the federal advisory committee published recommendations in 2024 but Congress has not legislated).
+- **Sunset:** September 1, 2027, re-verify status before relying on this citation in late-2027 / 2028 dispute letters. The federal NSA still excludes ground ambulance (the federal advisory committee published recommendations in 2024 but Congress has not legislated).
 - Air ambulance is covered by federal NSA, not by Texas state law.
 
 ## Regulatory agencies
@@ -161,7 +161,7 @@ Texas bad-faith law splits along third-party vs first-party lines.
 - **Fax:** 512-490-1007
 - **Authority:** all insurance companies licensed in Texas including fully-insured health insurers, HMOs, PPOs, Medicare supplement, ERS, TRS. Administers Chapter 541, Chapter 542, Chapter 1467 (SB 1264 balance billing), and SB 2476/SB 916 (ground ambulance). Operates the Texas IDR portal for state-regulated balance-billing disputes. **No authority over self-funded ERISA plans** (route to DOL EBSA at 1-866-444-3272) and does not regulate providers, hospitals, or debt collectors directly (route to AG and HHSC).
 
-### Texas Attorney General — Consumer Protection Division
+### Texas Attorney General, Consumer Protection Division
 
 - **Online complaint portal:** [consumerprotection.texasattorneygeneral.gov/consumercomplaintportal](https://consumerprotection.texasattorneygeneral.gov/consumercomplaintportal/s/)
 - **Phone:** Consumer Protection Hotline **1-800-621-0508** (Mon-Fri, 8 a.m.-5 p.m. Central)
@@ -171,7 +171,7 @@ Texas bad-faith law splits along third-party vs first-party lines.
   > P.O. Box 12548
   > Austin, TX 78711-2548
 - **Physical address:** 300 W. 15th Street, Austin, TX 78701
-- **Authority:** enforces the **Texas Deceptive Trade Practices Act (DTPA, Tex. Bus. & Com. Code § 17.41 et seq.)** and the **Texas Debt Collection Act (Tex. Fin. Code Chapter 392)**. Reach over providers, hospitals, third-party debt collectors, **and original creditors** — the gap not covered by TDI. Useful when the dispute is with the hospital's in-house billing department or a collection agency.
+- **Authority:** enforces the **Texas Deceptive Trade Practices Act (DTPA, Tex. Bus. & Com. Code § 17.41 et seq.)** and the **Texas Debt Collection Act (Tex. Fin. Code Chapter 392)**. Reach over providers, hospitals, third-party debt collectors, **and original creditors**, the gap not covered by TDI. Useful when the dispute is with the hospital's in-house billing department or a collection agency.
 
 ### Texas Health and Human Services Commission (HHSC)
 
@@ -183,36 +183,36 @@ Texas bad-faith law splits along third-party vs first-party lines.
 - **Online complaint:** [tmb.state.tx.us/page/file-a-complaint](https://www.tmb.state.tx.us/page/file-a-complaint)
 - **Authority:** complaints against individual physicians for billing for services not rendered or fraudulent billing under § 311.0025.
 
-## Small claims court — Justice Court
+## Small claims court, Justice Court
 
 - **Court name:** **Justice Court** (Justice of the Peace court; one per county, multiple precincts per county)
 - **Jurisdictional limit:** **$20,000**, exclusive of statutory interest and court costs but including attorney's fees if any, set by **Tex. Gov't Code § 27.031** (limit raised from $10,000 effective Sept. 1, 2020)
 - **Source:** [texaslawhelp.org/article/how-to-sue-in-justice-court-small-claims-court](https://texaslawhelp.org/article/how-to-sue-in-justice-court-small-claims-court); FAQ at [sll.texas.gov/faqs/small-claims-maximum](https://www.sll.texas.gov/faqs/small-claims-maximum/)
 - **Filing fees:** typically **$54-$100** initial filing including service on one defendant; varies by county/precinct. Add roughly $30-$80 for service by certified mail or constable. Fee waivers available for low-income filers via Statement of Inability to Afford Payment of Court Costs.
-- **Attorney rules:** permitted, not required. Justice Courts are designed for pro se litigants — simplified pleadings under Texas Rules of Civil Procedure Part V (Rules 500-510), limited formal discovery, relaxed evidence rules. Corporations and LLCs may appear through a non-attorney employee.
+- **Attorney rules:** permitted, not required. Justice Courts are designed for pro se litigants, simplified pleadings under Texas Rules of Civil Procedure Part V (Rules 500-510), limited formal discovery, relaxed evidence rules. Corporations and LLCs may appear through a non-attorney employee.
 - **Appeals:** decisions appealable **de novo** to County Court (Constitutional or County Court at Law) within **21 days** under TRCP Rule 506.
 
 The combination of a $20,000 limit (much higher than many states' small-claims caps) and pro-se-friendly procedure makes Justice Court a strong forum for medical-bill disputes. Most hospital bills resolve within this limit.
 
 ## Statute of limitations
 
-- **Breach of contract (written):** **4 years from breach** — Tex. Civ. Prac. & Rem. Code § 16.004(a)(3)
-- **Breach of contract (oral):** **4 years from breach** — Tex. Civ. Prac. & Rem. Code § 16.051 (residual four-year limitations)
-- **DTPA claims:** 2 years from the deceptive act or from reasonable discovery — Tex. Bus. & Com. Code § 17.565
-- **Insurance Code Chapter 541 / 542 claims:** 2 years from the date the unfair act occurred or the date the patient knew or should have known of the unfair act — Tex. Ins. Code § 541.162
+- **Breach of contract (written):** **4 years from breach**, Tex. Civ. Prac. & Rem. Code § 16.004(a)(3)
+- **Breach of contract (oral):** **4 years from breach**, Tex. Civ. Prac. & Rem. Code § 16.051 (residual four-year limitations)
+- **DTPA claims:** 2 years from the deceptive act or from reasonable discovery, Tex. Bus. & Com. Code § 17.565
+- **Insurance Code Chapter 541 / 542 claims:** 2 years from the date the unfair act occurred or the date the patient knew or should have known of the unfair act, Tex. Ins. Code § 541.162
 - **Texas Debt Collection Act (Tex. Fin. Code Chapter 392):** generally 4 years (residual)
 - **Sources:** § 16.004 at [statutes.capitol.texas.gov/Docs/CP/htm/CP.16.htm](https://statutes.capitol.texas.gov/Docs/CP/htm/CP.16.htm); analysis at [pbateslaw.com/statute-of-limitations-breach-of-contract](https://pbateslaw.com/statute-of-limitations-breach-of-contract/)
 
 Texas (unlike Tennessee at 6 years or Georgia at 6 years for written contracts) treats **written and oral contracts identically at 4 years**. Most hospital admissions involve a signed financial-responsibility form, so the 4-year clock runs from the day payment was due and not made.
 
-**Do not make a partial payment on a time-barred debt without legal advice** — partial payment or written acknowledgment can restart the clock under common-law principles.
+**Do not make a partial payment on a time-barred debt without legal advice**, partial payment or written acknowledgment can restart the clock under common-law principles.
 
 ### Bonus: Texas timely-billing law (provider-side limitation)
 
 - **Statute:** **Tex. Civ. Prac. & Rem. Code § 146.002**
 - **Source:** [statutes.capitol.texas.gov/Docs/CP/htm/CP.146.HTM](https://statutes.capitol.texas.gov/Docs/CP/htm/CP.146.HTM)
 - **Substance:** A health-care service provider must bill a patient (or other responsible person) for services **not later than the first day of the 11th month after the date the services are provided**. Late billing forfeits collection rights as to the patient.
-- **Practical use:** When the patient receives a bill more than ~10 months after the date of service, cite § 146.002 in the dispute letter — the provider may have already forfeited collection rights. This is a strong, often-overlooked Texas-specific defense.
+- **Practical use:** When the patient receives a bill more than ~10 months after the date of service, cite § 146.002 in the dispute letter, the provider may have already forfeited collection rights. This is a strong, often-overlooked Texas-specific defense.
 
 ## Credit reporting
 
@@ -225,7 +225,7 @@ Texas has **not** enacted a state-specific medical-debt credit-reporting restric
 
 For deceptive furnishing of medical-debt information to credit bureaus, the DTPA and Tex. Fin. Code § 392.202 (right to demand correction of a third-party debt collector's or credit bureau's files) may apply; the patient may also have a federal FCRA claim against the furnisher.
 
-## Hospital charity care — Texas Indigent Health Care and Treatment Act
+## Hospital charity care, Texas Indigent Health Care and Treatment Act
 
 - **Statute:** **Tex. Health & Safety Code Chapter 61** (Indigent Health Care and Treatment Act)
 - **Sources:** [statutes.capitol.texas.gov/Docs/HS/htm/HS.61.htm](https://statutes.capitol.texas.gov/Docs/HS/htm/HS.61.htm); [texas.public.law/statutes/tex._health_and_safety_code_title_2_subtitle_c_chapter_61](https://texas.public.law/statutes/tex._health_and_safety_code_title_2_subtitle_c_chapter_61)
@@ -249,11 +249,11 @@ Use Dollar For at [dollarfor.org/state_sheet/texas](https://dollarfor.org/state_
   - Within **5 business days** of recording, send written notice to the injured individual or legal representative by regular mail to their last known address.
 - **Patient's defenses:**
   - Lien does not attach if the patient was admitted more than 72 hours after the accident (§ 55.002 emergency-care window).
-  - Lien is reducible to "reasonable and necessary" charges — overcharges are not protected by the lien (*Daughters of Charity Health Servs. v. Linnstaedter*, 226 S.W.3d 409 (Tex. 2007), held a hospital that accepted workers'-compensation reimbursement could not lien for the balance).
+  - Lien is reducible to "reasonable and necessary" charges, overcharges are not protected by the lien (*Daughters of Charity Health Servs. v. Linnstaedter*, 226 S.W.3d 409 (Tex. 2007), held a hospital that accepted workers'-compensation reimbursement could not lien for the balance).
   - Failure to comply with notice or perfection requirements voids the lien.
 - **Use:** Rarely the primary citation in a routine billing dispute. Matters when the bill stems from an accident with a third-party tortfeasor and the hospital is trying to capture the personal-injury settlement above what the patient's health insurance pays.
 
-## Medical-debt collections — Texas Debt Collection Act
+## Medical-debt collections, Texas Debt Collection Act
 
 - **Statute:** **Tex. Fin. Code Chapter 392** (Texas Debt Collection Act, TDCA)
 - **Source:** [statutes.capitol.texas.gov/Docs/FI/htm/FI.392.htm](https://statutes.capitol.texas.gov/Docs/FI/htm/FI.392.htm)
@@ -273,20 +273,20 @@ Use Dollar For at [dollarfor.org/state_sheet/texas](https://dollarfor.org/state_
 
 Texas wage-garnishment law is **uniquely protective**: under the Texas Constitution Art. XVI § 28 and Tex. Civ. Prac. & Rem. Code § 63.004, **wages for personal services cannot be garnished** for ordinary consumer debts including medical bills. The only exceptions are court-ordered child support, spousal maintenance, federal student loans, and federal/state taxes. This is one of the strongest patient-side protections in the country.
 
-**Practical use:** When a Texas medical-debt collector threatens wage garnishment, that threat is itself a TDCA violation (misrepresenting legal remedies) — cite Tex. Const. art. XVI § 28 in the response letter.
+**Practical use:** When a Texas medical-debt collector threatens wage garnishment, that threat is itself a TDCA violation (misrepresenting legal remedies), cite Tex. Const. art. XVI § 28 in the response letter.
 
 ## Texas Deceptive Trade Practices Act (DTPA)
 
 - **Statute:** **Tex. Bus. & Com. Code Chapter 17, Subchapter E** (§§ 17.41-17.63)
 - **Source:** [statutes.capitol.texas.gov/Docs/BC/pdf/BC.17.pdf](https://statutes.capitol.texas.gov/Docs/BC/pdf/BC.17.pdf)
 - **Substance:** Broad consumer-protection statute prohibiting false, misleading, or deceptive acts in trade or commerce (§ 17.46). A patient is a "consumer" for DTPA purposes when seeking healthcare services. DTPA violations include misrepresenting standard, quality, or grade of services; failing to disclose information with intent to induce a transaction; and any "unconscionable action or course of action" (§ 17.50(a)(3)).
-- **Tie-ins (§ 17.50(a)(4)):** DTPA absorbs violations of the **Texas Insurance Code Chapter 541** and the **Texas Debt Collection Act (Tex. Fin. Code Chapter 392)** — a single DTPA-pleaded claim can carry the underlying-statute facts plus DTPA's treble-damages remedy.
+- **Tie-ins (§ 17.50(a)(4)):** DTPA absorbs violations of the **Texas Insurance Code Chapter 541** and the **Texas Debt Collection Act (Tex. Fin. Code Chapter 392)**, a single DTPA-pleaded claim can carry the underlying-statute facts plus DTPA's treble-damages remedy.
 - **Damages (§ 17.50(b)):**
   - Economic damages.
   - Damages for mental anguish, plus **up to 3x economic and mental-anguish damages** if the violation was committed knowingly.
   - If intentionally, up to **3x economic + 3x mental-anguish damages**.
   - **Reasonable and necessary attorney's fees** for prevailing consumer.
-- **Professional-services exemption (§ 17.49(c)):** DTPA does not apply to "the rendering of a professional service the essence of which is the providing of advice, judgment, opinion, or similar professional skill" — meaning the doctor's diagnostic-judgment cannot be DTPA-attacked. **Exception:** unconscionable acts, express misrepresentations of material fact, and breaches of express warranty are NOT exempted. Billing fraud (misrepresenting amounts, billing for services not rendered, upcoding, misrepresenting in-network status) sits outside the exemption.
+- **Professional-services exemption (§ 17.49(c)):** DTPA does not apply to "the rendering of a professional service the essence of which is the providing of advice, judgment, opinion, or similar professional skill", meaning the doctor's diagnostic-judgment cannot be DTPA-attacked. **Exception:** unconscionable acts, express misrepresentations of material fact, and breaches of express warranty are NOT exempted. Billing fraud (misrepresenting amounts, billing for services not rendered, upcoding, misrepresenting in-network status) sits outside the exemption.
 - **Procedural requirement (§ 17.505):** **60-day pre-suit notice** of the specific complaint and the amount of economic damages, mental-anguish damages, and attorney's fees claimed.
 - **Use:** This is the patient's primary cause of action against a Texas hospital's billing department for billing fraud. Pair with Chapter 541 (insurer-side) and TDCA Chapter 392 (collector-side) as appropriate.
 
@@ -306,8 +306,8 @@ When the LLM renders a Texas-bound letter, substitute these defaults:
 | Filing fee (in 30-day warning)                                    | "$54-$100 plus service costs, depending on county and precinct"                                                                                                                                                                     |
 | Statute of limitations (in 30-day warning)                        | "Tex. Civ. Prac. & Rem. Code § 16.004 (four years for breach of written contract)"                                                                                                                                                  |
 | Statute of limitations (Chapter 541/542 / DTPA)                   | "Tex. Ins. Code § 541.162 / Tex. Bus. & Com. Code § 17.565 (two years)"                                                                                                                                                             |
-| Timely-billing defense (if bill ≥10 months stale)                 | "Tex. Civ. Prac. & Rem. Code § 146.002 — provider must bill no later than the first day of the 11th month after services"                                                                                                           |
-| Wage-garnishment defense                                          | "Tex. Const. art. XVI § 28; Tex. Civ. Prac. & Rem. Code § 63.004 — wages not garnishable for consumer debt"                                                                                                                         |
+| Timely-billing defense (if bill ≥10 months stale)                 | "Tex. Civ. Prac. & Rem. Code § 146.002, provider must bill no later than the first day of the 11th month after services"                                                                                                           |
+| Wage-garnishment defense                                          | "Tex. Const. art. XVI § 28; Tex. Civ. Prac. & Rem. Code § 63.004, wages not garnishable for consumer debt"                                                                                                                         |
 | Ground-ambulance balance bill (covered period through 2027-09-01) | "Tex. Ins. Code Chapter 1271 et al., as added by SB 2476 (2023) and extended by SB 916 (2025)"                                                                                                                                      |
 | Pre-suit notice (Chapter 541)                                     | **61 days** before filing, identifying specific complaint, actual damages, and attorney's fees incurred                                                                                                                             |
 | Pre-suit notice (DTPA)                                            | **60 days** before filing under § 17.505                                                                                                                                                                                            |
@@ -316,11 +316,11 @@ When the LLM renders a Texas-bound letter, substitute these defaults:
 
 Worth keeping in mind when triaging a TX patient's bills:
 
-1. **Chapter 541 private right of action with treble damages.** This is the headline Texas advantage and the single biggest structural difference from Tennessee and Georgia. The 60-day notice letter under § 541.154 is itself a powerful settlement lever — most insurers prefer to pay the underlying claim than face treble exposure plus attorney's fees. Always cite § 541.060 (specific unfair practice) plus § 541.151 (private right of action) plus § 541.152(b) (knowing-violation treble) in any Texas insurer letter.
+1. **Chapter 541 private right of action with treble damages.** This is the headline Texas advantage and the single biggest structural difference from Tennessee and Georgia. The 60-day notice letter under § 541.154 is itself a powerful settlement lever, most insurers prefer to pay the underlying claim than face treble exposure plus attorney's fees. Always cite § 541.060 (specific unfair practice) plus § 541.151 (private right of action) plus § 541.152(b) (knowing-violation treble) in any Texas insurer letter.
 
 2. **Chapter 542 strict-liability 18% penalty.** One day late triggers liability with no bad-faith showing required. Calculation is mechanical. Insurers cannot argue around it the way they can around a discretionary-bad-faith claim. Pair Chapter 541 + Chapter 542 in every insurer dispute letter for maximum leverage.
 
-3. **SB 490 / Chapter 185 — itemization is a collection prerequisite.** For any HHSC-licensed facility (hospitals, ASCs, freestanding ERs) seeking to collect after September 1, 2023, non-compliance with the itemized-billing requirement is a **complete defense to collection**. If the bill the patient received is not Chapter 185-compliant, the collection action cannot proceed until the provider cures. Always demand a Chapter 185-compliant itemized bill from a Texas facility as step one.
+3. **SB 490 / Chapter 185, itemization is a collection prerequisite.** For any HHSC-licensed facility (hospitals, ASCs, freestanding ERs) seeking to collect after September 1, 2023, non-compliance with the itemized-billing requirement is a **complete defense to collection**. If the bill the patient received is not Chapter 185-compliant, the collection action cannot proceed until the provider cures. Always demand a Chapter 185-compliant itemized bill from a Texas facility as step one.
 
 4. **DTPA treble + attorney's fees.** Texas's DTPA absorbs Chapter 541 and Chapter 392 violations and adds its own treble-damages exposure. A single DTPA-pleaded count carries broader leverage than any single underlying statute. Patient is a "consumer" for DTPA purposes when receiving healthcare services; the professional-services exemption does not shield billing fraud.
 
@@ -334,4 +334,4 @@ Worth keeping in mind when triaging a TX patient's bills:
 
 9. **$20,000 Justice Court limit.** Higher than many states' small-claims caps; covers most hospital bills. Justice Court is pro-se-friendly and corporations may appear without an attorney. Strong forum for self-represented patients.
 
-10. **Texas Indigent Health Care and Treatment Act for public-hospital patients.** Patients of public hospitals, hospital districts (Harris Health, Parkland, University Health, Dell Seton, JPS), and county indigent-care programs have a statutory right to assistance under Chapter 61 — not just a discretionary financial-assistance policy. Always identify the billing entity's status before citing.
+10. **Texas Indigent Health Care and Treatment Act for public-hospital patients.** Patients of public hospitals, hospital districts (Harris Health, Parkland, University Health, Dell Seton, JPS), and county indigent-care programs have a statutory right to assistance under Chapter 61, not just a discretionary financial-assistance policy. Always identify the billing entity's status before citing.

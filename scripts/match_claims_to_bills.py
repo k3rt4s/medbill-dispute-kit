@@ -1,4 +1,4 @@
-"""match_claims_to_bills.py — link each EOB claim row to the bill row
+"""match_claims_to_bills.py, link each EOB claim row to the bill row
 it adjudicates, using:
 
 1. Deterministic rules (cheap, no API):
@@ -10,7 +10,7 @@ it adjudicates, using:
      bill's statement_date if DOS isn't on the bill).
 
 2. Azure OpenAI gpt-5.2 fallback (only when deterministic returns
-   AMBIGUOUS — 0 or >1 candidates) with a strict "respond UNKNOWN if
+   AMBIGUOUS, 0 or >1 candidates) with a strict "respond UNKNOWN if
    not confident" prompt.
 
 Outputs:
@@ -371,7 +371,7 @@ def main() -> int:
                 ))
                 counters["azure_unknown"] += 1
                 continue
-            # No deterministic match — try azure across all bills for slug
+            # No deterministic match, try azure across all bills for slug
             model_out = azure_match(claim, bills)
             if model_out and model_out.get("status") == "MATCH":
                 picked_file = model_out.get("matched_bill_file")

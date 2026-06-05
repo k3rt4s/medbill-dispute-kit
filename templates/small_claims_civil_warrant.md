@@ -1,10 +1,10 @@
-# Template — Small-claims / general-sessions civil warrant
+# Template, Small-claims / general-sessions civil warrant
 
-Use after the dispute letter has gone unanswered, the 30-day warning has gone unanswered, and the patient is ready to file a civil action. This is Marshall Allen's "nuclear option" — paying a small filing fee (usually $40–$150 depending on county) to make a corporate-billing problem suddenly cost the provider a court appearance.
+Use after the dispute letter has gone unanswered, the 30-day warning has gone unanswered, and the patient is ready to file a civil action. This is Marshall Allen's "nuclear option", paying a small filing fee (usually $40, $150 depending on county) to make a corporate-billing problem suddenly cost the provider a court appearance.
 
-Most states call this small-claims court; Tennessee and a handful of others call it general-sessions civil court. The form varies by county. This template generates the **content** of the complaint — the legal theory, parties, facts, and damages — that the patient transcribes onto the county's standard form, or attaches to it as a continuation page.
+Most states call this small-claims court; Tennessee and a handful of others call it general-sessions civil court. The form varies by county. This template generates the **content** of the complaint, the legal theory, parties, facts, and damages, that the patient transcribes onto the county's standard form, or attaches to it as a continuation page.
 
-This kit is not legal advice. The patient should review the county clerk's filing rules before filing, particularly: jurisdictional dollar limit (most states cap at $5,000–$15,000), proper service of process (most counties require the clerk to serve, but a few require the plaintiff to arrange service), and the requirement to bring the defendant's registered agent address (look it up on the [STATE] Secretary of State's business filings portal).
+This kit is not legal advice. The patient should review the county clerk's filing rules before filing, particularly: jurisdictional dollar limit (most states cap at $5,000, $15,000), proper service of process (most counties require the clerk to serve, but a few require the plaintiff to arrange service), and the requirement to bring the defendant's registered agent address (look it up on the [STATE] Secretary of State's business filings portal).
 
 ---
 
@@ -34,11 +34,11 @@ I. Parties and jurisdiction
 
 2. Defendant [DEFENDANT LEGAL NAME] is a [for-profit / non-profit] [corporation / limited liability company / partnership] organized under the laws of [STATE OF FORMATION], with its principal place of business at [PROVIDER'S PRINCIPAL OFFICE], and registered agent for service of process [REGISTERED AGENT NAME] at [REGISTERED AGENT ADDRESS], all per the records of the [STATE] Secretary of State retrieved on [DATE].
 
-3. This Court has subject-matter jurisdiction under [STATE STATUTE — e.g., Tennessee Code § 16-15-501] because the amount in controversy does not exceed the jurisdictional limit of $[LIMIT].
+3. This Court has subject-matter jurisdiction under [STATE STATUTE, e.g., Tennessee Code § 16-15-501] because the amount in controversy does not exceed the jurisdictional limit of $[LIMIT].
 
 4. This Court has personal jurisdiction over Defendant because Defendant transacts business in [COUNTY] County and the events giving rise to this claim arose in [COUNTY] County.
 
-5. Venue is proper in [COUNTY] County under [STATE STATUTE — e.g., Tennessee Code § 20-4-101] because [Defendant's principal office is located here / the services were rendered here / Plaintiff resides here, as applicable].
+5. Venue is proper in [COUNTY] County under [STATE STATUTE, e.g., Tennessee Code § 20-4-101] because [Defendant's principal office is located here / the services were rendered here / Plaintiff resides here, as applicable].
 
 II. Statement of facts
 
@@ -60,7 +60,7 @@ III. Claims for relief
 
 [The drafter renders the claims that apply, drawing from the dispute history and `findings` column on tracker.csv. Number them sequentially.]
 
-[CLAIM 1 — Declaratory judgment under UCC § 2-305(2)]
+[CLAIM 1, Declaratory judgment under UCC § 2-305(2)]
 
 13. Plaintiff and Defendant entered into a contract for medical services on [DATE OF SERVICE]. The contract did not state a price for the services.
 
@@ -68,7 +68,7 @@ III. Claims for relief
 
 15. Plaintiff seeks a declaratory judgment that the reasonable and good-faith price for the services billed is $[REASONABLE AMOUNT], and that Plaintiff's payment of $[REASONABLE AMOUNT] (or any amount Plaintiff has already paid that meets or exceeds that figure) fully satisfies the obligation.
 
-[CLAIM 2 — Violation of the federal No Surprises Act, 42 U.S.C. § 300gg-111]
+[CLAIM 2, Violation of the federal No Surprises Act, 42 U.S.C. § 300gg-111]
 
 16. The services giving rise to this bill were [emergency services / out-of-network ancillary services at an in-network facility / out-of-network air ambulance].
 
@@ -76,7 +76,7 @@ III. Claims for relief
 
 18. Defendant has billed Plaintiff at an out-of-network rate, in apparent violation of 42 U.S.C. § 300gg-111. Plaintiff seeks a declaratory judgment that the asserted balance is unenforceable to the extent it exceeds the in-network cost-sharing amount, and an order requiring Defendant to rebill consistent with the No Surprises Act.
 
-[CLAIM 3 — Violation of the federal Hospital Price Transparency Rule, 45 CFR Part 180]
+[CLAIM 3, Violation of the federal Hospital Price Transparency Rule, 45 CFR Part 180]
 
 19. Defendant is a hospital subject to 45 CFR Part 180 and required to publish a complete machine-readable file of standard charges.
 
@@ -84,15 +84,15 @@ III. Claims for relief
 
 21. Plaintiff seeks an order requiring Defendant to disclose its standard charge for the services on Plaintiff's bill and to rebill Plaintiff at no more than the lowest payer-specific negotiated charge published in the machine-readable file.
 
-[CLAIM 4 — Violation of the [STATE] itemized-bill statute]
+[CLAIM 4, Violation of the [STATE] itemized-bill statute]
 
 22. On [DATE OF ITEMIZATION REQUEST], Plaintiff requested an itemized bill from Defendant in writing.
 
-23. [STATE STATUTE — e.g., Tennessee Code § 68-11-220] requires Defendant to furnish an itemized bill within [THIRTY (30) days, for Tennessee] of a written request.
+23. [STATE STATUTE, e.g., Tennessee Code § 68-11-220] requires Defendant to furnish an itemized bill within [THIRTY (30) days, for Tennessee] of a written request.
 
 24. Defendant [did not furnish an itemized bill within the statutory period / furnished an incomplete bill]. Plaintiff seeks an order requiring Defendant to furnish a complete itemized bill and a declaratory judgment that the asserted balance is not enforceable while Defendant remains in violation of the statute.
 
-[CLAIM 5 — Violation of the Fair Debt Collection Practices Act, 15 U.S.C. § 1692g]
+[CLAIM 5, Violation of the Fair Debt Collection Practices Act, 15 U.S.C. § 1692g]
 
 25. Defendant or its agent [DEBT COLLECTOR NAME] is a "debt collector" within the meaning of 15 U.S.C. § 1692a(6).
 
@@ -136,24 +136,24 @@ _______________________________
 
 
 Exhibits:
-A — Itemized bill, account [ACCOUNT NUMBER], dated [STATEMENT DATE]
-B — Explanation of Benefits, claim(s) [CLAIM NUMBERS], dated [EOB DATE]
-C — Dispute letter dated [DATE OF FIRST DISPUTE LETTER] + USPS green card
-D — Defendant's response, if any, dated [RESPONSE DATE]
-E — 30-day warning letter dated [DATE OF 30-DAY WARNING] + USPS green card
-F — Line-item benchmark analysis (Medicare PFS rates)
-G — Defendant's machine-readable file excerpt or non-compliance evidence, if applicable
-H — DOI complaint reference number [DOI COMPLAINT NUMBER], if filed
-I — CMS Hospital Price Transparency complaint reference number, if filed
+A, Itemized bill, account [ACCOUNT NUMBER], dated [STATEMENT DATE]
+B, Explanation of Benefits, claim(s) [CLAIM NUMBERS], dated [EOB DATE]
+C, Dispute letter dated [DATE OF FIRST DISPUTE LETTER] + USPS green card
+D, Defendant's response, if any, dated [RESPONSE DATE]
+E-30-day warning letter dated [DATE OF 30-DAY WARNING] + USPS green card
+F, Line-item benchmark analysis (Medicare PFS rates)
+G, Defendant's machine-readable file excerpt or non-compliance evidence, if applicable
+H, DOI complaint reference number [DOI COMPLAINT NUMBER], if filed
+I, CMS Hospital Price Transparency complaint reference number, if filed
 ```
 
 ---
 
 ## Placeholders and rendering notes
 
-- `[GENERAL SESSIONS / SMALL CLAIMS / JUSTICE]` — In Tennessee this is **General Sessions Court** (civil division). In most other states it is **Small Claims Court** within the District / Magistrate / Justice court. The drafter resolves this from `references/courts_state_<code>.md` (see template files) or leaves the bracket for the patient to fill in.
-- `[JURISDICTIONAL LIMIT]` — Tennessee general sessions is $25,000 (Tenn. Code § 16-15-501). Other states: California $12,500 (individual plaintiff), Texas $20,000 (justice court), Florida $8,000 (small claims). The drafter populates from the state pack.
-- `[REGISTERED AGENT NAME]` and `[REGISTERED AGENT ADDRESS]` — Look up via the state Secretary of State business filings portal. **This is critical**: service on the corporate billing address frequently fails because it is not the registered agent.
+- `[GENERAL SESSIONS / SMALL CLAIMS / JUSTICE]`, In Tennessee this is **General Sessions Court** (civil division). In most other states it is **Small Claims Court** within the District / Magistrate / Justice court. The drafter resolves this from `references/courts_state_<code>.md` (see template files) or leaves the bracket for the patient to fill in.
+- `[JURISDICTIONAL LIMIT]`, Tennessee general sessions is $25,000 (Tenn. Code § 16-15-501). Other states: California $12,500 (individual plaintiff), Texas $20,000 (justice court), Florida $8,000 (small claims). The drafter populates from the state pack.
+- `[REGISTERED AGENT NAME]` and `[REGISTERED AGENT ADDRESS]`, Look up via the state Secretary of State business filings portal. **This is critical**: service on the corporate billing address frequently fails because it is not the registered agent.
 - The five Claims for Relief above are alternatives. Render only the claims supported by the dispute history. The drafter selects them based on the bill's `findings` column and the dispute history in `tracker.csv`.
 - Filing fee placeholder: most counties charge $40 to $150 plus a service fee of $20 to $75. The drafter does not embed the fee; the patient pays it at filing.
 
@@ -171,7 +171,7 @@ The drafter confirms (or warns the patient if any condition is unmet):
 
 - File a fresh DOI complaint or update an existing one (`complaint_state_doi.md`) citing the case number assigned by the clerk on filing.
 - If the defendant is a hospital, file or update a CMS Hospital Price Transparency complaint at the federal level (`complaint_cms_hpt.md`).
-- Email the defendant's billing department a courtesy copy of the filed civil warrant with the case number. The defendant's billing-side compliance team often resolves disputes within 7–14 days of receiving a filed civil warrant, before the first court date.
+- Email the defendant's billing department a courtesy copy of the filed civil warrant with the case number. The defendant's billing-side compliance team often resolves disputes within 7-14 days of receiving a filed civil warrant, before the first court date.
 
 ## Follow-up
 

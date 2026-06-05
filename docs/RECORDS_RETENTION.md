@@ -1,10 +1,10 @@
-# Records retention — what to keep and for how long
+# Records retention, what to keep and for how long
 
 Medical-bill disputes can take months. Statutes of limitations on related claims run 3-10 years. A patient who throws away a key document early may lose a dispute later. This document is a one-page guide to what to keep, where to keep it, and for how long.
 
 ## The short version
 
-**Keep everything related to a medical encounter for at least the longest applicable statute of limitations in your state — typically 6-10 years.** When in doubt, keep.
+**Keep everything related to a medical encounter for at least the longest applicable statute of limitations in your state, typically 6-10 years.** When in doubt, keep.
 
 ## What to keep
 
@@ -25,7 +25,7 @@ Medical-bill disputes can take months. Statutes of limitations on related claims
 - **EOBs (Explanation of Benefits).** Every one, even for paid claims, for at least the SOL.
 - **Denial letters.** Critical evidence in any appeal.
 - **Appeal decisions** (internal and external).
-- **Network confirmation letters** — if you confirmed network status in writing before service, keep that.
+- **Network confirmation letters**, if you confirmed network status in writing before service, keep that.
 
 ### From regulators and courts
 
@@ -44,8 +44,8 @@ Medical-bill disputes can take months. Statutes of limitations on related claims
 ### Evidence of fair pricing
 
 - **Screenshots** of Turquoise Health, FAIR Health Consumer, Healthcare Bluebook, GoodRx, Amazon, etc., with timestamps. Pricing changes over time; the screenshot fixes the comparison in time.
-- **Hospital MRF excerpts** if you downloaded them — the hospital's own published prices for the procedures at issue.
-- **Medicare allowable rates** for the relevant CPT codes — printed from the CMS Physician Fee Schedule Lookup.
+- **Hospital MRF excerpts** if you downloaded them, the hospital's own published prices for the procedures at issue.
+- **Medicare allowable rates** for the relevant CPT codes, printed from the CMS Physician Fee Schedule Lookup.
 
 ### Settlement and payment records
 

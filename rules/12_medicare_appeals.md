@@ -1,4 +1,4 @@
-# Rule 12 — Medicare appeals
+# Rule 12, Medicare appeals
 
 Medicare uses a five-level appeal structure that is entirely different from ERISA-plan or commercial-plan appeals. The deadlines are short, the forms are specific, and the language patients use in their requests determines which level of review they get. This rule walks the LLM through each level.
 
@@ -28,7 +28,7 @@ If the dispute is purely about the amount Medicare paid (and the provider is bil
 
 **AIC (amount-in-controversy) thresholds:** Level 3 (ALJ) requires the disputed amount to meet a published threshold (~$190 as of 2026, adjusted annually). Level 5 (federal court) requires ~$1,900 (also adjusted). Multiple denials can sometimes be aggregated to meet the threshold.
 
-## Level 1 — Redetermination (Parts A and B)
+## Level 1, Redetermination (Parts A and B)
 
 - **Who reviews:** The Medicare Administrative Contractor (MAC) that processed the original claim.
 - **Deadline to file:** **120 days** from the date on the MSN.
@@ -44,17 +44,17 @@ If the dispute is purely about the amount Medicare paid (and the provider is bil
   - Any supporting documentation (treating provider statement, clinical-necessity evidence, plan or LCD/NCD citations)
   - Patient's signature
 
-## Level 1 — Medicare Advantage (Part C)
+## Level 1, Medicare Advantage (Part C)
 
 - **Who reviews:** The Medicare Advantage plan itself (not the MAC).
 - **Deadline to file:** **60 days** from the date of the denial notice.
 - **Two timelines:**
   - **Standard:** plan must decide within 30 days (services) or 60 days (payment).
-  - **Expedited:** when the standard timeframe could seriously jeopardize the enrollee's life, health, or ability to regain maximum function — plan must decide within 72 hours.
+  - **Expedited:** when the standard timeframe could seriously jeopardize the enrollee's life, health, or ability to regain maximum function, plan must decide within 72 hours.
 - **How to file:** Per the plan's denial notice instructions. Most plans accept written letters, fax, and online portal submissions.
 - **Required elements:** same as Level 1 Original Medicare plus the plan's member ID.
 
-## Level 1 — Part D
+## Level 1, Part D
 
 - **Who reviews:** The Part D plan.
 - **Deadline to file:** **60 days** from the coverage-determination notice.
@@ -65,17 +65,17 @@ If the dispute is purely about the amount Medicare paid (and the provider is bil
   - Tier exception to reduce the drug's tier
 - **Decision timeline:** standard 7 days, expedited 24 hours.
 
-## Level 2 — Reconsideration by an Independent Entity
+## Level 2, Reconsideration by an Independent Entity
 
 After Level 1 denial, the next stop is an independent review:
 
 - **Original Medicare A/B:** Qualified Independent Contractor (QIC). Filed with the QIC named in the redetermination decision. **180 days** to file.
-- **Medicare Advantage:** Independent Review Entity (IRE) — currently Maximus Federal Services. The plan **must** auto-forward the case to the IRE if it upholds its own denial; the enrollee does not separately file the IRE appeal in Part C, unlike Original Medicare.
-- **Part D:** Independent Review Entity (IRE) — Maximus. **60 days** to file after a redetermination denial.
+- **Medicare Advantage:** Independent Review Entity (IRE), currently Maximus Federal Services. The plan **must** auto-forward the case to the IRE if it upholds its own denial; the enrollee does not separately file the IRE appeal in Part C, unlike Original Medicare.
+- **Part D:** Independent Review Entity (IRE), Maximus. **60 days** to file after a redetermination denial.
 
 The IRE/QIC reviews the case de novo (fresh look, not deferential). Decisions are usually within 60 days for Part A/B and 30 days for Part D.
 
-## Level 3 — Office of Medicare Hearings and Appeals (OMHA) / ALJ
+## Level 3, Office of Medicare Hearings and Appeals (OMHA) / ALJ
 
 - **Who reviews:** An Administrative Law Judge at OMHA. Hearings are usually by phone or video.
 - **AIC threshold:** approximately **$190** in 2026. Aggregation of related claims is allowed.
@@ -84,14 +84,14 @@ The IRE/QIC reviews the case de novo (fresh look, not deferential). Decisions ar
 - **Decision timeline:** OMHA targets 90 days from request, but real timelines are often much longer.
 - **Hearing format:** Patient may appear telephonically. Patient may have a representative (lawyer, family member, advocate). Submit any new evidence in writing in advance of the hearing per OMHA's instructions.
 
-## Level 4 — Medicare Appeals Council
+## Level 4, Medicare Appeals Council
 
 - **Who reviews:** Departmental Appeals Board, Medicare Appeals Council, within HHS.
 - **Filing deadline:** **60 days** from the ALJ decision.
 - **Standard of review:** Deferential to ALJ findings of fact; de novo on law.
 - **Form:** **DAB-101** at [hhs.gov/about/agencies/dab/different-appeals-at-dab/appeals-to-board/medicare-operating-divisions/index.html](https://www.hhs.gov/about/agencies/dab/different-appeals-at-dab/appeals-to-board/medicare-operating-divisions/index.html).
 
-## Level 5 — Federal District Court
+## Level 5, Federal District Court
 
 - **Who reviews:** US District Court (typically the district in which the patient resides).
 - **AIC threshold:** approximately **$1,900** in 2026.
@@ -121,6 +121,6 @@ The LLM logs Medicare appeals using new schema enums:
 
 ## Related rules
 
-- [[07_appeal_insurance_denial]] — commercial / ERISA appeal contrast
-- [[02_request_itemization]] — needed at every Medicare appeal level to verify what was billed
-- [[09_pricing_resources]] — the patient's underlying bill from a Medicare provider is separately subject to the cost-sharing limits Medicare sets
+- [[07_appeal_insurance_denial]], commercial / ERISA appeal contrast
+- [[02_request_itemization]], needed at every Medicare appeal level to verify what was billed
+- [[09_pricing_resources]], the patient's underlying bill from a Medicare provider is separately subject to the cost-sharing limits Medicare sets

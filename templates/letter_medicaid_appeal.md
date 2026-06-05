@@ -1,12 +1,12 @@
-# Template — Medicaid / state-managed-care appeal
+# Template, Medicaid / state-managed-care appeal
 
-Medicaid appeals are state-administered. Every state runs its own program with its own appeal rules — though the federal floor at 42 CFR Part 431 Subpart E and 42 CFR § 438.402-424 (managed care) imposes minimum standards everywhere. The kit covers Tennessee's TennCare as the worked example; for other states, adapt the citations using the state-specific Medicaid agency's appeal rules.
+Medicaid appeals are state-administered. Every state runs its own program with its own appeal rules, though the federal floor at 42 CFR Part 431 Subpart E and 42 CFR § 438.402-424 (managed care) imposes minimum standards everywhere. The kit covers Tennessee's TennCare as the worked example; for other states, adapt the citations using the state-specific Medicaid agency's appeal rules.
 
 This template applies to:
 
-- **Fee-for-service Medicaid** — denials by the state Medicaid agency.
-- **Medicaid managed care** — denials by an MCO ("plan") contracted with the state Medicaid agency. The federal rules at 42 CFR Part 438 require a two-step process: internal appeal to the MCO first, then state fair hearing.
-- **CHIP** (Children's Health Insurance Program) — similar two-step structure.
+- **Fee-for-service Medicaid**, denials by the state Medicaid agency.
+- **Medicaid managed care**, denials by an MCO ("plan") contracted with the state Medicaid agency. The federal rules at 42 CFR Part 438 require a two-step process: internal appeal to the MCO first, then state fair hearing.
+- **CHIP** (Children's Health Insurance Program), similar two-step structure.
 
 Does **not** apply to: Medicare (use `templates/letter_medicare_appeal.md`), commercial / ERISA / individual-market plans (use `templates/letter_insurance_appeal_erisa.md`).
 
@@ -14,8 +14,8 @@ Does **not** apply to: Medicare (use `templates/letter_medicare_appeal.md`), com
 
 Federal regulations (42 CFR § 438.402) require enrollees to first exhaust the MCO's internal appeal before requesting a state fair hearing. The LLM must determine which step the patient is at:
 
-1. **Step 1 — MCO internal appeal.** Filed within **60 days** of the MCO's notice of adverse benefit determination. MCO must decide within 30 days (standard) or 72 hours (expedited).
-2. **Step 2 — State fair hearing.** Filed within **120 days** of the MCO's appeal decision (some states shorter — verify). Heard by a state administrative law judge.
+1. **Step 1, MCO internal appeal.** Filed within **60 days** of the MCO's notice of adverse benefit determination. MCO must decide within 30 days (standard) or 72 hours (expedited).
+2. **Step 2, State fair hearing.** Filed within **120 days** of the MCO's appeal decision (some states shorter, verify). Heard by a state administrative law judge.
 
 For fee-for-service Medicaid, step 1 is the state fair hearing directly.
 
@@ -36,7 +36,7 @@ Email: [PATIENT EMAIL]
  Step 2: [STATE MEDICAID AGENCY] Office of Administrative Hearings
          [STATE OAH MAILING ADDRESS]]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
 RE: [Step 1: Request for internal appeal of adverse benefit determination
@@ -61,23 +61,23 @@ II. Why the denial is in error
 
 [The LLM renders one or more of these blocks based on the actual denial reason.]
 
-[BLOCK A — Medical necessity]
+[BLOCK A, Medical necessity]
 
 The service is medically necessary for my condition. My treating provider, [PROVIDER NAME, NPI, CREDENTIALS], has determined that this service is required to [treat the condition / prevent serious deterioration / restore function]. Their written statement of medical necessity is attached as Exhibit A.
 
-[BLOCK B — EPSDT (Early and Periodic Screening, Diagnostic, and Treatment) for under-21 enrollees]
+[BLOCK B, EPSDT (Early and Periodic Screening, Diagnostic, and Treatment) for under-21 enrollees]
 
 The denied service is required as Early and Periodic Screening, Diagnostic, and Treatment under 42 U.S.C. § 1396d(r) and 42 CFR § 441.50 et seq. EPSDT entitles Medicaid enrollees under age 21 to all medically necessary health care, diagnostic services, treatment, and other measures described in 42 U.S.C. § 1396d(a) needed to correct or ameliorate a defect, physical and mental illness, or condition, **regardless of whether the service is otherwise covered under the state plan.** The Supreme Court confirmed this comprehensive scope in [Frew v. Hawkins / O'Bannon v. Town Court Nursing Center / other governing case in the patient's jurisdiction]. The denied service falls within EPSDT and must be approved.
 
-[BLOCK C — Coverage policy misapplied]
+[BLOCK C, Coverage policy misapplied]
 
-The denial relies on a coverage policy or criterion that does not apply to my situation, or that has been incorrectly interpreted. Specifically: [explain — cite the state Medicaid manual provision or the MCO's coverage policy and how the patient's case differs from the denial rationale].
+The denial relies on a coverage policy or criterion that does not apply to my situation, or that has been incorrectly interpreted. Specifically: [explain, cite the state Medicaid manual provision or the MCO's coverage policy and how the patient's case differs from the denial rationale].
 
-[BLOCK D — Continuation of services pending appeal (Aid Paid Pending)]
+[BLOCK D, Continuation of services pending appeal (Aid Paid Pending)]
 
 I am also requesting continuation of services during the pendency of this appeal under 42 CFR § 438.420 (managed care) or 42 CFR § 431.230 (fee-for-service). I have requested this appeal within 10 days of the notice and the previously authorized service has not yet ended. I understand that if my appeal is denied, I may be liable for the cost of services received during the appeal.
 
-[BLOCK E — Wrong patient or incorrect data]
+[BLOCK E, Wrong patient or incorrect data]
 
 The denial appears to rest on incorrect demographic or clinical information about me. Specifically: [explain]. I am attaching corrected information as Exhibit [X].
 
@@ -95,7 +95,7 @@ Pursuant to 42 CFR § 438.406(b)(5) (managed care) or 42 CFR § 431.242 (fee-for
 IV. Procedural requests
 
 1. Please confirm in writing receipt of this appeal request and the assigned case number.
-2. Please decide this appeal within the timeframes required by 42 CFR § 438.408 (managed care) — generally **30 days standard, 72 hours expedited** — or by state law for fee-for-service.
+2. Please decide this appeal within the timeframes required by 42 CFR § 438.408 (managed care), generally **30 days standard, 72 hours expedited**, or by state law for fee-for-service.
 3. If the denial is upheld in whole or in part, please simultaneously provide the specific reasons in writing, identify the policies or evidence relied on, and inform me of my right to advance to a state fair hearing (Step 1) or to seek judicial review (Step 2), with the applicable deadlines.
 
 V. Expedited review (render only if applicable)
@@ -137,7 +137,7 @@ Enclosures: as listed in Section VII
 
 ---
 
-## Tennessee worked example — TennCare
+## Tennessee worked example, TennCare
 
 Tennessee's Medicaid program is **TennCare**, a fully-capitated managed-care system. Three MCOs currently serve TennCare members statewide:
 
@@ -147,13 +147,13 @@ Tennessee's Medicaid program is **TennCare**, a fully-capitated managed-care sys
 
 For a TennCare appeal:
 
-### Step 1 — MCO internal appeal
+### Step 1, MCO internal appeal
 
 - File with the MCO's member appeals department, named on the denial notice.
 - **60 days** from the denial notice.
 - MCO decides within 30 days standard, 72 hours expedited.
 
-### Step 2 — TennCare Solutions / state fair hearing
+### Step 2, TennCare Solutions / state fair hearing
 
 After the MCO's internal appeal decision:
 
@@ -166,8 +166,8 @@ After the MCO's internal appeal decision:
 
 ### Tennessee-specific advocacy resources
 
-- **Tennessee Justice Center** ([tnjustice.org](https://www.tnjustice.org)) — non-profit law firm that helps TennCare enrollees with appeals at no cost.
-- **Legal Aid Society of Middle Tennessee** ([las.org](https://www.las.org)) — covers Nashville and the middle TN region.
+- **Tennessee Justice Center** ([tnjustice.org](https://www.tnjustice.org)), non-profit law firm that helps TennCare enrollees with appeals at no cost.
+- **Legal Aid Society of Middle Tennessee** ([las.org](https://www.las.org)), covers Nashville and the middle TN region.
 
 ---
 
@@ -176,10 +176,10 @@ After the MCO's internal appeal decision:
 For Medicaid programs other than TennCare, the LLM substitutes the state's program name and appeal-handling office. Common patterns to look up before drafting:
 
 - **State Medicaid agency name** (e.g. Medi-Cal in California, Medicaid in most states).
-- **State Medicaid managed-care contract list** — which MCO is the patient enrolled in?
-- **State fair hearing office** — usually the state's Office of Administrative Hearings or equivalent.
-- **State Medicaid ombudsman** — many states have one; useful CC line.
-- **State legal-aid or Medicaid-advocacy non-profit** — every state has at least one.
+- **State Medicaid managed-care contract list**, which MCO is the patient enrolled in?
+- **State fair hearing office**, usually the state's Office of Administrative Hearings or equivalent.
+- **State Medicaid ombudsman**, many states have one; useful CC line.
+- **State legal-aid or Medicaid-advocacy non-profit**, every state has at least one.
 
 Find the state's appeal page by searching "[State name] Medicaid appeal" and following the official state government link (.gov domain only).
 
@@ -192,8 +192,8 @@ Find the state's appeal page by searching "[State name] Medicaid appeal" and fol
 ## Free help
 
 - **Tennessee Justice Center** (for TN): [tnjustice.org](https://www.tnjustice.org)
-- **National Health Law Program** ([healthlaw.org](https://www.healthlaw.org)) — publishes Medicaid-appeal guides and runs a legal-services referral network.
-- **State legal-aid directory** — search "[state] legal aid Medicaid."
+- **National Health Law Program** ([healthlaw.org](https://www.healthlaw.org)), publishes Medicaid-appeal guides and runs a legal-services referral network.
+- **State legal-aid directory**, search "[state] legal aid Medicaid."
 
 ## Follow-up
 
@@ -201,6 +201,6 @@ The LLM logs Step 1 with `action_type = "medicaid_mco_appeal_filed"` and Step 2 
 
 ## Related
 
-- [[letter_insurance_appeal_erisa.md]] — commercial / employer plans (different framework)
-- [[letter_medicare_appeal.md]] — Medicare (different framework)
-- [[../rules/07_appeal_insurance_denial]] — general insurance-denial-appeal patterns
+- [[letter_insurance_appeal_erisa.md]], commercial / employer plans (different framework)
+- [[letter_medicare_appeal.md]], Medicare (different framework)
+- [[../rules/07_appeal_insurance_denial]], general insurance-denial-appeal patterns

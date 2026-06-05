@@ -1,4 +1,4 @@
-# Kit index — cross-reference map
+# Kit index, cross-reference map
 
 The kit has grown to 100+ files. This document is the index: by scenario, by file type, by federal law, by state. Use it to navigate when the kit feels too large to skim.
 
@@ -10,17 +10,17 @@ For the patient's most common questions, jump straight to:
 | ---------------------------------------- | ----------------------------------------------------- | ------------------------------------------------- |
 | I just got a stack of bills              | [`docs/START_HERE.md`](START_HERE.md)                 | [`docs/DECISION_TREE.md`](DECISION_TREE.md)       |
 | Where do I start with one specific bill? | [`docs/DECISION_TREE.md`](DECISION_TREE.md)           | The template the tree points to                   |
-| What mistakes should I avoid?            | [`docs/ANTI_PATTERNS.md`](ANTI_PATTERNS.md)           | —                                                 |
-| What outcomes are realistic?             | [`docs/COMMON_OUTCOMES.md`](COMMON_OUTCOMES.md)       | —                                                 |
-| What paperwork should I keep?            | [`docs/RECORDS_RETENTION.md`](RECORDS_RETENTION.md)   | —                                                 |
+| What mistakes should I avoid?            | [`docs/ANTI_PATTERNS.md`](ANTI_PATTERNS.md)           | -                                                 |
+| What outcomes are realistic?             | [`docs/COMMON_OUTCOMES.md`](COMMON_OUTCOMES.md)       | -                                                 |
+| What paperwork should I keep?            | [`docs/RECORDS_RETENTION.md`](RECORDS_RETENTION.md)   | -                                                 |
 | Which LLM should I use?                  | [`llm/compatibility.md`](../llm/compatibility.md)     | [`llm/system_prompt.md`](../llm/system_prompt.md) |
-| What does this acronym mean?             | [`references/glossary.md`](../references/glossary.md) | —                                                 |
-| What's the FAQ?                          | [`FAQ.md`](../FAQ.md)                                 | —                                                 |
+| What does this acronym mean?             | [`references/glossary.md`](../references/glossary.md) | -                                                 |
+| What's the FAQ?                          | [`FAQ.md`](../FAQ.md)                                 | -                                                 |
 | How do I contribute?                     | [`CONTRIBUTING.md`](../CONTRIBUTING.md)               | `.github/ISSUE_TEMPLATE/`                         |
 
 ## Find by file type
 
-### Rules (the methodology — 24 files)
+### Rules (the methodology, 24 files)
 
 | Rule                                                                                    | What it covers                                                   |
 | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -210,7 +210,7 @@ AK, DE, HI, ID, LA, ME, MT, ND, NH, RI, SD, VT, WV, WY
 
 - **PII boundary:** the kit ships no patient data. Bills and trackers belong on the user's local machine; the `.gitignore` excludes them by default. [`SECURITY.md`](../SECURITY.md) defines what's in vs out of scope.
 - **State law disclaimer:** verify any specific statute citation before mailing. State law changes; the kit's verification dates are noted in each state-pack header.
-- **Legal advice boundary:** the kit is methodology, not advice. For disputes over $10,000, ERISA federal court, EMTALA civil action, or suspected fraud — talk to a lawyer.
+- **Legal advice boundary:** the kit is methodology, not advice. For disputes over $10,000, ERISA federal court, EMTALA civil action, or suspected fraud, talk to a lawyer.
 - **LLM-side privacy:** see [`llm/compatibility.md`](../llm/compatibility.md) for cloud vs local privacy notes.
 
 ## Update cadence

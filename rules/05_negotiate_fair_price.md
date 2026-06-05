@@ -1,4 +1,4 @@
-# Rule 05 — Negotiate to a fair price
+# Rule 05, Negotiate to a fair price
 
 When a bill is correctly coded for a service you actually received but the price is unreasonable, the dispute is about price, not error. The lever is the same: tell the provider what a fair price looks like, with evidence, and offer that.
 
@@ -14,10 +14,10 @@ For every disputed line item:
 
 Try these in order. Take screenshots with dates of every price you find:
 
-- **The provider's own posted price.** The CMS Hospital Price Transparency Rule (45 CFR Part 180) requires hospitals to post negotiated rates and cash prices, both in a consumer-shoppable format and in a machine-readable file. Check the hospital's website first — search "[hospital name] price transparency".
-- **Turquoise Health** (turquoise.health) — uses the hospital machine-readable files to give a clean lookup by CPT and zip.
-- **Healthcare Bluebook** (healthcarebluebook.com) — gives a "fair price" range for many procedures by zip code.
-- **FAIR Health Consumer** (fairhealthconsumer.org) — paid-claims data, useful for out-of-network reasonable-and-customary disputes.
+- **The provider's own posted price.** The CMS Hospital Price Transparency Rule (45 CFR Part 180) requires hospitals to post negotiated rates and cash prices, both in a consumer-shoppable format and in a machine-readable file. Check the hospital's website first, search "[hospital name] price transparency".
+- **Turquoise Health** (turquoise.health), uses the hospital machine-readable files to give a clean lookup by CPT and zip.
+- **Healthcare Bluebook** (healthcarebluebook.com), gives a "fair price" range for many procedures by zip code.
+- **FAIR Health Consumer** (fairhealthconsumer.org), paid-claims data, useful for out-of-network reasonable-and-customary disputes.
 - **The CMS published Medicare rates** for the procedure. Medicare rates are not "the price" but they anchor every negotiation; commercial insurance typically pays 1.5x-3x Medicare for the same service.
 - **Cash-price benchmarks.** The Surgery Center of Oklahoma publishes its all-inclusive cash prices for common procedures; some are an order of magnitude below hospital chargemasters. Use as evidence that lower prices exist.
 - **Retail equivalents** for medical equipment. A walking boot, a knee brace, a CPAP supply has a retail price on Amazon, Walmart, or a medical-supply site. Screenshot the retail listing with the date.
@@ -51,7 +51,7 @@ Cite the relevant legal underpinning. The strongest is **Uniform Commercial Code
 If you can't afford the bill even at a fair price, that's a hardship discussion, not a billing-error one. Tools:
 
 - **Non-profit hospitals** must offer financial assistance under IRS § 501(r). Each one publishes a Financial Assistance Policy (FAP). Search "[hospital name] financial assistance policy." Eligibility is typically pegged to a multiple of the federal poverty level (commonly 200%-400% FPL).
-- **Dollar For** (dollarfor.org) — free service that helps patients apply to hospital charity-care programs and negotiate down debts.
+- **Dollar For** (dollarfor.org), free service that helps patients apply to hospital charity-care programs and negotiate down debts.
 - For a fully balanced negotiation, ask for:
   1. The Medicare rate for the procedure
   2. The hospital's posted cash price
@@ -66,5 +66,5 @@ If you can't afford the bill even at a fair price, that's a hardship discussion,
 
 ## Related rules
 
-- [[03_check_cpt_codes]] — verify the coding first; an upcoded line is a different dispute than an overpriced line
-- [[06_small_claims]] — where the UCC § 2-305 argument actually carries weight
+- [[03_check_cpt_codes]], verify the coding first; an upcoded line is a different dispute than an overpriced line
+- [[06_small_claims]], where the UCC § 2-305 argument actually carries weight

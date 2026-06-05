@@ -1,4 +1,4 @@
-"""bundle_evidence.py — zip the complete artifact set for each dispute
+"""bundle_evidence.py, zip the complete artifact set for each dispute
 group into one archive for offsite backup or court exhibit packaging.
 
 Marshall Allen's discipline: never go to a phone call, a complaint

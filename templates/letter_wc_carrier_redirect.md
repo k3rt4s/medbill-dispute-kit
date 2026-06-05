@@ -1,4 +1,4 @@
-# Template — Workers' Compensation carrier redirect
+# Template, Workers' Compensation carrier redirect
 
 Use when the patient received a medical bill for an injury that arose out of and in the course of employment. Under every state's workers'-compensation statute, work-related medical care is the financial responsibility of the employer's WC carrier, not the patient or the patient's health insurance. The provider's correct billing path is to bill the WC carrier directly under the carrier's approved fee schedule; balance-billing the patient is generally prohibited by state WC statute.
 
@@ -25,15 +25,15 @@ Email: [PATIENT EMAIL]
 [PROVIDER NAME]
 [PROVIDER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
 cc by certified mail with full enclosure set:
-    [EMPLOYER NAME] — Human Resources or WC contact
-    [WC CARRIER NAME] — Claims department
+    [EMPLOYER NAME], Human Resources or WC contact
+    [WC CARRIER NAME], Claims department
     [STATE] Workers' Compensation Commission or Board
 
-RE: Redirect to workers'-compensation carrier — work-related injury —
+RE: Redirect to workers'-compensation carrier, work-related injury, 
     Patient: [PATIENT FULL NAME]
     Account #[ACCOUNT NUMBER]
     Date of service: [DATE OF SERVICE]
@@ -45,7 +45,7 @@ RE: Redirect to workers'-compensation carrier — work-related injury —
 
 To Billing / Patient Financial Services:
 
-I am the patient identified above. The medical care reflected in your bill was for an injury that arose out of and in the course of my employment with [EMPLOYER NAME] on [DATE OF INJURY]. Under [STATE STATUTE — e.g., Tennessee Code Title 50 Chapter 6, Workers' Compensation Law], the financial responsibility for work-related medical care is the employer's workers'-compensation carrier, not me. I am writing to redirect this bill to the WC carrier and to demand that your office withdraw any further collection activity against me on this account.
+I am the patient identified above. The medical care reflected in your bill was for an injury that arose out of and in the course of my employment with [EMPLOYER NAME] on [DATE OF INJURY]. Under [STATE STATUTE, e.g., Tennessee Code Title 50 Chapter 6, Workers' Compensation Law], the financial responsibility for work-related medical care is the employer's workers'-compensation carrier, not me. I am writing to redirect this bill to the WC carrier and to demand that your office withdraw any further collection activity against me on this account.
 
 I. Notice and identifying information
 
@@ -61,7 +61,7 @@ If your office has not previously billed the WC carrier, please submit the bill 
 
 II. State workers'-compensation balance-billing protection
 
-[STATE STATUTE — e.g., Tennessee Code § 50-6-204(a)(3)(D); or Georgia O.C.G.A. § 34-9-204; or California Labor Code § 4600(c); the drafter resolves the citation from references/laws_state_<code>.md] prohibits a provider from billing or attempting to collect from an employee for work-related medical care that should be billed to the WC carrier. A provider who balance-bills an employee for work-related care is subject to administrative action from the state WC commission and, depending on the state, may forfeit the right to collect the disputed amount from any party.
+[STATE STATUTE, e.g., Tennessee Code § 50-6-204(a)(3)(D); or Georgia O.C.G.A. § 34-9-204; or California Labor Code § 4600(c); the drafter resolves the citation from references/laws_state_<code>.md] prohibits a provider from billing or attempting to collect from an employee for work-related medical care that should be billed to the WC carrier. A provider who balance-bills an employee for work-related care is subject to administrative action from the state WC commission and, depending on the state, may forfeit the right to collect the disputed amount from any party.
 
 The provider's remedy for a denied or under-paid WC claim is the state's WC fee-dispute process, not collection against the patient.
 
@@ -85,17 +85,17 @@ If your office has previously accepted payment from my health insurance plan for
 
 V. WC claim status (render the applicable block)
 
-[BLOCK A — Accepted]
+[BLOCK A, Accepted]
 
 The WC claim has been accepted by [WC CARRIER NAME] under claim number [WC CLAIM NUMBER]. The carrier is the responsible payer. Bill the carrier.
 
-[BLOCK B — Pending acceptance]
+[BLOCK B, Pending acceptance]
 
-The WC claim is pending acceptance. Under [STATE STATUTE — e.g., Tennessee Code § 50-6-204(a)(3)(A)], the carrier has [N] days to accept or deny. During pendency, your office may not collect from me. Bill the carrier and await the determination.
+The WC claim is pending acceptance. Under [STATE STATUTE, e.g., Tennessee Code § 50-6-204(a)(3)(A)], the carrier has [N] days to accept or deny. During pendency, your office may not collect from me. Bill the carrier and await the determination.
 
-[BLOCK C — Denied]
+[BLOCK C, Denied]
 
-The WC claim was denied on [DENIAL DATE]. I have appealed the denial and the appeal is pending under [STATE WC APPEAL PROCESS — e.g., Tennessee Court of Workers' Compensation Claims, docket [DOCKET NUMBER]]. While the appeal is pending, your office should hold collection activity. If the appeal succeeds, the carrier will be the responsible payer. If the appeal fails and the matter is finally determined non-work-related, I will reopen this account with my health insurance and your office will be billed through the appropriate non-WC channel.
+The WC claim was denied on [DENIAL DATE]. I have appealed the denial and the appeal is pending under [STATE WC APPEAL PROCESS, e.g., Tennessee Court of Workers' Compensation Claims, docket [DOCKET NUMBER]]. While the appeal is pending, your office should hold collection activity. If the appeal succeeds, the carrier will be the responsible payer. If the appeal fails and the matter is finally determined non-work-related, I will reopen this account with my health insurance and your office will be billed through the appropriate non-WC channel.
 
 VI. Reservation of rights
 
@@ -127,17 +127,17 @@ Date of injury: [DATE OF INJURY]
 WC claim number: [WC CLAIM NUMBER]
 
 Enclosures:
-A — Copy of the bill in question
-B — Copy of the WC claim acknowledgment / acceptance / denial letter from [WC CARRIER NAME]
-C — Copy of any First Report of Injury filed with the employer
-D — Copy of any prior correspondence between me and your office on this account
+A, Copy of the bill in question
+B, Copy of the WC claim acknowledgment / acceptance / denial letter from [WC CARRIER NAME]
+C, Copy of any First Report of Injury filed with the employer
+D, Copy of any prior correspondence between me and your office on this account
 ```
 
 ---
 
 ## Placeholders and rendering notes
 
-- `[WC CLAIM NUMBER]` may not be assigned if the WC claim is brand new or the patient declined to file. If the patient declined to file a WC claim (some patients do this for personal reasons), this template is the wrong tool — the bill is then properly handled through health insurance or self-pay, and the patient should use the regular dispute flow.
+- `[WC CLAIM NUMBER]` may not be assigned if the WC claim is brand new or the patient declined to file. If the patient declined to file a WC claim (some patients do this for personal reasons), this template is the wrong tool, the bill is then properly handled through health insurance or self-pay, and the patient should use the regular dispute flow.
 - `[STATE STATUTE]` resolves from `references/laws_state_<code>.md`. Every state has a WC statute with an anti-balance-billing provision; the citation is state-specific.
 - The CC list is critical. The employer's HR / WC contact has a strong incentive to pressure the provider into rebilling correctly because incorrect billing complicates the employer's loss-experience modifier. The WC carrier wants the bill on its desk to control the fee-schedule adjudication.
 
@@ -164,6 +164,6 @@ The drafter confirms:
 
 ## Related templates and references
 
-- `templates/letter_auto_med_pay.md` — analogous redirect for auto-accident med-pay (PIP coverage).
-- `templates/letter_challenge_hospital_lien.md` — when the provider has filed a hospital lien against the WC recovery.
-- `references/laws_state_<code>.md` — state WC anti-balance-billing citation.
+- `templates/letter_auto_med_pay.md`, analogous redirect for auto-accident med-pay (PIP coverage).
+- `templates/letter_challenge_hospital_lien.md`, when the provider has filed a hospital lien against the WC recovery.
+- `references/laws_state_<code>.md`, state WC anti-balance-billing citation.

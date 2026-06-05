@@ -1,4 +1,4 @@
-# Template — Request EOB from insurer
+# Template, Request EOB from insurer
 
 Use when a provider bill has arrived but the corresponding Explanation of Benefits (EOB) from the patient's health plan has not. The EOB is needed to verify that the bill matches what the plan adjudicated, to confirm in-network cost-sharing was applied, and to surface any No Surprises Act protection that may apply.
 
@@ -19,13 +19,13 @@ Email: [PATIENT EMAIL]
 
 [DATE]
 
-[INSURER NAME] — Member Services / Plan Administrator
+[INSURER NAME], Member Services / Plan Administrator
 [INSURER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Request for Explanation of Benefits — Plan participant [PATIENT FULL NAME]
+RE: Request for Explanation of Benefits, Plan participant [PATIENT FULL NAME]
     Member ID: [MEMBER ID]
     Group: [GROUP NAME / NUMBER]
     Date(s) of service: [DATE OF SERVICE RANGE]
@@ -67,7 +67,7 @@ I am separately notifying the billing provider that I have requested
 this EOB. I have asked them to place a hold on collection activity
 while I gather the documentation needed to verify their bill, and I
 have informed them by email at [BILLER EMAIL OR "no email address
-available — paper copy mailed only"] that this written request has
+available, paper copy mailed only"] that this written request has
 been mailed today.
 
 Please send the requested documents to the address above. If anything
@@ -83,8 +83,8 @@ Member ID: [MEMBER ID]
 Date(s) of service: [DATE OF SERVICE RANGE]
 
 cc:
-    [BILLER NAME], [BILLER ADDRESS] — by certified mail with this letter enclosed
-    [BILLER EMAIL OR omit this line] — by email of even date, courtesy notice
+    [BILLER NAME], [BILLER ADDRESS], by certified mail with this letter enclosed
+    [BILLER EMAIL OR omit this line], by email of even date, courtesy notice
 ```
 
 ---

@@ -1,4 +1,4 @@
-# Rule 01 — Never pay the first bill
+# Rule 01, Never pay the first bill
 
 A medical bill is not a demand for immediate payment. It is the start of a negotiation. Until you've verified it, paying it would be paying without knowing what you're paying for.
 
@@ -27,7 +27,7 @@ This is not "refuse to pay." It is "verify first." If, after verification, the b
 
 - Calling the billing department and offering to pay because you feel anxious. Anxiety is the system's product.
 - Setting up auto-pay. Once they have your card on file you have no leverage.
-- Ignoring the bill entirely. Ignoring puts you on a path to collections, which is recoverable but expensive. Verify, contest, negotiate — don't ignore.
+- Ignoring the bill entirely. Ignoring puts you on a path to collections, which is recoverable but expensive. Verify, contest, negotiate, don't ignore.
 - Paying before insurance has paid. You will overpay.
 
 ## When the rule has an exception
@@ -36,6 +36,6 @@ If you have already received the itemized bill, the explanation of benefits has 
 
 ## Related rules
 
-- [[02_request_itemization]] — your first request after receiving any non-itemized bill
-- [[03_check_cpt_codes]] — your second check after receiving an itemized bill
-- [[05_negotiate_fair_price]] — what to do if the bill is correct but overpriced
+- [[02_request_itemization]], your first request after receiving any non-itemized bill
+- [[03_check_cpt_codes]], your second check after receiving an itemized bill
+- [[05_negotiate_fair_price]], what to do if the bill is correct but overpriced

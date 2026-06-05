@@ -1,4 +1,4 @@
-# Template — Good Faith Estimate request (uninsured / self-pay)
+# Template, Good Faith Estimate request (uninsured / self-pay)
 
 Use when the patient is uninsured or self-pay and a scheduled service is at least three business days away, or when a bill has arrived for a self-pay service for which no GFE was offered. The federal No Surprises Act, at 45 CFR § 149.610, requires providers and facilities to furnish a written Good Faith Estimate of expected charges to any uninsured or self-pay individual who schedules a service at least three business days in advance, and to make a GFE available on request for any service the individual is shopping for.
 
@@ -24,13 +24,13 @@ Email: [PATIENT EMAIL]
 [PROVIDER OR FACILITY NAME]
 [PROVIDER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Request for Good Faith Estimate under 45 CFR § 149.610 —
+RE: Request for Good Faith Estimate under 45 CFR § 149.610, 
     Patient: [PATIENT FULL NAME]
     DOB: [DOB]
-    Insurance status: [Uninsured / Self-pay — not submitting this claim to my health plan]
+    Insurance status: [Uninsured / Self-pay, not submitting this claim to my health plan]
     Scheduled service (pre-service mode): [SERVICE DESCRIPTION], scheduled [SCHEDULED DATE]
     Billed service (post-bill mode): account # [ACCOUNT NUMBER], date of service [DATE OF SERVICE]
 
@@ -68,7 +68,7 @@ The Good Faith Estimate must, at a minimum, include each of the following:
 
 III. Specific request
 
-Please provide the Good Faith Estimate in writing to the mailing address above, by [DEADLINE — set to the applicable statutory deadline above; if uncertain, set to 7 calendar days from this letter's postmark].
+Please provide the Good Faith Estimate in writing to the mailing address above, by [DEADLINE, set to the applicable statutory deadline above; if uncertain, set to 7 calendar days from this letter's postmark].
 
 For clarity, "self-pay" in this context means I am not requesting that the claim be submitted to my health plan. If I have insurance, I am exercising the No Surprises Act's self-pay election to bypass insurance for this service.
 
@@ -111,7 +111,7 @@ Enclosures:
 
 1. Mail this letter certified to the provider's scheduling or billing department.
 2. If the provider has an online patient portal, send a duplicate message there. Some providers' GFE workflow is portal-only.
-3. Log the action with `action_type = "received_bill"` superseded by a new action `gfe_requested` (custom — kit users can add to schemas/action.toml if not present).
+3. Log the action with `action_type = "received_bill"` superseded by a new action `gfe_requested` (custom, kit users can add to schemas/action.toml if not present).
 
 ## Follow-up
 

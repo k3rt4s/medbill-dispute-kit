@@ -1,6 +1,6 @@
-# Rule 04 — Use the No Surprises Act
+# Rule 04, Use the No Surprises Act
 
-The federal No Surprises Act (effective January 1, 2022) makes certain categories of "surprise" medical bills illegal. If your bill fits one of these categories, you have the strongest possible federal dispute — much stronger than a state-law overcharge claim. Use it first.
+The federal No Surprises Act (effective January 1, 2022) makes certain categories of "surprise" medical bills illegal. If your bill fits one of these categories, you have the strongest possible federal dispute, much stronger than a state-law overcharge claim. Use it first.
 
 ## What's protected
 
@@ -15,7 +15,7 @@ If you are uninsured or self-pay, you are also entitled to a **Good Faith Estima
 ## What's not protected
 
 - Non-emergency out-of-network care you deliberately chose (and were given proper notice and consent forms for)
-- Ground ambulance services — these were notoriously excluded from the original Act; states may have their own protections
+- Ground ambulance services, these were notoriously excluded from the original Act; states may have their own protections
 - Pure pricing disputes where you're being charged the in-network rate but think it's still too high (those go through the channels in [[05_negotiate_fair_price]])
 
 ## How to recognize a violation
@@ -47,7 +47,7 @@ If any answer is yes, this bill is a No Surprises Act dispute and you escalate a
 
 ## Why this rule comes before regular disputes
 
-A No Surprises Act violation isn't a "we should renegotiate" — it's a "this bill is illegal as issued." Providers know this. The mention of a CMS complaint by name is usually enough to get the balance reversed without a fight. Don't use any softer playbook first.
+A No Surprises Act violation isn't a "we should renegotiate", it's a "this bill is illegal as issued." Providers know this. The mention of a CMS complaint by name is usually enough to get the balance reversed without a fight. Don't use any softer playbook first.
 
 ## What about state surprise-billing laws?
 
@@ -55,5 +55,5 @@ Many states had surprise-billing protections before the federal Act took effect.
 
 ## Related rules
 
-- [[07_appeal_insurance_denial]] — if the insurer's response is to deny the claim entirely
-- [[06_small_claims]] — if the provider ignores the complaint
+- [[07_appeal_insurance_denial]], if the insurer's response is to deny the claim entirely
+- [[06_small_claims]], if the provider ignores the complaint

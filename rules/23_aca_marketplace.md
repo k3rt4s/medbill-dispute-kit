@@ -1,4 +1,4 @@
-# Rule 23 — ACA marketplace plan appeals
+# Rule 23, ACA marketplace plan appeals
 
 ACA marketplace plans (purchased on healthcare.gov or a state-based exchange) are subject to a distinct federal appeals framework that differs from both ERISA self-funded plans and Medicare. Patients who try to apply ERISA tactics to a marketplace plan, or who fail to invoke the external-review right, often miss leverage points unique to the marketplace track.
 
@@ -15,9 +15,9 @@ Under the ACA's "internal and external review process" requirements (45 CFR § 1
 
 ## The four-step structure
 
-1. **Internal appeal level 1** — first formal request to the insurer.
-2. **Internal appeal level 2** — second-level review by a different reviewer (where the plan offers a second level; not all do).
-3. **External review by IRO** — independent, binding. Typically free or low-cost ($25 filing fee in some states).
+1. **Internal appeal level 1**, first formal request to the insurer.
+2. **Internal appeal level 2**, second-level review by a different reviewer (where the plan offers a second level; not all do).
+3. **External review by IRO**, independent, binding. Typically free or low-cost ($25 filing fee in some states).
 4. **Civil action** in state or federal court if all administrative remedies are exhausted and the dispute is not resolved.
 
 Some state-based exchanges and state insurance laws layer additional protections; check the state pack.
@@ -34,7 +34,7 @@ Some state-based exchanges and state insurance laws layer additional protections
 
 The patient's insurance card and EOB usually identify the plan as "Marketplace," "Exchange," or "Individual." On healthcare.gov enrollments, the card may say "Marketplace Plan" or include the metal tier (Bronze/Silver/Gold/Platinum). State-based exchange plans (CoveredCA, NY State of Health, Pennie, etc.) have state-specific branding.
 
-A plan with the same insurer name but obtained through an employer is **not** a marketplace plan — it's group coverage, often (but not always) ERISA-governed.
+A plan with the same insurer name but obtained through an employer is **not** a marketplace plan, it's group coverage, often (but not always) ERISA-governed.
 
 ## The patient's playbook
 
@@ -79,7 +79,7 @@ The single most valuable feature of the marketplace appeals framework. After the
 - Filing fee: free in most states or $25.
 - Decision timeframe: 45 days standard, 72 hours expedited.
 
-Success rate at external review is significantly higher than internal appeal alone — typically 40-60% of well-grounded cases prevail at the IRO level.
+Success rate at external review is significantly higher than internal appeal alone, typically 40-60% of well-grounded cases prevail at the IRO level.
 
 ### 5. State insurance department complaint (parallel)
 
@@ -120,12 +120,12 @@ Where the patient is mid-treatment and the insurer changes networks or terminate
 
 - **Healthcare.gov marketplace help line:** 1-800-318-2596
 - **State-based exchange consumer assistance** for the patient's state
-- **State health insurance assistance** — search the state's name plus "consumer assistance health insurance"
-- **Federal CCIIO consumer assistance** — for system-wide patterns
+- **State health insurance assistance**, search the state's name plus "consumer assistance health insurance"
+- **Federal CCIIO consumer assistance**, for system-wide patterns
 
 ## Related
 
-- [[07_appeal_insurance_denial]] — ERISA self-funded plans (contrast)
-- [[12_medicare_appeals]] — Medicare (contrast)
-- `templates/letter_insurance_appeal_erisa.md` — adapt with 45 CFR § 147.136 citations for marketplace plans
-- `templates/complaint_state_doi.md` — parallel state complaint
+- [[07_appeal_insurance_denial]], ERISA self-funded plans (contrast)
+- [[12_medicare_appeals]], Medicare (contrast)
+- `templates/letter_insurance_appeal_erisa.md`, adapt with 45 CFR § 147.136 citations for marketplace plans
+- `templates/complaint_state_doi.md`, parallel state complaint

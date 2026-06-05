@@ -83,13 +83,13 @@ Last reviewed: 2026-05-21. Verify the current statute on the state's official st
 
 The kit uses SOL data in two places:
 
-1. **`scripts/deadline_watch.py --sol`** — surfaces accounts whose statement_date (or earliest known DOS, whichever the kit can determine) is close to or past the state's written-contract SOL. The output is a "near-SOL" group highlighting accounts the patient should preserve a paper trail on but never confirm or pay without first verifying the current SOL status.
+1. **`scripts/deadline_watch.py --sol`**, surfaces accounts whose statement_date (or earliest known DOS, whichever the kit can determine) is close to or past the state's written-contract SOL. The output is a "near-SOL" group highlighting accounts the patient should preserve a paper trail on but never confirm or pay without first verifying the current SOL status.
 
-2. **`templates/letter_initial_dispute.md`** and **`templates/letter_dispute_reply.md`** — when the kit detects an account is past SOL, the drafter can add a "this debt appears to be time-barred under [STATE STATUTE]" paragraph. This is a strong defense but a delicate one; using the wrong SOL or making a payment after sending such a letter restarts the clock.
+2. **`templates/letter_initial_dispute.md`** and **`templates/letter_dispute_reply.md`**, when the kit detects an account is past SOL, the drafter can add a "this debt appears to be time-barred under [STATE STATUTE]" paragraph. This is a strong defense but a delicate one; using the wrong SOL or making a payment after sending such a letter restarts the clock.
 
 ## How to compute SOL for a specific bill
 
-1. Find the date of first delinquency. This is typically the first missed payment date — usually 30 days after the first statement showing a "past due" balance. For most medical bills the kit ships, the relevant date is the earliest statement_date in the dispute group when the balance first became delinquent.
+1. Find the date of first delinquency. This is typically the first missed payment date, usually 30 days after the first statement showing a "past due" balance. For most medical bills the kit ships, the relevant date is the earliest statement_date in the dispute group when the balance first became delinquent.
 
 2. Add the written-contract SOL years from the table above for the state where the patient resided AT THE TIME OF SERVICE (not where they reside now).
 
@@ -101,7 +101,7 @@ The kit uses SOL data in two places:
 
 ## What the kit will not do
 
-- The kit does not, and cannot, give legal advice on whether to invoke SOL as a defense. The SOL defense is affirmative — if not raised by the defendant in the answer, it is waived.
+- The kit does not, and cannot, give legal advice on whether to invoke SOL as a defense. The SOL defense is affirmative, if not raised by the defendant in the answer, it is waived.
 
 - The kit does not predict the outcome of an SOL defense in court. State courts vary in how aggressively they enforce SOL against unrepresented defendants.
 

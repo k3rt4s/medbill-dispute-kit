@@ -1,4 +1,4 @@
-# User Stories — medbill-dispute-kit
+# User Stories, medbill-dispute-kit
 
 Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then acceptance criteria. Status legend: `proposed` · `accepted` · `next` · `priority` · `shipped (vX.Y.Z)` · `withdrawn`.
 
@@ -10,9 +10,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 1 — Onboard a new patient
+## Epic 1, Onboard a new patient
 
-### Story 1.1 — Drop the kit into any LLM and start
+### Story 1.1, Drop the kit into any LLM and start
 
 **As a** patient under bills, **I want to** load this kit into any major LLM and have it know what to do, **so that** I don't need to be an LLM expert to get help.
 
@@ -23,7 +23,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.1.0)
 
-### Story 1.2 — Ingest a single bill image or PDF
+### Story 1.2, Ingest a single bill image or PDF
 
 **As a** patient under bills, **I want to** upload a photo or PDF of a bill and have the LLM extract the structured fields, **so that** I don't have to transcribe anything.
 
@@ -36,9 +36,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 2 — Deduplicate noisy bill streams
+## Epic 2, Deduplicate noisy bill streams
 
-### Story 2.1 — Recognize follow-up statements for an existing bill
+### Story 2.1, Recognize follow-up statements for an existing bill
 
 **As a** patient under bills, **I want** the kit to recognize when a newly uploaded statement is just a reminder for a bill I already have, **so that** my tracker doesn't fill up with duplicates.
 
@@ -49,7 +49,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.1.0)
 
-### Story 2.2 — Recognize separately-billed providers for one hospital visit
+### Story 2.2, Recognize separately-billed providers for one hospital visit
 
 **As a** patient who had one hospital stay but receives bills from the hospital plus the radiologist plus the ER physician group plus the anesthesiologist, **I want** the kit to group these as the same encounter, **so that** I can see the total cost of the stay and apply No Surprises Act analysis across all of them.
 
@@ -61,9 +61,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 3 — Diagnose what's wrong with a bill
+## Epic 3, Diagnose what's wrong with a bill
 
-### Story 3.1 — Flag CPT severity coding mismatch
+### Story 3.1, Flag CPT severity coding mismatch
 
 **As a** patient under bills, **I want** the LLM to compare the CPT level coded on my bill against the actual visit I had, **so that** an upcoded ER visit gets challenged.
 
@@ -73,7 +73,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.1.0)
 
-### Story 3.2 — Flag No Surprises Act violations
+### Story 3.2, Flag No Surprises Act violations
 
 **As a** patient under bills, **I want** the LLM to flag when I'm being balance-billed in a scenario where federal law prohibits it, **so that** I can use the strongest possible challenge first.
 
@@ -84,7 +84,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.1.0)
 
-### Story 3.3 — Flag price gouging using transparency data
+### Story 3.3, Flag price gouging using transparency data
 
 **As a** patient under bills, **I want** the LLM to call out line items priced far above fair-market for my area, **so that** I have a concrete number to argue down to.
 
@@ -96,9 +96,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 4 — Take action on a bill
+## Epic 4, Take action on a bill
 
-### Story 4.1 — Request an itemized bill
+### Story 4.1, Request an itemized bill
 
 **As a** patient who received only a summary bill, **I want** the LLM to draft a certified-mail itemization request that cites the right state statute, **so that** the provider's 30-day clock starts running.
 
@@ -108,7 +108,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.1.0)
 
-### Story 4.2 — Draft an initial dispute letter
+### Story 4.2, Draft an initial dispute letter
 
 **As a** patient with a problematic bill, **I want** a polite-but-firm dispute letter that names each disputed line item with the legal basis, **so that** the provider has a clear paper trail of my objection.
 
@@ -118,7 +118,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.1.0)
 
-### Story 4.3 — Escalate with a 30-day warning before small claims
+### Story 4.3, Escalate with a 30-day warning before small claims
 
 **As a** patient whose initial dispute was ignored, **I want** to escalate with a formal warning of small claims court action, **so that** the provider's legal cost to defend exceeds the disputed amount.
 
@@ -128,7 +128,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.1.0)
 
-### Story 4.4 — Draft an ERISA appeal for an insurance denial
+### Story 4.4, Draft an ERISA appeal for an insurance denial
 
 **As a** patient whose ERISA-governed plan denied a claim, **I want** an appeal letter that argues from plan terms and federal evidence standards rather than emotion, **so that** I preserve my right to sue under ERISA § 502(a) if denied again.
 
@@ -138,7 +138,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.1.0)
 
-### Story 4.5 — File a state insurance department complaint
+### Story 4.5, File a state insurance department complaint
 
 **As a** patient ignored by a provider or insurer, **I want** a ready-to-submit state complaint, **so that** I trigger a regulatory investigation and increase pressure.
 
@@ -148,7 +148,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.1.0)
 
-### Story 4.6 — Negotiate a hardship reduction
+### Story 4.6, Negotiate a hardship reduction
 
 **As a** patient whose bill is correctly coded but unaffordable, **I want** a negotiation letter that anchors to the Medicare rate and demands consideration under the hospital's Financial Assistance Policy, **so that** I am not pushed into a payment plan I can't sustain.
 
@@ -158,7 +158,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.2.0)
 
-### Story 4.7 — Respond to a third-party medical-debt collector
+### Story 4.7, Respond to a third-party medical-debt collector
 
 **As a** patient receiving first written contact from a third-party debt collector on an alleged medical debt, **I want** to demand validation under FDCPA § 1692g within the 30-day window, **so that** collection activity is paused and the collector is forced to produce the underlying paper trail.
 
@@ -171,9 +171,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 5 — Carry state across the months-long process
+## Epic 5, Carry state across the months-long process
 
-### Story 5.1 — Download an updated tracker after each session
+### Story 5.1, Download an updated tracker after each session
 
 **As a** patient running a multi-month dispute process, **I want** to download my updated tracker as a CSV at the end of every session, **so that** I can re-upload it next time without losing context.
 
@@ -183,7 +183,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.1.0)
 
-### Story 5.2 — Resume next session by uploading the tracker
+### Story 5.2, Resume next session by uploading the tracker
 
 **As a** returning patient, **I want** to resume by uploading my tracker and any new statements, **so that** I don't re-tell my story.
 
@@ -195,9 +195,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 6 — Support states beyond Tennessee
+## Epic 6, Support states beyond Tennessee
 
-### Story 6.1 — Use the state-law template to look up another state
+### Story 6.1, Use the state-law template to look up another state
 
 **As a** patient in (e.g.) Texas, **I want** the kit to find the right Texas statutes without me knowing them, **so that** the kit isn't TN-only.
 
@@ -210,9 +210,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 7 — Cover federally-unprotected bill types
+## Epic 7, Cover federally-unprotected bill types
 
-### Story 7.1 — Dispute a ground-ambulance balance bill
+### Story 7.1, Dispute a ground-ambulance balance bill
 
 **As a** patient receiving a balance bill from an out-of-network ground ambulance provider, **I want** the kit to recognize that ground ambulance is excluded from the federal No Surprises Act, route my case based on whether my state has its own protection, and draft the correct dispute letter, **so that** I am not stuck paying a $3,000 surprise bill that the federal Act explicitly leaves unprotected.
 
@@ -224,7 +224,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.3.0)
 
-### Story 7.2 — File PPDR for a self-pay bill exceeding the Good Faith Estimate
+### Story 7.2, File PPDR for a self-pay bill exceeding the Good Faith Estimate
 
 **As a** patient who was uninsured or self-pay for a scheduled service, received (or should have received) a Good Faith Estimate, and is now staring at a final bill more than $400 above the estimate, **I want** the kit to walk me through filing federal Patient-Provider Dispute Resolution within the 120-day window, **so that** I get a binding determination from a neutral arbitrator and the collections-pause / credit-protection benefits that attach during PPDR.
 
@@ -235,7 +235,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.3.0)
 
-### Story 7.3 — Apply for hospital financial assistance under IRS § 501(r)
+### Story 7.3, Apply for hospital financial assistance under IRS § 501(r)
 
 **As a** patient with a bill from a non-profit hospital that I cannot afford in full, **I want** the kit to draft a Financial Assistance Policy application request that cites the applicable IRS regulations, triggers the hospital's procedural obligations during pendency, and refuses extraordinary collection action while the application is processed, **so that** I am screened for charity care before any collections clock runs.
 
@@ -246,7 +246,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.3.0)
 
-### Story 7.4 — Force a non-compliant hospital to publish a price-transparency MRF
+### Story 7.4, Force a non-compliant hospital to publish a price-transparency MRF
 
 **As a** patient whose hospital has not published a compliant machine-readable file of standard charges, **I want** a CMS complaint that produces regulatory pressure on the hospital, **so that** I gain access to the negotiated rates and cash prices the federal rule entitles me to see and which would anchor my underlying billing dispute.
 
@@ -258,9 +258,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 8 — Plan-type coverage (Medicare, Medicaid, dental)
+## Epic 8, Plan-type coverage (Medicare, Medicaid, dental)
 
-### Story 8.1 — Appeal a Medicare claim denial
+### Story 8.1, Appeal a Medicare claim denial
 
 **As a** Medicare beneficiary whose claim was denied by the MAC, by a Medicare Advantage plan, or by a Part D plan, **I want** to file the appropriate appeal at the correct level with the correct deadlines, **so that** I exhaust the five-level Medicare appeal process correctly without losing the right to advance to ALJ or federal court.
 
@@ -271,7 +271,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.4.0)
 
-### Story 8.2 — Appeal a Medicaid managed-care denial
+### Story 8.2, Appeal a Medicaid managed-care denial
 
 **As a** Medicaid enrollee whose service was denied by my MCO, **I want** to file the MCO internal appeal within 60 days and, if still denied, the state fair hearing within the state's deadline, **so that** I exhaust the federal-floor appeal process without losing the right to state-level review.
 
@@ -282,7 +282,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.4.0)
 
-### Story 8.3 — Dispute a dental insurance downcoding or bundling
+### Story 8.3, Dispute a dental insurance downcoding or bundling
 
 **As a** patient whose dental insurer downcoded a procedure or bundled separately-billable procedures, **I want** an appeal letter that cites the state's non-covered-services statute and the ADA's CDT code requirements, **so that** I (and my dentist) recover the correct payment.
 
@@ -295,9 +295,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 9 — Discoverability and contribution
+## Epic 9, Discoverability and contribution
 
-### Story 9.1 — Find a glossary entry for any acronym the kit uses
+### Story 9.1, Find a glossary entry for any acronym the kit uses
 
 **As a** patient unfamiliar with the alphabet soup of health-care billing, **I want** to look up any term used by the kit in one place, **so that** I don't lose context to terminology.
 
@@ -307,7 +307,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.4.0)
 
-### Story 9.2 — Get answers to common questions without re-reading the rules
+### Story 9.2, Get answers to common questions without re-reading the rules
 
 **As a** new patient picking up the kit, **I want** quick answers to recurring questions ("the bill is overdue, what now?", "do I need a lawyer?", "what if I missed a deadline?"), **so that** I don't have to read every rule file to get unstuck.
 
@@ -318,7 +318,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.4.0)
 
-### Story 9.3 — Run the kit on a short-context LLM
+### Story 9.3, Run the kit on a short-context LLM
 
 **As a** patient using a small local model or a cloud LLM with limited context, **I want** a staged-load pattern that doesn't require all kit files in memory simultaneously, **so that** I can still complete the workflow.
 
@@ -329,7 +329,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.4.0)
 
-### Story 9.4 — Contribute a new state pack as a PR
+### Story 9.4, Contribute a new state pack as a PR
 
 **As an** open-source contributor with knowledge of my state's medical-bill protections, **I want** clear contribution guidelines, **so that** my PR meets the kit's quality bar on the first try.
 
@@ -341,7 +341,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.4.0)
 
-### Story 9.5 — Validate a tracker CSV outside an LLM session
+### Story 9.5, Validate a tracker CSV outside an LLM session
 
 **As a** technical user, **I want** a script that confirms my tracker conforms to the schema, **so that** I can catch typos before re-uploading to the LLM.
 
@@ -353,7 +353,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.4.0)
 
-### Story 9.6 — Pytest coverage for the validator
+### Story 9.6, Pytest coverage for the validator
 
 **As a** maintainer, **I want** unit tests for `scripts/validate_tracker.py`, **so that** schema changes are caught before they reach contributors.
 
@@ -365,7 +365,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.5.0)
 
-### Story 9.7 — Lower friction for first-time contributors
+### Story 9.7, Lower friction for first-time contributors
 
 **As a** first-time contributor opening an issue or PR, **I want** structured templates that prompt me for the right information, **so that** my contribution doesn't bounce on missing context.
 
@@ -378,7 +378,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.5.0)
 
-### Story 9.8 — Worked examples beyond the simple case
+### Story 9.8, Worked examples beyond the simple case
 
 **As a** new user with a complex multi-bill, multi-month situation, **I want** to see the kit handle a realistic scenario before I try it on my own bills, **so that** I can calibrate expectations.
 
@@ -391,9 +391,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 10 — Federal-protection coverage beyond billing
+## Epic 10, Federal-protection coverage beyond billing
 
-### Story 10.1 — Complain to CMS about an EMTALA violation
+### Story 10.1, Complain to CMS about an EMTALA violation
 
 **As a** patient who was denied emergency screening, stabilization, or appropriate transfer by a Medicare-participating hospital, **I want** a complaint letter to CMS that fits the agency's investigation process and preserves my civil right of action, **so that** I both create regulatory pressure and protect my 2-year statute of limitations.
 
@@ -404,7 +404,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.6.0)
 
-### Story 10.2 — Force release of medical or billing records under HIPAA
+### Story 10.2, Force release of medical or billing records under HIPAA
 
 **As a** patient whose provider has delayed access, charged excessive fees, refused electronic transmission, or denied records access entirely, **I want** an OCR complaint that cites the specific 45 CFR § 164.524 provision violated, **so that** I unblock the records I need to support my underlying billing dispute.
 
@@ -417,9 +417,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 11 — Accident-related and work-injury billing
+## Epic 11, Accident-related and work-injury billing
 
-### Story 11.1 — Force correct payer ordering on accident-related medical bills
+### Story 11.1, Force correct payer ordering on accident-related medical bills
 
 **As a** patient injured in a motor-vehicle accident, **I want** the kit to identify all the potential payers (med-pay/PIP, UM/UIM, at-fault driver's BI, my health insurance) and force each provider to bill them in the correct order, **so that** I don't get hit with chargemaster-priced lien recoveries from my eventual settlement.
 
@@ -431,7 +431,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.6.0)
 
-### Story 11.2 — Reject improper balance bills for workers' compensation injuries
+### Story 11.2, Reject improper balance bills for workers' compensation injuries
 
 **As a** worker with an accepted workers' compensation claim, **I want** any medical bill that arrives at my address to be redirected to the workers' comp carrier or flagged as improper balance billing, **so that** I do not pay something I am statutorily exempt from owing.
 
@@ -444,9 +444,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 12 — Long-tail state coverage
+## Epic 12, Long-tail state coverage
 
-### Story 12.1 — Twelve state packs cover ~50% of US population
+### Story 12.1, Twelve state packs cover ~50% of US population
 
 **As a** US patient in one of the twelve largest states by population, **I want** the kit to ship a dedicated state pack with verified citations for my state, **so that** I do not need to ask the LLM to look up my state's statutes from a template.
 
@@ -460,9 +460,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 13 — Financial-distress and procedural tooling
+## Epic 13, Financial-distress and procedural tooling
 
-### Story 13.1 — Decide when bankruptcy is the right tool for medical debt
+### Story 13.1, Decide when bankruptcy is the right tool for medical debt
 
 **As a** patient whose medical debt exceeds any realistic repayment plan, **I want** the kit to identify when bankruptcy makes sense, when other tools should be tried first, and what to bring to a consultation, **so that** I do not file unnecessarily or fail to file when I should.
 
@@ -472,7 +472,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.7.0)
 
-### Story 13.2 — Watch dispute deadlines outside an LLM session
+### Story 13.2, Watch dispute deadlines outside an LLM session
 
 **As a** patient running a months-long dispute process, **I want** to check my tracker for overdue or upcoming deadlines without re-opening the LLM, **so that** I don't lose a 30-day response window because I forgot to check in.
 
@@ -482,7 +482,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.7.0)
 
-### Story 13.3 — File in small claims court
+### Story 13.3, File in small claims court
 
 **As a** patient whose dispute has gone unanswered through the kit's escalation ladder, **I want** to see what filing in small claims actually looks like before I do it, **so that** I know whether to proceed and how to prepare.
 
@@ -492,7 +492,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.7.0)
 
-### Story 13.4 — Get started in ten minutes
+### Story 13.4, Get started in ten minutes
 
 **As a** new user landing on the repo, **I want** copy-paste opening prompts for common scenarios, **so that** I can start disputing tonight without reading every rule file.
 
@@ -504,9 +504,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 14 — Federal-program coverage and modality patterns
+## Epic 14, Federal-program coverage and modality patterns
 
-### Story 14.1 — Handle a TRICARE balance-billing or denial issue
+### Story 14.1, Handle a TRICARE balance-billing or denial issue
 
 **As a** TRICARE beneficiary receiving a balance bill or claim denial, **I want** the kit to recognize TRICARE's federal protections (15% balance-billing cap, active-duty zero-cost-share, regional contractor and BCAC referral) and route accordingly, **so that** I don't apply commercial-plan tactics to a federal program with different rules.
 
@@ -516,7 +516,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.8.0)
 
-### Story 14.2 — Handle a VA Community Care direct-billing problem
+### Story 14.2, Handle a VA Community Care direct-billing problem
 
 **As a** veteran receiving care from a non-VA provider under the MISSION Act, **I want** the kit to recognize when the provider is improperly billing me directly instead of the VA TPA, **so that** I forward the bill to the right place and do not pay something that VA owes.
 
@@ -527,7 +527,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.8.0)
 
-### Story 14.3 — Catch telehealth coding and parity issues
+### Story 14.3, Catch telehealth coding and parity issues
 
 **As a** patient billed for a telehealth visit, **I want** the kit to check that the place-of-service code matches the actual modality (home vs office), that modifier 95 or 93 is applied appropriately, that an in-person facility fee was not improperly attached, and that state telehealth-parity rules are followed, **so that** I do not pay for coding errors.
 
@@ -537,7 +537,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.8.0)
 
-### Story 14.4 — Use the decision tree as a quick reference
+### Story 14.4, Use the decision tree as a quick reference
 
 **As a** patient with a specific bill in hand, **I want** a single-page decision tree that points me directly at the right template, **so that** I do not have to read every rule file to figure out where to start.
 
@@ -549,9 +549,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 15 — Civil-rights and modality coverage
+## Epic 15, Civil-rights and modality coverage
 
-### Story 15.1 — Use Section 1557 against discrimination-tinged billing
+### Story 15.1, Use Section 1557 against discrimination-tinged billing
 
 **As a** patient who experienced inadequate language access, disability accommodation, or other discrimination-tinged conduct that affected billing, **I want** the kit to surface ACA Section 1557 protections and route to HHS OCR, **so that** I have a federal civil-rights lever in addition to ordinary billing disputes.
 
@@ -561,7 +561,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.9.0)
 
-### Story 15.2 — Handle an air-ambulance balance bill correctly
+### Story 15.2, Handle an air-ambulance balance bill correctly
 
 **As a** patient billed for an air-ambulance transport, **I want** the kit to apply federal NSA protections (which cover air ambulance, unlike ground ambulance) and address the practical pricing issues, **so that** I do not pay illegal balance bills and can negotiate the legal in-network cost-share down where applicable.
 
@@ -571,7 +571,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.9.0)
 
-### Story 15.3 — Calibrate expectations from common outcomes
+### Story 15.3, Calibrate expectations from common outcomes
 
 **As a** patient deciding whether to pursue a dispute, **I want** rough patterns of typical settlement amounts, time-to-resolution, and success rates by track, **so that** I can decide whether a fight is worth picking.
 
@@ -582,7 +582,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.9.0)
 
-### Story 15.4 — Avoid common patient-side mistakes
+### Story 15.4, Avoid common patient-side mistakes
 
 **As a** patient starting a dispute, **I want** to read once about the most common patient-side mistakes, **so that** I do not undermine my own case before I begin.
 
@@ -594,9 +594,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 16 — Plan-type and modality completeness
+## Epic 16, Plan-type and modality completeness
 
-### Story 16.1 — Appeal a marketplace plan denial correctly
+### Story 16.1, Appeal a marketplace plan denial correctly
 
 **As a** patient on an ACA marketplace plan whose claim was denied, **I want** the kit to recognize that the appeals framework differs from ERISA and Medicare and route to the right combination of internal appeal, external review by IRO, and state insurance department complaint, **so that** I do not miss the binding-IRO-decision lever unique to ACA-compliant plans.
 
@@ -606,7 +606,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.10.0)
 
-### Story 16.2 — Dispute observation status for Medicare patients
+### Story 16.2, Dispute observation status for Medicare patients
 
 **As a** Medicare beneficiary surprised by observation-status billing (Part B cost-sharing instead of Part A, or denied SNF coverage because no qualifying three-day inpatient stay), **I want** the kit to surface reclassification and appeal paths, **so that** I get the correct financial treatment for a hospitalization that clinically looked like an inpatient stay.
 
@@ -616,7 +616,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.10.0)
 
-### Story 16.3 — Retain documents correctly across a months-long dispute
+### Story 16.3, Retain documents correctly across a months-long dispute
 
 **As a** patient running a months-long dispute, **I want** clear guidance on what paperwork to keep, where, for how long, and how to organize it, **so that** I don't lose key evidence and don't drown in unnecessary paper.
 
@@ -628,9 +628,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 17 — Patient-pricing reference and additional state coverage
+## Epic 17, Patient-pricing reference and additional state coverage
 
-### Story 17.1 — Look up common CPT/HCPCS codes without paying for AMA access
+### Story 17.1, Look up common CPT/HCPCS codes without paying for AMA access
 
 **As a** patient reading an itemized bill, **I want** a quick reference for the most common procedure codes that appear on medical bills, **so that** I can orient myself without needing a paid AMA subscription.
 
@@ -640,7 +640,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.11.0)
 
-### Story 17.2 — Read a hospital's machine-readable file
+### Story 17.2, Read a hospital's machine-readable file
 
 **As a** patient with a hospital bill, **I want** to find and read the hospital's machine-readable file of standard charges, **so that** I can argue from the hospital's own published prices rather than third-party estimates.
 
@@ -650,7 +650,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.11.0)
 
-### Story 17.3 — Cover the next four most-populous states
+### Story 17.3, Cover the next four most-populous states
 
 **As a** patient in Utah, Iowa, Nevada, or Arkansas, **I want** a dedicated state pack rather than the LLM looking up my state's statutes from the template, **so that** my dispute letters cite the right authorities with confidence.
 
@@ -662,9 +662,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 18 — Kit navigability and additional state coverage
+## Epic 18, Kit navigability and additional state coverage
 
-### Story 18.1 — Navigate the kit when it's grown to 100+ files
+### Story 18.1, Navigate the kit when it's grown to 100+ files
 
 **As a** patient or contributor opening the repo for the first time at 100+ files, **I want** a single-page cross-reference index that maps every file by scenario, type, federal law, and state, **so that** I can find what I need without skimming everything.
 
@@ -675,7 +675,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.12.0)
 
-### Story 18.2 — Get FAQ answers covering all kit features
+### Story 18.2, Get FAQ answers covering all kit features
 
 **As a** user with questions about features added across v0.6-v0.11, **I want** the FAQ to cover them rather than reading every rule file, **so that** I can answer common scenarios quickly.
 
@@ -685,7 +685,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.12.0)
 
-### Story 18.3 — Cover the next four states by population
+### Story 18.3, Cover the next four states by population
 
 **As a** patient in Kansas, Mississippi, New Mexico, or Nebraska, **I want** a dedicated state pack rather than the LLM looking up my state's statutes from the template.
 
@@ -697,9 +697,9 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 ---
 
-## Epic 19 — Marshall Allen methodology pipeline
+## Epic 19, Marshall Allen methodology pipeline
 
-### Story 19.1 — Benchmark every bill against Medicare and surface counter-offer evidence
+### Story 19.1, Benchmark every bill against Medicare and surface counter-offer evidence
 
 **As a** patient with an itemized bill, **I want** the kit to compare each CPT against the Medicare allowable rate and surface a UCC § 2-305 counter-offer anchor, **so that** I have concrete evidence the bill is not a good-faith open-price term.
 
@@ -711,7 +711,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.2 — Audit each bill for duplicates, unbundling, modifier-25, late fees, and quantity inflation
+### Story 19.2, Audit each bill for duplicates, unbundling, modifier-25, late fees, and quantity inflation
 
 **As a** patient under a bill, **I want** the kit to automatically detect the most common billing errors Marshall Allen documents, **so that** my dispute letter cites structured findings rather than relying on the LLM to re-discover them every run.
 
@@ -721,7 +721,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.3 — Generate state-specific DOI / AG complaints in parallel with the dispute letter
+### Story 19.3, Generate state-specific DOI / AG complaints in parallel with the dispute letter
 
 **As a** patient who has mailed a dispute letter, **I want** the kit to draft the matching state insurance-department or attorney-general consumer-affairs complaint same day, **so that** parallel pressure reaches the bad actor without my having to research each state portal.
 
@@ -731,7 +731,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.4 — Prepare a small-claims civil-warrant filing when escalation is needed
+### Story 19.4, Prepare a small-claims civil-warrant filing when escalation is needed
 
 **As a** patient whose dispute and 30-day warning have gone unanswered, **I want** the kit to draft a county-agnostic small-claims / general-sessions civil warrant with five claim theories preserved (UCC § 2-305 declaratory, NSA, HPT non-compliance, state itemization statute, FDCPA), **so that** I can file with the county clerk by transcribing onto their standard form.
 
@@ -741,7 +741,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.5 — Re-anchor a non-responsive dispute with a second written dispute
+### Story 19.5, Re-anchor a non-responsive dispute with a second written dispute
 
 **As a** patient whose dispute letter received a non-substantive reply, **I want** the kit to draft a tighter second written dispute that identifies what was unaddressed and gives a 15-business-day final window, **so that** I have a clean record before filing the DOI complaint or small claims.
 
@@ -751,7 +751,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.6 — Surface accounts past or near statute of limitations
+### Story 19.6, Surface accounts past or near statute of limitations
 
 **As a** patient with old medical debts, **I want** the kit to flag accounts whose state-law SOL has expired or expires soon, **so that** I can preserve the SOL defense without accidentally re-aging the debt.
 
@@ -762,7 +762,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.7 — Pursue ERISA § 502(c) statutory penalty when plan documents are not produced
+### Story 19.7, Pursue ERISA § 502(c) statutory penalty when plan documents are not produced
 
 **As a** plan participant whose written § 1024(b)(4) document request was ignored, **I want** the kit to draft the § 502(c)(1) statutory-penalty demand at $110/day so I can recover the penalty (payable to me) or motivate the administrator to cure, **so that** the document delay carries actual cost.
 
@@ -772,7 +772,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.8 — Verify services were actually delivered via HIPAA records request
+### Story 19.8, Verify services were actually delivered via HIPAA records request
 
 **As a** patient suspicious that a line item was billed but not rendered, **I want** the kit to draft a HIPAA § 164.524 records request that invokes the 30-day statutory clock and the state's per-page fee cap, **so that** I can compare the medical record to the bill before deciding what to dispute.
 
@@ -782,7 +782,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.9 — Use the No Surprises Act self-pay GFE / PPDR path
+### Story 19.9, Use the No Surprises Act self-pay GFE / PPDR path
 
 **As an** uninsured or self-pay patient, **I want** the kit to draft a Good Faith Estimate demand and, when the final bill exceeds the GFE by $400+, a Patient-Provider Dispute Resolution submission for the federal portal, **so that** I have access to the federal NSA framework that applies to me.
 
@@ -793,7 +793,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.10 — Challenge a hospital lien filed against a tort recovery
+### Story 19.10, Challenge a hospital lien filed against a tort recovery
 
 **As an** accident-injured patient whose hospital has filed a statutory lien against a tort recovery, **I want** the kit to draft a six-ground lien challenge (chargemaster vs allowed, bill-insurance-first, NSA preemption, statutory cap, defective notice, made-whole), **so that** the lien is withdrawn or reduced to the contracted rate before settlement.
 
@@ -803,7 +803,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.11 — Respond to plan subrogation claims with the made-whole / common-fund defenses
+### Story 19.11, Respond to plan subrogation claims with the made-whole / common-fund defenses
 
 **As a** plan participant facing an insurer subrogation claim against my tort recovery, **I want** the kit to demand plan documents and preserve the made-whole, common-fund, allocation, and NSA-carve-out defenses, **so that** the plan's reimbursement is reduced or eliminated.
 
@@ -813,17 +813,17 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.12 — Dispute medical debt that has hit a credit report
+### Story 19.12, Dispute medical debt that has hit a credit report
 
 **As a** patient whose disputed medical bill has been reported to a consumer credit bureau, **I want** the kit to draft an FCRA dispute letter invoking the bureau policies, the federal CFPB rule, the state-law ban (where applicable), and the active-dispute and identity-theft defenses, **so that** the tradeline is removed or marked in dispute.
 
 **AC:**
 
-- Given the user records the tradeline on a credit report, When the drafter is run with the credit_report_dispute_fcra override, Then it produces `LETTER_CREDIT_REPORT_DISPUTE_FCRA.md` from `templates/letter_credit_report_dispute_fcra.md` selecting the applicable grounds from A–H based on the bill's history.
+- Given the user records the tradeline on a credit report, When the drafter is run with the credit_report_dispute_fcra override, Then it produces `LETTER_CREDIT_REPORT_DISPUTE_FCRA.md` from `templates/letter_credit_report_dispute_fcra.md` selecting the applicable grounds from A-H based on the bill's history.
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.13 — Request that the plan initiate federal IDR on a balance-billed NSA claim
+### Story 19.13, Request that the plan initiate federal IDR on a balance-billed NSA claim
 
 **As a** plan participant being balance-billed for an NSA-protected service, **I want** the kit to demand the plan initiate federal Independent Dispute Resolution against the provider and confirm in writing that my cost-sharing is fixed at the in-network amount, **so that** the plan-vs-provider fight stays between them.
 
@@ -833,7 +833,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.14 — Redirect work-related and motor-vehicle injury bills to the right payer
+### Story 19.14, Redirect work-related and motor-vehicle injury bills to the right payer
 
 **As a** patient whose injury was work-related or vehicle-accident-related, **I want** the kit to detect the injury context from the bill and draft a payer-redirect letter to the workers'-compensation carrier or auto med-pay carrier, **so that** the provider bills the right payer instead of me.
 
@@ -844,7 +844,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.15 — Cluster same-encounter bills and combine the dispute across providers
+### Story 19.15, Cluster same-encounter bills and combine the dispute across providers
 
 **As a** patient with bills from four or more providers for one hospital encounter, **I want** the kit to recognize the encounter, link the bills, and draft a single combined NSA-ancillary dispute letter addressing every provider, **so that** the legal argument is made once and the recipients are coordinated.
 
@@ -855,7 +855,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.16 — Log every interaction with billing and insurance
+### Story 19.16, Log every interaction with billing and insurance
 
 **As a** patient running a months-long dispute, **I want** to log every phone call, email, and received response in a structured action log so the dispute drafter can reference the history in subsequent letters, **so that** the paper trail is intact and citable.
 
@@ -865,7 +865,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.17 — Bundle every dispute group's evidence for offsite backup and exhibit packaging
+### Story 19.17, Bundle every dispute group's evidence for offsite backup and exhibit packaging
 
 **As a** patient preparing for a CFO escalation, a DOI complaint, or a court appearance, **I want** the kit to zip every artifact for one dispute group (bill, EOB, drafted letters, benchmark and audit rows, action log) with a manifest, **so that** I have a single self-contained record I can hand to a lawyer or judge.
 
@@ -876,7 +876,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.18 — Phone-call scripts and protocols for the calls the patient does choose to make
+### Story 19.18, Phone-call scripts and protocols for the calls the patient does choose to make
 
 **As a** kit user who needs to make a phone call to billing, insurance, or a patient advocate, **I want** scripts and rep-side protocols covering identification, recording-law rules per state, three-step confirmation patterns, and follow-up-letter cadence, **so that** I do not lose ground on a call.
 
@@ -886,7 +886,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.19 — Read the hospital's IRS Form 990 to build leverage
+### Story 19.19, Read the hospital's IRS Form 990 to build leverage
 
 **As a** patient disputing a non-profit hospital bill, **I want** a clear walkthrough of which Schedule H fields to extract from the hospital's IRS Form 990 and how to use them in dispute letters, FAP applications, and DOI complaints, **so that** the hospital's own filings become evidence.
 
@@ -896,7 +896,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.20 — Pull the hospital's machine-readable file for the codes on my bill
+### Story 19.20, Pull the hospital's machine-readable file for the codes on my bill
 
 **As a** patient with a hospital bill, **I want** the kit to fetch the hospital's MRF and extract gross, cash, min/max negotiated, and per-payer rates for the specific CPTs on my bill, **so that** the dispute letter can argue from the hospital's own published prices in addition to the Medicare benchmark.
 
@@ -907,7 +907,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.21 — Parse the Summary Plan Description into a structured profile
+### Story 19.21, Parse the Summary Plan Description into a structured profile
 
 **As a** plan participant in an active dispute, **I want** the kit to read my SPD PDF and emit a structured JSON profile with funding status, cost-sharing, claim and appeal deadlines, subrogation language, and NSA-ancillary implementation, **so that** ERISA appeals, subrogation responses, and IDR requests cite my actual plan terms.
 
@@ -918,7 +918,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.22 — Expand the bundled Medicare PFS lookup so more bills auto-benchmark
+### Story 19.22, Expand the bundled Medicare PFS lookup so more bills auto-benchmark
 
 **As a** patient with a bill containing codes from observation, inpatient, mental-health, OB, or immunization categories, **I want** the bundled `medicare_pfs_common.csv` to cover them, **so that** the benchmark CSV is filled out without manual research.
 
@@ -928,7 +928,7 @@ Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then ac
 
 **Status:** shipped (v0.13.0)
 
-### Story 19.23 — Surface state-specific medical-debt protections in dispute and FCRA letters
+### Story 19.23, Surface state-specific medical-debt protections in dispute and FCRA letters
 
 **As a** patient in a state with strong medical-debt protections (CO, NY, CA, IL, NJ, MN, others), **I want** the dispute drafter to cite the right state-specific medical-debt-reporting ban, interest cap, charity-care screening mandate, and itemized-bill statute, **so that** my letters carry the strongest available legal anchors.
 

@@ -1,6 +1,6 @@
-# Rule 21 — ACA Section 1557 (anti-discrimination and language access)
+# Rule 21, ACA Section 1557 (anti-discrimination and language access)
 
-Section 1557 of the Affordable Care Act prohibits discrimination in healthcare on the bases of race, color, national origin, sex, age, and disability — at any healthcare program or activity receiving federal financial assistance. For a patient disputing a bill, Section 1557 most often matters in three contexts: language access (interpreter and translation rights for limited-English-proficiency patients), disability accommodation (effective communication, accessible facilities), and disparate-impact denial-of-care patterns.
+Section 1557 of the Affordable Care Act prohibits discrimination in healthcare on the bases of race, color, national origin, sex, age, and disability, at any healthcare program or activity receiving federal financial assistance. For a patient disputing a bill, Section 1557 most often matters in three contexts: language access (interpreter and translation rights for limited-English-proficiency patients), disability accommodation (effective communication, accessible facilities), and disparate-impact denial-of-care patterns.
 
 This rule does not displace ordinary billing-dispute rules; it adds a parallel federal lever where applicable.
 
@@ -33,10 +33,10 @@ What it does **not** typically cover:
 
 Section 1557 incorporates the substantive prohibitions of:
 
-- **Title VI of the Civil Rights Act of 1964** — race, color, national origin (including language)
-- **Title IX of the Education Amendments of 1972** — sex (including sex stereotyping, gender identity, sexual orientation per current OCR interpretation)
-- **Section 504 of the Rehabilitation Act of 1973** — disability
-- **Age Discrimination Act of 1975** — age
+- **Title VI of the Civil Rights Act of 1964**, race, color, national origin (including language)
+- **Title IX of the Education Amendments of 1972**, sex (including sex stereotyping, gender identity, sexual orientation per current OCR interpretation)
+- **Section 504 of the Rehabilitation Act of 1973**, disability
+- **Age Discrimination Act of 1975**, age
 
 ## The three patient-billing-relevant contexts
 
@@ -54,8 +54,8 @@ Patient-billing relevance: if an LEP patient was not provided a qualified interp
 
 Patients with disabilities are entitled to:
 
-- **Effective communication** — sign language interpreters for deaf and hard-of-hearing patients; large-print, Braille, or accessible electronic formats for visually-impaired patients; alternative communication methods as needed.
-- **Physical accessibility** — clinical examination tables that can accommodate wheelchair users, accessible imaging equipment.
+- **Effective communication**, sign language interpreters for deaf and hard-of-hearing patients; large-print, Braille, or accessible electronic formats for visually-impaired patients; alternative communication methods as needed.
+- **Physical accessibility**, clinical examination tables that can accommodate wheelchair users, accessible imaging equipment.
 - **Reasonable modifications** of policies and procedures.
 
 Patient-billing relevance: a denial of care or improper billing tied to disability can be a Section 1557 violation. Example: a hospital that refused to provide a sign-language interpreter, then billed the patient for a follow-up visit because the original visit was incomplete due to communication failure. Use Section 1557 to argue the bill is improper.
@@ -113,7 +113,7 @@ The 2024 rule's protections for gender-identity and sexual-orientation discrimin
 
 ## Related
 
-- [[14_hipaa_right_of_access]] — also enforced by OCR, often parallel
-- [[13_emtala]] — anti-discrimination angle on emergency-care denial
-- `templates/complaint_hipaa_access.md` — adapt for a Section 1557 OCR complaint; the format is similar
-- `references/laws_state_*.md` — state anti-discrimination laws layered on top
+- [[14_hipaa_right_of_access]], also enforced by OCR, often parallel
+- [[13_emtala]], anti-discrimination angle on emergency-care denial
+- `templates/complaint_hipaa_access.md`, adapt for a Section 1557 OCR complaint; the format is similar
+- `references/laws_state_*.md`, state anti-discrimination laws layered on top

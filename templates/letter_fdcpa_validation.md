@@ -1,4 +1,4 @@
-# Template — FDCPA § 1692g debt-validation request
+# Template, FDCPA § 1692g debt-validation request
 
 Use within **30 days** of the first written contact from a **third-party debt collector** (or debt buyer) about a medical debt. Triggers the federal Fair Debt Collection Practices Act's validation requirement: until the collector produces the requested verification, they must cease collection activity.
 
@@ -15,16 +15,16 @@ If you cannot tell whether the entity contacting you is the original provider or
 Phone: [PATIENT PHONE]
 Email: [PATIENT EMAIL]
 
-[DATE — must be within 30 days of the collector's first written communication]
+[DATE, must be within 30 days of the collector's first written communication]
 
 [COLLECTOR NAME]
 [COLLECTOR MAILING ADDRESS]
 [CITY, STATE ZIP]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Notice of dispute and request for validation —
+RE: Notice of dispute and request for validation, 
     Account/reference #: [COLLECTOR ACCOUNT NUMBER]
     Alleged original creditor: [ORIGINAL CREDITOR NAME, if known]
     Alleged amount: $[AMOUNT CLAIMED]
@@ -99,7 +99,7 @@ Most third-party collectors cannot produce the full chain of documentation reque
 
 ## Statute of limitations on the underlying debt
 
-Most state breach-of-contract statutes of limitation are 3-6 years. **Do not make a payment on a time-barred debt without legal advice** — a partial payment can restart the clock in some states. The LLM should ask the patient for the date of last service or last activity and warn if the alleged debt may already be time-barred under the patient's state law.
+Most state breach-of-contract statutes of limitation are 3-6 years. **Do not make a payment on a time-barred debt without legal advice**, a partial payment can restart the clock in some states. The LLM should ask the patient for the date of last service or last activity and warn if the alleged debt may already be time-barred under the patient's state law.
 
 ## Follow-up
 

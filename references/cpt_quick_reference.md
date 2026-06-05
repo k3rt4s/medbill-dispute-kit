@@ -16,11 +16,11 @@ CPT codes and full descriptors are AMA copyrighted. This file uses short paraphr
 
 See `cpt_codes_em.md` for the full E/M coding rules and documentation requirements. Brief recap:
 
-- **99281-99285** — emergency department visits, Level 1 through Level 5
-- **99202-99205** — new-patient office visits
-- **99211-99215** — established-patient office visits
-- **99221-99239** — hospital inpatient/observation E/M
-- **99417** — prolonged time add-on (15-min increments)
+- **99281-99285**, emergency department visits, Level 1 through Level 5
+- **99202-99205**, new-patient office visits
+- **99211-99215**, established-patient office visits
+- **99221-99239**, hospital inpatient/observation E/M
+- **99417**, prolonged time add-on (15-min increments)
 
 ## Imaging
 
@@ -158,7 +158,7 @@ Modifier errors (missing -25 when a separately identifiable E/M is billed, missi
 | 21   | Inpatient hospital                                   |
 | 22   | On-campus outpatient hospital                        |
 | 19   | Off-campus outpatient hospital                       |
-| 23   | Emergency room — hospital                            |
+| 23   | Emergency room, hospital                            |
 | 24   | Ambulatory surgical center                           |
 | 31   | Skilled nursing facility                             |
 | 32   | Nursing facility                                     |
@@ -170,15 +170,15 @@ A common dispute: a service that was actually performed at the patient's home or
 
 For specific patient-side dispute work, look up the patient's specific code(s) at one or more of:
 
-- **Turquoise Health (patient-facing):** [turquoise.health/patients](https://turquoise.health/patients) — pulls from hospital MRFs
-- **FAIR Health Consumer:** [fairhealthconsumer.org](https://www.fairhealthconsumer.org) — commercial-claims data
-- **Healthcare Bluebook:** [healthcarebluebook.com](https://www.healthcarebluebook.com) — fair-price benchmarks
+- **Turquoise Health (patient-facing):** [turquoise.health/patients](https://turquoise.health/patients), pulls from hospital MRFs
+- **FAIR Health Consumer:** [fairhealthconsumer.org](https://www.fairhealthconsumer.org), commercial-claims data
+- **Healthcare Bluebook:** [healthcarebluebook.com](https://www.healthcarebluebook.com), fair-price benchmarks
 - **CMS Physician Fee Schedule Lookup:** the Medicare allowable rate
 - **The hospital's own machine-readable file** (see `references/hpt_mrf_format.md` for what to look for)
 
 ## Related
 
-- [[cpt_codes_em]] — Evaluation and Management code documentation requirements
-- [[hpt_mrf_format]] — Hospital Price Transparency machine-readable file format and how to read one
-- [[../rules/03_check_cpt_codes]] — methodology for verifying coding accuracy
-- [[../rules/05_negotiate_fair_price]] — using these codes to anchor price negotiations
+- [[cpt_codes_em]], Evaluation and Management code documentation requirements
+- [[hpt_mrf_format]], Hospital Price Transparency machine-readable file format and how to read one
+- [[../rules/03_check_cpt_codes]], methodology for verifying coding accuracy
+- [[../rules/05_negotiate_fair_price]], using these codes to anchor price negotiations

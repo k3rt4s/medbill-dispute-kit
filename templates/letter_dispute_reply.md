@@ -1,4 +1,4 @@
-# Template — Dispute reply (second written dispute)
+# Template, Dispute reply (second written dispute)
 
 Use when the patient sent the initial dispute letter, the provider or insurer replied, but the reply did not address the substance of the dispute. Common non-responses:
 
@@ -25,10 +25,10 @@ Email: [PATIENT EMAIL]
 [PROVIDER NAME]
 [PROVIDER MAILING ADDRESS]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: Second written dispute — your reply of [PRIOR RESPONSE DATE] did not address the substance —
+RE: Second written dispute, your reply of [PRIOR RESPONSE DATE] did not address the substance, 
     Account #[ACCOUNT NUMBER]
     Patient: [PATIENT FULL NAME]
     Date(s) of service: [DATE OF SERVICE]
@@ -45,15 +45,15 @@ I. What you said and what it did not address
 
 [The drafter renders one or more of the blocks below based on what was in the prior response.]
 
-[BLOCK A — Form letter / general billing policy]
+[BLOCK A, Form letter / general billing policy]
 
 Your response reciting your office's general billing policy does not address the specific line items I challenged. The dispute is line-item specific. My initial dispute identified [N] specific items (summarized in Section II below); your response did not analyze any of them by code, amount, or evidence.
 
-[BLOCK B — New statement at the same balance]
+[BLOCK B, New statement at the same balance]
 
 Your response was a new statement at the same balance. Re-issuing a statement is not a response to a dispute; it restates the position I am disputing. The dispute remains open and the balance asserted is not enforceable until you provide a written response addressing the items in Section II below.
 
-[BLOCK C — Conclusory "we have reviewed" letter]
+[BLOCK C, Conclusory "we have reviewed" letter]
 
 Your response stated that you "reviewed" the account and concluded the balance is correct, without showing any analysis. A bare conclusion is not a response. Under [STATE] consumer-protection law and the FDCPA validation rules where they apply, a creditor or collector responding to a written dispute must address the substance. Please provide:
 
@@ -61,11 +61,11 @@ Your response stated that you "reviewed" the account and concluded the balance i
 (b) the specific contractual or statutory basis for each disputed amount;
 (c) the office's response to each numbered item in Section II below.
 
-[BLOCK D — Hardship / payment-plan offer when the dispute was about coding or NSA]
+[BLOCK D, Hardship / payment-plan offer when the dispute was about coding or NSA]
 
 Your response offered a hardship discount or payment plan. The dispute is not about affordability. I am not asking you to reduce the balance because I cannot pay; I am stating that the balance as asserted is not enforceable because [the line items violate NCCI unbundling rules / the No Surprises Act fixes my cost-sharing at the in-network amount / the EOB-allowed amount is lower than what you are billing me / the itemized bill has not been provided despite a written request, which violates [STATE STATUTE]]. A hardship offer does not resolve a coding, NSA, or statutory-compliance dispute.
 
-[BLOCK E — Invitation to call]
+[BLOCK E, Invitation to call]
 
 Your response asked me to call. I have specifically requested written correspondence and have indicated I will not negotiate by phone. The reasons are documentation and a clear paper trail, and they apply equally to your office. Please respond in writing.
 
@@ -130,12 +130,12 @@ Prior correspondence:
 - Your reply dated [PRIOR RESPONSE DATE]
 
 Enclosures:
-A — Copy of my initial dispute letter dated [INITIAL DISPUTE DATE]
-B — Copy of your reply dated [PRIOR RESPONSE DATE]
-C — Copy of the bill being disputed
-D — Copy of the EOB for the corresponding claim
-E — Line-item benchmark analysis (Medicare PFS rates)
-F — Audit findings (NCCI / duplicate / late-fee / quantity flags)
+A, Copy of my initial dispute letter dated [INITIAL DISPUTE DATE]
+B, Copy of your reply dated [PRIOR RESPONSE DATE]
+C, Copy of the bill being disputed
+D, Copy of the EOB for the corresponding claim
+E, Line-item benchmark analysis (Medicare PFS rates)
+F, Audit findings (NCCI / duplicate / late-fee / quantity flags)
 
 cc:
 - file
@@ -145,7 +145,7 @@ cc:
 
 ## Placeholders and rendering notes
 
-- `[PRIOR RESPONSE DATE]` and the response blocks (A–E) are the heart of this letter. The drafter selects blocks based on what was in the provider's reply, which the user records in `tracker.csv` `notes` (or in the action log via `scripts/log_interaction.py --action response_received`). If the user has not characterized the reply, the drafter renders block C (conclusory) as the safest default.
+- `[PRIOR RESPONSE DATE]` and the response blocks (A-E) are the heart of this letter. The drafter selects blocks based on what was in the provider's reply, which the user records in `tracker.csv` `notes` (or in the action log via `scripts/log_interaction.py --action response_received`). If the user has not characterized the reply, the drafter renders block C (conclusory) as the safest default.
 - Section II numbered items come from the audit findings (`_audit.csv`), benchmark overpriced rows (`_benchmarks.csv`), and any structured findings the user added to the bill row's `findings` field.
 - The "15 business days" window in Section V is deliberately tighter than the initial dispute's 30-day window. This letter is the bridge to escalation, not a fresh negotiation.
 

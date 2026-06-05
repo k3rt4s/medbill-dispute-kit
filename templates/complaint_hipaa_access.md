@@ -1,4 +1,4 @@
-# Template — HIPAA right-of-access complaint to HHS OCR
+# Template, HIPAA right-of-access complaint to HHS OCR
 
 For when a healthcare provider has failed to provide a patient access to their own medical or billing records within 30 days of a written request, has charged a fee that exceeds reasonable cost-based pricing, or has otherwise denied or impeded access in violation of 45 CFR § 164.524.
 
@@ -19,14 +19,14 @@ Email: [PATIENT EMAIL]
 
 US Department of Health and Human Services
 Office for Civil Rights
-[Regional Office address — find at hhs.gov/ocr/about-us/contact-us/index.html]
+[Regional Office address, find at hhs.gov/ocr/about-us/contact-us/index.html]
 
 [Online portal: https://ocrportal.hhs.gov/ocr/smartscreen/main.jsf]
 
-VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED (if mailed)
+VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED (if mailed)
 USPS Tracking: [CERTIFIED MAIL TRACKING NUMBER]
 
-RE: HIPAA right-of-access complaint — 45 CFR § 164.524
+RE: HIPAA right-of-access complaint, 45 CFR § 164.524
     Covered entity: [PROVIDER LEGAL NAME]
     Covered entity address: [PROVIDER ADDRESS]
     Date of request: [DATE OF PATIENT'S WRITTEN REQUEST]
@@ -50,36 +50,36 @@ On [DATE OF REQUEST], I submitted a written request to [PROVIDER LEGAL NAME] for
 - [Format requested: paper, electronic PDF, electronic transmission to a designated third party, etc.]
 - [Delivery method: mailed copy, secure electronic transmission, in-person pickup, etc.]
 
-A copy of my request is attached as Exhibit A. The request was sent via [METHOD — certified mail, the provider's online portal, in person, etc.] and I have [CERTIFIED MAIL TRACKING / delivery confirmation / receipt acknowledgment] showing receipt by the provider on [DATE OF RECEIPT].
+A copy of my request is attached as Exhibit A. The request was sent via [METHOD, certified mail, the provider's online portal, in person, etc.] and I have [CERTIFIED MAIL TRACKING / delivery confirmation / receipt acknowledgment] showing receipt by the provider on [DATE OF RECEIPT].
 
 III. The violation
 
 [The LLM renders one or more of the following blocks based on the actual facts.]
 
-[BLOCK A — No response within 30 days]
+[BLOCK A, No response within 30 days]
 
 It has been [N] days since [PROVIDER LEGAL NAME] received my request. The provider has not produced the requested records, has not provided written notice of a 30-day extension under 45 CFR § 164.524(b)(2)(ii), and has not responded to my follow-up inquiry dated [DATE] (attached as Exhibit B).
 
-[BLOCK B — Excessive fee]
+[BLOCK B, Excessive fee]
 
-[PROVIDER LEGAL NAME] quoted a fee of $[AMOUNT] for the records, broken down as: [break down — per-page fee, search fee, review fee, retrieval fee, etc.]. This fee is inconsistent with the "reasonable, cost-based fee" standard in 45 CFR § 164.524(c)(4) and HHS OCR guidance, which permits only labor for copying, supplies, and postage. Specifically:
+[PROVIDER LEGAL NAME] quoted a fee of $[AMOUNT] for the records, broken down as: [break down, per-page fee, search fee, review fee, retrieval fee, etc.]. This fee is inconsistent with the "reasonable, cost-based fee" standard in 45 CFR § 164.524(c)(4) and HHS OCR guidance, which permits only labor for copying, supplies, and postage. Specifically:
 
-- [Identify the impermissible fee components — search fees, review fees, per-page rates exceeding actual cost, fees for transmission of electronic records to a third party, etc.]
+- [Identify the impermissible fee components, search fees, review fees, per-page rates exceeding actual cost, fees for transmission of electronic records to a third party, etc.]
 - A reasonable cost-based fee for [N pages / the requested format] would be approximately $[REASONABLE ESTIMATE] based on OCR's published examples.
 
-[BLOCK C — Refused electronic format or transmission]
+[BLOCK C, Refused electronic format or transmission]
 
 I requested the records in [electronic format / transmitted to a designated third party at the address provided]. [PROVIDER LEGAL NAME] refused, requiring instead [paper pickup / their preferred form / a specific authorization form / other]. 45 CFR § 164.524(c) requires the entity to provide the records in the form and format requested by the patient if readily producible, and to transmit to a designated third party on request.
 
-[BLOCK D — Imposed procedural barriers]
+[BLOCK D, Imposed procedural barriers]
 
 [PROVIDER LEGAL NAME] required me to [appear in person / sign a notarized authorization / complete a specific form / provide additional identity documentation beyond reasonable verification / pay in advance / other procedure not permitted by the regulation]. 45 CFR § 164.524(b) permits an entity to require a written request and to verify identity, but does not permit the additional procedural conditions imposed.
 
-[BLOCK E — Partial response insufficient]
+[BLOCK E, Partial response insufficient]
 
-[PROVIDER LEGAL NAME] provided some records but has not produced [SPECIFIC RECORDS — example: the itemized bill with CPT codes, the clinical notes for the encounter, the EOB, the imaging report]. The records produced are not the complete designated record set as defined in 45 CFR § 164.501. My follow-up request for the missing items, dated [DATE], has not been answered.
+[PROVIDER LEGAL NAME] provided some records but has not produced [SPECIFIC RECORDS, example: the itemized bill with CPT codes, the clinical notes for the encounter, the EOB, the imaging report]. The records produced are not the complete designated record set as defined in 45 CFR § 164.501. My follow-up request for the missing items, dated [DATE], has not been answered.
 
-[BLOCK F — Outright denial without permitted ground]
+[BLOCK F, Outright denial without permitted ground]
 
 [PROVIDER LEGAL NAME] denied my request entirely. The denial reason cited was [DENIAL REASON]. This reason is not one of the permitted grounds under 45 CFR § 164.524(a)(2)-(3), which limits denial to: psychotherapy notes; information compiled for civil, criminal, or administrative actions; PHI obtained from a non-treatment source under promise of confidentiality (with narrow conditions); and certain unreviewable grounds. The denial does not appear to meet these criteria.
 
@@ -87,7 +87,7 @@ I requested the records in [electronic format / transmitted to a designated thir
 
 IV. Impact on the patient
 
-I sought these records to [purpose — dispute a medical bill, file an insurance appeal, prepare a small-claims filing, transfer care to a new provider, support a personal-injury claim]. The provider's delay or denial has [impact — caused me to miss appeal deadlines, prevented me from challenging an inflated bill, complicated my care]. Specifically: [briefly describe the consequence].
+I sought these records to [purpose, dispute a medical bill, file an insurance appeal, prepare a small-claims filing, transfer care to a new provider, support a personal-injury claim]. The provider's delay or denial has [impact, caused me to miss appeal deadlines, prevented me from challenging an inflated bill, complicated my care]. Specifically: [briefly describe the consequence].
 
 V. Documentation enclosed
 
@@ -122,7 +122,7 @@ Date of birth: [DOB]
 Date of request: [DATE OF REQUEST]
 
 cc:
-    [PROVIDER PRIVACY OFFICER — name and address per the provider's Notice of Privacy Practices]
+    [PROVIDER PRIVACY OFFICER, name and address per the provider's Notice of Privacy Practices]
     [STATE LICENSURE BOARD for the provider, if applicable]
     [STATE ATTORNEY GENERAL Consumer Protection, where applicable]
 
@@ -133,9 +133,9 @@ Enclosures: as listed in Section V
 
 ## Where to file
 
-- **HHS OCR online complaint portal:** [ocrportal.hhs.gov/ocr/smartscreen/main.jsf](https://ocrportal.hhs.gov/ocr/smartscreen/main.jsf) — fastest route.
+- **HHS OCR online complaint portal:** [ocrportal.hhs.gov/ocr/smartscreen/main.jsf](https://ocrportal.hhs.gov/ocr/smartscreen/main.jsf), fastest route.
 - **OCR by mail:** find the right Regional Office (10 nationwide) at [hhs.gov/ocr/about-us/contact-us/index.html](https://www.hhs.gov/ocr/about-us/contact-us/index.html).
-- **State licensure board:** for the provider type — state medical board, state board of nursing, state health department. State boards sometimes resolve faster than OCR.
+- **State licensure board:** for the provider type, state medical board, state board of nursing, state health department. State boards sometimes resolve faster than OCR.
 - **State attorney general:** if the state's medical-records statute is stronger than the federal floor.
 
 ## Placeholders and rendering notes
@@ -144,7 +144,7 @@ Enclosures: as listed in Section V
 - Always cite specific subsections of 45 CFR § 164.524; OCR responds better to specific regulatory citations than general references to "HIPAA."
 - The 180-day filing deadline runs from when the patient *knew or should have known* of the violation. For a non-response, that is typically the day the 30-day response window closed.
 
-## Before filing — try the privacy officer
+## Before filing, try the privacy officer
 
 Every HIPAA-covered entity must designate a privacy officer (45 CFR § 164.530(a)). Sending a copy of this complaint to the provider's privacy officer, with notice that an OCR complaint will follow in [N] days, often resolves the dispute without formal investigation. The provider's Notice of Privacy Practices identifies the privacy officer by name and contact information.
 
@@ -152,9 +152,9 @@ Every HIPAA-covered entity must designate a privacy officer (45 CFR § 164.530(a
 
 Most states have a medical-records-access statute that runs alongside HIPAA. Examples:
 
-- California: Cal. Health & Safety Code § 123100 et seq. — 15-day deadline for inpatient records, 5-day for outpatient.
-- Texas: Tex. Occ. Code § 159.005 — 15 business days, fee capped per the Texas Medical Board schedule.
-- New York: N.Y. Pub. Health Law § 18 — 10 days, fee capped at $0.75/page.
+- California: Cal. Health & Safety Code § 123100 et seq. 15-day deadline for inpatient records, 5-day for outpatient.
+- Texas: Tex. Occ. Code § 159.005-15 business days, fee capped per the Texas Medical Board schedule.
+- New York: N.Y. Pub. Health Law § 18-10 days, fee capped at $0.75/page.
 
 Where state law is stronger, file under both.
 

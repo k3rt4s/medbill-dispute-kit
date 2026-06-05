@@ -1,4 +1,4 @@
-# Resources — pricing transparency, debt help, advocacy
+# Resources, pricing transparency, debt help, advocacy
 
 External tools the LLM should send patients to. All free to use unless noted.
 
@@ -23,7 +23,7 @@ External tools the LLM should send patients to. All free to use unless noted.
 - **What it does:** "Fair Price" benchmarks for shoppable procedures with green/yellow/red facility ratings combining price and quality.
 - **Caveat:** Best access is via employer-sponsored plans; the public-facing site is limited. Cite as a benchmark source rather than a guaranteed-free tool.
 
-### PatientRightsAdvocate.org — Hospital Price Files Finder
+### PatientRightsAdvocate.org, Hospital Price Files Finder
 
 - **URL:** [hospitalpricingfiles.patientrightsadvocate.org](https://hospitalpricingfiles.patientrightsadvocate.org)
 - **What it does:** Free search across hospital MRFs, with compliance audits that flag non-compliant hospitals. Useful when a hospital's own website hides its MRF.
@@ -47,12 +47,12 @@ If the hospital doesn't have one or it's clearly incomplete, file a complaint at
 
 - **URL:** [fmma.org](https://www.fmma.org)
 - **What it does:** Searchable directory of independent surgery centers, imaging centers, and direct primary care practices nationwide that publish cash prices. SCO is the most famous member; FMMA lists hundreds more across the US.
-- **How to use it as a counter-offer anchor:** Find the nearest 2–3 FMMA members offering the procedure on your bill, take screenshots of their published cash prices on the date you check, and attach them to your counter-offer letter as Exhibit X. A hospital billing 10x what an FMMA member 30 miles away charges has a UCC § 2-305 problem.
+- **How to use it as a counter-offer anchor:** Find the nearest 2-3 FMMA members offering the procedure on your bill, take screenshots of their published cash prices on the date you check, and attach them to your counter-offer letter as Exhibit X. A hospital billing 10x what an FMMA member 30 miles away charges has a UCC § 2-305 problem.
 
 ### Direct Primary Care Frontier (DPC directory)
 
 - **URL:** [dpcfrontier.com](https://www.dpcfrontier.com)
-- **What it does:** Maps US direct-primary-care practices. DPC is a flat-monthly-fee model that includes most office visits, basic labs, and some procedures, and typically excludes insurance entirely. Average monthly fee $50–$120.
+- **What it does:** Maps US direct-primary-care practices. DPC is a flat-monthly-fee model that includes most office visits, basic labs, and some procedures, and typically excludes insurance entirely. Average monthly fee $50, $120.
 - **Why it's a comparable:** Allen's argument that "insurance-paid medical care is wildly overpriced" lands harder when a DPC clinic 5 miles from the disputed bill charges $75/month for unlimited office visits while the hospital billed $850 for one urgent-care encounter.
 
 ### Sesame
@@ -113,13 +113,13 @@ Every non-profit hospital must publish a FAP under IRS § 501(r). Find yours by 
 
 ## Insurance appeals
 
-### Laurie Todd — "The Insurance Warrior"
+### Laurie Todd, "The Insurance Warrior"
 
 - **URL:** [theinsurancewarrior.com](https://theinsurancewarrior.com)
-- **What she offers:** Two books — *Fight Your Health Insurer and Win: Secrets of the Insurance Warrior* (2007) and *APPROVED: Win Your Insurance Appeal in 5 Days* (2018). Personalized appeal-writing consulting (fee-based).
+- **What she offers:** Two books, *Fight Your Health Insurer and Win: Secrets of the Insurance Warrior* (2007) and *APPROVED: Win Your Insurance Appeal in 5 Days* (2018). Personalized appeal-writing consulting (fee-based).
 - **Why it matters:** Allen credited Todd's methodology for his appeal-writing chapter. Her appeals can run 55+ pages and combine plan-language analysis, clinical evidence, and patient narrative. The toolkit's ERISA appeal template follows her structural pattern.
 
-### US Department of Labor — Employee Benefits Security Administration (EBSA)
+### US Department of Labor, Employee Benefits Security Administration (EBSA)
 
 - **URL:** [dol.gov/agencies/ebsa](https://www.dol.gov/agencies/ebsa)
 - **Help line:** **1-866-444-3272**

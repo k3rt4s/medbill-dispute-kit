@@ -1,4 +1,4 @@
-# Rule 03 — Check the CPT codes against what actually happened
+# Rule 03, Check the CPT codes against what actually happened
 
 Each line on an itemized bill carries a Current Procedural Terminology (CPT) or HCPCS code. The code determines the price. A code that overstates the complexity of the encounter overstates the price.
 
@@ -7,22 +7,22 @@ Each line on an itemized bill carries a Current Procedural Terminology (CPT) or 
 For every CPT code on the bill, verify three things:
 
 1. The code description matches what the patient describes happening.
-2. For evaluation-and-management codes (E/M codes — the visit-level codes), the documentation requirements for the assigned level are actually met.
+2. For evaluation-and-management codes (E/M codes, the visit-level codes), the documentation requirements for the assigned level are actually met.
 3. The code is not duplicated, bundled inappropriately, or paired with another code in a way the AMA's CPT rules prohibit.
 
 If any check fails, dispute that line.
 
 ## The E/M code structure
 
-E/M codes are where the most common patient-side errors live. Each visit type has 4-5 levels, and each level has documentation requirements set by CMS. A higher level pays more — sometimes 3-5x more — so providers have an incentive to code high. CMS documentation requirements are detailed in `references/cpt_codes_em.md`. The short version:
+E/M codes are where the most common patient-side errors live. Each visit type has 4-5 levels, and each level has documentation requirements set by CMS. A higher level pays more, sometimes 3-5x more, so providers have an incentive to code high. CMS documentation requirements are detailed in `references/cpt_codes_em.md`. The short version:
 
 **Emergency department visits (99281-99285):**
 
-- 99281 — Level 1, straightforward problem (minor)
-- 99282 — Level 2, low-complexity
-- 99283 — Level 3, moderate-complexity
-- 99284 — Level 4, moderate-to-high complexity
-- 99285 — Level 5, high complexity, comprehensive evaluation
+- 99281, Level 1, straightforward problem (minor)
+- 99282, Level 2, low-complexity
+- 99283, Level 3, moderate-complexity
+- 99284, Level 4, moderate-to-high complexity
+- 99285, Level 5, high complexity, comprehensive evaluation
 
 **Office or outpatient visits (99202-99205 new patient, 99211-99215 established):**
 
@@ -48,10 +48,10 @@ Some hospital-owned outpatient clinics tack on a "facility fee" in addition to t
 
 ## Tools
 
-- `references/cpt_codes_em.md` — the documentation requirements you'll cite
+- `references/cpt_codes_em.md`, the documentation requirements you'll cite
 - A free CPT-code lookup (e.g. AAPC, codify, or the AMA's free patient-facing CPT lookup) for codes not covered in references/
 
 ## Related rules
 
-- [[02_request_itemization]] — you need the codes before you can check them
-- [[05_negotiate_fair_price]] — the same line item may be correctly coded and still wildly overpriced; these are separate disputes
+- [[02_request_itemization]], you need the codes before you can check them
+- [[05_negotiate_fair_price]], the same line item may be correctly coded and still wildly overpriced; these are separate disputes

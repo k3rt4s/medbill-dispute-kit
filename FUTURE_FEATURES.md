@@ -6,7 +6,7 @@ Items here are not promises. The kit is open-source; contributors are welcome to
 
 ---
 
-## State coverage — long tail
+## State coverage, long tail
 
 Fourteen states do not yet have a dedicated pack. The kit can still run for patients in these states using `references/laws_state_template.md` as a generic skeleton; what's missing is a worked-out file matching the 12-section structure of the existing packs.
 
@@ -16,7 +16,7 @@ Fourteen states do not yet have a dedicated pack. The kit can still run for pati
 | Delaware      | DE   | DE Code Title 18 Insurance; small-claims jurisdictional limit; Justice of the Peace courts                       |
 | Hawaii        | HI   | HRS Chapter 431; Prepaid Health Care Act parallel to ERISA for fully insured                                     |
 | Idaho         | ID   | Idaho Code Title 41; pre-existing Idaho Patient Act protections                                                  |
-| Louisiana     | LA   | Unique civil-law tradition (no UCC § 2-305 analogue — quantum meruit applies); 10-year prescription on contracts |
+| Louisiana     | LA   | Unique civil-law tradition (no UCC § 2-305 analogue, quantum meruit applies); 10-year prescription on contracts |
 | Maine         | ME   | Maine Revised Statutes Title 24-A; LD 1101 medical-debt protections (2023)                                       |
 | Montana       | MT   | MCA Title 33; 8-year SOL on contracts                                                                            |
 | North Dakota  | ND   | NDCC Title 26.1; small-claims jurisdictional limit                                                               |
@@ -37,7 +37,7 @@ About 13.5% of US households speak Spanish at home. The kit is currently English
 
 The minimum useful Spanish footprint is:
 
-- `llm/system_prompt.es.md` — Spanish version of the LLM persona.
+- `llm/system_prompt.es.md`, Spanish version of the LLM persona.
 - `templates/*_es.md` for the highest-frequency templates: itemization request, initial dispute, EOB request, 30-day warning, hardship negotiation, NSA violation, FAP application.
 - `docs/START_HERE.es.md` and `docs/DECISION_TREE.es.md`.
 - `FAQ.es.md` covering the top 30 questions.
@@ -48,7 +48,7 @@ Expected effort: 40-80 hours for the minimum footprint, including review.
 
 ## Outcomes bank
 
-A community-contributed, anonymized database of real dispute outcomes — input (bill type, state, finding) and output (resolution, time elapsed, money saved). Would let future patients calibrate expected outcomes and the kit calibrate its recommendations.
+A community-contributed, anonymized database of real dispute outcomes, input (bill type, state, finding) and output (resolution, time elapsed, money saved). Would let future patients calibrate expected outcomes and the kit calibrate its recommendations.
 
 The hard part is privacy. Patients cannot share medical details without risk; even apparently-anonymized records often re-identify in small geographic areas. The kit would need:
 
@@ -96,7 +96,7 @@ A scripted integration would:
 
 Expected effort: 10-20 hours, contingent on Dollar For having or offering an API.
 
-## parse_990.py — auto-extract Schedule H data
+## parse_990.py, auto-extract Schedule H data
 
 `references/irs_990_review.md` walks through what to pull from a non-profit hospital's IRS Form 990 / Schedule H manually. A scripted parser would:
 
@@ -111,7 +111,7 @@ Expected effort: 20-30 hours including test coverage against a half-dozen real 9
 
 ## In-letter chargemaster comparison helper
 
-The counter-offer letter currently embeds a per-CPT benchmark table comparing billed amounts to Medicare PFS and (when available) the hospital's published cash price from the MRF. A helper that pulls additional comparables — Surgery Center of Oklahoma's all-inclusive cash prices, Free Market Medical Association directory prices, Sesame marketplace prices — would strengthen the UCC § 2-305 argument by showing three or four independent fair-price anchors instead of one or two.
+The counter-offer letter currently embeds a per-CPT benchmark table comparing billed amounts to Medicare PFS and (when available) the hospital's published cash price from the MRF. A helper that pulls additional comparables, Surgery Center of Oklahoma's all-inclusive cash prices, Free Market Medical Association directory prices, Sesame marketplace prices, would strengthen the UCC § 2-305 argument by showing three or four independent fair-price anchors instead of one or two.
 
 Most of these sources do not have public APIs. The helper would either scrape (legally fraught) or maintain a curated comparable database in `references/`.
 
@@ -157,7 +157,7 @@ Expected effort: 4-6 hours for the template plus drafter integration.
 
 ## Multi-language patient-facing UI for the LLM
 
-The kit's LLM prompts assume English. For Spanish-speaking patients (see "Spanish localization" above), the entire prompt chain — system_prompt, workflow, output_contracts, decision_tree — would need a Spanish parallel.
+The kit's LLM prompts assume English. For Spanish-speaking patients (see "Spanish localization" above), the entire prompt chain, system_prompt, workflow, output_contracts, decision_tree, would need a Spanish parallel.
 
 Expected effort: subsumed by the Spanish-localization item above.
 
@@ -172,7 +172,7 @@ Expected effort: subsumed by the Spanish-localization item above.
 
 ## Related
 
-- [USER_STORIES.md](USER_STORIES.md) — user-value master.
-- [BUILD_PLAN.md](BUILD_PLAN.md) — shipped-and-shipping-soon engineering work.
-- [roadmap.json](roadmap.json) — machine-readable feature roster.
-- [CONTRIBUTING.md](CONTRIBUTING.md) — PR guidelines.
+- [USER_STORIES.md](USER_STORIES.md), user-value master.
+- [BUILD_PLAN.md](BUILD_PLAN.md), shipped-and-shipping-soon engineering work.
+- [roadmap.json](roadmap.json), machine-readable feature roster.
+- [CONTRIBUTING.md](CONTRIBUTING.md), PR guidelines.

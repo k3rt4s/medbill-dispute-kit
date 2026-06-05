@@ -11,9 +11,9 @@ Three things make Oklahoma's patient-side leverage unusually strong:
 ## Hospital itemization right
 
 - **Statute:** Oklahoma has **no single dedicated hospital-itemization statute** like Georgia's O.C.G.A. § 10-1-393(b)(14) or Tennessee's Tenn. Code Ann. § 68-11-220. The functional equivalents are:
-  - **63 O.S. § 1-725.1 et seq.** — **Transparency in Health Care Prices Act** (enacted Laws 2021, c. 371; substantially amended by HB 4148, 2024). Hospitals and providers must publicly post prices for the twenty most common services/DRGs/CPT codes, refreshed at least annually, with plain-English descriptions.
-  - **12 O.S. § 193** — Required information for civil action to collect medical debt. Effective November 1, 2024. Any creditor, debt collector, or collection agency filing a civil action for medical debt must **attach a redacted itemization of the charges** that are the basis for the debt **and proof of compliance** with state and federal hospital price-transparency laws.
-  - **76 O.S. § 19** — patients are entitled, upon request and tender of expenses ($0.50/page), to copies of all medical bills pertaining to their case. This is the general access right and is the cleanest cite for a written itemization-request letter.
+  - **63 O.S. § 1-725.1 et seq.**, **Transparency in Health Care Prices Act** (enacted Laws 2021, c. 371; substantially amended by HB 4148, 2024). Hospitals and providers must publicly post prices for the twenty most common services/DRGs/CPT codes, refreshed at least annually, with plain-English descriptions.
+  - **12 O.S. § 193**, Required information for civil action to collect medical debt. Effective November 1, 2024. Any creditor, debt collector, or collection agency filing a civil action for medical debt must **attach a redacted itemization of the charges** that are the basis for the debt **and proof of compliance** with state and federal hospital price-transparency laws.
+  - **76 O.S. § 19**, patients are entitled, upon request and tender of expenses ($0.50/page), to copies of all medical bills pertaining to their case. This is the general access right and is the cleanest cite for a written itemization-request letter.
 - **Sources:** [law.justia.com/codes/oklahoma/title-63/section-63-1-725-1](https://law.justia.com/codes/oklahoma/title-63/section-63-1-725-1/); [law.justia.com/codes/oklahoma/title-12/section-12-193](https://law.justia.com/codes/oklahoma/title-12/section-12-193/); [law.justia.com/codes/oklahoma/title-76/section-76-19](https://law.justia.com/codes/oklahoma/title-76/section-76-19/); House summary at [okhouse.gov/posts/news-20240521_1](https://www.okhouse.gov/posts/news-20240521_1)
 - **What this means in practice:**
   - There is **no automatic 6-business-day or 10-day post-discharge duty** under Oklahoma law. The itemization right operates on a written-request model under § 76-19 plus the public-posting duty under § 1-725.1.
@@ -25,7 +25,7 @@ Three things make Oklahoma's patient-side leverage unusually strong:
 
 ## Unfair Claims Settlement Practices Act
 
-- **Statute:** **36 O.S. § 1250.1 et seq.** — Unfair Claims Settlement Practices Act; listed practices at **§ 1250.5**; threshold/application provisions at **§ 1250.3**
+- **Statute:** **36 O.S. § 1250.1 et seq.**, Unfair Claims Settlement Practices Act; listed practices at **§ 1250.5**; threshold/application provisions at **§ 1250.3**
 - **Source:** [law.justia.com/codes/oklahoma/title-36/section-36-1250-5](https://law.justia.com/codes/oklahoma/title-36/section-36-1250-5/); [law.justia.com/codes/oklahoma/title-36/section-36-1250-3](https://law.justia.com/codes/oklahoma/title-36/section-36-1250-3/); academic treatment at [digitalcommons.law.utulsa.edu/tlr/vol24/iss3/2](https://digitalcommons.law.utulsa.edu/tlr/vol24/iss3/2/)
 - **Substance:** Prohibits insurers from engaging in a defined list of unfair claims-settlement practices, knowingly misrepresenting policy provisions, failing to acknowledge claim communications promptly, failing to adopt reasonable standards for prompt investigations, failing in good faith to effectuate prompt fair settlements where liability is reasonably clear, compelling insureds to litigate to recover amounts due, and similar conduct. **§ 1250.3** generally requires the practice to be committed with such frequency as to indicate a general business practice before regulatory enforcement attaches.
 - **Critical caveat:** **No private right of action.** The Oklahoma Supreme Court held in *McWhirter v. Fire Ins. Exchange*, 1994 OK 93, 878 P.2d 1056, that violation of the UCSPA does not by itself give rise to a private cause of action. Enforcement is by the Oklahoma Insurance Commissioner.
@@ -49,7 +49,7 @@ Three things make Oklahoma's patient-side leverage unusually strong:
 
 ## Surprise billing / Out-of-Network Ambulance Service Provider Act
 
-- **Statute:** **36 O.S. § 6593 et seq.** — Out-of-Network Ambulance Service Provider Act (originally enacted Laws 2021; substantially amended by **HB 2872, signed May 29, 2024**, effective November 1, 2024)
+- **Statute:** **36 O.S. § 6593 et seq.**, Out-of-Network Ambulance Service Provider Act (originally enacted Laws 2021; substantially amended by **HB 2872, signed May 29, 2024**, effective November 1, 2024)
 - **Implementing agency:** Oklahoma Insurance Department; rate database due by January 1, 2026
 - **Sources:** Oklahoma Insurance Department No Surprises Act portal at [oid.ok.gov/nsa](https://www.oid.ok.gov/nsa/); Commonwealth Fund state survey at [commonwealthfund.org/blog/2024/states-forge-ahead-protect-consumers-advisory-committee-recommends-federal-action](https://www.commonwealthfund.org/blog/2024/states-forge-ahead-protect-consumers-advisory-committee-recommends-federal-action); bill tracking at [billtrack50.com/billdetail/1535605](https://www.billtrack50.com/billdetail/1535605/17934)
 
@@ -77,7 +77,7 @@ Three things make Oklahoma's patient-side leverage unusually strong:
 
 ## Oklahoma Consumer Protection Act (OCPA)
 
-- **Statute:** **15 O.S. § 751 et seq.** — Oklahoma Consumer Protection Act. Private right of action at **§ 761.1**.
+- **Statute:** **15 O.S. § 751 et seq.**, Oklahoma Consumer Protection Act. Private right of action at **§ 761.1**.
 - **Source:** [law.justia.com/codes/oklahoma/title-15/section-15-761-1](https://law.justia.com/codes/oklahoma/title-15/section-15-761-1/); [oscn.net/applications/oscn/DeliverDocument.asp?CiteID=66266](https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=66266)
 - **Substance:** Prohibits unfair and deceptive trade practices in consumer transactions, including misrepresenting the price, characteristics, or terms of goods or services. Reaches **original creditors**, including hospitals and their in-house billing departments, not just third-party debt collectors. This is broader than the federal FDCPA.
 - **Private right of action under § 761.1:**
@@ -130,8 +130,8 @@ Three things make Oklahoma's patient-side leverage unusually strong:
 
 ## Statute of limitations
 
-- **Written contracts:** **5 years from breach** — **12 O.S. § 95(A)(1)**
-- **Oral contracts / implied-in-fact:** **3 years from breach** — **12 O.S. § 95(A)(2)**
+- **Written contracts:** **5 years from breach**, **12 O.S. § 95(A)(1)**
+- **Oral contracts / implied-in-fact:** **3 years from breach**, **12 O.S. § 95(A)(2)**
 - **Open accounts / accounts stated:** generally treated under the oral/implied bucket (3 years) unless reduced to a signed written agreement
 - **Source:** [law.justia.com/codes/oklahoma/title-12/section-12-95](https://law.justia.com/codes/oklahoma/title-12/section-12-95/)
 
@@ -179,8 +179,8 @@ Oklahoma has **no general statute** mandating a hospital financial-assistance po
 
 Specific Oklahoma frameworks worth flagging in disputes when applicable:
 
-- **Oklahoma Indigent Health Care Act** (Title 56, § 58 et seq.) and the **Community Hospitals Authority** (63 O.S. § 3240.3) — hospitals receiving state indigent-care appropriations have indigent-care service obligations.
-- **University Hospitals Authority** (63 O.S. § 3203) — OU Health system facilities must deliver indigent care at or above 120% of appropriations on a Medicare-cost basis.
+- **Oklahoma Indigent Health Care Act** (Title 56, § 58 et seq.) and the **Community Hospitals Authority** (63 O.S. § 3240.3), hospitals receiving state indigent-care appropriations have indigent-care service obligations.
+- **University Hospitals Authority** (63 O.S. § 3203), OU Health system facilities must deliver indigent care at or above 120% of appropriations on a Medicare-cost basis.
 - **Hospital charge limits for charity-eligible patients:** for hospitals participating in certain state programs, post-discount charges may not exceed the amount Medicare would pay for the same services.
 
 Use Dollar For at [dollarfor.org/state_sheet/oklahoma](https://dollarfor.org/state_sheet/oklahoma/) for charity-care screening across Oklahoma hospitals.

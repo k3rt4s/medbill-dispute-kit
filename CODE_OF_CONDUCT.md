@@ -26,7 +26,7 @@ Examples of unacceptable behavior:
 
 ## Project-specific norms
 
-This project handles a sensitive topic — medical bills and the financial pressure they place on patients. Two corollary norms:
+This project handles a sensitive topic, medical bills and the financial pressure they place on patients. Two corollary norms:
 
 - **Patient stories are not entertainment.** Contributors will sometimes share their own dispute experiences to inform a rule or template. Treat those stories with care. Don't quote, paraphrase, or share them outside the project context.
 - **Disagree on the citation, not the person.** If a contributor cites a statute incorrectly, the right response is to provide the correct citation with a source URL. The wrong response is to question their competence or motives.

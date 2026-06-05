@@ -1,8 +1,8 @@
-# Rule 14 — HIPAA right of access
+# Rule 14, HIPAA right of access
 
 A patient's right to obtain a copy of their own medical records is a federal entitlement, not a courtesy the provider may grant or deny at will. HIPAA's Privacy Rule sets the framework, with explicit deadlines and fee caps. When a provider stalls or charges unreasonable amounts for records, the patient has both a federal complaint route (HHS Office for Civil Rights) and significant leverage on any underlying billing dispute.
 
-This rule fires whenever the patient needs records to support a billing dispute, an insurance appeal, or a small-claims filing — and the provider is dragging their feet.
+This rule fires whenever the patient needs records to support a billing dispute, an insurance appeal, or a small-claims filing, and the provider is dragging their feet.
 
 ## The statute
 
@@ -52,7 +52,7 @@ Patients often need:
 - The **EOB and the underlying claim** → support insurance-appeal letters under `rules/07_appeal_insurance_denial.md`.
 - **Records of attempted prior authorization** → support claims-handling disputes.
 
-A provider that won't produce these documents on a billing dispute is creating its own evidentiary record of non-cooperation — useful in any subsequent state-DOI complaint or small-claims filing.
+A provider that won't produce these documents on a billing dispute is creating its own evidentiary record of non-cooperation, useful in any subsequent state-DOI complaint or small-claims filing.
 
 ## Fee guidance
 
@@ -86,6 +86,6 @@ Most providers comply once OCR is mentioned; few want the formal investigation.
 
 ## Related
 
-- `templates/complaint_hipaa_access.md` — for the OCR complaint
-- [[02_request_itemization]] — overlapping but distinct: state itemization statutes vs. HIPAA records access
-- [[07_appeal_insurance_denial]] — records access is often a prerequisite to a credible appeal
+- `templates/complaint_hipaa_access.md`, for the OCR complaint
+- [[02_request_itemization]], overlapping but distinct: state itemization statutes vs. HIPAA records access
+- [[07_appeal_insurance_denial]], records access is often a prerequisite to a credible appeal

@@ -64,7 +64,7 @@ python scripts/restructure_to_billers_eob.py
 
 ### `index_bills_and_claims.py`
 
-Reads every `<file>.extracted.txt` sidecar produced by the text extractor and uses Azure OpenAI gpt-5.2 (text-only, no image render) to extract structured fields. Writes `_bills.csv` per `Billers/<slug>/` (one row per bill PDF) and `_claims.csv` per `EOB/<slug>/` (one row per CLAIM line — a multi-claim EOB produces N rows). Idempotent: each sidecar's content hash is recorded in its row, so re-runs only call Azure for new or changed files.
+Reads every `<file>.extracted.txt` sidecar produced by the text extractor and uses Azure OpenAI gpt-5.2 (text-only, no image render) to extract structured fields. Writes `_bills.csv` per `Billers/<slug>/` (one row per bill PDF) and `_claims.csv` per `EOB/<slug>/` (one row per CLAIM line, a multi-claim EOB produces N rows). Idempotent: each sidecar's content hash is recorded in its row, so re-runs only call Azure for new or changed files.
 
 Computes the `has_itemization` flag using the peer-reviewed heuristic:
 
@@ -96,12 +96,12 @@ python scripts/match_claims_to_bills.py
 
 Scans each bill sidecar for the common billing errors Marshall Allen catalogues in "Never Pay the First Bill" and produces `Billers/<slug>/_audit.csv` with one row per finding. Detected categories:
 
-- Duplicate CPT same bill — same code billed two or more times with a positive charge on the same bill.
-- NCCI unbundling — comprehensive code billed alongside an included sub-code (e.g., CMP 80053 alongside BMP 80048). Pairs are loaded from `references/ncci_pairs_common.csv` (~70 common pairs ship; extensible without touching the script).
-- Modifier-25 stacking — modifier 25 keyword present and at least one E/M code billed alongside another procedure same DOS.
-- Late fees / finance charges — keyword detection on the sidecar text; most states cap or prohibit these on medical debt.
-- Service-not-received hints — "no-show", "cancelled", "left AMA", "refused" language in the sidecar; prompt to obtain the medical record under `templates/letter_records_request_hipaa.md`.
-- Quantity inflation — line items with `units` or `qty` >= 10 are flagged for chart cross-check.
+- Duplicate CPT same bill, same code billed two or more times with a positive charge on the same bill.
+- NCCI unbundling, comprehensive code billed alongside an included sub-code (e.g., CMP 80053 alongside BMP 80048). Pairs are loaded from `references/ncci_pairs_common.csv` (~70 common pairs ship; extensible without touching the script).
+- Modifier-25 stacking, modifier 25 keyword present and at least one E/M code billed alongside another procedure same DOS.
+- Late fees / finance charges, keyword detection on the sidecar text; most states cap or prohibit these on medical debt.
+- Service-not-received hints, "no-show", "cancelled", "left AMA", "refused" language in the sidecar; prompt to obtain the medical record under `templates/letter_records_request_hipaa.md`.
+- Quantity inflation, line items with `units` or `qty` >= 10 are flagged for chart cross-check.
 
 The audit script makes no network calls. The dispute drafter pulls audit findings into its prompt context so substantive letters cite the structured findings rather than re-extracting them from the sidecar.
 
@@ -114,7 +114,7 @@ python scripts/audit_billing_errors.py --slug a_specific_biller
 
 Walks every `Billers/<slug>/_bills.csv` and extracts each bill's CPT/HCPCS codes plus the dollar amount appearing next to them in the sidecar text. Joins each code against `references/medicare_pfs_common.csv` (a curated CY2025 national-rate lookup that ships with the kit) and writes `Billers/<slug>/_benchmarks.csv` with the ratio of billed to Medicare allowable. Also emits a FAIR Health Consumer URL and a Healthcare Bluebook URL per code so the patient can look up commercial fair-market ranges manually if they want a second benchmark.
 
-This script makes no network calls. The Medicare lookup is bundled public-domain data. Codes not in the bundled file appear in the output with blank Medicare data and a ratio of "" — the patient can extend `references/medicare_pfs_common.csv` over time as new codes show up in their bills.
+This script makes no network calls. The Medicare lookup is bundled public-domain data. Codes not in the bundled file appear in the output with blank Medicare data and a ratio of "", the patient can extend `references/medicare_pfs_common.csv` over time as new codes show up in their bills.
 
 Marshall Allen's UCC § 2-305 "open price term" argument needs evidence of fair market value. Medicare allowable is the most defensible benchmark a patient can cite back to a provider. This script produces that evidence as a structured artifact that `check_completeness.py` reads to gate the negotiated-counter-offer track and `draft_letters_by_state.py` reads to render the line-item table inside the counter-offer letter.
 
@@ -129,11 +129,11 @@ Joins the per-folder CSVs with `matches.csv` and writes the master `tracker.csv`
 
 - `has_eob` (Y/N, derived from matches.csv)
 - `has_itemization` (Y/N, from `_bills.csv`)
-- `benchmarks_available` (Y/N, derived from `_benchmarks.csv` — Y means at least one CPT is billed at ≥ 150% of the Medicare allowable, which gates the counter-offer track)
+- `benchmarks_available` (Y/N, derived from `_benchmarks.csv`, Y means at least one CPT is billed at ≥ 150% of the Medicare allowable, which gates the counter-offer track)
 - `status` (`gathering_evidence` | `ready_to_dispute` | `disputed` | `escalated` | `settled` | `closed` | `superseded`)
 - `next_action` (`request_eob` | `request_itemization` | `negotiate_counter_offer` | `draft_dispute` | `file_doi_complaint` | `file_small_claims` | etc.)
 
-Manual columns the user fills in after mailing each letter (`eob_request_sent_date`, `eob_request_tracking`, `counter_offer_sent_date`, `doi_complaint_sent_date`, `small_claims_filed_date`, etc.) are preserved across runs — the script never overwrites a value the user has entered.
+Manual columns the user fills in after mailing each letter (`eob_request_sent_date`, `eob_request_tracking`, `counter_offer_sent_date`, `doi_complaint_sent_date`, `small_claims_filed_date`, etc.) are preserved across runs, the script never overwrites a value the user has entered.
 
 ```bash
 python scripts/check_completeness.py
@@ -160,22 +160,22 @@ Encounter context: when `check_completeness.py` clusters multiple bills into the
 
 Additional template keys available for `FOLDER_TEMPLATE_OVERRIDES`:
 
-- `records_request_hipaa` — `templates/letter_records_request_hipaa.md`
-- `good_faith_estimate_request` — `templates/letter_good_faith_estimate_request.md`
-- `ppdr_initiate` — `templates/letter_ppdr_initiate.md`
-- `challenge_hospital_lien` — `templates/letter_challenge_hospital_lien.md`
-- `subrogation_response` — `templates/letter_subrogation_response.md`
-- `credit_report_dispute_fcra` — `templates/letter_credit_report_dispute_fcra.md`
-- `request_insurer_initiate_idr` — `templates/letter_request_insurer_initiate_idr.md`
-- `dispute_reply` — `templates/letter_dispute_reply.md` (second written dispute when the first reply did not address the substance)
-- `erisa_502c_penalty` — `templates/letter_erisa_502c_penalty.md` (statutory penalty for plan-document non-production)
+- `records_request_hipaa`, `templates/letter_records_request_hipaa.md`
+- `good_faith_estimate_request`, `templates/letter_good_faith_estimate_request.md`
+- `ppdr_initiate`, `templates/letter_ppdr_initiate.md`
+- `challenge_hospital_lien`, `templates/letter_challenge_hospital_lien.md`
+- `subrogation_response`, `templates/letter_subrogation_response.md`
+- `credit_report_dispute_fcra`, `templates/letter_credit_report_dispute_fcra.md`
+- `request_insurer_initiate_idr`, `templates/letter_request_insurer_initiate_idr.md`
+- `dispute_reply`, `templates/letter_dispute_reply.md` (second written dispute when the first reply did not address the substance)
+- `erisa_502c_penalty`, `templates/letter_erisa_502c_penalty.md` (statutory penalty for plan-document non-production)
 
 These do not have automatic state-machine gates because they are user-initiated (records review, GFE/PPDR for self-pay patients, accident-related lien and subrogation, credit-reporting and IDR escalations, second written dispute, ERISA penalty claim). Set them in `FOLDER_TEMPLATE_OVERRIDES` to drive the drafter when the trigger condition applies for a specific biller.
 
 Automatic state-machine branches added in v0.13.0:
 
-- WC / auto-medpay routing — the canonical bill's sidecar text is keyword-scanned for work-related-injury or motor-vehicle-accident markers; matching bills get `LETTER_WC_CARRIER_REDIRECT.md` or `LETTER_AUTO_MED_PAY.md` drafted alongside (not instead of) the regular dispute flow.
-- Encounter-combined dispute — encounters with 4+ distinct billers (a hospital-admission signature) and at least one EOB on file produce a single `LETTER_ENCOUNTER_COMBINED.md` anchored to the alphabetically-first bill_id in the encounter, addressing every provider in the encounter at once.
+- WC / auto-medpay routing, the canonical bill's sidecar text is keyword-scanned for work-related-injury or motor-vehicle-accident markers; matching bills get `LETTER_WC_CARRIER_REDIRECT.md` or `LETTER_AUTO_MED_PAY.md` drafted alongside (not instead of) the regular dispute flow.
+- Encounter-combined dispute, encounters with 4+ distinct billers (a hospital-admission signature) and at least one EOB on file produce a single `LETTER_ENCOUNTER_COMBINED.md` anchored to the alphabetically-first bill_id in the encounter, addressing every provider in the encounter at once.
 
 ```bash
 python scripts/draft_letters_by_state.py
@@ -236,11 +236,11 @@ Uses rclone's `--immutable` so remote files are never overwritten. The script do
 
 Pulls a hospital's machine-readable price file (45 CFR Part 180) and extracts per-CPT gross, cash, min/max negotiated, and per-payer rates for the codes on a specific bill. Standard-library-only; no network credentials needed (most hospital MRFs are public URLs). Content-sniffs the format from a small read of the file's first bytes:
 
-- CMS template JSON (post-July 2024) — top-level `standard_charge_information[]`.
-- CMS template CSV — wide-format with `standard_charge|gross`, `standard_charge|<payer>|<plan>|negotiated_dollar` columns.
-- Turquoise / TransparentRx flat CSV — `cpt_hcpcs_code` + `gross_charge` + `negotiated_rate_*`.
-- TransparentRx legacy JSON — nested `PriceTransparency.Items[]`.
-- Epic-native wide CSV — `BILLABLE_CODE` + `CODE_TYPE` + `LIST_PRICE`.
+- CMS template JSON (post-July 2024), top-level `standard_charge_information[]`.
+- CMS template CSV, wide-format with `standard_charge|gross`, `standard_charge|<payer>|<plan>|negotiated_dollar` columns.
+- Turquoise / TransparentRx flat CSV, `cpt_hcpcs_code` + `gross_charge` + `negotiated_rate_*`.
+- TransparentRx legacy JSON, nested `PriceTransparency.Items[]`.
+- Epic-native wide CSV, `BILLABLE_CODE` + `CODE_TYPE` + `LIST_PRICE`.
 
 See [`references/mrf_vendor_adapters.md`](../references/mrf_vendor_adapters.md) for format details and where to find a hospital's MRF URL.
 
@@ -279,7 +279,7 @@ python scripts/classify_rename_medical_bills.py --dry-run
 
 ## Workstation configuration (`kit_config.toml`)
 
-Three pipeline overrides — which biller slugs to always-close as correspondence-only, which slugs to route to a specific dispute template, and which slugs to load an additional state-pack for — load from a TOML config file outside the kit's source tree. Default location: `<HEALTHBILLS_ROOT>/kit_config.toml`. Override path via the `MEDBILL_KIT_CONFIG_FILE` env var. Missing file is fine; the kit ships with empty defaults.
+Three pipeline overrides, which biller slugs to always-close as correspondence-only, which slugs to route to a specific dispute template, and which slugs to load an additional state-pack for, load from a TOML config file outside the kit's source tree. Default location: `<HEALTHBILLS_ROOT>/kit_config.toml`. Override path via the `MEDBILL_KIT_CONFIG_FILE` env var. Missing file is fine; the kit ships with empty defaults.
 
 Schema:
 
@@ -324,11 +324,11 @@ Same rule for `kit_config.toml` (see the "Workstation configuration" section abo
 ## Requirements
 
 - Python 3.11+
-- `PyMuPDF` (fitz) for PDF rendering — used by `classify_rename_medical_bills.py`
+- `PyMuPDF` (fitz) for PDF rendering, used by `classify_rename_medical_bills.py`
 - `openai` for the Azure-compatible client
 - Azure OpenAI deployment with vision support (the workstation default uses `gpt-5.2`)
 - Workstation `.env` with `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`
-- Tesseract OCR (optional, on PATH) — the text extractor falls back to vision OCR for image-only PDFs, so Tesseract is not required by these scripts
+- Tesseract OCR (optional, on PATH), the text extractor falls back to vision OCR for image-only PDFs, so Tesseract is not required by these scripts
 
 `validate_tracker.py` and `deadline_watch.py` have no third-party dependencies and need no API keys.
 

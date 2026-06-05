@@ -1,14 +1,14 @@
-# Rule 17 — Bankruptcy and medical debt
+# Rule 17, Bankruptcy and medical debt
 
-Medical debt is the leading cause of US personal bankruptcy. For patients whose medical debt exceeds their realistic ability to repay, bankruptcy is not a failure to use the kit's other rules — it is an additional tool that can discharge medical debt in months when the other tools cannot.
+Medical debt is the leading cause of US personal bankruptcy. For patients whose medical debt exceeds their realistic ability to repay, bankruptcy is not a failure to use the kit's other rules, it is an additional tool that can discharge medical debt in months when the other tools cannot.
 
 This rule explains when bankruptcy is the right move, when it is the wrong move, and how to coordinate with the kit's other dispute paths. It is not a substitute for an attorney; non-trivial bankruptcies should be filed by counsel. The kit's role is to help the patient identify when to consult counsel and what to bring.
 
 ## The two patient-relevant chapters
 
-**Chapter 7 — straight liquidation.** Most patient medical-debt bankruptcies. Wipes out unsecured medical debt entirely, typically within 3-4 months of filing. Requires passing the **means test** (income below a state-specific median, or a more permissive disposable-income calculation). Filing fee approximately $338; fee waiver available for income below 150% of federal poverty level.
+**Chapter 7, straight liquidation.** Most patient medical-debt bankruptcies. Wipes out unsecured medical debt entirely, typically within 3-4 months of filing. Requires passing the **means test** (income below a state-specific median, or a more permissive disposable-income calculation). Filing fee approximately $338; fee waiver available for income below 150% of federal poverty level.
 
-**Chapter 13 — repayment plan.** A 3-5 year repayment plan supervised by the court. Used when the patient has regular income but cannot manage current debts, or when Chapter 7 isn't available (income too high for means test, or recent prior discharge). Medical debt is treated as unsecured; typically receives a fraction of its face value.
+**Chapter 13, repayment plan.** A 3-5 year repayment plan supervised by the court. Used when the patient has regular income but cannot manage current debts, or when Chapter 7 isn't available (income too high for means test, or recent prior discharge). Medical debt is treated as unsecured; typically receives a fraction of its face value.
 
 ## When bankruptcy is the right tool
 
@@ -22,9 +22,9 @@ Yes:
 
 No, or not yet:
 
-- **The bill is wrong** — dispute it first. Bankruptcy discharges a wrong bill at the cost of a 7-year credit-report mark; far better to defeat the wrong bill outright. Use the kit's regular dispute tools.
-- **The bill is dispute-eligible under No Surprises Act, EMTALA, or state surprise-billing law** — these federal/state protections can eliminate the bill entirely. Use them.
-- **The patient qualifies for IRS § 501(r) charity care or a state-specific charity-care program** — apply for those first. Charity care produces a clean reduction without credit-report impact.
+- **The bill is wrong**, dispute it first. Bankruptcy discharges a wrong bill at the cost of a 7-year credit-report mark; far better to defeat the wrong bill outright. Use the kit's regular dispute tools.
+- **The bill is dispute-eligible under No Surprises Act, EMTALA, or state surprise-billing law**, these federal/state protections can eliminate the bill entirely. Use them.
+- **The patient qualifies for IRS § 501(r) charity care or a state-specific charity-care program**, apply for those first. Charity care produces a clean reduction without credit-report impact.
 - **The amount is small enough that the bankruptcy filing fee and attorney's fees exceed the debt** (rough threshold: $2,000-$3,000 in total medical debt). Other debts may still justify filing.
 - **The patient owns significant non-exempt assets** (a high-equity home above the state exemption, a paid-off vehicle above the vehicle exemption, etc.). Chapter 7 trustees can liquidate non-exempt assets; the patient may lose more than they gain.
 
@@ -49,9 +49,9 @@ Patients in difficult financial situations sometimes find themselves running mul
 
 - **State legal aid organizations** every state. Most accept bankruptcy intake; some have dedicated bankruptcy clinics.
 - **Federal bankruptcy attorney referral panels** via the state bar, often with reduced consultation fees.
-- **Upsolve** (upsolve.org) — non-profit that helps low-income filers complete Chapter 7 pro se for free. Good for straightforward cases under the means-test income threshold.
+- **Upsolve** (upsolve.org), non-profit that helps low-income filers complete Chapter 7 pro se for free. Good for straightforward cases under the means-test income threshold.
 - **Public-interest bankruptcy clinics** at many law schools.
-- **NACA** (National Association of Consumer Advocates) — directory of consumer-protection attorneys including bankruptcy.
+- **NACA** (National Association of Consumer Advocates), directory of consumer-protection attorneys including bankruptcy.
 
 ## Chapter 7 means test (high level)
 
@@ -91,6 +91,6 @@ Note: once bankruptcy is filed, the kit's role on most bills is to track them as
 
 ## Related
 
-- [[01_never_pay_first]] — applies even more strongly when bankruptcy is being considered; do not preferentially pay one creditor over another in the run-up
-- [[15_auto_med_pay]] — hospital lien situations interact with bankruptcy in complex ways
-- `references/laws_federal.md` — the FDCPA continues to apply during bankruptcy and gives the patient additional remedies if a collector violates the automatic stay
+- [[01_never_pay_first]], applies even more strongly when bankruptcy is being considered; do not preferentially pay one creditor over another in the run-up
+- [[15_auto_med_pay]], hospital lien situations interact with bankruptcy in complex ways
+- `references/laws_federal.md`, the FDCPA continues to apply during bankruptcy and gives the patient additional remedies if a collector violates the automatic stay

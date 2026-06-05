@@ -10,7 +10,7 @@ Three things make Missouri's patient-side leverage unusually strong:
 
 ## Hospital itemization and cost-estimate right
 
-- **Statute:** **RSMo § 191.875** — Healthcare provider, written estimate of cost required, when.
+- **Statute:** **RSMo § 191.875**, Healthcare provider, written estimate of cost required, when.
 - **Source:** [revisor.mo.gov/main/OneSection.aspx?section=191.875](https://revisor.mo.gov/main/OneSection.aspx?section=191.875)
 - **What it requires:**
   - Upon **written request by a patient** that includes a medical treatment plan from the patient's health care provider, the provider must deliver a written estimate of cost **within three (3) business days** by mail, electronically, or in person.
@@ -54,7 +54,7 @@ Missouri also recognizes a common-law tort of bad-faith refusal to settle in the
 
 ## Surprise billing, unanticipated out-of-network care
 
-- **Statute:** **RSMo § 376.690** — Unanticipated out-of-network care, billing limitations.
+- **Statute:** **RSMo § 376.690**, Unanticipated out-of-network care, billing limitations.
 - **Source:** [revisor.mo.gov/main/OneSection.aspx?section=376.690](https://revisor.mo.gov/main/OneSection.aspx?section=376.690)
 - **Substance:**
   - Defines "unanticipated out-of-network care" as care received in an **in-network facility** from an **out-of-network professional** between the time the patient presents with an emergency medical condition and the time of discharge.
@@ -126,8 +126,8 @@ Missouri also recognizes a common-law tort of bad-faith refusal to settle in the
 
 ## Statute of limitations
 
-- **Written contracts:** **10 years from breach**, **RSMo § 516.110(1)** — "an action upon any writing, whether sealed or unsealed, for the payment of money or property." Tied for longest in the United States.
-- **Oral contracts and implied/open accounts:** **5 years**, **RSMo § 516.120(1)** — "all actions upon contracts, obligations or liabilities, express or implied, except those mentioned in section 516.110."
+- **Written contracts:** **10 years from breach**, **RSMo § 516.110(1)**, "an action upon any writing, whether sealed or unsealed, for the payment of money or property." Tied for longest in the United States.
+- **Oral contracts and implied/open accounts:** **5 years**, **RSMo § 516.120(1)**, "all actions upon contracts, obligations or liabilities, express or implied, except those mentioned in section 516.110."
 - **Sources:** [revisor.mo.gov/main/OneSection.aspx?section=516.110](https://revisor.mo.gov/main/OneSection.aspx?section=516.110); [revisor.mo.gov/main/OneSection.aspx?section=516.120](https://revisor.mo.gov/main/OneSection.aspx?section=516.120)
 
 Most hospital admissions involve a signed financial-responsibility form, treated as a written contract under § 516.110, so **10 years** applies. Implied-in-fact medical billing without a signed agreement (rare, but possible for an unconscious ER patient, certain ambulance encounters) may be treated as an oral/implied contract under § 516.120, so 5 years.
@@ -200,8 +200,8 @@ When the LLM renders a Missouri-bound letter, substitute these defaults:
 
 Worth keeping in mind when triaging a Missouri patient's bills:
 
-1. **Vexatious refusal-to-pay with mandatory attorney's-fee shift** — § 375.420's 20% / 10% / fee formula on top of the underlying loss is one of the more patient-friendly first-party insurance remedies in the country. Reference the statute in every demand to a Missouri-licensed carrier, the 30-day clock alone moves a meaningful percentage of stalled claims.
-2. **10-year SOL on written contracts** — tied for longest in the United States. The window cuts both ways (it also extends the hospital's collection window), so verify the dispute is genuinely live before invoking SOL as a defense. The long window is, however, a strong argument for early, definitive resolution rather than letting a bill drift.
-3. **MMPA reach over original creditors with fee shift and punitives** — the hospital's in-house billing department can be liable for deceptive practices (misrepresenting amounts, misrepresenting in-network status, misrepresenting financial-assistance eligibility, billing for services not rendered, upcoding). Mention in any 30-day warning letter to a Missouri provider.
-4. **Corporate-rep rule in small claims** — corporate defendants may appear through a non-attorney officer/employee, so a hospital is more likely to face the case with a billing-department staffer than with defense counsel, raising the economic leverage of a small-claims filing.
-5. **§ 430.225 hospital lien is capped at 50% of net third-party recovery** — a meaningful patient protection when a hospital lien attaches to a personal-injury settlement. Always verify lien perfection (certified-mail notice with the required elements); imperfect liens are unenforceable.
+1. **Vexatious refusal-to-pay with mandatory attorney's-fee shift**, § 375.420's 20% / 10% / fee formula on top of the underlying loss is one of the more patient-friendly first-party insurance remedies in the country. Reference the statute in every demand to a Missouri-licensed carrier, the 30-day clock alone moves a meaningful percentage of stalled claims.
+2. **10-year SOL on written contracts**, tied for longest in the United States. The window cuts both ways (it also extends the hospital's collection window), so verify the dispute is genuinely live before invoking SOL as a defense. The long window is, however, a strong argument for early, definitive resolution rather than letting a bill drift.
+3. **MMPA reach over original creditors with fee shift and punitives**, the hospital's in-house billing department can be liable for deceptive practices (misrepresenting amounts, misrepresenting in-network status, misrepresenting financial-assistance eligibility, billing for services not rendered, upcoding). Mention in any 30-day warning letter to a Missouri provider.
+4. **Corporate-rep rule in small claims**, corporate defendants may appear through a non-attorney officer/employee, so a hospital is more likely to face the case with a billing-department staffer than with defense counsel, raising the economic leverage of a small-claims filing.
+5. **§ 430.225 hospital lien is capped at 50% of net third-party recovery**, a meaningful patient protection when a hospital lien attaches to a personal-injury settlement. Always verify lien perfection (certified-mail notice with the required elements); imperfect liens are unenforceable.

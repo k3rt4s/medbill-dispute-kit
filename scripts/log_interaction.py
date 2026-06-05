@@ -1,4 +1,4 @@
-"""log_interaction.py — append one row to the master action log.
+"""log_interaction.py, append one row to the master action log.
 
 Marshall Allen's discipline: every phone call, every email, every
 in-person encounter with a biller or insurer gets logged. Date, who,

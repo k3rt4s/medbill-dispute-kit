@@ -39,7 +39,7 @@ These can hold the whole kit plus your bills in a single conversation without st
 ### Gemini (gemini.google.com)
 
 - **Models:** Gemini 2.5 Pro, Gemini 3.
-- **Context window:** 1M-2M tokens on Pro and Ultra tiers — largest available.
+- **Context window:** 1M-2M tokens on Pro and Ultra tiers, largest available.
 - **File upload:** images, PDFs, native Google Drive integration.
 - **Strengths:** the longest context, useful if you're carrying months of history.
 - **Caveats:** sometimes less precise on legal citation than Claude or GPT. Cross-check citations.
