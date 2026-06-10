@@ -1,6 +1,6 @@
 # User Stories, medbill-dispute-kit
 
-Per AGENTS.md §6 convention. Stories use Connextra form with Given/When/Then acceptance criteria. Status legend: `proposed` · `accepted` · `next` · `priority` · `shipped (vX.Y.Z)` · `withdrawn`.
+This is the user-value master for medbill-dispute-kit, the personas and stories that sit above BUILD_PLAN.md and define who the kit serves and what outcomes they need. Stories use Connextra form with Given/When/Then acceptance criteria. Status legend: `proposed` · `accepted` · `next` · `priority` · `shipped (vX.Y.Z)` · `withdrawn`.
 
 ## Personas
 

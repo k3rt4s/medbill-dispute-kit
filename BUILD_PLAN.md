@@ -1,6 +1,6 @@
 # Build plan, medbill-dispute-kit
 
-The "how" doc, sitting under [USER_STORIES.md](USER_STORIES.md). Story-level "what and why" lives there; this file tracks engineering work, dependencies, and shipping order. Per workspace convention (AGENTS.md §6), this document is the engineering counterpart to user stories.
+This is the implementation and build plan for medbill-dispute-kit, the "how" doc sitting under [USER_STORIES.md](USER_STORIES.md), tracking engineering work, dependencies, and shipping order across versions. Story-level "what and why" lives in USER_STORIES.md; this file tracks the build. Per workspace convention (AGENTS.md §6), this document is the engineering counterpart to user stories.
 
 ## Version status
 

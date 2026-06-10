@@ -1,6 +1,6 @@
 # scripts/
 
-Optional helpers. The kit is instruction-only at its core; nothing in `scripts/` is required to use it from an LLM. These tools exist for two purposes:
+Optional Python helpers for the medbill-dispute-kit: generic, dependency-free tools any patient can run against a tracker CSV, plus a local-ops pipeline that OCRs, indexes, benchmarks, audits, and drafts letters automatically from scanned medical mail using Azure OpenAI. The kit is instruction-only at its core; nothing in `scripts/` is required to use it from an LLM. These tools exist for two purposes:
 
 1. **Generic, instruction-only helpers** that anyone can run against any tracker CSV. (`validate_tracker.py`, `deadline_watch.py`.) No third-party dependencies, no API keys.
 2. **A local-ops pipeline** for the workstation use case where the patient drops mail into an `inbox/` folder and the scripts route, OCR, match, and draft dispute letters automatically. This pipeline uses Azure OpenAI for vision OCR and field extraction. It expects a specific folder layout under a personal `Health_Bills/` directory.

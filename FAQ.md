@@ -1,5 +1,7 @@
 # FAQ
 
+Answers to common patient questions about what the medbill-dispute-kit is, how to use it, which laws it applies, and what to expect from the dispute process.
+
 ## About the kit
 
 **What is this kit, in one sentence?**

@@ -1,6 +1,6 @@
 # Contributing
 
-The kit is open under MIT. Pull requests welcome, especially:
+This file explains how to contribute to medbill-dispute-kit, which is open under MIT. Pull requests welcome, especially:
 
 - New state-law packs (analogous to `references/laws_state_tn.md`)
 - Additional letter or complaint templates for gaps the kit doesn't cover
