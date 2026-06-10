@@ -4,6 +4,32 @@ An LLM-droppable instruction toolkit for analyzing US medical bills, deduplicati
 
 The ruleset is built primarily from Marshall Allen's *Never Pay the First Bill* (Portfolio, 2021) and his reporting at ProPublica, plus the federal No Surprises Act, the CMS Hospital Price Transparency Rule, ERISA appeal rights, UCC § 2-305, and state-level consumer protections. See [references/](references/) for the full citation list.
 
+## Contents
+
+<!-- BEGIN CONTENTS (auto-generated, do not edit by hand) -->
+
+- [docs/](docs/README.md): Patient-facing reference documents for the medbill-dispute-kit, covering how to start, how to navigate decision points, what outcomes to expect, and how to retain records across a months-long dispute…
+- [examples/](examples/README.md): Worked end-to-end session walkthroughs showing the kit handling common bill patterns, including a single-encounter dispute, a multi-encounter months-long process, an ERISA insurance-denial appeal…
+- [llm/](llm/README.md): Files loaded directly into the LLM at session start: the top-level system prompt, the end-to-end workflow, structured output contracts, model-compatibility guidance, and a short-context quickstart…
+- [references/](references/README.md): Reference material the LLM cites when analyzing bills and drafting letters: federal laws, 36 state-law packs, CPT/HCPCS code references, a national Medicare fee-schedule lookup, NCCI unbundling…
+- [rules/](rules/README.md): The LLM's operating manual: 25 numbered rule files distilling Marshall Allen's methodology and US consumer-protection law into the tactics the model follows at each stage of the dispute process, from…
+- [schemas/](schemas/README.md): TOML schemas defining the shape of bill records, tracker rows, dispute actions, and deduplication logic that the LLM and the optional validator script both use to produce and validate structured…
+- [scripts/](scripts/README.md): Optional Python helpers for the medbill-dispute-kit: generic, dependency-free tools any patient can run against a tracker CSV, plus a local-ops pipeline that OCRs, indexes, benchmarks, audits, and…
+- [templates/](templates/README.md): Thirty-four ready-to-mail letter and complaint templates with placeholders that the LLM fills from the patient's actual bill and EOB evidence, covering every stage from itemized-bill request through…
+- [tests/](tests/README.md): Pytest suite for the optional helper scripts, currently covering the tracker-CSV validator against conforming and non-conforming fixtures.
+- [tracker/](tracker/README.md): The downloadable CSV tracker template and its column dictionary, which the patient carries between LLM sessions to maintain continuity across the months-long dispute process.
+- [BUILD_PLAN.md](BUILD_PLAN.md): This is the implementation and build plan for medbill-dispute-kit, the "how" doc sitting under [USER_STORIES.md](USER_STORIES.md), tracking engineering work, dependencies, and shipping order across…
+- [CHANGELOG.md](CHANGELOG.md): All notable changes to medbill-dispute-kit, in plain English, from the patient's perspective.
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md): This project follows the Contributor Covenant 2.1, committing all community members to a harassment-free experience regardless of background.
+- [CONTRIBUTING.md](CONTRIBUTING.md): This file explains how to contribute to medbill-dispute-kit, which is open under MIT.
+- [FAQ.md](FAQ.md): Answers to common patient questions about what the medbill-dispute-kit is, how to use it, which laws it applies, and what to expect from the dispute process.
+- [FUTURE_FEATURES.md](FUTURE_FEATURES.md): Engineering-language backlog of work not yet scheduled.
+- [roadmap.json](roadmap.json)
+- [SECURITY.md](SECURITY.md): The kit ships no executable code by default; it is a pack of Markdown, TOML, and CSV files.
+- [USER_STORIES.md](USER_STORIES.md): This is the user-value master for medbill-dispute-kit, the personas and stories that sit above BUILD_PLAN.md and define who the kit serves and what outcomes they need.
+
+<!-- END CONTENTS -->
+
 ## What this is
 
 A pack of Markdown rules, TOML schemas, and letter templates that you load into any large language model (Claude, GPT, Gemini, a local model) along with one or more medical bills. The model uses the rules to:
