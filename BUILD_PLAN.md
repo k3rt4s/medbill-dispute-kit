@@ -1,6 +1,6 @@
 # Build plan, medbill-dispute-kit
 
-This is the implementation and build plan for medbill-dispute-kit, the "how" doc sitting under [USER_STORIES.md](USER_STORIES.md), tracking engineering work, dependencies, and shipping order across versions. Story-level "what and why" lives in USER_STORIES.md; this file tracks the build. Per workspace convention (AGENTS.md §6), this document is the engineering counterpart to user stories.
+This is the implementation and build plan for medbill-dispute-kit, the "how" doc sitting under [USER_STORIES.md](USER_STORIES.md), tracking engineering work, dependencies, and shipping order across versions. Story-level "what and why" lives in USER_STORIES.md; this file tracks the build. Per workspace convention (see `C:\Code\ai_development\docs\feature-lifecycle.md`), this document is the engineering counterpart to user stories.
 
 ## Version status
 
@@ -34,7 +34,7 @@ Items listed in shipping order. Each item names the file(s) it touches and the U
 - [x] **`templates/letter_hardship_negotiation.md`**, for bills that are correctly coded but unaffordable. References IRS § 501(r) for non-profit hospitals, points at Dollar For for screening. Story 4.6 (shipped).
 - [x] **`templates/letter_fdcpa_validation.md`**, § 1692g validation request to a third-party medical-debt collector within 30 days of first contact. Story 4.7 (shipped).
 - [x] **`examples/walkthrough.md`**, synthetic patient walking through intake → diagnosis → letter → tracker, covering hospital, ER physician, and third-party collector bills. Story 1.1 acceptance.
-- [x] **`CHANGELOG.md`**, baseline v0.1.0 + v0.2.0 entry. Per AGENTS.md §8.
+- [x] **`CHANGELOG.md`**, baseline v0.1.0 + v0.2.0 entry. Per `C:\Code\ai_development\docs\feature-lifecycle.md`.
 - [x] **README.md** updates, reference new state packs, examples, new templates.
 - [x] **`schemas/action.toml`**, extended `action_type` enum to include `fdcpa_validation_request`, `state_ag_complaint_filed`, `cms_hpt_complaint_filed`, `fap_application_submitted`.
 - [x] **USER_STORIES.md**, added stories 4.6 and 4.7 marked shipped (v0.2.0).
@@ -121,4 +121,4 @@ These will be added to USER_STORIES.md when the corresponding templates/rules sh
 
 ## How this doc gets updated
 
-Per AGENTS.md §6, when a story ships, three places update in lockstep: USER_STORIES.md (status → shipped + version), `roadmap.json` if/when this repo gets one, and CHANGELOG.md. This BUILD_PLAN.md is engineering's view; checkbox items get checked off as work lands. Items in this file should be moveable up and down the priority list as we learn; deletions are fine. The persistence guarantee lives in USER_STORIES.md, not here.
+Per `C:\Code\ai_development\docs\feature-lifecycle.md`, when a story ships, three places update in lockstep: USER_STORIES.md (status → shipped + version), `roadmap.json` if/when this repo gets one, and CHANGELOG.md. This BUILD_PLAN.md is engineering's view; checkbox items get checked off as work lands. Items in this file should be moveable up and down the priority list as we learn; deletions are fine. The persistence guarantee lives in USER_STORIES.md, not here.
