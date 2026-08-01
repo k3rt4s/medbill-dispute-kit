@@ -39,7 +39,7 @@ The full chain, in order:
 
 ```text
 classify_rename_medical_bills.py    intake — split mixed inbox/ into Billers/ and EOB/
-text-extraction step                 (out of scope for this kit — use ai-toolkit's file_management
+text-extraction step                 (out of scope for this kit — use file-iq's file_management
                                       Stage 5 `extract_documents.py` or any equivalent that produces
                                       `<file>.extracted.txt` sidecars next to each source file)
 restructure_to_billers_eob.py       one-time migration if older `providers/` layout exists

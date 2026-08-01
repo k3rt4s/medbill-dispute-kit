@@ -4,7 +4,7 @@ convention, split multi-bill PDFs, and route into per-provider folders
 under providers/ (medical) or a flat other/ folder (financial / personal
 / unknown).
 
-Naming convention (locked, from ai-toolkit/src/file_management/BUILD_PLAN.md
+Naming convention (locked, from file-iq/src/file_management/BUILD_PLAN.md
 §4.1):
 
     <contents_summary>_<category>_<YYYY>_<MM>_v<N>.<ext>
