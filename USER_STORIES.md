@@ -940,6 +940,20 @@ This is the user-value master for medbill-dispute-kit, the personas and stories 
 
 ---
 
+## Epic 20, Continued state coverage expansion
+
+### Story 20.1, Cover the next four states
+
+**As a** patient in Idaho, Hawaii, West Virginia, or Louisiana, **I want** a dedicated state pack rather than the LLM looking up my state's statutes from the template, **so that** my dispute letters cite the right authorities with confidence.
+
+**AC:**
+
+- Dedicated state packs ship for ID, HI, WV, LA matching the existing 12-section format. Total: 40 state packs.
+
+**Status:** shipped (v1.1.0)
+
+---
+
 ## Cross-references
 
 - Roadmap: see `roadmap.json` for the structured feature list with release versions.

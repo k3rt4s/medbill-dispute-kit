@@ -4,7 +4,7 @@
   "description": "LLM-droppable instruction toolkit for analyzing US medical bills, deduplicating follow-up statements, and running a months-long dispute process",
   "repository": "https://github.com/k3rt4s/medbill-dispute-kit",
   "license": "MIT",
-  "updated": "2026-05-22",
+  "updated": "2026-08-10",
   "patches": [
     {
       "id": "fix-wc-auto-form-label-false-positive",
@@ -744,9 +744,37 @@
       "release": { "version": "v0.13.0", "date": "2026-05-21" }
     },
     {
+      "id": "state-id",
+      "title": "Idaho state pack",
+      "description": "Worked ID state-law layer with the Idaho Patient Act's five-part billing/notice sequence and private right of action (actual damages or $1,000, up to 3x/$3,000 if willful) under § 48-311",
+      "status": "implemented",
+      "release": { "version": "v1.1.0", "date": "2026-08-10" }
+    },
+    {
+      "id": "state-hi",
+      "title": "Hawaii state pack",
+      "description": "Worked HI state-law layer covering the Prepaid Health Care Act's narrow ERISA carve-out (29 U.S.C. § 1144(b)(5)) and the routing framework for where a denied claim's appeal goes depending on plan type",
+      "status": "implemented",
+      "release": { "version": "v1.1.0", "date": "2026-08-10" }
+    },
+    {
+      "id": "state-wv",
+      "title": "West Virginia state pack",
+      "description": "Worked WV state-law layer with the Consumer Credit and Protection Act reaching the hospital's own billing office as a \"debt collector\" (§ 46A-2-122), and the 2024 repeal of the state hospital-itemization statute with no replacement",
+      "status": "implemented",
+      "release": { "version": "v1.1.0", "date": "2026-08-10" }
+    },
+    {
+      "id": "state-la",
+      "title": "Louisiana state pack",
+      "description": "Worked LA state-law layer covering civil-law prescription (3-year period for services rendered/open account, La. C.C. art. 3494) and the quantum meruit substitute for UCC 2-305 (La. C.C. arts. 1983, 2054-2055, 2298), plus the 2026 Medical Debt Protection Act's 3% interest cap",
+      "status": "implemented",
+      "release": { "version": "v1.1.0", "date": "2026-08-10" }
+    },
+    {
       "id": "state-long-tail",
-      "title": "State packs for the remaining 14 states",
-      "description": "AK, DE (initial), HI, ID, LA, ME, MT, ND, NH, RI, SD, VT, WV, WY",
+      "title": "State packs for the remaining 10 states",
+      "description": "AK, DE (initial), ME, MT, ND, NH, RI, SD, VT, WY",
       "status": "planned",
       "issue": "https://github.com/k3rt4s/medbill-dispute-kit/labels/state-pack"
     },

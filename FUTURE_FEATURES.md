@@ -8,24 +8,20 @@ Items here are not promises. The kit is open-source; contributors are welcome to
 
 ## State coverage, long tail
 
-Fourteen states do not yet have a dedicated pack. The kit can still run for patients in these states using `references/laws_state_template.md` as a generic skeleton; what's missing is a worked-out file matching the 12-section structure of the existing packs.
+Ten states do not yet have a dedicated pack. The kit can still run for patients in these states using `references/laws_state_template.md` as a generic skeleton; what's missing is a worked-out file matching the 12-section structure of the existing packs.
 
-| State         | Code | Notable considerations the pack should cover                                                                     |
-| ------------- | ---- | ---------------------------------------------------------------------------------------------------------------- |
-| Alaska        | AK   | Different SOL pattern; remote-care logistics; AK Insurance Code Title 21                                         |
-| Delaware      | DE   | DE Code Title 18 Insurance; small-claims jurisdictional limit; Justice of the Peace courts                       |
-| Hawaii        | HI   | HRS Chapter 431; Prepaid Health Care Act parallel to ERISA for fully insured                                     |
-| Idaho         | ID   | Idaho Code Title 41; pre-existing Idaho Patient Act protections                                                  |
-| Louisiana     | LA   | Unique civil-law tradition (no UCC § 2-305 analogue, quantum meruit applies); 10-year prescription on contracts |
-| Maine         | ME   | Maine Revised Statutes Title 24-A; LD 1101 medical-debt protections (2023)                                       |
-| Montana       | MT   | MCA Title 33; 8-year SOL on contracts                                                                            |
-| North Dakota  | ND   | NDCC Title 26.1; small-claims jurisdictional limit                                                               |
-| New Hampshire | NH   | RSA Title XXXVII; surprise-billing protections SB 591 (2024)                                                     |
-| Rhode Island  | RI   | RIGL Title 27; medical-debt credit-reporting ban (Act 76, 2023)                                                  |
-| South Dakota  | SD   | SDCL Title 58; community-impact patterns                                                                         |
-| Vermont       | VT   | 18 V.S.A. § 9456 hospital FAP requirements; Act 76 (2023) credit-reporting ban                                   |
-| West Virginia | WV   | WV Code Chapter 33; UDAP Article 19                                                                              |
-| Wyoming       | WY   | WS Title 26; 10-year SOL on contracts                                                                            |
+| State         | Code | Notable considerations the pack should cover                                               |
+| ------------- | ---- | ------------------------------------------------------------------------------------------ |
+| Alaska        | AK   | Different SOL pattern; remote-care logistics; AK Insurance Code Title 21                   |
+| Delaware      | DE   | DE Code Title 18 Insurance; small-claims jurisdictional limit; Justice of the Peace courts |
+| Maine         | ME   | Maine Revised Statutes Title 24-A; LD 1101 medical-debt protections (2023)                 |
+| Montana       | MT   | MCA Title 33; 8-year SOL on contracts                                                      |
+| North Dakota  | ND   | NDCC Title 26.1; small-claims jurisdictional limit                                         |
+| New Hampshire | NH   | RSA Title XXXVII; surprise-billing protections SB 591 (2024)                               |
+| Rhode Island  | RI   | RIGL Title 27; medical-debt credit-reporting ban (Act 76, 2023)                            |
+| South Dakota  | SD   | SDCL Title 58; community-impact patterns                                                   |
+| Vermont       | VT   | 18 V.S.A. § 9456 hospital FAP requirements; Act 76 (2023) credit-reporting ban             |
+| Wyoming       | WY   | WS Title 26; 10-year SOL on contracts                                                      |
 
 Each state pack is ~150-300 lines of Markdown citing actual state statutes with URLs. Contribution checklist lives in `CONTRIBUTING.md`. Issue template at `.github/ISSUE_TEMPLATE/state_pack_request.yml`.
 

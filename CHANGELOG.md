@@ -6,6 +6,30 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [v1.1.0] - 2026-08-10
+
+### Added
+
+- **Idaho state pack** (`references/laws_state_id.md`). Headline: the Idaho Patient Act (Idaho Code §§ 48-301 through 48-315) is a private right of action, not just a regulator-enforced statute. A provider that skips a step in the Act's 45/60/90-day billing-and-notice sequence owes the patient no collection costs or fees on that action, and the patient can recover actual damages or $1,000, whichever is greater (up to three times actual damages or $3,000 for a willful violation), plus their own attorney's fees under § 48-311.
+- **Hawaii state pack** (`references/laws_state_hi.md`). Headline: the Prepaid Health Care Act (HRS Chapter 393) survived a direct fight with ERISA preemption via a narrow 1983 carve-out (29 U.S.C. § 1144(b)(5) added by Pub. L. No. 97-473), and that carve-out changes where a Hawaii patient's appeal has to go. The pack's routing framework sorts a complaint into an employer non-coverage matter (Department of Labor and Industrial Relations), a self-funded ERISA claims appeal (DOL EBSA), or a fully-insured claim eligible for the state's own internal/external review under HRS Chapter 432E, depending on how the employer's plan is structured.
+- **West Virginia state pack** (`references/laws_state_wv.md`). Headline: the West Virginia Consumer Credit and Protection Act (W. Va. Code § 46A-2-122) defines "debt collector" broadly enough to reach a hospital's own billing office, not just a third-party collection agency, exposing the hospital itself to the Article 2 debt-collection catalog and a $1,000-per-violation statutory penalty under § 46A-5-101. Offsetting that advantage: West Virginia's hospital-itemization statute (W. Va. Code § 16-5B-9) was repealed in 2024 with no replacement, so a West Virginia patient now has to fall back on the federal Hospital Price Transparency Rule for an itemized bill.
+- **Louisiana state pack** (`references/laws_state_la.md`). Headline: Louisiana's civil-law tradition means the kit's usual playbook doesn't transfer directly. Medical debt prescribes (the Louisiana term for a time-bar) in 3 years as a claim for services rendered or on an open account (La. C.C. art. 3494), not the common-law 10-year default many patients assume. Louisiana also never adopted UCC Article 2, so the "reasonable price" argument this kit cites in every other state pack has no direct home here; the pack builds a substitute from the Civil Code's good-faith and gap-filling articles (arts. 1983, 2054-2055) with the quasi-contractual remedy of enrichment without cause (art. 2298, Louisiana's version of quantum meruit) as a subsidiary fallback. The pack also covers the brand-new 2026 Louisiana Medical Debt Protection Act (La. R.S. 51:1501-1507), which caps interest on medically-necessary-care debt at 3% a year.
+
+### Changed
+
+- **`BUILD_PLAN.md`**, new v1.1.0 row added; v1.0.0 running-status row updated to forty state packs shipped, long-tail down to 10 states.
+- **`README.md`**, state-pack list expanded to 40; the population-coverage percentage claim removed rather than guessed at (see "Known issues" below).
+- **`llm/QUICKSTART_short_context.md`**, Stage 2 state list expanded with Idaho, Hawaii, West Virginia, and Louisiana.
+- **`references/README.md`**, intro count updated to 40 state-law packs.
+- **`docs/INDEX.md`**, "Find by state" list expanded to 40 shipped / 10 remaining.
+- **`FUTURE_FEATURES.md`**, long-tail table reduced from 14 states to 10 (ID, HI, WV, LA removed).
+- **`roadmap.json`**, four new `state-*` feature entries added at v1.1.0; `state-long-tail` description and title updated to the remaining 10 states.
+
+### Known issues
+
+- 40 state packs are now shipped. This changelog previously carried a running "roughly X% of US population" estimate for each state-pack batch; that estimate is retired starting this release rather than recomputed on a guess. A future release can reintroduce it once it is backed by a cited population source.
+- Remaining 10 states (AK, DE, ME, MT, ND, NH, RI, SD, VT, WY) are still open for community PRs.
+
 ## [v0.13.3] - 2026-05-22
 
 ### Fixed
@@ -374,6 +398,7 @@ The Marshall Allen methodology release. Brings the "Never Pay the First Bill" wo
 - **License**, MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v1.1.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v1.1.0
 [v0.12.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.12.0
 [v0.11.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.11.0
 [v0.10.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.10.0

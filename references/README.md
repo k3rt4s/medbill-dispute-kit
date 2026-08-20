@@ -1,6 +1,6 @@
 # references/
 
-Reference material the LLM cites when analyzing bills and drafting letters: federal laws, 36 state-law packs, CPT/HCPCS code references, a national Medicare fee-schedule lookup, NCCI unbundling pairs, a billing glossary, statute-of-limitations data, and supplemental guides for Hospital Price Transparency MRF formats, SPD parsing, IRS 990 review, and state DOI portals.
+Reference material the LLM cites when analyzing bills and drafting letters: federal laws, 40 state-law packs, CPT/HCPCS code references, a national Medicare fee-schedule lookup, NCCI unbundling pairs, a billing glossary, statute-of-limitations data, and supplemental guides for Hospital Price Transparency MRF formats, SPD parsing, IRS 990 review, and state DOI portals.
 
 <!-- BEGIN CONTENTS (auto-generated, do not edit by hand) -->
 
@@ -19,11 +19,14 @@ Reference material the LLM cites when analyzing bills and drafting letters: fede
 - [laws_state_ct.md](laws_state_ct.md): The fully-worked state-law layer for Connecticut patients.
 - [laws_state_fl.md](laws_state_fl.md): The fully-worked state-law layer for Florida patients.
 - [laws_state_ga.md](laws_state_ga.md): The fully-worked state-law layer for Georgia patients.
+- [laws_state_hi.md](laws_state_hi.md): The fully-worked state-law layer for Hawaii patients.
 - [laws_state_ia.md](laws_state_ia.md): The fully-worked state-law layer for Iowa patients.
+- [laws_state_id.md](laws_state_id.md): The fully-worked state-law layer for Idaho patients.
 - [laws_state_il.md](laws_state_il.md): The fully-worked state-law layer for Illinois patients.
 - [laws_state_in.md](laws_state_in.md): The fully-worked state-law layer for Indiana patients.
 - [laws_state_ks.md](laws_state_ks.md): The fully-worked state-law layer for Kansas patients.
 - [laws_state_ky.md](laws_state_ky.md): The fully-worked state-law layer for Kentucky patients.
+- [laws_state_la.md](laws_state_la.md): The fully-worked state-law layer for Louisiana patients.
 - [laws_state_ma.md](laws_state_ma.md): The fully-worked state-law layer for Massachusetts patients.
 - [laws_state_md.md](laws_state_md.md): The fully-worked state-law layer for Maryland patients.
 - [laws_state_mi.md](laws_state_mi.md): The fully-worked state-law layer for Michigan patients.
@@ -48,6 +51,7 @@ Reference material the LLM cites when analyzing bills and drafting letters: fede
 - [laws_state_va.md](laws_state_va.md): The fully-worked state-law layer for Virginia patients.
 - [laws_state_wa.md](laws_state_wa.md): The fully-worked state-law layer for Washington patients.
 - [laws_state_wi.md](laws_state_wi.md): The fully-worked state-law layer for Wisconsin patients.
+- [laws_state_wv.md](laws_state_wv.md): The fully-worked state-law layer for West Virginia patients.
 - [medical_debt_protection_by_state.md](medical_debt_protection_by_state.md): Quick-reference summary of state laws limiting how providers, collectors, and credit bureaus may handle medical debt.
 - [medicare_pfs_common.csv](medicare_pfs_common.csv)
 - [mrf_vendor_adapters.md](mrf_vendor_adapters.md): The federal Hospital Price Transparency Rule (45 CFR Part 180), in force since January 1, 2021, requires every US hospital to publish a complete machine-readable file of standard charges.
