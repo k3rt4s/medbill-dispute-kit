@@ -8,6 +8,10 @@ my_tracker*.csv
 *.png
 *.heic
 
+# Per-workstation config and credentials
+.env
+kit_config.toml
+
 # OS and editor cruft
 .DS_Store
 Thumbs.db
