@@ -157,6 +157,16 @@ The kit's LLM prompts assume English. For Spanish-speaking patients (see "Spanis
 
 Expected effort: subsumed by the Spanish-localization item above.
 
+## SECURITY.md scope statement, reconcile with the local-ops pipeline
+
+`SECURITY.md:3` opens with "The kit ships no executable code by default... The optional helper script in `scripts/` uses the Python standard library only. The repository is therefore low-risk by design." That sentence is accurate for `validate_tracker.py` and `deadline_watch.py`, and it is singular because it was written when those were the only two scripts. `scripts/` now also holds the local-ops pipeline (`classify_rename_medical_bills.py` through `bundle_to_cloud.py`), which sends bill and EOB text to Azure OpenAI and writes patient PII under `~/.medbill-dispute-kit/`. The in-scope list at `SECURITY.md:7` was already pluralized to "helper scripts"; the opening paragraph was not.
+
+The risk is not a vulnerability, it is a reader who cites `SECURITY.md` as evidence that nothing in `scripts/` reaches the network or takes a dependency, and is wrong about the half of it that does. `scripts/README.md` documents the pipeline's network use correctly, so the two files currently disagree.
+
+Work: split the claim so the two trust models are named separately rather than averaged, and decide whether the out-of-scope list should say anything about the Azure endpoint a patient configures themselves. Any wording change to a published security policy is a maintainer call, not a mechanical edit, which is why this is recorded here rather than patched. Recorded 2026-08-20.
+
+Expected effort: under an hour once the wording is decided.
+
 ---
 
 ## How to pick something up
