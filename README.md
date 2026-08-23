@@ -26,6 +26,7 @@ The ruleset is built primarily from Marshall Allen's *Never Pay the First Bill* 
 - [FUTURE_FEATURES.md](FUTURE_FEATURES.md): Engineering-language backlog of work not yet scheduled.
 - [roadmap.json](roadmap.json)
 - [SECURITY.md](SECURITY.md): The kit ships no executable code by default; it is a pack of Markdown, TOML, and CSV files.
+- [THEORY.md](THEORY.md): What a session needs to believe before it changes this kit.
 - [USER_STORIES.md](USER_STORIES.md): This is the user-value master for medbill-dispute-kit, the personas and stories that sit above BUILD_PLAN.md and define who the kit serves and what outcomes they need.
 
 <!-- END CONTENTS -->
