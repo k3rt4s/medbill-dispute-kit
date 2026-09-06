@@ -8,62 +8,49 @@ Items here are not promises. The kit is open-source; contributors are welcome to
 
 ## Scored index
 
-- **state-coverage-longtail**: ship the 10 missing state law packs -> [State coverage, long tail](#state-coverage-long-tail)
-  `score: kind=feature gain=3/6/15 rev=two-way hours=10/15/25 conf=opinion p=0.4 flags=legal id=state-coverage-longtail`
-  `return: likelihood one-time completion of the 10 missing state packs, contributor-dependent open-source pickup with no committed date, estimated at p 0.4 of landing; impact patients in those 10 states get a dedicated, cited pack instead of the generic references/laws_state_template.md skeleton, worth an estimated 3 to 15 h of value depending on adoption, to whoever picks it up plus Jon's citation-accuracy review; evidence FUTURE_FEATURES.md 'State coverage, long tail' section (10 states, 3-6h/state estimate) and ls references/laws_state_*.md showing 40 of 50 states shipped`
-  - worker: sonnet 30/45/60 h
-- **spanish-localization**: minimum Spanish footprint for prompts, templates and docs -> [Spanish localization](#spanish-localization)
-  `score: kind=feature gain=10/25/60 rev=two-way hours=15/25/40 conf=opinion p=0.3 flags=legal id=spanish-localization`
-  `return: likelihood one-time minimum-footprint translation, contributor/reviewer-dependent (the item itself says machine translation is not adequate and needs a bilingual medical-billing-fluent reviewer), estimated at p 0.3 of landing; impact opens the kit to the ~13.5% of US households that speak Spanish at home, at the cost of every patient-facing legal template being retranslated and re-reviewed on every future English wording change, worth an estimated 10 to 60 h of reach value; evidence FUTURE_FEATURES.md 'Spanish localization' section (40-80h minimum-footprint estimate) and the absence of any *.es.md file under templates/, llm/ or docs/`
-  - worker: sonnet 40/60/90 h
-- **outcomes-bank**: community-contributed anonymized outcomes database -> [Outcomes bank](#outcomes-bank)
-  `score: kind=feature gain=5/10/25 rev=two-way hours=5/10/15 conf=opinion p=0.25 id=outcomes-bank`
-  `return: likelihood one-time build, contributor-dependent, the item's own text calls the privacy design 'the hard part', estimated at p 0.25 of landing; impact lets future patients calibrate expected outcomes and lets the kit calibrate its own recommendations, worth an estimated 5 to 25 h of value once populated, but a botched PII-scrub design risks a real re-identification incident for a contributor who submits data (that risk belongs in risk=, not here); evidence FUTURE_FEATURES.md 'Outcomes bank' section (20-40h estimate) naming the schema, review process and append-only storage as the open design questions`
-  - worker: sonnet 20/30/45 h
-- **advocate-variant**: multi-patient variant for advocates -> [Advocate variant](#advocate-variant)
-  `score: kind=feature gain=8/20/45 rev=two-way hours=10/20/30 conf=opinion p=0.2 flags=legal id=advocate-variant`
-  `return: likelihood one-time fork, large scope (multi-tenant schema, caseload views, an authorization-and-HIPAA workflow), estimated at p 0.2 of landing; impact opens the kit to advocates handling multiple patients at once, worth an estimated 8 to 45 h of value if adopted, and the HIPAA-authorization workflow is user-facing legal surface that needs review before any advocate relies on it; evidence FUTURE_FEATURES.md 'Advocate variant' section (40-60h estimate) and the single-patient tracker.csv schema in schemas/tracker.toml that the fork would have to generalize`
-  - worker: sonnet 40/55/70 h
-- **turquoise-api**: live pricing via Turquoise Health API -> [Turquoise Health API integration](#turquoise-health-api-integration)
-  `score: kind=feature gain=5/10/20 rev=two-way hours=3/6/10 conf=opinion p=0.15 id=turquoise-api`
-  `return: likelihood one-time integration, contingent on Turquoise's commercial terms for non-commercial open-source use which are unconfirmed, estimated at p 0.15 of landing; impact live, cross-hospital negotiated-rate pricing in place of the static Medicare PFS table scripts/fetch_price_benchmarks.py bundles today, worth an estimated 5 to 20 h of stronger-benchmark value per adopter; evidence FUTURE_FEATURES.md 'Turquoise Health API integration' section (10-20h estimate) and scripts/fetch_price_benchmarks.py's current static-table plus manual-URL approach`
-  - worker: sonnet 10/15/25 h
-- **dollarfor-integration**: scripted Dollar For charity-care screener integration -> [Dollar For screener integration](#dollar-for-screener-integration)
-  `score: kind=feature gain=4/8/18 rev=two-way hours=3/5/8 conf=opinion p=0.15 id=dollarfor-integration`
-  `return: likelihood one-time integration, contingent on Dollar For having or offering an API which is unconfirmed, estimated at p 0.15 of landing; impact automates a step patients are already told to take manually via templates/letter_hardship_negotiation.md and references/resources.md, worth an estimated 4 to 18 h of saved patient/contributor time; evidence FUTURE_FEATURES.md 'Dollar For screener integration' section (10-20h estimate, API availability unconfirmed) and the existing manual reference in templates/letter_hardship_negotiation.md`
-  - worker: sonnet 10/15/22 h
-- **parse-990**: auto-extract IRS Form 990 Schedule H data -> [parse_990.py, auto-extract Schedule H data](#parse_990py-auto-extract-schedule-h-data)
-  `score: kind=feature gain=6/12/25 rev=two-way hours=5/10/15 conf=opinion p=0.3 flags=legal id=parse-990`
-  `return: likelihood one-time script, replacing the manual walkthrough in references/irs_990_review.md, estimated at p 0.3 of landing; impact the extracted charity-care, community-benefit and executive-compensation figures feed directly into the IRS Form 13909 and hardship-negotiation drafters, so a parsing bug produces a wrong number in a filed legal complaint (the kit's own no-invented-figures rule in llm/output_contracts.md:116 and THEORY.md), worth an estimated 6 to 25 h of saved manual-review time weighed against that exposure; evidence FUTURE_FEATURES.md 'parse_990.py' section (20-30h estimate including test coverage against real filings) and references/irs_990_review.md's current manual procedure`
-  - worker: sonnet 20/28/35 h
-- **chargemaster-comparison-helper**: additional fair-price comparables for counter-offer letters -> [In-letter chargemaster comparison helper](#in-letter-chargemaster-comparison-helper)
-  `score: kind=feature gain=5/12/25 rev=two-way hours=6/12/20 conf=opinion p=0.2 risk=0.3x5 flags=legal id=chargemaster-comparison-helper`
-  `return: likelihood one-time helper, the item's own text calls scraping the comparable sources 'legally fraught', estimated at p 0.2 of landing; impact adds independent fair-price anchors to the UCC 2-305 counter-offer argument in templates/letter_negotiation_counter_offer.md, worth an estimated 5 to 25 h of stronger-negotiation value, but building it by scraping (rather than a curated database) risks a cease-and-desist or a bad-faith-pricing claim against the project, which is the doing-it risk in risk= not the impact; evidence FUTURE_FEATURES.md 'In-letter chargemaster comparison helper' section (20-40h estimate) and scripts/fetch_price_benchmarks.py's current per-CPT benchmark table that this helper would extend`
-  - worker: sonnet 20/30/45 h
-- **sbc-parser**: parse the ACA Summary of Benefits and Coverage -> [Insurance plan SBC (Summary of Benefits and Coverage) parser](#insurance-plan-sbc-summary-of-benefits-and-coverage-parser)
-  `score: kind=feature gain=4/8/18 rev=two-way hours=4/8/12 conf=opinion p=0.25 id=sbc-parser`
-  `return: likelihood one-time parser complementing the existing scripts/parse_spd.py, estimated at p 0.25 of landing; impact gives patients a structured deductible/OOP-max/coinsurance profile from the standardized ACA SBC format, worth an estimated 4 to 18 h of value; evidence FUTURE_FEATURES.md 'Insurance plan SBC' section (15-25h estimate) and the existing scripts/parse_spd.py this would sit beside`
-  - worker: sonnet 15/20/30 h
-- **dispute-reply-classifier**: auto-recommend which reply-ladder blocks fire -> [Automated dispute-reply classifier](#automated-dispute-reply-classifier)
-  `score: kind=feature gain=2/4/8 rev=two-way hours=1/2/4 conf=opinion p=0.4 flags=legal id=dispute-reply-classifier`
-  `return: likelihood one-time small classifier (4-8h quoted, the smallest item on this list), estimated at p 0.4 of landing; impact automates which of the five reply-ladder blocks (A-E) in templates/letter_dispute_reply.md a drafted letter uses, so a misclassification sends the wrong legal-response block to a provider, worth an estimated 2 to 8 h of saved patient decision time weighed against that risk; evidence FUTURE_FEATURES.md 'Automated dispute-reply classifier' section (4-8h estimate) and the five named blocks in templates/letter_dispute_reply.md`
-  - worker: sonnet 4/6/10 h
-- **prebill-verification-helper**: pre-service benefits/GFE verification helper -> [Pre-bill insurance-verification helper](#pre-bill-insurance-verification-helper)
-  `score: kind=feature gain=3/6/12 rev=two-way hours=3/5/8 conf=opinion p=0.25 flags=legal id=prebill-verification-helper`
-  `return: likelihood one-time helper covering a stage (pre-service) the kit does not currently address, estimated at p 0.25 of landing; impact drafts a verification-of-benefits demand and a Good Faith Estimate demand before service, worth an estimated 3 to 12 h of value to a patient who avoids a bad bill entirely, and the new demand-letter language needs the same legal review as any other template; evidence FUTURE_FEATURES.md 'Pre-bill insurance-verification helper' section (10-15h estimate) noting the kit's current flow assumes the bill has already arrived`
-  - worker: sonnet 10/13/18 h
-- **dedup-v2**: content-hash dedup for re-OCR edge cases -> [Better deduplication across re-OCR runs](#better-deduplication-across-re-ocr-runs)
-  `score: kind=debt gain=1/2/5 freq=4 rev=two-way hours=4/8/12 conf=opinion p=1 id=dedup-v2`
-  `return: likelihood estimated 2 to 8 times a year one of the three named edge cases (account-number reformat, provider-name rebrand, partial-payment balance shift) causes a wrong merge, no telemetry exists to count it so this is opinion, not measured; impact a patient or contributor manually untangles one mis-merged tracker row, an estimated 1 to 5 h per occurrence; evidence schemas/deduplication_rules.toml's current match keys (account_number, provider_tax_id, patient_account_id, date_of_service_start) read directly, and FUTURE_FEATURES.md 'Better deduplication' section naming the three edge cases and a 15-25h v2 estimate`
-  - worker: sonnet 15/20/28 h
-- **litigation-hold-template**: litigation-hold notice template -> [Litigation-hold notice template](#litigation-hold-notice-template)
-  `score: kind=feature gain=3/6/15 rev=two-way hours=1/2/4 conf=opinion p=0.3 flags=legal id=litigation-hold-template`
-  `return: likelihood used only by patients who reach the small-claims escalation stage, which the kit's own text says its small-claims escalation reaches that point regularly, estimated at p 0.3 that a given patient needing it gets it before this ships; impact preserving relevant records before litigation, worth an estimated 3 to 15 h of avoided evidence-spoliation harm to a patient who would otherwise need it and not have it; evidence FUTURE_FEATURES.md 'Litigation-hold notice template' section (4-6h estimate) and the absence of any hold-notice template under templates/`
-  - worker: sonnet 4/6/9 h
-- **security-md-scope-fix**: reconcile SECURITY.md's low-risk claim with the local-ops pipeline -> [SECURITY.md scope statement, reconcile with the local-ops pipeline](#securitymd-scope-statement-reconcile-with-the-local-ops-pipeline)
-  `score: kind=docs gain=1/2/4 rev=two-way hours=0.5/1/1.5 conf=assessed p=1 flags=security id=security-md-scope-fix`
-  `return: likelihood the discrepancy already exists today, confirmed by reading both files, so p 1 that it is live right now rather than a chance event; impact a reader of SECURITY.md line 3 (the optional helper script uses the Python standard library only, low-risk by design) reasonably concludes nothing in scripts/ reaches the network, when scripts/README.md documents that the local-ops pipeline sends bill and EOB text to Azure OpenAI and writes patient PII to the local .medbill-dispute-kit folder, an estimated 1 to 4 h of wasted trust-verification time or a real misjudgment for whoever relies on the claim; evidence SECURITY.md line 3 read directly against the scripts/ directory listing (17 scripts, of which classify_rename_medical_bills.py through bundle_to_cloud.py are the Azure-backed pipeline) and THEORY.md's Known soft spots entry recording the same gap`
-  - worker: sonnet 0.3/0.5/1 h
+Every unshipped feature in this file, scored with `ai_development/docs/board-scoring.md` on
+2026-09-06 at the workspace hour value. Keep this current: when a feature is added, moved or
+dropped, change its line here rather than a number in the prose below.
+
+The features now being worked are listed under "On the work board" instead, without their score
+blocks, because the board copy carries them and the scorer would otherwise count each twice.
+"Multi-language patient-facing UI for the LLM" is not indexed at all: it is a closed pointer to
+"Spanish localization", not separate work.
+
+The six below are parked. Each says what parks it.
+
+- **es-l10n**, Spanish localization, the minimum Spanish footprint across prompts, templates and docs. Points at "Spanish localization". Parked: patient-facing letters carry legal weight and this file's own entry says machine translation is not adequate without human review; no bilingual reviewer is available. `score: kind=feature gain=5/15/40 p=0.15 hours=8/20/40 ai=60 risk=0.2x8 rev=two-way conf=opinion flags=legal id=es-l10n`
+  `return: likelihood about 1 in 7 that a Spanish footprint lands correctly and is used within the year, estimated from 13.5 percent of US households speaking Spanish at home set against no bilingual reviewer available to this shop, with nothing counted; impact Spanish-speaking patients keep working from an English-only kit or machine-translate a legally weighted letter themselves and mail it, 5 to 40 h of value forgone a year and an unquantified risk of a mistranslated legal demand; evidence this file's Spanish localization entry and its own warning about machine translation, and the absence of any es file anywhere in the tree on 2026-09-06`
+  - worker: sonnet 40/60/90 h, and a human translator the workspace does not have
+- **outcomes-bank**, community-contributed anonymized dispute outcomes. Points at "Outcomes bank". Parked: publishing patient outcome records is a one-way door and the re-identification risk in small geographic areas is real; product and privacy direction. `score: kind=feature gain=2/8/30 p=0.15 hours=4/8/20 ai=30 risk=0.3x8 rev=one-way conf=opinion flags=legal id=outcomes-bank`
+  `return: likelihood about 1 in 7 that a submission process lands and attracts enough submissions to calibrate anything within the year, estimated from a repo with no recorded external contributor to date, nothing counted; impact patients keep guessing at what a dispute is worth and the kit keeps recommending from doctrine rather than from results, 2 to 30 h a year of misdirected dispute work across users; evidence this file's Outcomes bank entry naming privacy as the hard part, docs/COMMON_OUTCOMES.md as the current doctrine-based substitute, and the entry's own note that apparently-anonymized records re-identify in small geographic areas`
+  - worker: sonnet 20/30/45 h, after a privacy design Jon signs
+- **advocate**, multi-patient advocate variant with a caseload roster and cross-patient watchers. Points at "Advocate variant". Parked: a product-direction call about whether this kit serves advocates at all, and no advocate has asked. `score: kind=feature gain=3/10/30 p=0.2 hours=6/12/30 ai=40 risk=0.15x6 rev=two-way conf=opinion id=advocate`
+  `return: likelihood about 1 in 5 that an advocate variant is built and adopted within the year, on the order of one adopting advocate, estimated, since no advocate has asked and no counter exists; impact patient advocates handling caseloads keep running the single-patient kit once per patient and re-entering the same plan and provider facts, 3 to 30 h a year of their time; evidence this file's Advocate variant entry, schemas/tracker.toml carrying a single-patient column set read on 2026-09-06, and scripts/deadline_watch.py operating on exactly one tracker`
+  - worker: sonnet 35/50/75 h
+- **turquoise**, Turquoise Health API for live cross-hospital negotiated rates. Points at "Turquoise Health API integration". Parked pending the **vendor-memos** item on the work board, which settles whether their terms allow open-source non-commercial use. `score: kind=feature gain=1/3/8 p=0.1 freq=4 hours=2/4/8 ai=15 risk=0.1x3 rev=two-way conf=opinion id=turquoise`
+  `return: likelihood about 4 benchmark lookups a year, at about 1 in 10 that Turquoise licenses their API for open-source non-commercial use at all, estimated, since they have never been asked; impact the counter-offer letter anchors on the bundled Medicare fee-schedule table and manual FAIR Health lookups instead of live negotiated rates, a weaker reasonable-price argument worth 1 to 8 h of negotiation leverage each time; evidence scripts/fetch_price_benchmarks.py and references/medicare_pfs_common.csv read on 2026-09-06, and this file marking the item contingent on commercial terms nobody has checked`
+  - worker: sonnet 8/14/22 h, only after the memo comes back yes
+- **dollarfor**, Dollar For charity-care screener integration. Points at "Dollar For screener integration". Parked pending the same **vendor-memos** item, which settles whether Dollar For has an API at all. `score: kind=feature gain=2/5/15 p=0.15 freq=2 hours=1.5/3/6 ai=10 risk=0.1x2 rev=two-way conf=opinion id=dollarfor`
+  `return: likelihood about 2 charity-care screens a year, at about 3 in 20 that Dollar For has or offers an API to integrate against, estimated, since they have never been asked; impact the patient is pointed at dollarfor.org by hand and the tracker never learns the screener result or the case number, 2 to 15 h of charity-care value missed each time the patient does not follow through unprompted; evidence templates/letter_hardship_negotiation.md and references/resources.md naming Dollar For as the recommended first step, the tracker schema having no column for a screener result, and this file's entry`
+  - worker: sonnet 8/12/18 h, only after the memo comes back yes
+- **chargemaster-comps**, additional independent fair-price anchors for the counter-offer letter. Points at "In-letter chargemaster comparison helper". Parked: this file's own entry says most sources have no public API and scraping them is legally fraught, and the curated-database alternative is a licensing judgment call. `score: kind=feature gain=1/3/8 p=0.3 freq=3 hours=3/6/12 ai=20 risk=0.2x4 rev=two-way conf=opinion flags=legal id=chargemaster-comps`
+  `return: likelihood about 3 counter-offer letters a year, at about 3 in 10 that extra comparables change the outcome rather than the Medicare and price-transparency anchors already carrying it, estimated, since no outcome log exists; impact the reasonable-price argument rests on one or two anchors instead of three or four and the provider discounts it, 1 to 8 h of negotiation leverage each; evidence templates/letter_negotiation_counter_offer.md and scripts/fetch_price_benchmarks.py read on 2026-09-06, and this file's own note that most comparable sources have no public API and that scraping them is legally fraught`
+  - worker: sonnet 18/28/40 h, after a licensing decision Jon signs
+
+## On the work board
+
+Moved 2026-09-06 to `C:\Code_data\medbill-dispute-kit\WORK_BOARD.md`, which carries each one's
+score block, return block, worker estimate and lane brief. They keep their prose sections below.
+
+- **states-10**, "State coverage, long tail". Moved 2026-09-06, Lane 2.
+- **litigation-hold**, "Litigation-hold notice template". Moved 2026-09-06, Lane 4.
+- **prebill-verify**, "Pre-bill insurance-verification helper". Moved 2026-09-06, Lane 4.
+- **parse-990**, "parse_990.py, auto-extract Schedule H data". Moved 2026-09-06, Lane 5.
+- **parse-sbc**, "Insurance plan SBC (Summary of Benefits and Coverage) parser". Moved 2026-09-06, Lane 5.
+- **dedup-v2**, "Better deduplication across re-OCR runs". Moved 2026-09-06, Lane 6.
+- **reply-classifier**, "Automated dispute-reply classifier". Moved 2026-09-06, Lane 7.
+- **security-scope**, "SECURITY.md scope statement, reconcile with the local-ops pipeline". Moved 2026-09-06, Lane 9.
 
 ---
 

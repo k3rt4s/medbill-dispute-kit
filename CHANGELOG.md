@@ -6,6 +6,12 @@ All notable changes to medbill-dispute-kit, in plain English, from the patient's
 
 This project follows [Keep a Changelog](https://keepachangelog.com) conventions. Versions follow [Semantic Versioning](https://semver.org). The kit is instruction-only, so "version" here means a coherent snapshot of rules, references, schemas, and templates.
 
+## [Unreleased]
+
+### Changed
+
+- **Backlog and work board scored** (2026-09-06). Every unshipped feature in `FUTURE_FEATURES.md` and every live item on the work board was scored with `ai_development/docs/board-scoring.md`, and `FUTURE_FEATURES.md` gained a `Scored index` section at the top so the scores stay attached to the features rather than living in a separate list. Nothing was built, dropped or reprioritized on the strength of a score.
+
 ## [v1.1.0] - 2026-08-10
 
 ### Added
