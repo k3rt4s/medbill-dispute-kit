@@ -13,8 +13,9 @@ Providers know this. The mention of small claims, in writing, with a 30-day dead
 1. Initial dispute letter (Rule 02-05). 15-business-day response window.
 2. If no response, follow-up phone call and second letter, citing the prior letter.
 3. **30-day warning letter** (`templates/letter_30day_warning.md`). This is the formal pre-litigation notice. CC the state insurance department, attorney general's consumer protection division, and the BBB. State the disputed amount, the legal basis, the 30-day deadline, and that you will file in small claims court without further notice if not resolved.
-4. Filing.
-5. Hearing, if not settled before then.
+4. **Litigation hold notice**, when litigation is reasonably anticipated (`templates/letter_litigation_hold.md`). Send this preservation request after the 30-day warning and before filing; it asks the provider and any involved collector to preserve relevant records.
+5. Filing.
+6. Hearing, if not settled before then.
 
 Each step has a higher cost to the provider than the previous one. Most settlements happen at step 3.
 
