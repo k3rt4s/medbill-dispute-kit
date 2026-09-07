@@ -1,0 +1,47 @@
+# Deterministic signals for classifying a biller's written dispute reply.
+# Scores are the fraction of positive phrases found, minus any configured
+# negative-phrase penalties, clipped to the inclusive [0.0, score_cap] range.
+
+[meta]
+schema = "reply_patterns"
+schema_version = "1.0"
+selection_threshold = 0.60
+ambiguity_margin = 0.15
+score_cap = 1.00
+negative_phrase_penalty = 0.20
+notes = "Select a block only at or above selection_threshold. Mark a reply ambiguous when the highest score is below the threshold or the two highest scores are within ambiguity_margin. Evidence must be an exact substring of the input reply."
+
+[[patterns]]
+block = "A"
+name = "Form letter / general billing policy"
+template_description = "The reply relies on general billing policy rather than the stated dispute."
+signals = ["billing policy", "standard billing procedures", "our policy is"]
+negative_signals = ["payment plan", "please call"]
+
+[[patterns]]
+block = "B"
+name = "New statement at same balance"
+template_description = "The reply sends or describes a statement and repeats a balance or amount due."
+signals = ["new statement", "amount due", "balance due"]
+negative_signals = ["payment plan", "hardship discount"]
+
+[[patterns]]
+block = "C"
+name = "Conclusory review letter"
+template_description = "The reply says a review occurred but gives a conclusory result."
+signals = ["we have reviewed your account", "balance is correct", "reviewed and determined"]
+negative_signals = ["payment plan", "please call"]
+
+[[patterns]]
+block = "D"
+name = "Hardship or payment-plan offer"
+template_description = "The reply offers affordability relief instead of addressing a coding or NSA dispute."
+signals = ["payment plan", "hardship discount", "monthly payments"]
+negative_signals = ["we have reviewed your account"]
+
+[[patterns]]
+block = "E"
+name = "Invitation to call"
+template_description = "The reply directs the patient to call instead of supplying a written substantive response."
+signals = ["please call", "call our billing department", "contact us by phone"]
+negative_signals = ["we have reviewed your account"]
