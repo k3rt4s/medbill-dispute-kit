@@ -2,6 +2,8 @@
 
 The federal No Surprises Act (effective January 1, 2022) makes certain categories of "surprise" medical bills illegal. If your bill fits one of these categories, you have the strongest possible federal dispute, much stronger than a state-law overcharge claim. Use it first.
 
+> **NSA figures re-verified against CMS as of 2026-09-07:** [CMS PPDR intake requirements](https://www.cms.gov/initiatives/your-patient-rights/medical-bill-rights/get-help/dispute-medical-bill), [CMS GFE timing](https://www.cms.gov/initiatives/your-patient-rights/medical-bill-rights/get-help/medical-bill-guides-resources/what-good-faith-health-insurance-estimate), and the [Federal IDR Operations final rule](https://www.federalregister.gov/documents/2026/06/04/2026-11140/federal-independent-dispute-resolution-operations).
+
 ## What's protected
 
 You **cannot** be balance-billed (charged more than your in-network cost-sharing) in any of these situations:
@@ -10,7 +12,7 @@ You **cannot** be balance-billed (charged more than your in-network cost-sharing
 2. **Out-of-network ancillary providers at in-network facilities**. Specifically anesthesiologists, radiologists, pathologists, lab providers, assistant surgeons, hospitalists, intensivists, and neonatologists. If you went to an in-network hospital for a planned procedure and an out-of-network anesthesiologist worked on your case, the anesthesiologist cannot balance-bill you.
 3. **Air ambulance** services, whether in- or out-of-network.
 
-If you are uninsured or self-pay, you are also entitled to a **Good Faith Estimate** at least one business day before a scheduled service. If the final bill exceeds the Good Faith Estimate by $400 or more, you can dispute it through the federal Patient-Provider Dispute Resolution (PPDR) process.
+If you are uninsured or self-pay, you can get a **Good Faith Estimate** when you schedule care at least three business days ahead or request one. CMS says a GFE is due within one business day for care scheduled 3–9 business days ahead, within three business days for care scheduled 10 or more business days ahead, and within three business days after a request. If the final bill exceeds the Good Faith Estimate by $400 or more, you can dispute it through the federal Patient-Provider Dispute Resolution (PPDR) process.
 
 ## What's not protected
 
@@ -31,7 +33,7 @@ For each bill, ask:
 1. Was this an emergency? If yes → protected, regardless of network status.
 2. Was this an ancillary provider (anesthesia/radiology/pathology/lab/etc.) at an in-network facility? If yes → protected.
 3. Was this air ambulance? If yes → protected.
-4. Was I uninsured/self-pay, and did I get no Good Faith Estimate at least 1 business day before service? If yes → PPDR eligible if the final bill is ≥ $400 over what you expected.
+4. Was I uninsured/self-pay, did I receive a written Good Faith Estimate from the provider or facility, and is the initial bill dated within 120 calendar days? If yes → PPDR may be available when one provider or facility charged at least $400 more than its Good Faith Estimate. If no GFE was provided, use the No Surprises Help Desk complaint path instead of treating the missing GFE as PPDR eligibility.
 
 If any answer is yes, this bill is a No Surprises Act dispute and you escalate accordingly.
 
@@ -43,7 +45,7 @@ If any answer is yes, this bill is a No Surprises Act dispute and you escalate a
    - **Federal CMS**: 1-800-985-3059 or via cms.gov/nosurprises
    - **State insurance department**: see `references/laws_state_template.md` for your state's contact info
 4. Tell your insurance company that you believe this is a balance-billing violation under the No Surprises Act, and that you expect them to process the claim at in-network rates.
-5. For Good Faith Estimate disputes: file PPDR at the federal portal (cms.gov/nosurprises) within 120 days of receiving the bill. Filing fee is currently $25 and refundable if you win.
+5. For Good Faith Estimate disputes: CMS’s current intake page requires an initial bill dated within the last 120 calendar days. The $25 PPDR administrative fee is nonrefundable; if the dispute is decided in the patient's favor, CMS says the $25 is deducted from the amount owed to the provider.
 
 ## Why this rule comes before regular disputes
 
