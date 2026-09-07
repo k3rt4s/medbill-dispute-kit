@@ -1,10 +1,11 @@
 # Decision tree, which template applies
 
-A fast-reference flowchart-style document. Use this when you have a specific bill in hand and need to pick the right template quickly. The LLM follows the same logic in `llm/workflow.md`, but having a printable single-page reference is useful when the LLM is unavailable or when you want to sanity-check the model's recommendation.
+A fast-reference flowchart-style document. Use this when you have a specific bill in hand or planned care and need to pick the right template quickly. The LLM follows the same logic in `llm/workflow.md`, but having a printable single-page reference is useful when the LLM is unavailable or when you want to sanity-check the model's recommendation.
 
 ## Step 1, What kind of bill is it?
 
 - **Bill from a healthcare provider** (hospital, doctor, lab, ambulance, durable medical equipment vendor) → **Step 2**.
+- **No bill yet, planned or scheduled care** → if insured, use **`templates/letter_verification_of_benefits.md`** to request written coverage, network, deductible, out-of-pocket, and prior-authorization information. If uninsured or self-pay, use **`templates/letter_good_faith_estimate_request.md`** for the existing pre-service Good Faith Estimate path.
 - **Letter from a debt collector** that says "this is an attempt to collect a debt" → **`templates/letter_fdcpa_validation.md`** (if within 30 days of first contact).
 - **Denial letter from your insurance company** (no provider bill yet, or the bill is paid pending appeal) → **Step 3** (Insurance denial).
 - **Hospital lien notice** (filed against your personal-injury settlement) → **`templates/letter_auto_med_pay.md` Variant C**.
