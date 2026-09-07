@@ -47,8 +47,14 @@ def test_unknown_or_empty_state(drafter, code: str) -> None:
 def test_every_shipped_state_has_one_complete_section(drafter) -> None:
     body = (ROOT / "references" / "doi_portals.md").read_text(encoding="utf-8")
     codes = re.findall(r"^## ([A-Z]{2}), ", body, flags=re.MULTILINE)
-    assert len(codes) == 36
+    assert len(codes) == 50
     assert len(set(codes)) == len(codes)
+    expected = set("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY".split())
+    assert set(codes) == expected
+    sol = (ROOT / "references" / "sol_by_state.md").read_text(encoding="utf-8")
+    sol_codes = set(re.findall(r"^\|\s*([A-Z]{2})\s*\|", sol, re.MULTILINE))
+    assert set(codes) == sol_codes - {"DC"}
+    assert codes == sorted(codes)
     for code in codes:
         block = drafter.doi_portal_extract(code)
         assert block.startswith(f"## {code}, "), code
