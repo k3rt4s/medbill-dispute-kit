@@ -2,6 +2,8 @@
 
 The federal No Surprises Act explicitly excludes ground ambulance from its balance-billing protections. This is the single largest gap in federal law. Ground ambulance bills are the most common surprise medical bill that remains legal under federal law, and they routinely run $1,500-$5,000 for short transports.
 
+> **NSA figures re-verified against CMS as of 2026-09-07:** the [Ground Ambulance and Patient Billing Advisory Committee (GAPB) page](https://www.cms.gov/medicare/regulations-guidance/advisory-committees/advisory-committee-ground-ambulance-patient-billing-gapb) records that the committee issued its report and recommendations on August 28, 2024. The report did not itself amend the federal No Surprises Act's ground-ambulance exclusion.
+
 State law is the patient's only structural protection here. A patchwork of about a dozen states have closed the gap; the rest have not.
 
 ## The rule

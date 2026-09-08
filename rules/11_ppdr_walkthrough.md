@@ -4,16 +4,18 @@ For uninsured and self-pay patients whose final bill exceeds the Good Faith Esti
 
 The kit treats PPDR as a separate track from other disputes because the protections that attach during PPDR (no collections, no late fees, no credit reporting) are uniquely valuable, and because the filing is on a strict 120-day clock.
 
+> **NSA figures re-verified against CMS as of 2026-09-07:** [CMS’s PPDR intake page](https://www.cms.gov/initiatives/your-patient-rights/medical-bill-rights/get-help/dispute-medical-bill) is the source for current patient-facing PPDR eligibility and fee information.
+
 ## The rule
 
 If the patient meets all four of these conditions, file PPDR:
 
 1. The patient was **uninsured or self-pay** for the service in question.
-2. The patient was entitled to a **Good Faith Estimate** under 45 CFR § 149.610 (i.e., the service was scheduled at least three business days in advance, or the patient requested an estimate).
-3. The **final bill from a single provider** exceeds that provider's GFE by **$400 or more**.
-4. The patient is within **120 calendar days** of receiving the bill.
+2. The patient **received a Good Faith Estimate** from the provider or facility.
+3. One provider or facility charged at least **$400 more** than its Good Faith Estimate.
+4. The patient has an **initial bill dated within the last 120 calendar days**.
 
-If the patient is uninsured or self-pay and never received a GFE, that is itself a No Surprises Act violation. File a complaint at the No Surprises Help Desk (1-800-985-3059) before considering whether PPDR is the right track.
+If the patient is uninsured or self-pay and never received a GFE, that is itself a No Surprises Act issue. File a complaint at the No Surprises Help Desk (1-800-985-3059); do not treat a missing GFE as satisfying CMS’s PPDR intake requirement.
 
 ## Why this is high-leverage
 
@@ -25,7 +27,7 @@ While a PPDR is pending:
 
 These protections are written into 45 CFR § 149.620 and apply for the duration of the dispute. Filing PPDR stops the collections clock on a self-pay bill more effectively than any other federal action.
 
-The filing fee is **$25**, refundable if the Selected Dispute Resolution (SDR) entity rules in the patient's favor (i.e., determines the appropriate payment amount is below the billed amount).
+The filing fee is **$25** and nonrefundable. If the dispute is decided in the patient's favor, CMS says the $25 is deducted from the amount owed to the provider.
 
 ## Where the process lives
 
@@ -47,7 +49,7 @@ If the patient received a GFE, usually delivered before scheduled service or, fo
 
 The GFE shows the estimated total and lists each item or service with its associated estimated charge.
 
-If the patient cannot find a GFE: did they get one? Did the provider not send one? Did the patient discard it? The PPDR process requires either the GFE itself or an attestation that the provider failed to provide one. Without one of those, the federal No Surprises Help Desk complaint is the better starting point.
+If the patient cannot find a GFE: did they get one, did the provider not send one, or was it discarded? CMS’s current intake page requires a GFE. Where no GFE was received, use the federal No Surprises Help Desk complaint path rather than claiming PPDR eligibility.
 
 ### 2. The final bill
 
@@ -63,11 +65,11 @@ Verify the math: final bill minus GFE estimate for that same provider equals at 
 
 ### 5. Date the bill was received
 
-The 120-day clock runs from when the patient received the bill, not when the provider sent it. Use the postmark date if known; otherwise the patient's best estimate. This is what the PPDR portal asks for and is what triggers the deadline.
+CMS’s current intake page requires an **initial bill dated within the last 120 calendar days**. Preserve the initial bill and its date for the submission.
 
 ### 6. $25 filing fee
 
-Pay at the portal. Refundable if the SDR rules favorably.
+Pay at the portal. The fee is nonrefundable; if the dispute is decided in the patient's favor, CMS says it is deducted from the amount owed to the provider.
 
 ## How PPDR works after filing
 
@@ -79,7 +81,7 @@ The compressed sequence:
 4. **Patient may submit additional evidence** in response.
 5. **SDR entity reviews and issues a decision**, typically within 30 days of receiving both parties' submissions. The SDR's determination of the appropriate amount is **binding** on the provider.
 6. **Provider must adjust the bill** to the SDR-determined amount within 30 days of the decision.
-7. **If SDR rules below the billed amount:** patient's $25 filing fee is refunded. Patient owes only the SDR-determined amount.
+7. **If SDR rules below the billed amount:** CMS says the $25 fee is deducted from the amount owed to the provider. Patient owes the resulting amount under the determination.
 8. **If SDR rules at the billed amount:** patient owes the billed amount, but the collections-pause and credit-report protections that applied during the dispute are now lifted.
 
 ## What evidence the patient should submit

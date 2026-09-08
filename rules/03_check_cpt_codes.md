@@ -1,5 +1,7 @@
 # Rule 03, Check the CPT codes against what actually happened
 
+E/M documentation re-checked against public AMA guidance as of 2026-09-07: [revision overview](https://www.ama-assn.org/practice-management/cpt/cpt-evaluation-and-management) and [2023 guidelines](https://www.ama-assn.org/system/files/2023-e-m-descriptors-guidelines.pdf). Office MDM-or-time selection is also described in [2026 AMA guidance](https://www.ama-assn.org/practice-management/ama-steps-forward-program/pearl-week-when-bill-mdm-vs-time). This check covers selection basis and code families; it does not certify every January 2026 code-set change or the historical time-range tables below. Verify those against the applicable licensed release before use.
+
 Each line on an itemized bill carries a Current Procedural Terminology (CPT) or HCPCS code. The code determines the price. A code that overstates the complexity of the encounter overstates the price.
 
 ## The rule
@@ -14,29 +16,26 @@ If any check fails, dispute that line.
 
 ## The E/M code structure
 
-E/M codes are where the most common patient-side errors live. Each visit type has 4-5 levels, and each level has documentation requirements set by CMS. A higher level pays more, sometimes 3-5x more, so providers have an incentive to code high. CMS documentation requirements are detailed in `references/cpt_codes_em.md`. The short version:
+E/M codes are where the most common patient-side errors live. Each visit type has 4-5 levels, and each level has documentation requirements in CPT guidance and applicable payer rules. A higher level pays more, sometimes 3-5x more, so providers have an incentive to code high. E/M documentation requirements are summarized in `references/cpt_codes_em.md`. The short version:
 
 **Emergency department visits (99281-99285):**
 
-- 99281, Level 1, straightforward problem (minor)
-- 99282, Level 2, low-complexity
-- 99283, Level 3, moderate-complexity
-- 99284, Level 4, moderate-to-high complexity
-- 99285, Level 5, high complexity, comprehensive evaluation
+- 99281 has a separate service definition; do not infer its use from triage alone.
+- For 99282 through 99285, review the documented MDM level: straightforward, low, moderate, or high respectively. Time and the extent of history/exam do not select the ED level.
 
 **Office or outpatient visits (99202-99205 new patient, 99211-99215 established):**
 
-Each level corresponds to time spent and medical decision-making complexity. As of the 2021 CMS revision, the dominant factor is either total time or medical decision-making (MDM); history and exam alone no longer determine the level.
+Each level corresponds to time spent and medical decision-making complexity. Under the 2021 office-visit revision, selection uses either total time or medical decision-making (MDM), where the code permits it; history and exam alone no longer determine the level.
 
 **The patient's job:**
 
-You don't need to be a coder. You need to ask, "given what I described to the doctor, what they did, and how long it took, does the assigned level match the documentation requirements?" If the encounter was 15 minutes with a focused exam for one straightforward problem and the bill shows 99285, the bill is wrong.
+You don't need to be a coder. You need to ask, "given what I described to the doctor, what they did, and how long it took, does the assigned level match the documentation requirements?" A short encounter alone does not establish an incorrect ED code; request the documentation supporting the MDM level.
 
 ## Concrete pattern: upcoded ER visit
 
-Patient goes to ER for one defined complaint, sees a doctor for 15-20 minutes, gets a simple intervention (X-ray, basic blood work, prescription), goes home. Bill arrives coded 99285. 99285 requires a comprehensive history, a comprehensive exam, and high-complexity medical decision-making. A 20-minute visit for a single straightforward problem doesn't meet those requirements.
+A patient questioning a high-level ED code should request the documented MDM supporting it. A short visit or focused examination alone does not establish overcoding.
 
-Dispute language: "CPT 99285 requires comprehensive history, comprehensive examination, and high-complexity medical decision-making per CMS documentation guidelines. The encounter on [date] was approximately [N] minutes, addressed a single chief complaint, and involved a focused examination with straightforward medical decision-making. The appropriate code is 99282 or 99283. Please recode and reissue the corrected bill, or provide documentation justifying Level 5."
+Dispute language: "Please identify the clinical documentation supporting the billed ED MDM level and correct the claim if that level is unsupported." Do not select a replacement code from duration or the patient's recollection alone.
 
 ## Concrete pattern: separately billed services that should be bundled
 

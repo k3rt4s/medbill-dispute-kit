@@ -2,6 +2,8 @@
 
 Use when a bill appears to violate the federal No Surprises Act. This template is **not** a general dispute letter; the legal basis is narrow and specific, and the audience includes both the provider and the federal regulator. Always pair with a parallel complaint at 1-800-985-3059 or [cms.gov/medical-bill-rights/help/submit-a-complaint](https://www.cms.gov/medical-bill-rights/help/submit-a-complaint).
 
+> **NSA figures re-verified against CMS as of 2026-09-07:** [CMS’s PPDR intake page](https://www.cms.gov/initiatives/your-patient-rights/medical-bill-rights/get-help/dispute-medical-bill) requires a received GFE and an initial bill dated within 120 calendar days for PPDR; a missing GFE should be raised with the No Surprises Help Desk.
+
 ---
 
 ```letter
@@ -48,9 +50,7 @@ The services on [DATE OF SERVICE] were out-of-network air ambulance services. Se
 
 [SCENARIO 4, Self-pay/uninsured, no Good Faith Estimate]
 
-I was uninsured/self-pay at the time of the scheduled services on [DATE OF SERVICE]. The No Surprises Act, 45 CFR § 149.610, required that I be provided a Good Faith Estimate at least one business day before the scheduled service. No such Good Faith Estimate was provided. The bill received exceeds any estimate by $400 or more.
-
-I am initiating the Patient-Provider Dispute Resolution process under 45 CFR § 149.620 at the federal IDR portal at https://nsa-idr.cms.gov. Pursuant to that process, this bill may not be sent to collections, may not accrue late fees, and may not be reported to consumer reporting agencies while the dispute is pending.
+I was uninsured/self-pay at the time of the scheduled services on [DATE OF SERVICE]. I did not receive a Good Faith Estimate. I am reporting that failure to the No Surprises Help Desk and request a written explanation and correction. I am not asserting PPDR eligibility in this scenario, because CMS’s current PPDR intake requirements call for a received Good Faith Estimate.
 
 [END SCENARIOS]
 

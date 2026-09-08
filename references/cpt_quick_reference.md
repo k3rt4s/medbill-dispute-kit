@@ -1,5 +1,7 @@
 # CPT/HCPCS quick reference for common medical bills
 
+E/M documentation re-checked against public AMA guidance as of 2026-09-07: [revision overview](https://www.ama-assn.org/practice-management/cpt/cpt-evaluation-and-management) and [2023 guidelines](https://www.ama-assn.org/system/files/2023-e-m-descriptors-guidelines.pdf). Office MDM-or-time selection is also described in [2026 AMA guidance](https://www.ama-assn.org/practice-management/ama-steps-forward-program/pearl-week-when-bill-mdm-vs-time). This check covers selection basis and code families; it does not certify every January 2026 code-set change or the historical time-range tables below. Verify those against the applicable licensed release before use.
+
 A short cheat sheet of the codes that show up most often on patient bills, with what they describe and what to watch for. Not a substitute for the AMA's official CPT lookup or the CMS Physician Fee Schedule Lookup; intended as a fast-orientation guide for patients reading an itemized bill.
 
 For the documentation requirements that drive correct vs incorrect coding for E/M codes, see `cpt_codes_em.md`. This file complements that one with procedural codes outside the E/M family.

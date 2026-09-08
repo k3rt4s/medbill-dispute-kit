@@ -1,5 +1,7 @@
 # CPT codes, E/M (evaluation and management)
 
+E/M documentation re-checked against public AMA guidance as of 2026-09-07: [revision overview](https://www.ama-assn.org/practice-management/cpt/cpt-evaluation-and-management) and [2023 guidelines](https://www.ama-assn.org/system/files/2023-e-m-descriptors-guidelines.pdf). Office MDM-or-time selection is also described in [2026 AMA guidance](https://www.ama-assn.org/practice-management/ama-steps-forward-program/pearl-week-when-bill-mdm-vs-time). This check covers selection basis and code families; it does not certify every January 2026 code-set change or the historical time-range tables below. Verify those against the applicable licensed release before use.
+
 Documentation requirements for the visit-level codes that drive the largest fraction of patient-side billing disputes. These are the codes patients most often see upcoded.
 
 ## Copyright note
@@ -19,13 +21,13 @@ Source for E/M revisions: [AMA 2023 E/M descriptors and guidelines (PDF)](https:
 
 ### Code selection driver
 
-For ED codes (99281-99285), the level is selected by **medical decision-making (MDM) complexity only**. Time is **not** a factor for ED codes (unlike office codes). The 2023 revision aligned ED MDM with the 2021 office-visit framework.
+For ED codes 99282-99285, selection uses **medical decision-making (MDM)**. Code 99281 has a separate service definition; triage alone should not be assumed to satisfy it. Time is **not** a factor for ED codes (unlike office codes). The 2023 revision aligned ED MDM with the 2021 office-visit framework.
 
 ### The five levels
 
 | Code  | MDM complexity                        | Typical clinical pattern                                                                                                   |
 | ----- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| 99281 | minimal / may not require a physician | nurse triage, minor problem                                                                                                |
+| 99281 | separate service definition | verify the applicable service requirements                                                                                                |
 | 99282 | straightforward                       | one self-limited or minor problem                                                                                          |
 | 99283 | low                                   | one stable chronic illness, or acute uncomplicated illness/injury                                                          |
 | 99284 | moderate                              | undiagnosed new problem with uncertain prognosis, or one chronic illness with mild exacerbation                            |
@@ -41,11 +43,11 @@ For ED codes (99281-99285), the level is selected by **medical decision-making (
 
 For a billed 99284 or 99285:
 
-- Was your problem one of the patterns at that level? An ankle sprain treated with an ACE wrap is not 99285. A heart attack is.
+- What problems, data and management risk are documented? A diagnosis alone does not establish the complete MDM level.
 - How many tests did the physician personally interpret? How many records from outside sources?
 - What was the actual treatment plan, and what was its risk profile?
 
-A 15-20 minute visit for one straightforward complaint with focused exam and simple management is 99282 or 99283, not 99285.
+Visit duration alone cannot establish an ED level. Compare the documented MDM with the applicable guidance before proposing a corrected code.
 
 ### Dispute language
 

@@ -4,6 +4,8 @@ Use when an out-of-network provider has billed a service that is governed by the
 
 The patient's own option here is to dispute the provider directly under `templates/letter_no_surprises_violation.md`. The parallel, and often faster, option is to ask the patient's plan to initiate the federal Independent Dispute Resolution (IDR) process against the provider. IDR is a binding arbitration between the plan and the provider over the amount; the patient is held to in-network cost-sharing during and after, with the plan and provider fighting over the spread.
 
+> **NSA figures re-verified against CMS as of 2026-09-07:** [CMS’s current IDR notices](https://www.cms.gov/initiatives/no-surprise-billing/overview/notices) confirm the $15 administrative fee per party for disputes initiated on or after June 11, 2026; see also the [2026 IDR final rule](https://www.federalregister.gov/documents/2026/06/04/2026-11140/federal-independent-dispute-resolution-operations).
+
 Patients cannot initiate IDR directly (that right belongs to the plan and the provider after a 30-business-day open-negotiation period). But patients can formally request, and document the plan's response, which becomes useful evidence if the plan later fails to protect the patient from balance billing.
 
 Legal anchors: 42 U.S.C. § 300gg-111 (NSA balance-billing prohibition), 45 CFR § 149.510 (federal IDR process), 45 CFR § 149.410 (open-negotiation period preceding IDR), 29 U.S.C. § 1133 (ERISA claims-procedure rights).
