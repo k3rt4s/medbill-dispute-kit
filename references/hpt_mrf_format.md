@@ -16,7 +16,7 @@ CMS requires hospitals to:
 Quick way to find a hospital's MRF:
 
 - **Search:** `[hospital name] price transparency machine readable file`
-- **Standardized location:** `https://[hospital-domain]/cms-hpt.txt` (the txt file links to the actual MRF)
+- **Standardized location:** `[hospital-domain]/cms-hpt.txt` (the txt file links to the actual MRF)
 - **Aggregators:**
   - [Turquoise Health](https://turquoise.health), patient-facing search
   - [PatientRightsAdvocate.org Hospital Price Files Finder](https://hospitalpricingfiles.patientrightsadvocate.org)

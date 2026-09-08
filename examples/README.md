@@ -4,6 +4,7 @@ Worked end-to-end session walkthroughs showing the kit handling common bill patt
 
 <!-- BEGIN CONTENTS (auto-generated, do not edit by hand) -->
 
+- [sample_bills/](sample_bills/README.md)
 - [insurance_denial_walkthrough.md](insurance_denial_walkthrough.md): A patient whose ERISA-covered employer health plan denied a claim for a recommended procedure.
 - [multi_encounter_walkthrough.md](multi_encounter_walkthrough.md): A patient with bills from two distinct hospital encounters, processed across three sessions over six weeks.
 - [small_claims_walkthrough.md](small_claims_walkthrough.md): A patient files in small claims court against a hospital that ignored a documented dispute.

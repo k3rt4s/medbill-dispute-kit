@@ -140,7 +140,7 @@ Hospitals that use Epic's billing-export workflow often publish an Epic-native C
 
 1. Try the hospital's website footer first. The CMS rule requires a "machine-readable file" link to be discoverable from the hospital's price-transparency landing page, which is typically linked from the footer or the "Billing & Insurance" page.
 
-2. Try the URL pattern `https://[hospital-domain]/pricing-transparency` or `/price-transparency` or `/standard-charges`. About half of hospitals use this pattern.
+2. Try the URL pattern `[hospital-domain]/pricing-transparency` or `/price-transparency` or `/standard-charges`. About half of hospitals use this pattern.
 
 3. Try [PatientRightsAdvocate Hospital Price Files Finder](https://hospitalpricingfiles.patientrightsadvocate.org). They maintain a community-sourced index of MRF URLs across thousands of hospitals.
 

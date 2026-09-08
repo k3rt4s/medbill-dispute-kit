@@ -773,40 +773,22 @@
     },
     {
       "id": "state-long-tail",
-      "title": "State packs for the remaining 10 states",
-      "description": "AK, DE (initial), ME, MT, ND, NH, RI, SD, VT, WY",
-      "status": "planned",
-      "issue": "https://github.com/k3rt4s/medbill-dispute-kit/labels/state-pack"
-    },
-    {
-      "id": "spanish-localization",
-      "title": "Spanish-language patient-facing prompts and templates",
-      "description": "Translate the most-used templates and rules into Spanish for bilingual patients",
-      "status": "planned"
-    },
-    {
-      "id": "outcomes-bank",
-      "title": "Anonymized real-outcomes bank",
-      "description": "Community-contributed anonymized dispute outcomes for calibration",
-      "status": "proposed"
-    },
-    {
-      "id": "advocate-variant",
-      "title": "Advocate-side variant",
-      "description": "Kit oriented for patient advocates handling multiple patients simultaneously",
-      "status": "proposed"
+      "title": "State packs for all 50 states",
+      "description": "AK, DE, ME, MT, ND, NH, RI, SD, VT, and WY completed the 50-state state-pack set.",
+      "status": "implemented",
+      "release": { "version": "unreleased", "date": "2026-09-08" }
     },
     {
       "id": "turquoise-integration",
       "title": "Turquoise Health API integration",
-      "description": "Auto-lookup of fair prices given CPT and ZIP code via Turquoise's API",
-      "status": "proposed"
+      "description": "Live negotiated-rate lookup is gated on written Turquoise authorization for public-kit use and downstream patient-facing output.",
+      "status": "contact-needed"
     },
     {
       "id": "dollar-for-integration",
       "title": "Dollar For screener integration",
-      "description": "Auto-screen non-profit hospital bills for charity-care eligibility via Dollar For",
-      "status": "proposed"
+      "description": "Charity-care screener integration is gated on direct Dollar For confirmation of an API or supported deep-link workflow.",
+      "status": "contact-needed"
     }
   ]
 }

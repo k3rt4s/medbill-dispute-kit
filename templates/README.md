@@ -1,6 +1,6 @@
 # templates/
 
-Thirty-four ready-to-mail letter and complaint templates with placeholders that the LLM fills from the patient's actual bill and EOB evidence, covering every stage from itemized-bill request through ERISA appeal, state DOI complaint, HIPAA access demand, FCRA credit-report dispute, and small-claims civil warrant.
+Thirty-six ready-to-mail letter and complaint templates with placeholders that the LLM fills from the patient's actual bill and EOB evidence, covering every stage from itemized-bill request through ERISA appeal, state DOI complaint, HIPAA access demand, FCRA credit-report dispute, and small-claims civil warrant.
 
 <!-- BEGIN CONTENTS (auto-generated, do not edit by hand) -->
 
@@ -27,15 +27,17 @@ Thirty-four ready-to-mail letter and complaint templates with placeholders that 
 - [letter_initial_dispute.md](letter_initial_dispute.md): Use this after you have an itemized bill and have identified specific findings (price gouging, CPT mismatch, duplicate charges, services not received).
 - [letter_insurance_appeal_erisa.md](letter_insurance_appeal_erisa.md): Use when an ERISA-covered employer health plan has denied a claim and you are filing the internal appeal (or the final-level appeal).
 - [letter_itemization_request.md](letter_itemization_request.md): Use this letter as the first action against any non-itemized bill.
+- [letter_litigation_hold.md](letter_litigation_hold.md): Use when the patient reasonably anticipates litigation over a disputed medical-billing matter and needs the provider or collector to preserve the evidence before filing.
 - [letter_medicaid_appeal.md](letter_medicaid_appeal.md): Medicaid appeals are state-administered.
 - [letter_medicare_appeal.md](letter_medicare_appeal.md): Use for a written Medicare appeal request at Level 1 (Redetermination for Parts A/B, Reconsideration for Part C, or Redetermination for Part D) or Level 2 (QIC for A/B, IRE for Part D).
 - [letter_negotiation_counter_offer.md](letter_negotiation_counter_offer.md): Use when the bill is for services the patient actually received, the EOB and itemization are both in hand, and the line-item charges are materially above fair market value.
 - [letter_no_surprises_violation.md](letter_no_surprises_violation.md): Use when a bill appears to violate the federal No Surprises Act.
-- [letter_ppdr_initiate.md](letter_ppdr_initiate.md): Use when the patient is uninsured or self-pay, received a Good Faith Estimate before the service (or should have under 45 CFR § 149.610), and the final bill for any single provider or facility…
+- [letter_ppdr_initiate.md](letter_ppdr_initiate.md): Use when the patient is uninsured or self-pay, received a Good Faith Estimate before the service, has an initial bill dated within 120 calendar days, and one provider or facility charged at least…
 - [letter_records_request_hipaa.md](letter_records_request_hipaa.md): Use to obtain the patient's medical record under the federal right of access at 45 CFR § 164.524 (HIPAA Privacy Rule) before, during, or in support of a billing dispute.
 - [letter_request_eob.md](letter_request_eob.md): Use when a provider bill has arrived but the corresponding Explanation of Benefits (EOB) from the patient's health plan has not.
 - [letter_request_insurer_initiate_idr.md](letter_request_insurer_initiate_idr.md): Use when an out-of-network provider has billed a service that is governed by the federal No Surprises Act's balance-billing protections (emergency services under 42 U.S.C.
 - [letter_subrogation_response.md](letter_subrogation_response.md): Use when the patient's health insurance plan has asserted a subrogation or reimbursement claim against a tort recovery the patient is pursuing (motor-vehicle, slip-and-fall, premises liability…
+- [letter_verification_of_benefits.md](letter_verification_of_benefits.md): Use when an insured patient has planned or scheduled care and needs a written coverage record before service.
 - [letter_wc_carrier_redirect.md](letter_wc_carrier_redirect.md): Use when the patient received a medical bill for an injury that arose out of and in the course of employment.
 - [small_claims_civil_warrant.md](small_claims_civil_warrant.md): Use after the dispute letter has gone unanswered, the 30-day warning has gone unanswered, and the patient is ready to file a civil action.
 

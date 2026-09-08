@@ -7,6 +7,7 @@ TOML schemas defining the shape of bill records, tracker rows, dispute actions, 
 - [action.toml](action.toml)
 - [bill.toml](bill.toml)
 - [deduplication_rules.toml](deduplication_rules.toml)
+- [reply_patterns.toml](reply_patterns.toml)
 - [tracker.toml](tracker.toml)
 
 <!-- END CONTENTS -->

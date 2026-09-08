@@ -113,9 +113,13 @@ CMS1500_HEADERS_RE = re.compile(
     r"diagnosis\s+pointer|days\s*/\s*units)\b",
     re.I,
 )
+STRUCTURED_CHARGE_HEADER_RE = re.compile(
+    r"\bCPT\b[^\n]{0,80}\b(?:description|service)\b[^\n]{0,80}\b(?:units?|charge)\b",
+    re.I,
+)
 ITEMIZED_HEADER_RE = re.compile(
     r"\b(itemized\s+statement|itemization|detail\s+of\s+charges|"
-    r"itemized\s+bill)\b",
+    r"itemized\s+(?:bill|service))\b",
     re.I,
 )
 CPT_HCPCS_RE = re.compile(
@@ -139,10 +143,6 @@ def detect_is_itemized(body: str) -> tuple[bool, str]:
     signals.append(f"dcl={dcl_count}")
 
     # Override-to-false signals
-    if PAYMENT_LEDGER_KEYWORDS.search(body) and \
-       len(PAYMENT_LEDGER_KEYWORDS.findall(body)) >= 2:
-        signals.append("ledger_override")
-        return False, ";".join(signals)
     if EOB_KEYWORDS.search(body) and len(EOB_KEYWORDS.findall(body)) >= 4:
         signals.append("eob_override")
         return False, ";".join(signals)
@@ -169,11 +169,19 @@ def detect_is_itemized(body: str) -> tuple[bool, str]:
     if CMS1500_HEADERS_RE.search(body):
         signals.append("cms1500_headers")
         return True, ";".join(signals)
+    if STRUCTURED_CHARGE_HEADER_RE.search(body):
+        signals.append("structured_charge_header")
+        return True, ";".join(signals)
     if ITEMIZED_HEADER_RE.search(body):
         cpt_hits = sum(1 for _ in CPT_HCPCS_RE.finditer(body))
         signals.append(f"itemized_header+cpt={cpt_hits}")
         if cpt_hits >= 1:
             return True, ";".join(signals)
+
+    if PAYMENT_LEDGER_KEYWORDS.search(body) and \
+       len(PAYMENT_LEDGER_KEYWORDS.findall(body)) >= 2:
+        signals.append("ledger_override")
+        return False, ";".join(signals)
 
     # Primary rule: 3+ distinct dated charge lines
     if dcl_count >= 3:

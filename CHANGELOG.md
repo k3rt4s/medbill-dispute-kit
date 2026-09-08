@@ -8,6 +8,20 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 
 ## [Unreleased]
 
+### Added
+
+- **50-state coverage completed.** Added Alaska, Delaware, Maine, Montana, North Dakota, New Hampshire, Rhode Island, South Dakota, Vermont, and Wyoming state packs, bringing `references/laws_state_*.md` to all 50 states.
+- **DOI and escalation coverage expanded.** Completed the state DOI portal directory and added litigation-hold plus verification-of-benefits templates for pre-bill and preservation workflows.
+- **Parsing and classifier helpers added.** Added IRS Form 990 and SBC parsers, the dispute-reply classifier, sample-bill fixture generators, and regression coverage for generated synthetic bill fixtures.
+- **Project dependencies formalized.** Added runtime and developer requirements files so CI and local checks install the same toolchain.
+
+### Fixed
+
+- **Sample-bill itemization detection.** Structured itemized bills with insurance-payment or adjustment lines now stay classified as itemized bills rather than payment ledgers.
+- **Documentation placeholders.** Bracketed hospital-domain examples are no longer formatted as malformed HTTPS URLs.
+- **CI dependency install.** CI now installs `requirements-dev.txt` before running the merged test suite.
+- **Merged documentation state.** README contents, build plan, docs index, future features, roadmap, and work board now agree on completed work and remaining vendor-gated items.
+
 ### Changed
 
 - **Backlog pruned** (2026-09-08). Removed four parked ideas from `FUTURE_FEATURES.md`

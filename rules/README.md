@@ -7,7 +7,7 @@ The LLM's operating manual: 25 numbered rule files distilling Marshall Allen's m
 - [00_principles.md](00_principles.md): These three facts about US medical billing precede every tactic in this kit.
 - [01_never_pay_first.md](01_never_pay_first.md): A medical bill is not a demand for immediate payment.
 - [02_request_itemization.md](02_request_itemization.md): You cannot dispute a bill you can't see.
-- [03_check_cpt_codes.md](03_check_cpt_codes.md): Each line on an itemized bill carries a Current Procedural Terminology (CPT) or HCPCS code.
+- [03_check_cpt_codes.md](03_check_cpt_codes.md): E/M documentation re-checked against public AMA guidance as of 2026-09-07: [revision overview](https://www.ama-assn.org/practice-management/cpt/cpt-evaluation-and-management) and [2023…
 - [04_no_surprises_act.md](04_no_surprises_act.md): The federal No Surprises Act (effective January 1, 2022) makes certain categories of "surprise" medical bills illegal.
 - [05_negotiate_fair_price.md](05_negotiate_fair_price.md): When a bill is correctly coded for a service you actually received but the price is unreasonable, the dispute is about price, not error.
 - [06_small_claims.md](06_small_claims.md): Small claims court is the single biggest piece of leverage a patient has against a provider or insurer.

@@ -76,15 +76,15 @@ State-pack expansion plus plan-type coverage plus documentation, all shipped 202
 - [x] `USER_STORIES.md`, added Epic 8 (Plan-type coverage) and Epic 9 (Discoverability and contribution).
 - [x] `templates/letter_credit_report_dispute_fcra.md`, paid medical and sub-$500 collections under 2022 voluntary bureau changes. New Epic 7. Shipped under this filename (planned as `letter_credit_bureau_dispute.md`).
 - [x] `scripts/validate_tracker.py`, validates a tracker CSV against the TOML schemas. Optional helper. Story 5.2 extension.
-- [ ] `examples/sample_bills/`, synthetic bill images/PDFs (clearly fictional patients) to test extraction. Story 1.2.
+- [x] `examples/sample_bills/`, synthetic bill images/PDFs (clearly fictional patients) to test extraction. Story 1.2.
 
 ## v1.0.0 stretch
 
-State-pack count verified 2026-09-07: 40 packs in this main-based tree; work on separate branches is excluded.
+State-pack count verified 2026-09-08: 50 packs in this main-based tree.
 
 Things that turn this from a one-state-worked-out kit into a comprehensive resource.
 
-- [ ] State packs for all 50 states. Long tail; community contribution territory.
+- [x] State packs for all 50 states. Long tail completed 2026-09-08.
 - [x] `references/glossary.md`, chargemaster, EOB, AOB, NPI, EIN, CPT, HCPCS, MDM, MRF, NCCI, AGB, IRO.
 - [x] `FAQ.md`, "I missed the 30-day window," "veterinary bills?" (no), "outside US?" (no), etc.
 - [x] `llm/compatibility.md`, Claude vs ChatGPT vs Gemini vs local; context-length and file-upload notes.

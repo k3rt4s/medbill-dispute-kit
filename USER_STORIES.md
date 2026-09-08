@@ -948,9 +948,21 @@ This is the user-value master for medbill-dispute-kit, the personas and stories 
 
 **AC:**
 
-- Dedicated state packs ship for ID, HI, WV, LA matching the existing 12-section format. Total: 40 state packs.
+- Dedicated state packs ship for ID, HI, WV, LA matching the existing 12-section format. Total: 40 state packs at v1.1.0.
 
 **Status:** shipped (v1.1.0)
+
+---
+
+### Story 20.2, Complete the 50-state pack set
+
+**As a** patient in Alaska, Delaware, Maine, Montana, North Dakota, New Hampshire, Rhode Island, South Dakota, Vermont, or Wyoming, **I want** a dedicated state pack rather than a template-only lookup, **so that** the kit can draft letters with state-specific citations in every U.S. state.
+
+**AC:**
+
+- Dedicated state packs ship for AK, DE, ME, MT, ND, NH, RI, SD, VT, and WY matching the existing state-pack format. Total: 50 state packs.
+
+**Status:** shipped (unreleased, 2026-09-08)
 
 ---
 

@@ -94,7 +94,7 @@ For the patient's most common questions, jump straight to:
 | Reference                                                                                             | Use                                                                  |
 | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | [`references/laws_federal.md`](../references/laws_federal.md)                                         | Federal-law cite source of truth                                     |
-| [`references/laws_state_*.md`](../references/)                                                        | Per-state cite source of truth (40 states)                           |
+| [`references/laws_state_*.md`](../references/)                                                        | Per-state cite source of truth (50 states)                           |
 | [`references/laws_state_template.md`](../references/laws_state_template.md)                           | Template for new state packs                                         |
 | [`references/cpt_codes_em.md`](../references/cpt_codes_em.md)                                         | E/M coding documentation requirements                                |
 | [`references/cpt_quick_reference.md`](../references/cpt_quick_reference.md)                           | High-frequency CPT/HCPCS codes                                       |
@@ -198,13 +198,11 @@ For the patient's most common questions, jump straight to:
 
 State packs are at `references/laws_state_<two-letter>.md`. Each follows the same structure: intro callout, 12 numbered sections, quick reference, key advantages.
 
-Currently shipped (40 states as of v1.1.0):
+Currently shipped (50 states as of 2026-09-08):
 
-AL, AR, AZ, CA, CO, CT, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MD, MI, MN, MO, MS, NC, NE, NJ, NM, NV, NY, OH, OK, OR, PA, SC, TN, TX, UT, VA, WA, WI, WV
+AK, AL, AR, AZ, CA, CO, CT, DE, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, MT, NC, ND, NE, NH, NJ, NM, NV, NY, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VA, VT, WA, WI, WV, WY
 
-Remaining 10 states (long tail, community PR territory):
-
-AK, DE, ME, MT, ND, NH, RI, SD, VT, WY
+No state packs remain in the long tail.
 
 ## Find by privacy/scope concern
 
