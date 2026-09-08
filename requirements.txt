@@ -1,0 +1,4 @@
+# PyMuPDF reads PDFs; openai supports the optional cloud pipeline.
+# Standard-library-only helpers do not need either dependency.
+openai==3.8.0
+pymupdf==1.28.2
