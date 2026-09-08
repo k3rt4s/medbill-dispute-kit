@@ -777,18 +777,6 @@
       "description": "AK, DE, ME, MT, ND, NH, RI, SD, VT, and WY completed the 50-state state-pack set.",
       "status": "implemented",
       "release": { "version": "unreleased", "date": "2026-09-08" }
-    },
-    {
-      "id": "turquoise-integration",
-      "title": "Turquoise Health API integration",
-      "description": "Live negotiated-rate lookup is gated on written Turquoise authorization for public-kit use and downstream patient-facing output.",
-      "status": "contact-needed"
-    },
-    {
-      "id": "dollar-for-integration",
-      "title": "Dollar For screener integration",
-      "description": "Charity-care screener integration is gated on direct Dollar For confirmation of an API or supported deep-link workflow.",
-      "status": "contact-needed"
     }
   ]
 }

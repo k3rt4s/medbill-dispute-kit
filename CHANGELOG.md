@@ -8,6 +8,10 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 
 ## [Unreleased]
 
+
+
+## [v1.2.0] - 2026-09-08
+
 ### Added
 
 - **50-state coverage completed.** Added Alaska, Delaware, Maine, Montana, North Dakota, New Hampshire, Rhode Island, South Dakota, Vermont, and Wyoming state packs, bringing `references/laws_state_*.md` to all 50 states.
@@ -424,6 +428,7 @@ The Marshall Allen methodology release. Brings the "Never Pay the First Bill" wo
 - **License**, MIT.
 - **`.gitignore`** to keep local bill data, scanned PDFs, and personal trackers out of the repository.
 
+[v1.2.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v1.2.0
 [v1.1.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v1.1.0
 [v0.12.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.12.0
 [v0.11.0]: https://github.com/k3rt4s/medbill-dispute-kit/releases/tag/v0.11.0
