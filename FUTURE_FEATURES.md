@@ -14,29 +14,17 @@ dropped, change its line here rather than a number in the prose below.
 
 The features now being worked are listed under "On the work board" instead, without their score
 blocks, because the board copy carries them and the scorer would otherwise count each twice.
-"Multi-language patient-facing UI for the LLM" is not indexed at all: it is a closed pointer to
-"Spanish localization", not separate work.
 
-The six below are parked. Each says what parks it.
+The two below are contact-needed. Spanish localization, the outcomes bank, the advocate
+variant and the chargemaster comparison helper were pruned on 2026-09-08 because none had
+an actionable next step inside this project.
 
-- **es-l10n**, Spanish localization, the minimum Spanish footprint across prompts, templates and docs. Points at "Spanish localization". Parked: patient-facing letters carry legal weight and this file's own entry says machine translation is not adequate without human review; no bilingual reviewer is available. `score: kind=feature gain=5/15/40 p=0.15 hours=8/20/40 ai=60 risk=0.2x8 rev=two-way conf=opinion flags=legal id=es-l10n`
-  `return: likelihood about 1 in 7 that a Spanish footprint lands correctly and is used within the year, estimated from 13.5 percent of US households speaking Spanish at home set against no bilingual reviewer available to this shop, with nothing counted; impact Spanish-speaking patients keep working from an English-only kit or machine-translate a legally weighted letter themselves and mail it, 5 to 40 h of value forgone a year and an unquantified risk of a mistranslated legal demand; evidence this file's Spanish localization entry and its own warning about machine translation, and the absence of any es file anywhere in the tree on 2026-09-06`
-  - worker: sonnet 40/60/90 h, and a human translator the workspace does not have
-- **outcomes-bank**, community-contributed anonymized dispute outcomes. Points at "Outcomes bank". Parked: publishing patient outcome records is a one-way door and the re-identification risk in small geographic areas is real; product and privacy direction. `score: kind=feature gain=2/8/30 p=0.15 hours=4/8/20 ai=30 risk=0.3x8 rev=one-way conf=opinion flags=legal id=outcomes-bank`
-  `return: likelihood about 1 in 7 that a submission process lands and attracts enough submissions to calibrate anything within the year, estimated from a repo with no recorded external contributor to date, nothing counted; impact patients keep guessing at what a dispute is worth and the kit keeps recommending from doctrine rather than from results, 2 to 30 h a year of misdirected dispute work across users; evidence this file's Outcomes bank entry naming privacy as the hard part, docs/COMMON_OUTCOMES.md as the current doctrine-based substitute, and the entry's own note that apparently-anonymized records re-identify in small geographic areas`
-  - worker: sonnet 20/30/45 h, after a privacy design Jon signs
-- **advocate**, multi-patient advocate variant with a caseload roster and cross-patient watchers. Points at "Advocate variant". Parked: a product-direction call about whether this kit serves advocates at all, and no advocate has asked. `score: kind=feature gain=3/10/30 p=0.2 hours=6/12/30 ai=40 risk=0.15x6 rev=two-way conf=opinion id=advocate`
-  `return: likelihood about 1 in 5 that an advocate variant is built and adopted within the year, on the order of one adopting advocate, estimated, since no advocate has asked and no counter exists; impact patient advocates handling caseloads keep running the single-patient kit once per patient and re-entering the same plan and provider facts, 3 to 30 h a year of their time; evidence this file's Advocate variant entry, schemas/tracker.toml carrying a single-patient column set read on 2026-09-06, and scripts/deadline_watch.py operating on exactly one tracker`
-  - worker: sonnet 35/50/75 h
-- **turquoise**, Turquoise Health API for live cross-hospital negotiated rates. Points at "Turquoise Health API integration". Parked pending the **vendor-memos** item on the work board, which settles whether their terms allow open-source non-commercial use. `score: kind=feature gain=1/3/8 p=0.1 freq=4 hours=2/4/8 ai=15 risk=0.1x3 rev=two-way conf=opinion id=turquoise`
-  `return: likelihood about 4 benchmark lookups a year, at about 1 in 10 that Turquoise licenses their API for open-source non-commercial use at all, estimated, since they have never been asked; impact the counter-offer letter anchors on the bundled Medicare fee-schedule table and manual FAIR Health lookups instead of live negotiated rates, a weaker reasonable-price argument worth 1 to 8 h of negotiation leverage each time; evidence scripts/fetch_price_benchmarks.py and references/medicare_pfs_common.csv read on 2026-09-06, and this file marking the item contingent on commercial terms nobody has checked`
+- **turquoise**, Turquoise Health API for live cross-hospital negotiated rates. Points at "Turquoise Health API integration". Contact-needed: refreshed 2026-09-08 evidence confirms a public API exists, but published terms do not permit the contemplated public-kit use without written vendor authorization. `score: kind=feature gain=1/3/8 p=0.1 freq=4 hours=2/4/8 ai=15 risk=0.1x3 rev=two-way conf=assessed id=turquoise`
+  `return: likelihood about 4 benchmark lookups a year, at about 1 in 10 that Turquoise licenses their API for open-source non-commercial use at all, estimated, since they have never been asked; impact the counter-offer letter anchors on the bundled Medicare fee-schedule table and manual FAIR Health lookups instead of live negotiated rates, a weaker reasonable-price argument worth 1 to 8 h of negotiation leverage each time; evidence scripts/fetch_price_benchmarks.py and references/medicare_pfs_common.csv read on 2026-09-06, plus 2026-09-08 review of Turquoise API docs and public non-commercial/community terms showing written permission is needed for public dissemination`
   - worker: sonnet 8/14/22 h, only after the memo comes back yes
-- **dollarfor**, Dollar For charity-care screener integration. Points at "Dollar For screener integration". Parked pending the same **vendor-memos** item, which settles whether Dollar For has an API at all. `score: kind=feature gain=2/5/15 p=0.15 freq=2 hours=1.5/3/6 ai=10 risk=0.1x2 rev=two-way conf=opinion id=dollarfor`
-  `return: likelihood about 2 charity-care screens a year, at about 3 in 20 that Dollar For has or offers an API to integrate against, estimated, since they have never been asked; impact the patient is pointed at dollarfor.org by hand and the tracker never learns the screener result or the case number, 2 to 15 h of charity-care value missed each time the patient does not follow through unprompted; evidence templates/letter_hardship_negotiation.md and references/resources.md naming Dollar For as the recommended first step, the tracker schema having no column for a screener result, and this file's entry`
+- **dollarfor**, Dollar For charity-care screener integration. Points at "Dollar For screener integration". Contact-needed: refreshed 2026-09-08 evidence could not verify public API or integration terms because Dollar For's robots policy blocks the research user agents; this is a verification gap, not proof that no supported workflow exists. `score: kind=feature gain=2/5/15 p=0.15 freq=2 hours=1.5/3/6 ai=10 risk=0.1x2 rev=two-way conf=assessed id=dollarfor`
+  `return: likelihood about 2 charity-care screens a year, at about 3 in 20 that Dollar For has or offers an API to integrate against, estimated, since they have never been asked; impact the patient is pointed at dollarfor.org by hand and the tracker never learns the screener result or the case number, 2 to 15 h of charity-care value missed each time the patient does not follow through unprompted; evidence templates/letter_hardship_negotiation.md and references/resources.md naming Dollar For as the recommended first step, the tracker schema having no column for a screener result, and 2026-09-08 review finding public API and integration terms unverified because Dollar For's robots policy blocks the research user agents`
   - worker: sonnet 8/12/18 h, only after the memo comes back yes
-- **chargemaster-comps**, additional independent fair-price anchors for the counter-offer letter. Points at "In-letter chargemaster comparison helper". Parked: this file's own entry says most sources have no public API and scraping them is legally fraught, and the curated-database alternative is a licensing judgment call. `score: kind=feature gain=1/3/8 p=0.3 freq=3 hours=3/6/12 ai=20 risk=0.2x4 rev=two-way conf=opinion flags=legal id=chargemaster-comps`
-  `return: likelihood about 3 counter-offer letters a year, at about 3 in 10 that extra comparables change the outcome rather than the Medicare and price-transparency anchors already carrying it, estimated, since no outcome log exists; impact the reasonable-price argument rests on one or two anchors instead of three or four and the provider discounts it, 1 to 8 h of negotiation leverage each; evidence templates/letter_negotiation_counter_offer.md and scripts/fetch_price_benchmarks.py read on 2026-09-06, and this file's own note that most comparable sources have no public API and that scraping them is legally fraught`
-  - worker: sonnet 18/28/40 h, after a licensing decision Jon signs
 
 ## On the work board
 
@@ -75,47 +63,6 @@ Each state pack is ~150-300 lines of Markdown citing actual state statutes with 
 
 Expected effort per state: 3-6 hours of research and writing.
 
-## Spanish localization
-
-About 13.5% of US households speak Spanish at home. The kit is currently English-only.
-
-The minimum useful Spanish footprint is:
-
-- `llm/system_prompt.es.md`, Spanish version of the LLM persona.
-- `templates/*_es.md` for the highest-frequency templates: itemization request, initial dispute, EOB request, 30-day warning, hardship negotiation, NSA violation, FAP application.
-- `docs/START_HERE.es.md` and `docs/DECISION_TREE.es.md`.
-- `FAQ.es.md` covering the top 30 questions.
-
-Patient-facing templates carry legal weight; translations must be done by someone fluent in both languages and in US medical-billing terminology. Machine translation is not adequate for the templates without human review.
-
-Expected effort: 40-80 hours for the minimum footprint, including review.
-
-## Outcomes bank
-
-A community-contributed, anonymized database of real dispute outcomes, input (bill type, state, finding) and output (resolution, time elapsed, money saved). Would let future patients calibrate expected outcomes and the kit calibrate its recommendations.
-
-The hard part is privacy. Patients cannot share medical details without risk; even apparently-anonymized records often re-identify in small geographic areas. The kit would need:
-
-- A submission schema that scrubs PII at the source.
-- A review process for accepted submissions.
-- A storage layer (likely an append-only JSON file in the repo, with PRs only).
-- Patient-facing guidance on what is safe to share.
-
-Expected effort: 20-40 hours for the schema and process; ongoing maintenance proportional to submission volume.
-
-## Advocate variant
-
-A version of the kit oriented for patient advocates handling multiple patients simultaneously. Differences from the patient kit:
-
-- Multi-tenant tracker schema (one CSV per patient, with a top-level roster).
-- Caseload-view scripts (across-patient deadline watcher, across-patient SOL summary).
-- Advocate-facing prompts that frame the LLM as a colleague to the advocate, not a substitute for the patient.
-- Authorization-and-HIPAA workflow for the advocate to act on a patient's behalf.
-
-The state-machine pipeline already handles multi-encounter and multi-biller logic per patient; extending to multi-patient is mostly orchestration.
-
-Expected effort: 40-60 hours for the initial fork plus the multi-patient orchestration.
-
 ## Turquoise Health API integration
 
 `scripts/fetch_price_benchmarks.py` currently bundles a static Medicare PFS table and constructs FAIR Health / Healthcare Bluebook URLs for manual lookup. Turquoise Health's API would give live pricing data across hospitals, including the negotiated rates buried in MRFs but normalized for cross-comparison.
@@ -125,6 +72,9 @@ Turquoise's API is commercial. Use would require:
 - A credentialing flow for kit users (the API is not free).
 - A cache layer to avoid re-querying for the same code in the same ZIP.
 - A fallback to the existing static Medicare table when the API is unavailable.
+
+As of 2026-09-08, public terms do not authorize this kit to reproduce or transmit
+Turquoise data in patient-facing letters or tracker output without written permission.
 
 Expected effort: 10-20 hours, contingent on Turquoise's commercial terms for open-source non-commercial use.
 
@@ -137,6 +87,10 @@ A scripted integration would:
 - Detect non-profit hospitals from the bill's biller_name (cross-referencing the IRS Tax Exempt Organization Search).
 - Run the patient through the Dollar For eligibility screener via API (if Dollar For offers one) or via a deep-link workflow (if not).
 - Update tracker.csv with the screener result and Dollar For case number.
+
+As of 2026-09-08, public API and integration terms could not be verified because
+Dollar For's robots policy blocks the research user agents. A direct vendor response
+is needed before implementation.
 
 Expected effort: 10-20 hours, contingent on Dollar For having or offering an API.
 
@@ -152,14 +106,6 @@ Expected effort: 10-20 hours, contingent on Dollar For having or offering an API
 The 990 XML format is well-documented but verbose. Mapping XML elements to Schedule H fields is the bulk of the work.
 
 Expected effort: 20-30 hours including test coverage against a half-dozen real 990 filings.
-
-## In-letter chargemaster comparison helper
-
-The counter-offer letter currently embeds a per-CPT benchmark table comparing billed amounts to Medicare PFS and (when available) the hospital's published cash price from the MRF. A helper that pulls additional comparables, Surgery Center of Oklahoma's all-inclusive cash prices, Free Market Medical Association directory prices, Sesame marketplace prices, would strengthen the UCC § 2-305 argument by showing three or four independent fair-price anchors instead of one or two.
-
-Most of these sources do not have public APIs. The helper would either scrape (legally fraught) or maintain a curated comparable database in `references/`.
-
-Expected effort: 20-40 hours including the comparable database.
 
 ## Insurance plan SBC (Summary of Benefits and Coverage) parser
 
@@ -208,12 +154,6 @@ The risk is not a vulnerability, it is a reader who cites `SECURITY.md` as evide
 Work: split the claim so the two trust models are named separately rather than averaged, and decide whether the out-of-scope list should say anything about the Azure endpoint a patient configures themselves. Any wording change to a published security policy is a maintainer call, not a mechanical edit, which is why this is recorded here rather than patched. Recorded 2026-08-20.
 
 Expected effort: under an hour once the wording is decided.
-
----
-
-## Standing notes
-
-Not scored: this is a closed pointer, not open work. "Multi-language patient-facing UI for the LLM" (the prompt chain, system_prompt/workflow/output_contracts/decision_tree, needing a Spanish parallel) is fully subsumed by the Spanish localization item in the Scored index above; its own text says so ("Expected effort: subsumed by the Spanish-localization item above"). Do not score it separately; scoring spanish-localization covers this scope.
 
 ---
 

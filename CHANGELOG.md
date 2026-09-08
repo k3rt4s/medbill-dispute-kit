@@ -10,6 +10,12 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 
 ### Changed
 
+- **Backlog pruned** (2026-09-08). Removed four parked ideas from `FUTURE_FEATURES.md`
+  that have no actionable next step inside this project: Spanish localization without a
+  qualified reviewer, an outcomes bank with unresolved privacy/product direction, an
+  advocate variant without demand, and chargemaster comparisons blocked on licensing and
+  scraping risk. The vendor-gated Turquoise and Dollar For items remain contact-needed
+  after refreshed public terms/API evidence.
 - **Backlog and work board scored** (2026-09-06). Every unshipped feature in `FUTURE_FEATURES.md` and every live item on the work board was scored with `ai_development/docs/board-scoring.md`, and `FUTURE_FEATURES.md` gained a `Scored index` section at the top so the scores stay attached to the features rather than living in a separate list. Nothing was built, dropped or reprioritized on the strength of a score.
 
 ## [v1.1.0] - 2026-08-10
