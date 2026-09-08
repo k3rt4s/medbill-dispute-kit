@@ -1,10 +1,19 @@
 # Security policy
 
-The kit ships no executable code by default; it is a pack of Markdown, TOML, and CSV files. The optional helper script in `scripts/` uses the Python standard library only. The repository is therefore low-risk by design.
+The repository has two trust models. The instruction kit in `rules/`, `references/`, `schemas/`, `templates/`, `llm/`, and `docs/` consists of documents and structured data. Reading those files locally executes no pipeline and transmits no patient data. Uploading them or patient documents to a service is a separate user action with that service's privacy implications.
+
+The optional local-operations pipeline in `scripts/` is executable Python and is not required to use the instruction kit. Static inspection of all 17 Python files on 2026-09-07 found:
+
+- `classify_rename_medical_bills.py` and `parse_spd.py` import both PyMuPDF (`fitz`) and the OpenAI client. They send rendered document-page images to the configured Azure OpenAI endpoint for bill classification or plan-document extraction.
+- `index_bills_and_claims.py`, `draft_letters_by_state.py`, and `match_claims_to_bills.py` import the OpenAI client. Their cloud paths send bill/EOB text, drafting evidence and patient context, or claim and candidate-bill fields respectively. These fields can include identifiers, service dates and amounts. The destination is the configured `AZURE_OPENAI_ENDPOINT`, with `/openai/v1/` appended; matching can invoke the client as a fallback.
+- `fetch_mrf.py` uses standard-library HTTP to download the supplied hospital price-file URL. `bundle_to_cloud.py` uses standard-library subprocess calls to invoke the external `rclone` program and copy bundles to the user's configured cloud remote. Standard-library imports do not mean a script is offline.
+- `_kit_config.py`, `analyze_self_pay_election.py`, `audit_billing_errors.py`, `bundle_evidence.py`, `check_completeness.py`, `deadline_watch.py`, `fetch_price_benchmarks.py`, `log_interaction.py`, `restructure_to_billers_eob.py`, and `validate_tracker.py` have only standard-library or local-module imports. In particular, the tracker validator and deadline watcher require neither PyMuPDF nor the OpenAI client. Local processing can still read, change or package sensitive files.
+
+The five OpenAI-client scripts read credentials from a local `.env` path, defaulting to `~/.medbill-dispute-kit/.env` and configurable through `MEDBILL_KIT_ENV_FILE`. They use the endpoint, API key and deployment configured there. Patient-document roots default to `~/Health_Bills`, with `HEALTHBILLS_ROOT` and script-specific options providing overrides. Generated documents, indexes and drafts can retain patient information locally; cloud requests transmit the selected content outside the machine. Review the actual inputs, endpoint and storage destination before running these optional paths. This policy does not assert that a configured endpoint or cloud remote has any particular contractual privacy protection.
 
 ## What's in scope
 
-- The optional Python helper scripts in `scripts/`
+- All optional Python scripts and their local-processing, credential-loading, network-request and cloud-copy behavior in `scripts/`
 - The GitHub Actions workflow in `.github/workflows/`
 - Schema validators or any future code we add
 
