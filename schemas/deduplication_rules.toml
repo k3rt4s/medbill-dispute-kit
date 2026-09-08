@@ -4,43 +4,103 @@
 
 [meta]
 schema = "deduplication_rules"
-schema_version = "0.1.0"
-notes = "These rules are heuristics, not laws. When uncertain, the LLM asks the patient to confirm rather than guessing."
+schema_version = "0.2.0"
+notes = "Version 0.2.0 adds account-number normalization, itemized-content matching, payment-aware balance review, and explicit score bands. These rules are heuristics, not laws; when uncertain, ask the patient rather than guessing."
+
+# Preprocessing: before comparing account numbers, strip non-alphanumeric characters,
+# remove leading zeroes from the resulting value, and uppercase it. Keep the account number
+# as printed in the bill record; normalization is comparison-only. An empty normalized value
+# is not a match. Every identifier comparison in this file (account number, statement number,
+# provider tax ID, patient account ID, or encounter ID) requires both compared values to be
+# nonempty; missing values never match each other.
+#
+# Itemized-content preprocessing: use only a complete structured line_items set. For every
+# line, normalize cpt_code by trimming whitespace, uppercasing, and removing leading zeroes.
+# Normalize units as an exact decimal without a plus sign or insignificant trailing zeroes, so
+# `1` and `1.0` become `1`. Normalize charge by trimming whitespace, removing currency symbols
+# and thousands separators, then serializing the exact decimal without insignificant trailing
+# zeroes, so `$1,850.00` and `1850` become `1850`. Do not round, convert currencies, or guess:
+# any missing or invalid code, units, or charge makes the entire line set ineligible for a hash.
+# Preserve repeated tuples as a multiset. Sort the normalized (cpt_code, units, charge) tuples
+# lexicographically, serialize the complete tuple multiset as compact JSON, UTF-8 encode it,
+# and take its SHA-256 hash. Exclude balances, statement dates, service dates, page numbers,
+# descriptions, and provider names. The current bill schema has cpt_code but no revenue_code
+# field: a statement with revenue codes only does not receive this content-hash score until
+# that schema gap is resolved.
+
+[score_bands]
+create_new_row_min = 0
+create_new_row_max = 29
+ask_patient_min = 30
+ask_patient_max = 89
+merge_without_asking_min = 90
+merge_without_asking_max = 100
+aggregation = "Candidate confidence is the maximum weight of one eligible identity rule only: exact_statement_number, exact_account_number, itemized_content_hash, or two_of_three_match. Do not add weights. encounter_linking, different_provider_type, and balance_trajectory do not contribute to confidence."
+precedence = "First apply different_provider_type: it creates a separate row even if another rule scores highly. Then determine the maximum eligible identity-rule score. The score bands override a candidate rule's action: 0-29 creates a new row, 30-89 asks the patient, and 90-100 merges without asking. Apply encounter_linking only to link separate rows. Apply balance_trajectory after a candidate merge; an unexplained change always holds the decision for review and never creates a new row."
+notes = "Changed 2026-09-07: score aggregation is max-eligible-identity-rule, with routing and review rules excluded from merge confidence."
+
+# Worked example (illustrative only; provider names and numbers are not verified aliases):
+# Existing bill:  provider "TriStar Southern Hills", account "12345-01", DOS 2026-03-04,
+#                 lines: 99284 x1 $1,850 ; 71046 x1 $412 ; 80053 x1 $228, balance $2,490
+# New statement:  provider "Southern Hills Medical Center", account "0000012345-01",
+#                 DOS 2026-03-04, same three lines, balance $1,240 after a $1,250 payment
+#
+# Today:   account numbers differ as written, provider name differs, balance moved 50 percent.
+#          The strong rules miss, two_of_three may miss, balance_trajectory flags it.
+#          Result: a duplicate row, or a spurious review prompt.
+# Wanted:  account normalization makes the accounts equal, itemized_content_hash matches at
+#          weight 90, the payment explains the balance move, so it merges as a follow-up
+#          without asking.
 
 # --- Strong-match rule: same account number ---
-# If the new statement shares an account number with an existing bill, treat as the same bill.
+# If the new statement shares a normalized account number with an existing bill, treat as the same bill.
 [[rules]]
 id = "exact_account_number"
 weight = 100
-match = "new.account_number == existing.account_number AND new.provider_name == existing.provider_name"
+match = "normalize(new.account_number) == normalize(existing.account_number) AND both normalized account numbers are nonempty AND new.provider_name == existing.provider_name"
 action = "merge_as_followup"
-description = "An exact account number match for the same provider is decisive. Update the existing bill's last_statement_date and current_balance, do not create a new row."
+description = "A normalized account-number match for the same provider is decisive. Update the existing bill's last_statement_date and current_balance; do not create a new row."
+notes = "Changed 2026-09-07: compare normalized account numbers to catch punctuation and leading-zero reformatting."
 
 # --- Strong-match rule: same statement number ---
 [[rules]]
 id = "exact_statement_number"
 weight = 100
-match = "new.statement_number == existing.statement_number AND new.provider_name == existing.provider_name"
+match = "new.statement_number == existing.statement_number AND both statement numbers are nonempty AND new.provider_name == existing.provider_name"
 action = "merge_duplicate"
-description = "An exact statement number match means the patient uploaded the same physical statement twice. Discard the new one, tell the patient it's already in the tracker."
+description = "An exact statement number match means the patient uploaded the same physical statement twice. Discard the new one and tell the patient it is already in the tracker."
+notes = "Changed 2026-09-07: blank or missing statement numbers cannot form a duplicate match."
+
+# --- Itemized-content secondary key ---
+# A content-hash match is usable only with the guards below. It must never join two
+# same-looking statements from different provider types, patients, or encounters.
+[[rules]]
+id = "itemized_content_hash"
+weight = 90
+match = "hash(normalize(new.line_items)) == hash(normalize(existing.line_items)) AND both itemized line sets are complete and valid AND new.provider_type == existing.provider_type AND new.date_of_service_start == existing.date_of_service_start AND both dates of service are nonempty AND NOT (both patient_account_id values are nonempty AND new.patient_account_id != existing.patient_account_id) AND NOT (both encounter_id values are nonempty AND new.encounter_id != existing.encounter_id) AND ((new.patient_account_id == existing.patient_account_id AND both patient_account_id values are nonempty) OR (new.encounter_id == existing.encounter_id AND both encounter_id values are nonempty) OR (normalize(new.account_number) == normalize(existing.account_number) AND both normalized account numbers are nonempty))"
+action = "merge_as_followup"
+description = "Treat matching complete itemized line multisets as the same bill only when the provider type matches and a patient, encounter, or normalized-account guard also matches. This secondary key can catch an account-number reformat or provider rebrand without silently merging distinct bills that share common lines."
+notes = "Changed 2026-09-07: complete valid hashes use deterministic SHA-256 tuple-multiset serialization and require a nonempty DOS plus a nonempty, noncontradictory patient, encounter, or normalized-account guard."
 
 # --- Two-of-three rule: most common follow-up case ---
 # Many follow-up notices change one field (statement date, amount due) but keep others.
 [[rules]]
 id = "two_of_three_match"
 weight = 75
-match = "at least 2 of {account_number, provider_tax_id, patient_account_id} match exactly AND new.provider_name ~= existing.provider_name AND new.date_of_service_start == existing.date_of_service_start"
-action = "merge_as_followup"
-description = "When two of the three provider-side identifiers match and the date of service matches, treat as follow-up."
+match = "at least 2 of {account_number, provider_tax_id, patient_account_id} are each nonempty on both records and match exactly AND new.provider_name ~= existing.provider_name AND new.date_of_service_start == existing.date_of_service_start AND both dates of service are nonempty"
+action = "candidate_for_confirmation"
+description = "When two of the three nonempty provider-side identifiers and the date of service match, this 75-point identity candidate falls in the ask-patient band rather than merging automatically."
+notes = "Changed 2026-09-07: blank identifiers cannot count, and the 75-point candidate follows the explicit ask-patient band."
 
 # --- Balance-trajectory check ---
 # Follow-up statements typically show the same or slightly different balance.
 [[rules]]
 id = "balance_trajectory"
 weight = 50
-match = "candidate merge AND abs(new.current_balance - existing.current_balance) > existing.current_balance * 0.20 AND no payment recorded between the two statement dates"
+match = "candidate merge AND abs(new.current_balance - existing.current_balance) > existing.current_balance * 0.20 AND NOT (new.total_patient_paid > existing.total_patient_paid AND abs((existing.current_balance - new.current_balance) - (new.total_patient_paid - existing.total_patient_paid)) <= 0.01)"
 action = "flag_for_review"
-description = "If a 'follow-up' has a balance that moved more than 20% with no recorded payment, ask the patient: was something paid, or is this actually a different bill?"
+description = "Flag a candidate merge only when its balance changed by more than 20% and the decrease is not numerically explained, within $0.01, by the increase in total_patient_paid recorded on the statements. The current tracker has no separate payment-record field and bill.line_items has no payment-line field; do not assume either absent field."
+notes = "Changed 2026-09-07: a payment evidenced by the existing bill-schema total_patient_paid values suppresses the balance-change flag; unexplained changes hold for review, never create a new row."
 
 # --- Provider-name fuzzy matching ---
 # Hospital systems use many doing-business-as names. Treat these as the same:
@@ -65,21 +125,24 @@ weight = 100
 match = "new.provider_type != existing.provider_type"
 action = "create_new_link_encounter"
 description = "Different provider types serving the same encounter get separate bill rows linked by encounter_id."
+notes = "Changed 2026-09-07: this is a first-precedence routing guard, not merge-confidence evidence."
 
 # --- Encounter linking rule ---
 # Bills sharing date of service AND facility name (or any shared encounter context) get the same encounter_id.
 [[rules]]
 id = "encounter_linking"
 weight = 100
-match = "new.date_of_service_start == existing.date_of_service_start AND (facility names match OR facility is referenced in the new bill's notes)"
+match = "new.date_of_service_start == existing.date_of_service_start AND both dates of service are nonempty AND (facility names match OR facility is referenced in the new bill's notes)"
 action = "assign_shared_encounter_id"
-description = "Hospital stay + ER physician + radiologist + anesthesiologist for the same date all share an encounter_id."
+description = "Hospital stay, ER physician, radiologist, and anesthesiologist for the same date all share an encounter_id."
+notes = "Changed 2026-09-07: encounter linking requires a nonempty shared service date and does not contribute to merge confidence."
 
 # --- The 'ask the patient' fallback ---
-# When weights conflict or below threshold, surface the candidate match to the patient.
+# Scores in the explicit middle band surface the candidate match instead of merging silently.
 [[rules]]
 id = "ambiguous_match_prompt_user"
 weight = 0
-match = "weighted score is between 30 and 70"
+match = "maximum eligible identity-rule score is from 30 through 89 after guardrail precedence"
 action = "prompt_user_for_confirmation"
-description = "Show the patient both the new statement and the candidate existing bill, summarize what matches and what doesn't, and ask whether to merge or create new."
+description = "Show the patient both the new statement and the candidate existing bill, summarize what matches and what does not, and ask whether to merge or create new."
+notes = "Changed 2026-09-07: uses maximum eligible identity-rule score and aligns the fallback with the explicit 30-89 ask-patient score band."
