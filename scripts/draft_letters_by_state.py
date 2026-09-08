@@ -683,7 +683,7 @@ def doi_portal_extract(state_code: str) -> str:
     if not state_code or not DOI_PORTALS.exists():
         return ""
     body = DOI_PORTALS.read_text(encoding="utf-8")
-    header = f"## {state_code.upper()} —"
+    header = f"## {state_code.upper()}, "
     idx = body.find(header)
     if idx < 0:
         return ""

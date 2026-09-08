@@ -11,6 +11,13 @@ Entries are listed alphabetically by USPS code. Each entry shows the DOI portal 
 
 ---
 
+## AK, Alaska
+
+- DOI: Alaska Department of Commerce, Community, and Economic Development, Division of Insurance. Portal: commerce.alaska.gov/web/ins/Consumers/Complaints/FileAComplaint.
+- AG: Alaska Attorney General's Office, Consumer Protection Unit. Portal: law.alaska.gov/department/civil/consumer/cp_complaint.html.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
+
 ## AL, Alabama
 
 - DOI: Alabama Department of Insurance, Consumer Services Division. Portal: aldoi.gov/consumers/complaintform.aspx. Mail: 201 Monroe Street, Suite 502, Montgomery, AL 36104.
@@ -41,6 +48,13 @@ Entries are listed alphabetically by USPS code. Each entry shows the DOI portal 
 - DOI: Connecticut Insurance Department, Consumer Affairs Division. Portal: portal.ct.gov/CID/Consumer-Affairs. Mail: 153 Market Street, Hartford, CT 06103.
 - AG: Office of the Attorney General, Consumer Assistance. Portal: portal.ct.gov/AG/Consumer-Issues.
 
+## DE, Delaware
+
+- DOI: Delaware Department of Insurance, Consumer Services Division. Portal: insurance.delaware.gov/services/filecomplaint/.
+- AG: Delaware Department of Justice, Consumer Protection Unit. Portal: attorneygeneral.delaware.gov/fraud/cmu/complaint/.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
+
 ## FL, Florida
 
 - DOI: Florida Department of Financial Services, Division of Consumer Services. Portal: myfloridacfo.com/division/consumers. Mail: 200 East Gaines Street, Tallahassee, FL 32399.
@@ -51,10 +65,24 @@ Entries are listed alphabetically by USPS code. Each entry shows the DOI portal 
 - DOI: Office of Commissioner of Insurance and Safety Fire. Portal: oci.georgia.gov/insurance-complaint. Mail: Two Martin Luther King Jr. Drive, West Tower, Suite 704, Atlanta, GA 30334. Phone: 1-800-656-2298.
 - AG: Office of the Attorney General, Consumer Protection Division. Portal: consumer.georgia.gov/consumer-complaints.
 
+## HI, Hawaii
+
+- DOI: Department of Commerce and Consumer Affairs, Hawaiʻi Insurance Division. Portal: cca.hawaii.gov/file-a-complaint-2/. Mail: Insurance Division, P.O. Box 3614, Honolulu, HI 96811.
+- AG: State of Hawaiʻi Department of the Attorney General; general consumer complaints: Department of Commerce and Consumer Affairs, Office of Consumer Protection. Portal: web2.dcca.hawaii.gov/ocpcomplaint/.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
+
 ## IA, Iowa
 
 - DOI: Iowa Insurance Division. Portal: iid.iowa.gov/consumer-resources/insurance-help. Mail: 1963 Bell Avenue, Suite 100, Des Moines, IA 50315.
 - AG: Office of the Attorney General, Consumer Protection Division. Portal: iowaattorneygeneral.gov/for-consumers/file-a-consumer-complaint.
+
+## ID, Idaho
+
+- DOI: Idaho Department of Insurance, Consumer Affairs. Portal: doi.idaho.gov/consumers/file-a-complaint/.
+- AG: Idaho Office of the Attorney General, Consumer Protection Division. Portal: ag.idaho.gov/contact/.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
 
 ## IL, Illinois
 
@@ -76,6 +104,13 @@ Entries are listed alphabetically by USPS code. Each entry shows the DOI portal 
 - DOI: Kentucky Department of Insurance, Consumer Protection Division. Portal: insurance.ky.gov/ppc/Default.aspx. Mail: 500 Mero Street, 2 SE 11, Frankfort, KY 40601.
 - AG: Office of the Attorney General, Office of Consumer Protection. Portal: ag.ky.gov/Resources/Consumer-Complaint-Form.
 
+## LA, Louisiana
+
+- DOI: Louisiana Department of Insurance. Portal: ldi.la.gov/OnlineServices/ConsumerComplaintForm/Complaints. Mail: Louisiana Department of Insurance, P.O. Box 94214, Baton Rouge, LA 70804.
+- AG: Louisiana Office of the Attorney General, Consumer Protection Section. Portal: ag.state.la.us/Form/Consumer/Dispute.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
+
 ## MA, Massachusetts
 
 - DOI: Massachusetts Division of Insurance, Consumer Service Section. Portal: mass.gov/file-an-insurance-complaint. Mail: 1000 Washington Street, Suite 810, Boston, MA 02118.
@@ -85,6 +120,13 @@ Entries are listed alphabetically by USPS code. Each entry shows the DOI portal 
 
 - DOI: Maryland Insurance Administration. Portal: insurance.maryland.gov/Consumer. Mail: 200 St. Paul Place, Suite 2700, Baltimore, MD 21202.
 - AG: Office of the Attorney General, Consumer Protection Division. Portal: marylandattorneygeneral.gov/Pages/CPD/complaint.aspx.
+
+## ME, Maine
+
+- DOI: Maine Bureau of Insurance. Portal: maine.gov/pfr/insurance/consumers/file-a-complaint-dispute. Mail: 34 State House Station, Augusta, ME 04333.
+- AG: Office of the Maine Attorney General, Consumer Information and Mediation Service. Portal: maine.gov/ag/online-services/complaint-form.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
 
 ## MI, Michigan
 
@@ -106,15 +148,36 @@ Entries are listed alphabetically by USPS code. Each entry shows the DOI portal 
 - DOI: Mississippi Insurance Department, Consumer Services. Portal: mid.ms.gov/consumer-services. Mail: 1001 Woolfolk Building, 501 North West Street, Jackson, MS 39201.
 - AG: Office of the Attorney General, Consumer Protection Division. Portal: ago.state.ms.us/divisions/consumer-protection.
 
+## MT, Montana
+
+- DOI: Office of the Montana State Auditor, Commissioner of Securities and Insurance, Insurance Consumer Service Bureau. Portal: csimt.gov/insurance-complaints-fraud/. Mail: Montana Insurance Department, Attn: ICS, 840 Helena Avenue, Helena, MT 59601.
+- AG: Montana Department of Justice, Office of Consumer Protection. Portal: www.dojmt.gov/office-of-consumer-protection/consumer-complaints/.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
+
 ## NC, North Carolina
 
 - DOI: North Carolina Department of Insurance, Consumer Services Division. Portal: ncdoi.gov/consumers/file-a-complaint. Mail: 1201 Mail Service Center, Raleigh, NC 27699.
 - AG: Department of Justice, Consumer Protection Division. Portal: ncdoj.gov/file-a-complaint.
 
+## ND, North Dakota
+
+- DOI: North Dakota Insurance Department. Portal: insurance.nd.gov/consumers/complaints.
+- AG: North Dakota Office of Attorney General, Consumer Protection Division. Portal: attorneygeneral.nd.gov/consumer-resources/consumer-complaints/.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
+
 ## NE, Nebraska
 
 - DOI: Nebraska Department of Insurance. Portal: doi.nebraska.gov/consumer/file-complaint. Mail: 1135 M Street, Suite 300, Lincoln, NE 68508.
 - AG: Office of the Attorney General, Consumer Protection Division. Portal: protectthegoodlife.nebraska.gov.
+
+## NH, New Hampshire
+
+- DOI: New Hampshire Insurance Department, Consumer Services Division. Portal: mm.nh.gov/files/uploads/nhid/documents/nhid-complaint-template-fillable.pdf. Mail: New Hampshire Insurance Department, 21 South Fruit Street, Suite 14, Concord, NH 03301.
+- AG: New Hampshire Department of Justice, Consumer Protection and Antitrust Bureau. Portal: onlineforms.nh.gov/nform/home/cf4b0e17-c1ca-4bab-a5fe-4eefc1a3acb2.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
 
 ## NJ, New Jersey
 
@@ -156,10 +219,24 @@ Entries are listed alphabetically by USPS code. Each entry shows the DOI portal 
 - DOI: Pennsylvania Insurance Department, Bureau of Consumer Services. Portal: insurance.pa.gov/Consumers/File-A-Complaint. Mail: 1209 Strawberry Square, Harrisburg, PA 17120.
 - AG: Office of the Attorney General, Bureau of Consumer Protection. Portal: attorneygeneral.gov/submit-a-complaint.
 
+## RI, Rhode Island
+
+- DOI: Rhode Island Department of Business Regulation, Insurance Division. Portal: dbr.ri.gov/insurance/consumers.
+- AG: Rhode Island Office of the Attorney General. Portal: riag.ri.gov/forms/consumer-complaint.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
+
 ## SC, South Carolina
 
 - DOI: South Carolina Department of Insurance. Portal: doi.sc.gov/Complaint. Mail: 1201 Main Street, Suite 1000, Columbia, SC 29201.
 - AG: Office of the Attorney General, Consumer Protection. Portal: scag.gov/consumer-protection.
+
+## SD, South Dakota
+
+- DOI: South Dakota Department of Labor and Regulation, Division of Insurance. Portal: dlr.sd.gov/insurance/doi_complaint.aspx. Mail: 124 South Euclid Avenue, 2nd Floor, Pierre, SD 57501.
+- AG: South Dakota Office of the Attorney General, Division of Consumer Protection. Portal: atg.sd.gov/complaintform.aspx.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
 
 ## TN, Tennessee
 
@@ -181,6 +258,13 @@ Entries are listed alphabetically by USPS code. Each entry shows the DOI portal 
 - DOI: Virginia State Corporation Commission, Bureau of Insurance. Portal: scc.virginia.gov/pages/Insurance-Consumer-Resources. Mail: 1300 East Main Street, Richmond, VA 23219.
 - AG: Office of the Attorney General, Consumer Protection Section. Portal: oag.state.va.us/consumer-protection.
 
+## VT, Vermont
+
+- DOI: Vermont Department of Financial Regulation, Insurance Division. Portal: dfr.vermont.gov/consumers/file-complaint/insurance/insurance-complaints. Mail: Department of Financial Regulation, Insurance Consumer Services, 89 Main Street, Montpelier, VT 05620-3101.
+- AG: Office of the Vermont Attorney General, Consumer Assistance Program. Portal: ago.vermont.gov/consumer-assistance-program-complaint-form.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
+
 ## WA, Washington
 
 - DOI: Office of the Insurance Commissioner, Consumer Advocacy. Portal: insurance.wa.gov/file-complaint-or-check-your-complaint-status. Mail: 5000 Capitol Boulevard SE, Tumwater, WA 98501.
@@ -190,6 +274,20 @@ Entries are listed alphabetically by USPS code. Each entry shows the DOI portal 
 
 - DOI: Wisconsin Office of the Commissioner of Insurance. Portal: oci.wi.gov/Pages/Consumers/FileComplaint.aspx. Mail: 125 South Webster Street, Madison, WI 53703.
 - AG: Department of Justice, Office of Consumer Protection. Portal: doj.state.wi.us/ocp/file-consumer-complaint.
+
+## WV, West Virginia
+
+- DOI: West Virginia Offices of the Insurance Commissioner, Consumer Services. Portal: wvinsurance.gov/consumer_services. Mail: Life and Health Division, West Virginia Offices of the Insurance Commissioner, P.O. Box 50540, Charleston, WV 25305-0540.
+- AG: West Virginia Office of the Attorney General, Consumer Protection Division. Portal: ago.wv.gov/consumer-protection/file-complaint-consumer-protection-division.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
+
+## WY, Wyoming
+
+- DOI: Wyoming Department of Insurance, Consumer Affairs Section. Portal: doi.wyo.gov/consumers. Mail: Wyoming Department of Insurance, 106 E 6th Avenue, Cheyenne, WY 82002.
+- AG: Wyoming Attorney General’s Office, Consumer Protection and Antitrust Unit. Portal: attorneygeneral.wyo.gov/law-office-division/consumer-protection-and-antitrust-unit/consumer-complaints.
+
+<!-- Agency sources reviewed 2026-09-07; reachability and mailing-address gaps are recorded in the Lane 1 integration report. -->
 
 ---
 
@@ -210,4 +308,4 @@ The drafter resolves the patient's home state (from `HEALTHBILLS_PATIENT_STATE`)
 - **Hospital, physician group, or other provider** → AG Consumer Affairs of the state where services were rendered.
 - **Third-party debt collector** → AG of the patient's state AND CFPB at the federal level.
 
-States not listed above (AK, DE, HI, ID, ME, MT, ND, NH, RI, SD, VT, WV, WY, plus DC and territories) are deliberately omitted from the initial public release of this file. They follow the same DOI / AG pattern; the drafter falls back to `references/laws_state_template.md` and asks the patient to confirm the agency name. Pull requests to fill these gaps are welcome.
+All 50 states are listed above. DC and territories remain outside this lookup; confirm the appropriate agency separately before drafting. New state entries were researched on 2026-09-07; direct-fetch and mailing-address verification gaps remain documented in the Lane 1 integration report.
