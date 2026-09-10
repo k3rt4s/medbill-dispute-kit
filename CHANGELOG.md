@@ -8,7 +8,10 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 
 ## [Unreleased]
 
+### Fixed
 
+- **SECURITY.md's script disclosure was stale on arrival.** The v1.2.0 lane merges added `parse_990.py`, `parse_sbc.py`, and `classify_dispute_reply.py`, but the disclosure still said "17 Python files" and named none of the three. `parse_990.py` and `parse_sbc.py` are now disclosed as sending extracted PDF text, not images, to Azure OpenAI only as a fallback (never for `parse_990.py --xml`, never once `parse_sbc.py`'s deterministic extraction fills a field), and `parse_990.py`'s standard-library `--fetch-from` download is called out separately from the model call.
+- **`parse_sbc.py` nulled a good network amount whenever its regex matched the same value twice**, such as a footnote or a wrapped line repeating "$1,234 individual." It now dedupes matches by value before deciding an amount is ambiguous, so a repeated identical amount still extracts and two genuinely conflicting amounts still stay null.
 
 ## [v1.2.0] - 2026-09-08
 
