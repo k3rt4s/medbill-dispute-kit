@@ -116,8 +116,8 @@ def network_amounts(region: str, label: str, stop_label: str) -> tuple[str, str]
             column,
             re.IGNORECASE,
         )
-        values = [first or second for first, second in matches]
-        return values[0] if len(values) == 1 else None
+        values = {first or second for first, second in matches}
+        return values.pop() if len(values) == 1 else None
 
     individual = labeled_amount(r"individual|person")
     family = labeled_amount(r"family")
