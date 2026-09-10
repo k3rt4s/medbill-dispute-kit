@@ -21,5 +21,5 @@ What a session needs to believe before it changes this kit. Format: `ai_developm
 
 ## Known soft spots
 
-- SECURITY.md's in-scope description ("optional helper script... uses the Python standard library only") describes `validate_tracker.py`/`deadline_watch.py` accurately but reads as a claim about all of `scripts/`. It predates or ignores the Azure-backed local-ops pipeline documented in `scripts/README.md`. Don't cite SECURITY.md as proof the pipeline is dependency-free or network-silent; it isn't, and the discrepancy hasn't been reconciled.
+- SECURITY.md's script disclosure (fixed twice now, 2026-09-07 and 2026-09-09) names every script in `scripts/` individually and states a total count. It goes stale the moment a script is added, removed, or gains/loses an `openai`/`fitz`/`pymupdf`/`urllib` import, because nothing regenerates it automatically. Whoever adds or changes a script in `scripts/` re-runs the import grep (`grep -n "^import\|^from" scripts/*.py`) and updates the disclosure and its count in the same change, rather than assuming the last person got it right.
 - Whether the pre-2026-08-19 state packs (38 of 40) would pass the same "Verification gaps" bar the newest two packs set is untested; nobody has gone back and re-run that check against them.
