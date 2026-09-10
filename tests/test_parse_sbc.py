@@ -87,6 +87,31 @@ def test_missing_service_value_does_not_borrow_the_next_service(tmp_path: Path) 
     assert profile["specialist_visit_cost_sharing"] == {"value": "$50 copay per visit", "source": "text", "page": 0}
 
 
+def test_repeated_identical_label_still_extracts_the_value(tmp_path: Path) -> None:
+    """Keep a network amount when a footnote repeats the same label and value verbatim."""
+    fixture = build_fixture(tmp_path, "sbc_repeated_label.pdf", [
+        "What is the overall deductible?",
+        "In-Network: $1,234 individual / $2,468 family",
+        "Individual $1,234 applies once per plan year, see footnote 2",
+        "Out-of-Network: $3,210 individual / $6,420 family",
+    ])
+    profile = parse_sbc.extract_profile(parse_sbc.read_pdf_pages(fixture))
+    assert profile["in_network_deductible_individual"]["value"] == "$1,234"
+    assert profile["in_network_deductible_family"]["value"] == "$2,468"
+
+
+def test_conflicting_labeled_amounts_stay_null(tmp_path: Path) -> None:
+    """Reject a network amount when two different values carry the same label."""
+    fixture = build_fixture(tmp_path, "sbc_conflicting_label.pdf", [
+        "What is the overall deductible?",
+        "In-Network: $1,234 individual / $2,468 family",
+        "Individual $9,999 applies once per plan year, see footnote 2",
+        "Out-of-Network: $3,210 individual / $6,420 family",
+    ])
+    profile = parse_sbc.extract_profile(parse_sbc.read_pdf_pages(fixture))
+    assert profile["in_network_deductible_individual"] == {"value": None, "source": None, "page": None}
+
+
 def test_model_merge_preserves_text_and_rejects_unsupported_evidence(tmp_path: Path) -> None:
     """Merge only known scalar model values into null fields without overwriting text."""
     profile = parse_sbc.extract_profile(parse_sbc.read_pdf_pages(bespoke_fixture(tmp_path)))
