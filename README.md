@@ -106,6 +106,8 @@ PRs welcome, particularly:
 
 Keep this repo free of personally identifying information. Examples should use synthetic or clearly fictionalized patient data.
 
+This is a public repo, so its work board is never committed here; it lives at `C:\Code_data\medbill-dispute-kit\WORK_BOARD.md`.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
