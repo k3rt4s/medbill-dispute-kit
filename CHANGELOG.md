@@ -8,6 +8,18 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 
 ## [Unreleased]
 
+### Added
+
+- **AI-01 eval harness for the intake classifier.** `evals\classify_rename\` holds six synthetic
+  fixtures (invented patient, provider, dates, and amounts) for
+  `scripts\classify_rename_medical_bills.py`, the vision model that classifies and renames
+  scanned bills: one case per bill-like `document_type` (bill, collection notice, COBRA notice,
+  dental predetermination), an explanation-of-benefits case, and an unreadable-scan case. The
+  last two exist to catch a confident wrong classification (an invented balance, or a non-bill
+  labeled `bill`) rather than a missed rename, which the harness's `expected.md` files call out
+  as the costly failure. This machine has no Azure OpenAI credential, so the cases are recorded
+  "not yet run" per `docs\ai-grounding.md` AG3's fallback; running them by hand is a board item.
+
 ### Changed
 
 - **README names the work board's location.** This is a public repo, so the board is never committed here; the README now says it lives at `C:\Code_data\medbill-dispute-kit\WORK_BOARD.md`, per the framework's project-board-location rule landed 2026-09-24.
