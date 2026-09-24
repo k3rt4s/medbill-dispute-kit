@@ -8,6 +8,10 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 
 ## [Unreleased]
 
+### Changed
+
+- **README names the work board's location.** This is a public repo, so the board is never committed here; the README now says it lives at `C:\Code_data\medbill-dispute-kit\WORK_BOARD.md`, per the framework's project-board-location rule landed 2026-09-24.
+
 ### Fixed
 
 - **SECURITY.md's script disclosure was stale on arrival.** The v1.2.0 lane merges added `parse_990.py`, `parse_sbc.py`, and `classify_dispute_reply.py`, but the disclosure still said "17 Python files" and named none of the three. `parse_990.py` and `parse_sbc.py` are now disclosed as sending extracted PDF text, not images, to Azure OpenAI only as a fallback (never for `parse_990.py --xml`, never once `parse_sbc.py`'s deterministic extraction fills a field), and `parse_990.py`'s standard-library `--fetch-from` download is called out separately from the model call.
