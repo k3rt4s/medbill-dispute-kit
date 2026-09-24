@@ -18,6 +18,7 @@ What a session needs to believe before it changes this kit. Format: `ai_developm
 
 - `check_completeness.py` never overwrites a tracker column the user has hand-filled (send dates, tracking numbers); only its own derived columns (`has_eob`, `status`, etc.) are recomputed each run. A session "fixing" a stale-looking manual field on re-run would silently discard real user history.
 - `validate_tracker.py` checks structural conformance only (columns, dates, enums); it deliberately does not check that a bill's flags are logically consistent with its state (e.g., a balance-billing flag on a state with no such statute). Extending it to do so is out of its documented scope.
+- `.gitignore` blocks every `*.pdf`/`*.jpg`/`*.jpeg`/`*.png`/`*.heic` unconditionally, so an eval fixture (`evals/classify_rename/`) or any other synthetic bill image can never be committed as a binary here, even fully invented data. `examples/sample_bills/fixture_tools.py` set the pattern first; a session adding a new binary fixture writes a generator script that refuses to write inside the repo (`is_relative_to` check) and targets the data root instead, the same way `generate_fixtures.py` does.
 
 ## Known soft spots
 
