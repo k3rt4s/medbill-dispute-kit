@@ -8,15 +8,12 @@ Items here are not promises. The kit is open-source; contributors are welcome to
 
 ## Scored index
 
-No unshipped features remained as of 2026-09-08; one token-cost item is open from the 2026-10-02 audit, listed at the end of the Scored index, and a second was rejected after measurement. The final two vendor-gated ideas, Turquoise Health API integration and Dollar For screener integration, were deleted because both require external vendor permission or confirmation before there is actionable project work.
+No unshipped features remained as of 2026-09-08; the two token-cost items filed from the 2026-10-02 audit were both rejected after measurement and are recorded below so they are not filed again. The final two vendor-gated ideas, Turquoise Health API integration and Dollar For screener integration, were deleted because both require external vendor permission or confirmation before there is actionable project work.
 
 Added 2026-10-02 from the workspace token audit:
 
 - mb-ocr-whitespace-collapse, rejected 2026-10-02 after measurement: across 82 real OCR sidecars, a whitespace collapse removes 0.4 to 0.7 percent of characters and no sidecar comes near the 80,000-character cut, so there is nothing to save. A full space-run collapse would also erase EOB column alignment.
-- **mb-fallback-request-compact**, Compact the parse_990 and parse_sbc fallback requests. `scripts/parse_990.py` (about lines 189 and 200) and `scripts/parse_sbc.py` (about lines 191 and 215) send `json.dumps(request)` holding whole uncollapsed PDF page text; default `ensure_ascii=True` turns bullets, smart quotes and section signs into `\uXXXX` escapes that cost more tokens. Fix: collapse page whitespace and use `json.dumps(request, ensure_ascii=False, separators=(",", ":"))`. Estimate 5 to 15 percent, fallback path only. Source: workspace token audit 2026-10-02 (read-only code review); savings are estimates, not measured, so measure on real inputs before and after.
-  `score: kind=cost gain=0.02/0.05/0.2 hours=0.25/0.5/1 p=0.7 rev=two-way conf=opinion id=mb-fallback-request-compact`
-  `return: likelihood moderate, the fallback runs only when XML or regex extraction misses fields, frequency not counted; impact 5 to 15 percent of that request's tokens, estimated from code reading only; evidence the cited lines, no changelog entry`
-  - worker: haiku 0.25/0.5/1 h
+- mb-fallback-request-compact, rejected 2026-10-02 after measurement: compacting the `json.dumps(request)` that `scripts/parse_990.py` and `scripts/parse_sbc.py` send on the model fallback path (collapsed page whitespace, `ensure_ascii=False`, compact separators) saves 0.4 to 2.3 percent of the request, measured by running 19 real text-layer PDFs through the kit's own request builders. The estimate from code reading was 5 to 15 percent. The fallback runs only when XML or regex extraction misses fields, so the saving rounds to nothing.
 
 ## How to pick something up
 
