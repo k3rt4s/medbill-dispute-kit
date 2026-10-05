@@ -1,9 +1,9 @@
 # scripts/
 
-Optional Python helpers for the medbill-dispute-kit: generic, dependency-free tools any patient can run against a tracker CSV, plus a local-ops pipeline that OCRs, indexes, benchmarks, audits, and drafts letters automatically from scanned medical mail using Azure OpenAI. The kit is instruction-only at its core; nothing in `scripts/` is required to use it from an LLM. These tools exist for two purposes:
+Optional Python helpers for the medbill-dispute-kit: generic, dependency-free tools any patient can run against a tracker CSV, plus a local-ops pipeline that OCRs, indexes, benchmarks, audits, and drafts letters automatically from scanned medical mail using a local Ollama server. The kit is instruction-only at its core; nothing in `scripts/` is required to use it from an LLM. These tools exist for two purposes:
 
 1. **Generic, instruction-only helpers** that anyone can run against any tracker CSV. (`validate_tracker.py`, `deadline_watch.py`.) No third-party dependencies, no API keys.
-2. **A local-ops pipeline** for the workstation use case where the patient drops mail into an `inbox/` folder and the scripts route, OCR, match, and draft dispute letters automatically. This pipeline uses Azure OpenAI for vision OCR and field extraction. It expects a specific folder layout under a personal `Health_Bills/` directory.
+2. **A local-ops pipeline** for the workstation use case where the patient drops mail into an `inbox/` folder and the scripts route, OCR, match, and draft dispute letters automatically. This pipeline uses local Ollama (gemma3:4b for vision, qwen3:8b for text) for OCR, classification, field extraction and drafting; nothing leaves the machine. It expects a specific folder layout under a personal `Health_Bills/` directory.
 
 ## Generic helpers
 
@@ -43,7 +43,7 @@ text-extraction step                 (out of scope for this kit — use file-iq'
                                       Stage 5 `extract_documents.py` or any equivalent that produces
                                       `<file>.extracted.txt` sidecars next to each source file)
 restructure_to_billers_eob.py       one-time migration if older `providers/` layout exists
-index_bills_and_claims.py           per-folder _bills.csv and _claims.csv via Azure
+index_bills_and_claims.py           per-folder _bills.csv and _claims.csv via Ollama
 match_claims_to_bills.py            link each EOB claim to a bill it adjudicates
 fetch_price_benchmarks.py           per-folder _benchmarks.csv vs Medicare PFS rates
 audit_billing_errors.py             per-folder _audit.csv flagging duplicates, NCCI unbundling, late fees
@@ -64,7 +64,7 @@ python scripts/restructure_to_billers_eob.py
 
 ### `index_bills_and_claims.py`
 
-Reads every `<file>.extracted.txt` sidecar produced by the text extractor and uses Azure OpenAI gpt-5.2 (text-only, no image render) to extract structured fields. Writes `_bills.csv` per `Billers/<slug>/` (one row per bill PDF) and `_claims.csv` per `EOB/<slug>/` (one row per CLAIM line, a multi-claim EOB produces N rows). Idempotent: each sidecar's content hash is recorded in its row, so re-runs only call Azure for new or changed files.
+Reads every `<file>.extracted.txt` sidecar produced by the text extractor and uses local Ollama qwen3:8b (text-only, no image render) to extract structured fields. Writes `_bills.csv` per `Billers/<slug>/` (one row per bill PDF) and `_claims.csv` per `EOB/<slug>/` (one row per CLAIM line, a multi-claim EOB produces N rows). Idempotent: each sidecar's content hash is recorded in its row, so re-runs only call the model for new or changed files.
 
 Computes the `has_itemization` flag using the peer-reviewed heuristic:
 
@@ -84,9 +84,9 @@ python scripts/index_bills_and_claims.py --force   # re-extract every file
 Links each EOB claim row to the bill that adjudicates it. Two-stage:
 
 1. **Deterministic** (no API call): same biller_slug + amount within $0.50 + DOS overlap (or claim DOS within 60 days of the bill's statement date if no bill DOS).
-2. **Azure OpenAI fallback** when deterministic returns multiple candidates or none: gpt-5.2 sees the claim row and the candidate bills with a strict "respond UNKNOWN if not confident" prompt. False positives are worse than false negatives.
+2. **Local LLM fallback** when deterministic returns multiple candidates or none: Ollama qwen3:8b sees the claim row and the candidate bills with a strict "respond UNKNOWN if not confident" prompt. False positives are worse than false negatives.
 
-Output: `<log-dir>/matches.csv` with one row per attempted match. Match types: `deterministic`, `azure`, `azure_unknown`, `unmatched`, `bill_only` (no claim for this slug), `claim_only` (no bill for this slug). The log directory defaults to `~/.medbill-dispute-kit/tracker/`; override via `$HEALTHBILLS_LOG_DIR`.
+Output: `<log-dir>/matches.csv` with one row per attempted match. Match types: `deterministic`, `llm`, `llm_unknown` (older files may carry `azure` / `azure_unknown`), `unmatched`, `bill_only` (no claim for this slug), `claim_only` (no bill for this slug). The log directory defaults to `~/.medbill-dispute-kit/tracker/`; override via `$HEALTHBILLS_LOG_DIR`.
 
 ```bash
 python scripts/match_claims_to_bills.py
@@ -253,7 +253,7 @@ python scripts/fetch_mrf.py \
 
 ### `parse_spd.py`
 
-Reads a Summary Plan Description PDF via Azure OpenAI gpt-5.2 and emits a structured plan profile JSON for use by the ERISA appeal, subrogation response, IDR request, and 502(c) penalty templates. The profile includes funding status (self-funded vs fully insured), in-network cost-sharing, claim and appeal deadlines, subrogation language (with made-whole and common-fund disclaimer flags), and the plan's NSA-ancillary implementation. See [`references/spd_parsing_guide.md`](../references/spd_parsing_guide.md) for the field set and use cases.
+Reads a Summary Plan Description PDF via local Ollama gemma3:4b vision and emits a structured plan profile JSON for use by the ERISA appeal, subrogation response, IDR request, and 502(c) penalty templates. The profile includes funding status (self-funded vs fully insured), in-network cost-sharing, claim and appeal deadlines, subrogation language (with made-whole and common-fund disclaimer flags), and the plan's NSA-ancillary implementation. See [`references/spd_parsing_guide.md`](../references/spd_parsing_guide.md) for the field set and use cases.
 
 ```bash
 python scripts/parse_spd.py --pdf path/to/spd.pdf --plan-slug acme_ppo_2026
@@ -264,7 +264,7 @@ Output: `<HEALTHBILLS_ROOT>/_spd_profiles/<plan_slug>.json`.
 
 ### `classify_rename_medical_bills.py`
 
-Intake stage. Walks `inbox/`, calls Azure OpenAI vision on each file, renames per the file_management v1.1 convention `<contents_summary>_<category>_<YYYY>_<MM>_v<N>.<ext>`, splits multi-bill PDFs by page range, and routes each output to:
+Intake stage. Walks `inbox/`, calls local Ollama vision (gemma3:4b via `$OLLAMA_HOST`, default `http://localhost:11434`) on each file, renames per the file_management v1.1 convention `<contents_summary>_<category>_<YYYY>_<MM>_v<N>.<ext>`, splits multi-bill PDFs by page range, and routes each output to:
 
 - `Billers/<biller_slug>/` for bills, itemizations, collection notices
 - `EOB/<biller_slug>/` for Explanation of Benefits documents
@@ -315,9 +315,9 @@ The config file is per-workstation and must never be committed to any repo. The 
 
 ## Privacy notes
 
-The local-ops scripts upload bill / EOB images and extracted text to Azure OpenAI. They also write index CSVs and the master tracker to your log directory (default `~/.medbill-dispute-kit/tracker/`, override via `$HEALTHBILLS_LOG_DIR`) containing patient name, provider name, claim numbers, dates of service, and dollar amounts. Treat that directory as sensitive: keep it on local disk (not synced to multi-user storage), and back up encrypted.
+The local-ops scripts send bill / EOB images and extracted text only to your local Ollama server (`$OLLAMA_HOST`, default `http://localhost:11434`). They also write index CSVs and the master tracker to your log directory (default `~/.medbill-dispute-kit/tracker/`, override via `$HEALTHBILLS_LOG_DIR`) containing patient name, provider name, claim numbers, dates of service, and dollar amounts. Treat that directory as sensitive: keep it on local disk (not synced to multi-user storage), and back up encrypted.
 
-The Azure deployment reads credentials from a workstation `.env` file. The default location is `~/.medbill-dispute-kit/.env`; override via `$MEDBILL_KIT_ENV_FILE`. The `.env` file must contain `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, and `AZURE_OPENAI_DEPLOYMENT`. Do not commit this file to any repo.
+All model scripts talk only to the local Ollama server (`$OLLAMA_HOST`, default `http://localhost:11434`) and need no credentials or `.env` file. Text scripts use qwen3:8b (override `$MEDBILL_TEXT_MODEL`); vision scripts (`classify_rename_medical_bills.py`, `parse_spd.py`) use gemma3:4b (override `$MEDBILL_VISION_MODEL`). Azure is no longer used.
 
 Same rule for `kit_config.toml` (see the "Workstation configuration" section above): per-workstation, never committed.
 
@@ -325,9 +325,8 @@ Same rule for `kit_config.toml` (see the "Workstation configuration" section abo
 
 - Python 3.11+
 - `PyMuPDF` (fitz) for PDF rendering, used by `classify_rename_medical_bills.py`
-- `openai` for the Azure-compatible client
-- Azure OpenAI deployment with vision support (the workstation default uses `gpt-5.2`)
-- Workstation `.env` with `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`
+- `openai` as the client for Ollama's OpenAI-compatible endpoint
+- A running local Ollama with `qwen3:8b` and `gemma3:4b` pulled
 - Tesseract OCR (optional, on PATH), the text extractor falls back to vision OCR for image-only PDFs, so Tesseract is not required by these scripts
 
 `validate_tracker.py` and `deadline_watch.py` have no third-party dependencies and need no API keys.

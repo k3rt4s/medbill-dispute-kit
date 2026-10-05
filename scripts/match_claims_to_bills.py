@@ -9,7 +9,7 @@ it adjudicates, using:
      ranges intersect, OR the claim's DOS is within 60 days of the
      bill's statement_date if DOS isn't on the bill).
 
-2. Azure OpenAI gpt-5.2 fallback (only when deterministic returns
+2. Local Ollama qwen3:8b fallback (only when deterministic returns
    AMBIGUOUS, 0 or >1 candidates) with a strict "respond UNKNOWN if
    not confident" prompt.
 
@@ -19,7 +19,7 @@ Outputs:
    one row per attempted match with:
      - bill_id (a stable Bills/<slug>/<file> identifier)
      - claim_id (Bills/<slug>/<file> + claim_number)
-     - match_type: deterministic | azure | unmatched
+     - match_type: deterministic | llm | unmatched
      - confidence: high | medium | low | none
      - rationale: short text
 
@@ -192,17 +192,21 @@ def vision_client():
     global _client, _deployment
     if _client is not None:
         return _client, _deployment
-    load_env(ENV_FILE)
     from openai import OpenAI
-    _client = OpenAI(
-        api_key=os.environ["AZURE_OPENAI_API_KEY"],
-        base_url=os.environ["AZURE_OPENAI_ENDPOINT"].rstrip("/") + "/openai/v1/",
-    )
-    _deployment = os.environ["AZURE_OPENAI_DEPLOYMENT"]
+    host = os.environ.get("OLLAMA_HOST") or "http://localhost:11434"
+    if "://" not in host:
+        host = "http://" + host
+    _client = OpenAI(api_key="ollama", base_url=host.rstrip("/") + "/v1")
+    _deployment = os.environ.get("MEDBILL_TEXT_MODEL") or "qwen3:8b"
     return _client, _deployment
 
 
-AZURE_SYSTEM = """\
+def strip_think(text: str | None) -> str:
+    """Drop a leading <think>...</think> block (qwen3 may emit one even with think=false)."""
+    return re.sub(r"<think>.*?</think>\s*", "", text or "", flags=re.S).strip()
+
+
+LLM_SYSTEM = """\
 You are linking a UHC EOB claim entry to a provider bill statement.
 The two documents should describe the same transaction if they are
 truly a match. Required signals for a confident match:
@@ -225,7 +229,7 @@ Respond with JSON only:
 """
 
 
-def azure_match(claim: dict, bills: list[dict]) -> dict | None:
+def llm_match(claim: dict, bills: list[dict]) -> dict | None:
     if not bills:
         return None
     try:
@@ -262,15 +266,17 @@ def azure_match(claim: dict, bills: list[dict]) -> dict | None:
         resp = client.chat.completions.create(
             model=deployment,
             messages=[
-                {"role": "system", "content": AZURE_SYSTEM},
+                {"role": "system", "content": LLM_SYSTEM},
                 {"role": "user", "content": user},
             ],
-            max_completion_tokens=512,
+            max_tokens=512,
+            response_format={"type": "json_object"},
+            extra_body={"think": False},
         )
     except Exception as exc:
-        print(f"  [azure error] {exc}", flush=True)
+        print(f"  [llm error] {exc}", flush=True)
         return None
-    raw = (resp.choices[0].message.content or "").strip()
+    raw = strip_think(resp.choices[0].message.content)
     if raw.startswith("```"):
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw)
@@ -291,7 +297,7 @@ def main() -> int:
 
     rows: list[dict] = []
     counters = {"deterministic_1": 0, "deterministic_n": 0,
-                "azure_match": 0, "azure_unknown": 0,
+                "llm_match": 0, "llm_unknown": 0,
                 "unmatched_no_candidate": 0}
 
     for slug in slugs:
@@ -344,8 +350,8 @@ def main() -> int:
                 counters["deterministic_1"] += 1
                 continue
             if len(candidates) > 1:
-                # Multiple deterministic candidates -> ask Azure
-                model_out = azure_match(claim, [c[0] for c in candidates])
+                # Multiple deterministic candidates -> ask the local model
+                model_out = llm_match(claim, [c[0] for c in candidates])
                 if model_out and model_out.get("status") == "MATCH":
                     picked_file = model_out.get("matched_bill_file")
                     picked = next(
@@ -356,23 +362,23 @@ def main() -> int:
                     if picked is not None:
                         rows.append(build_match_row(
                             slug, picked, claim,
-                            match_type="azure", confidence="medium",
+                            match_type="llm", confidence="medium",
                             rationale=(model_out.get("rationale") or "")
                                 + " (multiple deterministic candidates)",
                         ))
-                        counters["azure_match"] += 1
+                        counters["llm_match"] += 1
                         continue
                 # Either no clear pick or model returned UNKNOWN
                 rows.append(build_match_row(
                     slug, None, claim,
-                    match_type="azure_unknown", confidence="low",
+                    match_type="llm_unknown", confidence="low",
                     rationale=f"{len(candidates)} candidates; model: "
                               f"{(model_out or {}).get('status', 'no response')}",
                 ))
-                counters["azure_unknown"] += 1
+                counters["llm_unknown"] += 1
                 continue
-            # No deterministic match, try azure across all bills for slug
-            model_out = azure_match(claim, bills)
+            # No deterministic match, try the model across all bills for slug
+            model_out = llm_match(claim, bills)
             if model_out and model_out.get("status") == "MATCH":
                 picked_file = model_out.get("matched_bill_file")
                 picked = next(
@@ -382,10 +388,10 @@ def main() -> int:
                 if picked is not None:
                     rows.append(build_match_row(
                         slug, picked, claim,
-                        match_type="azure", confidence="medium",
+                        match_type="llm", confidence="medium",
                         rationale=model_out.get("rationale", ""),
                     ))
-                    counters["azure_match"] += 1
+                    counters["llm_match"] += 1
                     continue
             rows.append(build_match_row(
                 slug, None, claim,

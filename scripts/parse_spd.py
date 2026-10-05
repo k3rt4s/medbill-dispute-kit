@@ -1,5 +1,5 @@
 """parse_spd.py, extract the structured profile from a Summary Plan
-Description PDF using Azure OpenAI gpt-5.2.
+Description PDF using local Ollama gemma3:4b vision.
 
 The SPD is the federally-required plain-language summary of an ERISA
 health plan (ERISA § 102 / 29 U.S.C. § 1022). The dispute drafter
@@ -7,8 +7,9 @@ reads the parsed profile to render plan-aware ERISA appeal letters,
 subrogation responses, and IDR-initiation requests. See
 `references/spd_parsing_guide.md` for the field descriptions.
 
-The script takes a PDF, renders each page to a JPEG, and asks gpt-5.2
-to extract the structured fields. Output is a single JSON file at
+The script takes a PDF, renders each page to a JPEG, and asks the local
+Ollama vision model (gemma3:4b via $OLLAMA_HOST, default
+http://localhost:11434; override with $MEDBILL_VISION_MODEL) to extract the structured fields. Output is a single JSON file at
 `<HEALTHBILLS_ROOT>/_spd_profiles/<plan_slug>.json`.
 
 PDFs vary in length; the script caps at the first 60 pages of an SPD
@@ -129,12 +130,11 @@ code block."""
 
 def call_extractor(images: list[bytes]) -> dict:
     from openai import OpenAI
-    client = OpenAI(
-        api_key=os.environ["AZURE_OPENAI_API_KEY"],
-        base_url=os.environ["AZURE_OPENAI_ENDPOINT"].rstrip("/")
-        + "/openai/v1/",
-    )
-    deployment = os.environ["AZURE_OPENAI_DEPLOYMENT"]
+    host = os.environ.get("OLLAMA_HOST") or "http://localhost:11434"
+    if "://" not in host:
+        host = "http://" + host
+    client = OpenAI(api_key="ollama", base_url=host.rstrip("/") + "/v1")
+    deployment = os.environ.get("MEDBILL_VISION_MODEL") or "gemma3:4b"
     user_content: list[dict] = [
         {"type": "text",
          "text": "Extract the SPD profile from the pages below."},
@@ -152,9 +152,13 @@ def call_extractor(images: list[bytes]) -> dict:
             {"role": "user", "content": user_content},
         ],
         response_format={"type": "json_object"},
-        max_completion_tokens=4096,
+        max_tokens=4096,
+        extra_body={"think": False},
     )
-    text = (resp.choices[0].message.content or "").strip()
+    text = re.sub(r"<think>.*?</think>\s*", "", resp.choices[0].message.content or "", flags=re.S).strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```(?:json)?\s*", "", text)
+        text = re.sub(r"\s*```$", "", text)
     return json.loads(text)
 
 
@@ -172,11 +176,10 @@ def main() -> int:
     if not pdf_path.exists():
         sys.exit(f"[fatal] SPD not found at {pdf_path}")
 
-    load_env(ENV_FILE)
     print(f"[render] {pdf_path} (first {args.max_pages} pages)",
           flush=True)
     images = render_pdf_pages(pdf_path, args.max_pages)
-    print(f"[extract] sending {len(images)} pages to Azure",
+    print(f"[extract] sending {len(images)} pages to local Ollama",
           flush=True)
 
     profile = call_extractor(images)

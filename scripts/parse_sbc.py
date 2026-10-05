@@ -203,17 +203,20 @@ def merge_model_fields(profile: dict[str, dict[str, Any]], candidate: object) ->
     return profile
 
 
+def strip_think(text: str | None) -> str:
+    """Drop a leading <think>...</think> block (qwen3 may emit one even with think=false)."""
+    return re.sub(r"<think>.*?</think>\s*", "", text or "", flags=re.S).strip()
+
+
 def call_model_fallback(request: dict[str, Any]) -> object:
     """Call the optional fallback only after deterministic extraction leaves fields null."""
-    load_env(ENV_FILE)
     from openai import OpenAI
-    required = ("AZURE_OPENAI_API_KEY", "AZURE_OPENAI_ENDPOINT", "AZURE_OPENAI_DEPLOYMENT")
-    missing = [name for name in required if not os.environ.get(name)]
-    if missing:
-        raise RuntimeError(f"model fallback requires: {', '.join(missing)}")
-    client = OpenAI(api_key=os.environ["AZURE_OPENAI_API_KEY"], base_url=os.environ["AZURE_OPENAI_ENDPOINT"].rstrip("/") + "/openai/v1/")
-    response = client.chat.completions.create(model=os.environ["AZURE_OPENAI_DEPLOYMENT"], messages=[{"role": "user", "content": json.dumps(request)}], response_format={"type": "json_object"}, max_completion_tokens=2048)
-    return json.loads((response.choices[0].message.content or "{}"))
+    host = os.environ.get("OLLAMA_HOST") or "http://localhost:11434"
+    if "://" not in host:
+        host = "http://" + host
+    client = OpenAI(api_key="ollama", base_url=host.rstrip("/") + "/v1")
+    response = client.chat.completions.create(model=os.environ.get("MEDBILL_TEXT_MODEL") or "qwen3:8b", messages=[{"role": "user", "content": json.dumps(request)}], response_format={"type": "json_object"}, max_tokens=2048, extra_body={"think": False})
+    return json.loads(strip_think(response.choices[0].message.content) or "{}")
 
 
 def main() -> int:

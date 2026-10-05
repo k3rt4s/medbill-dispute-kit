@@ -20,6 +20,7 @@ import xml.etree.ElementTree as ET
 
 HEALTH_ROOT = Path(os.environ.get("HEALTHBILLS_ROOT") or (Path.home() / "Health_Bills"))
 HOSPITAL_OUT_DIR = HEALTH_ROOT / "_hospital_profiles"
+# PDF extraction runs on local Ollama ($OLLAMA_HOST, model $MEDBILL_TEXT_MODEL, default qwen3:8b); no credentials.
 ENV_FILE = Path(os.environ.get("MEDBILL_KIT_ENV_FILE") or (Path.home() / ".medbill-dispute-kit" / ".env"))
 SLUG_SAFE = re.compile(r"[^a-z0-9_]+")
 MAX_INPUT_BYTES = 25 * 1024 * 1024
@@ -190,15 +191,19 @@ def pdf_request(path: Path) -> dict[str, Any]:
     return {"instructions": "Extract only explicitly stated values as scalars, otherwise null. Amounts are plain dollar strings; percentages are percentage points. Do not infer legal compliance. Return only requested keys in a JSON object.", "fields": refs, "pages": pages}
 
 
+def strip_think(text: str | None) -> str:
+    """Drop a leading <think>...</think> block (qwen3 may emit one even with think=false)."""
+    return re.sub(r"<think>.*?</think>\s*", "", text or "", flags=re.S).strip()
+
+
 def call_pdf_model(request: dict[str, Any]) -> dict[str, Any]:
-    load_env(ENV_FILE)
-    required = ("AZURE_OPENAI_API_KEY", "AZURE_OPENAI_ENDPOINT", "AZURE_OPENAI_DEPLOYMENT")
-    if any(not os.environ.get(key) for key in required):
-        raise ValueError("PDF model extraction requires Azure credentials; use --xml for offline extraction")
     from openai import OpenAI
-    client = OpenAI(api_key=os.environ[required[0]], base_url=os.environ[required[1]].rstrip("/") + "/openai/v1/")
-    response = client.chat.completions.create(model=os.environ[required[2]], messages=[{"role": "user", "content": json.dumps(request)}], response_format={"type": "json_object"}, max_completion_tokens=4096)
-    candidate = json.loads(response.choices[0].message.content or "{}")
+    host = os.environ.get("OLLAMA_HOST") or "http://localhost:11434"
+    if "://" not in host:
+        host = "http://" + host
+    client = OpenAI(api_key="ollama", base_url=host.rstrip("/") + "/v1")
+    response = client.chat.completions.create(model=os.environ.get("MEDBILL_TEXT_MODEL") or "qwen3:8b", messages=[{"role": "user", "content": json.dumps(request)}], response_format={"type": "json_object"}, max_tokens=4096, extra_body={"think": False})
+    candidate = json.loads(strip_think(response.choices[0].message.content) or "{}")
     if not isinstance(candidate, dict):
         raise ValueError("PDF model response was not a JSON object")
     profile = {}
@@ -257,9 +262,6 @@ def main() -> int:
             request = pdf_request(target)
             if args.dry_run:
                 print(json.dumps(request, indent=2))
-                if not all(os.environ.get(key) for key in ("AZURE_OPENAI_API_KEY", "AZURE_OPENAI_ENDPOINT", "AZURE_OPENAI_DEPLOYMENT")):
-                    print("[notice] PDF model extraction requires credentials; dry-run made no call or credential-file read.", file=sys.stderr)
-                    return 2  # Item-specific brief overrides the generic dry-run exit code.
                 return 0
             profile = call_pdf_model(request)
         if args.dry_run:

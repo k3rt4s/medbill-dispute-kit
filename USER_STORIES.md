@@ -913,7 +913,7 @@ This is the user-value master for medbill-dispute-kit, the personas and stories 
 
 **AC:**
 
-- Given an SPD PDF, When `scripts/parse_spd.py --pdf <path> --plan-slug <slug>` runs, Then it renders the first 60 pages, sends them to Azure OpenAI, and emits `<HEALTHBILLS_ROOT>/_spd_profiles/<plan_slug>.json` with the field set documented in `references/spd_parsing_guide.md`.
+- Given an SPD PDF, When `scripts/parse_spd.py --pdf <path> --plan-slug <slug>` runs, Then it renders the first 60 pages, sends them to the local Ollama vision model, and emits `<HEALTHBILLS_ROOT>/_spd_profiles/<plan_slug>.json` with the field set documented in `references/spd_parsing_guide.md`.
 - The profile uses null for fields the SPD does not specify and includes a verbatim quote (capped) of the subrogation and appeal-procedure paragraphs.
 
 **Status:** shipped (v0.13.0)

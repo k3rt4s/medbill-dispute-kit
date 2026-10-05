@@ -32,7 +32,7 @@ The script writes the per-letter path back into tracker.csv columns:
 `drafted_dispute_letter`. Manual sent-date entry is on you; this
 script only DRAFTS.
 
-Azure OpenAI gpt-5.2 is only called when actually drafting a letter
+Local Ollama qwen3:8b ($OLLAMA_HOST, default http://localhost:11434) is only called when actually drafting a letter
 (template + bill + EOB + law context -> ready-to-mail Markdown).
 Skipped folders / already-drafted letters never trigger a call.
 
@@ -264,13 +264,12 @@ def vision_client():
     global _client, _deployment
     if _client is not None:
         return _client, _deployment
-    load_env(ENV_FILE)
     from openai import OpenAI
-    _client = OpenAI(
-        api_key=os.environ["AZURE_OPENAI_API_KEY"],
-        base_url=os.environ["AZURE_OPENAI_ENDPOINT"].rstrip("/") + "/openai/v1/",
-    )
-    _deployment = os.environ["AZURE_OPENAI_DEPLOYMENT"]
+    host = os.environ.get("OLLAMA_HOST") or "http://localhost:11434"
+    if "://" not in host:
+        host = "http://" + host
+    _client = OpenAI(api_key="ollama", base_url=host.rstrip("/") + "/v1")
+    _deployment = os.environ.get("MEDBILL_TEXT_MODEL") or "qwen3:8b"
     return _client, _deployment
 
 
@@ -631,9 +630,11 @@ def call_draft(letter_kind: str, template_key: str,
             {"role": "system", "content": system},
             {"role": "user", "content": user},
         ],
-        max_completion_tokens=6144,
+        max_tokens=6144,
+        extra_body={"think": False},
     )
-    return (resp.choices[0].message.content or "").strip()
+    text = (resp.choices[0].message.content or "").strip()
+    return re.sub(r"<think>.*?</think>\s*", "", text, flags=re.S).strip()
 
 
 def draft_letter_if_needed(canonical: dict, all_rows: list[dict],
@@ -698,7 +699,7 @@ def main() -> int:
     ap.add_argument("--force", action="store_true",
                     help="Overwrite existing letter drafts.")
     ap.add_argument("--dry-run", action="store_true",
-                    help="Plan only; no Azure calls, no file writes.")
+                    help="Plan only; no model calls, no file writes.")
     args = ap.parse_args()
 
     tracker_rows = read_tracker()

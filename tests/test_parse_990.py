@@ -329,8 +329,8 @@ def test_cli_fetch_dry_run_plans_without_fetching_or_creating_target(tmp_path: P
     assert not (health_root / "_hospital_profiles").exists()
 
 
-def test_cli_pdf_dry_run_without_credentials_returns_clear_two(tmp_path: Path) -> None:
-    """Preview PDF extraction without importing OpenAI, reading credentials, calling, or writing."""
+def test_cli_pdf_dry_run_needs_no_credentials_and_returns_zero(tmp_path: Path) -> None:
+    """Preview PDF extraction without importing OpenAI, calling the model, or writing."""
     fixture = write_pdf(tmp_path)
     trap, env_file = trap_environment(tmp_path)
     health_root = tmp_path / "health-root"
@@ -344,7 +344,7 @@ def test_cli_pdf_dry_run_without_credentials_returns_clear_two(tmp_path: Path) -
         [sys.executable, "-B", str(REPO_ROOT / "scripts" / "parse_990.py"), "--pdf", str(fixture), "--dry-run"],
         cwd=REPO_ROOT, env=env, capture_output=True, text=True, check=False,
     )
-    assert result.returncode == 2
-    assert "PDF model extraction requires credentials; dry-run made no call or credential-file read." in result.stderr
+    assert result.returncode == 0, result.stderr
+    assert "requires credentials" not in result.stderr
     assert '"instructions"' in result.stdout
     assert not (health_root / "_hospital_profiles").exists()

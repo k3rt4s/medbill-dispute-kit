@@ -147,14 +147,14 @@ For the patient's most common questions, jump straight to:
 | [`scripts/deadline_watch.py`](../scripts/deadline_watch.py)                               | Overdue actions, response windows, SOL tracking by state           |
 | [`scripts/classify_rename_medical_bills.py`](../scripts/classify_rename_medical_bills.py) | Inbox intake: classify, rename, route to Billers/ or EOB/          |
 | [`scripts/restructure_to_billers_eob.py`](../scripts/restructure_to_billers_eob.py)       | One-time migration from older providers/ layout                    |
-| [`scripts/index_bills_and_claims.py`](../scripts/index_bills_and_claims.py)               | Per-folder `_bills.csv` and `_claims.csv` via Azure OpenAI         |
+| [`scripts/index_bills_and_claims.py`](../scripts/index_bills_and_claims.py)               | Per-folder `_bills.csv` and `_claims.csv` via local Ollama         |
 | [`scripts/match_claims_to_bills.py`](../scripts/match_claims_to_bills.py)                 | Link each EOB claim to a bill it adjudicates                       |
 | [`scripts/fetch_price_benchmarks.py`](../scripts/fetch_price_benchmarks.py)               | Per-folder `_benchmarks.csv` vs Medicare + MRF data                |
 | [`scripts/fetch_mrf.py`](../scripts/fetch_mrf.py)                                         | Pull hospital MRF, extract per-CPT rate bands                      |
 | [`scripts/audit_billing_errors.py`](../scripts/audit_billing_errors.py)                   | Per-folder `_audit.csv` with NCCI / duplicate / modifier-25 / etc. |
 | [`scripts/check_completeness.py`](../scripts/check_completeness.py)                       | Master tracker.csv: gates, encounters, state machine               |
 | [`scripts/draft_letters_by_state.py`](../scripts/draft_letters_by_state.py)               | State-machine letter generator with all kit templates              |
-| [`scripts/parse_spd.py`](../scripts/parse_spd.py)                                         | SPD PDF -> structured plan-profile JSON via Azure OpenAI           |
+| [`scripts/parse_spd.py`](../scripts/parse_spd.py)                                         | SPD PDF -> structured plan-profile JSON via local Ollama            |
 | [`scripts/log_interaction.py`](../scripts/log_interaction.py)                             | Append-only action log producer (calls, mailings, responses)       |
 | [`scripts/bundle_evidence.py`](../scripts/bundle_evidence.py)                             | Per-dispute-group zip with MANIFEST.md for offsite backup          |
 | [`scripts/bundle_to_cloud.py`](../scripts/bundle_to_cloud.py)                             | Push bundles to encrypted offsite via rclone                       |

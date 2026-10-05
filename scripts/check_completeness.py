@@ -307,7 +307,7 @@ def load_matches_by_bill() -> dict[tuple[str, str], list[dict]]:
         slug = (m.get("bill_slug") or "").strip()
         bill_file = (m.get("bill_file") or "").strip()
         if slug and bill_file and m.get("match_type") in (
-            "deterministic", "azure",
+            "deterministic", "llm", "azure",  # "azure" = rows written before the Ollama switch
         ):
             by_bill[(slug, bill_file)].append(m)
     return by_bill

@@ -14,8 +14,8 @@ biller_entity_raw, status, patient_account, dos_start, dos_end,
 billed, allowed, paid, patient_responsibility, patient_name).
 
 Idempotent: each sidecar's content hash is stored in its row. On
-re-run, sidecars whose hash hasn't changed are skipped (no Azure
-call). New / changed sidecars are sent to gpt-5.2 once.
+re-run, sidecars whose hash hasn't changed are skipped (no model
+call). New / changed sidecars are sent to local Ollama qwen3:8b once.
 
 Usage:
     python index_bills_and_claims.py
@@ -43,8 +43,8 @@ HEALTH_ROOT = Path(
 )
 BILLERS_DIR = HEALTH_ROOT / "Billers"
 EOB_DIR = HEALTH_ROOT / "EOB"
-# Azure OpenAI credentials live in a workstation .env. Override via
-# $MEDBILL_KIT_ENV_FILE or --env-file.
+# The model runs on local Ollama ($OLLAMA_HOST, default http://localhost:11434;
+# model $MEDBILL_TEXT_MODEL, default qwen3:8b); no credentials are needed.
 ENV_FILE = Path(
     os.environ.get("MEDBILL_KIT_ENV_FILE")
     or (Path.home() / ".medbill-dispute-kit" / ".env")
@@ -205,14 +205,18 @@ def load_env(env_path: Path) -> None:
 
 def make_client():
     from openai import OpenAI
-    endpoint = os.environ["AZURE_OPENAI_ENDPOINT"].rstrip("/")
+    host = os.environ.get("OLLAMA_HOST") or "http://localhost:11434"
+    if "://" not in host:
+        host = "http://" + host
     return (
-        OpenAI(
-            api_key=os.environ["AZURE_OPENAI_API_KEY"],
-            base_url=endpoint + "/openai/v1/",
-        ),
-        os.environ["AZURE_OPENAI_DEPLOYMENT"],
+        OpenAI(api_key="ollama", base_url=host.rstrip("/") + "/v1"),
+        os.environ.get("MEDBILL_TEXT_MODEL") or "qwen3:8b",
     )
+
+
+def strip_think(text: str | None) -> str:
+    """Drop a leading <think>...</think> block (qwen3 may emit one even with think=false)."""
+    return re.sub(r"<think>.*?</think>\s*", "", text or "", flags=re.S).strip()
 
 
 def read_sidecar_body(sidecar: Path) -> str:
@@ -308,12 +312,14 @@ def call_vision_text(client, deployment: str, system: str,
                 {"role": "system", "content": system},
                 {"role": "user", "content": body[:80_000]},
             ],
-            max_completion_tokens=4096,
+            max_tokens=4096,
+            response_format={"type": "json_object"},
+            extra_body={"think": False},
         )
     except Exception as exc:
         print(f"  [api error] {exc}", flush=True)
         return None
-    raw = (resp.choices[0].message.content or "").strip()
+    raw = strip_think(resp.choices[0].message.content)
     if raw.startswith("```"):
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw)
@@ -484,11 +490,6 @@ def main() -> int:
                     help="Re-extract every sidecar even if its hash hasn't changed.")
     args = ap.parse_args()
 
-    load_env(ENV_FILE)
-    for k in ("AZURE_OPENAI_API_KEY", "AZURE_OPENAI_ENDPOINT",
-              "AZURE_OPENAI_DEPLOYMENT"):
-        if not os.environ.get(k):
-            sys.exit(f"[fatal] missing env var: {k}")
     client, deployment = make_client()
 
     totals = {"bills_added": 0, "bills_skipped": 0,

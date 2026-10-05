@@ -732,7 +732,7 @@
     {
       "id": "allen-spd-parser",
       "title": "SPD parser",
-      "description": "scripts/parse_spd.py emits structured plan profile JSON via Azure OpenAI gpt-5.2; references/spd_parsing_guide.md describes the field set and use cases",
+      "description": "scripts/parse_spd.py emits structured plan profile JSON via local Ollama gemma3:4b (originally Azure OpenAI gpt-5.2); references/spd_parsing_guide.md describes the field set and use cases",
       "status": "implemented",
       "release": { "version": "v0.13.0", "date": "2026-05-21" }
     },

@@ -18,8 +18,8 @@ Routing:
 - category == medical → providers/<provider-slug>/
 - category in {financial, personal, unknown} → other/
 
-Reads Azure OpenAI creds from a workstation .env file (default
-~/.medbill-dispute-kit/.env; override via $MEDBILL_KIT_ENV_FILE).
+Classifies with the local Ollama vision model gemma3:4b ($OLLAMA_HOST,
+default http://localhost:11434; override the model via $MEDBILL_VISION_MODEL).
 
 Usage:
     python classify_rename_medical_bills.py
@@ -44,9 +44,8 @@ import fitz  # PyMuPDF
 
 # Defaults. Override at runtime via CLI args or these env vars:
 #   $HEALTHBILLS_ROOT, parent of inbox/, providers/ (or Billers/+EOB/), other/
-#   $MEDBILL_KIT_ENV_FILE, path to the workstation .env that holds
-#                             AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT,
-#                             AZURE_OPENAI_DEPLOYMENT
+#   $OLLAMA_HOST, Ollama base URL (default http://localhost:11434)
+#   $MEDBILL_KIT_ENV_FILE, optional workstation .env path (no longer read here)
 ENV_FILE = Path(
     os.environ.get("MEDBILL_KIT_ENV_FILE")
     or (Path.home() / ".medbill-dispute-kit" / ".env")
@@ -145,13 +144,12 @@ def load_env(env_path: Path) -> None:
 
 def make_client():
     from openai import OpenAI
-    endpoint = os.environ["AZURE_OPENAI_ENDPOINT"].rstrip("/")
+    host = os.environ.get("OLLAMA_HOST") or "http://localhost:11434"
+    if "://" not in host:
+        host = "http://" + host
     return (
-        OpenAI(
-            api_key=os.environ["AZURE_OPENAI_API_KEY"],
-            base_url=endpoint + "/openai/v1/",
-        ),
-        os.environ["AZURE_OPENAI_DEPLOYMENT"],
+        OpenAI(api_key="ollama", base_url=host.rstrip("/") + "/v1"),
+        os.environ.get("MEDBILL_VISION_MODEL") or "gemma3:4b",
     )
 
 
@@ -189,9 +187,11 @@ def call_vision(client, deployment: str, images: list[bytes]) -> dict:
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": content},
         ],
-        max_completion_tokens=4096,
+        max_tokens=4096,
+        extra_body={"think": False},
+        response_format={"type": "json_object"},
     )
-    raw = (resp.choices[0].message.content or "").strip()
+    raw = re.sub(r"<think>.*?</think>\s*", "", resp.choices[0].message.content or "", flags=re.S).strip()
     if raw.startswith("```"):
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
         raw = re.sub(r"\s*```$", "", raw)
@@ -391,11 +391,6 @@ def main() -> int:
     providers_root.mkdir(parents=True, exist_ok=True)
     other_root.mkdir(parents=True, exist_ok=True)
 
-    load_env(ENV_FILE)
-    for k in ("AZURE_OPENAI_API_KEY", "AZURE_OPENAI_ENDPOINT",
-              "AZURE_OPENAI_DEPLOYMENT"):
-        if not os.environ.get(k):
-            sys.exit(f"[fatal] missing env var: {k}")
     client, deployment = make_client()
 
     files = sorted(f for f in inbox.iterdir() if f.is_file())
