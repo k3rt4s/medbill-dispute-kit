@@ -153,7 +153,7 @@ def call_extractor(images: list[bytes]) -> dict:
         ],
         response_format={"type": "json_object"},
         max_tokens=4096,
-        extra_body={"think": False},
+        extra_body={"reasoning_effort": "none"},
     )
     text = re.sub(r"<think>.*?</think>\s*", "", resp.choices[0].message.content or "", flags=re.S).strip()
     if text.startswith("```"):

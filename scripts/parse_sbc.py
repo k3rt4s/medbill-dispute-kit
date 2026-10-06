@@ -204,7 +204,7 @@ def merge_model_fields(profile: dict[str, dict[str, Any]], candidate: object) ->
 
 
 def strip_think(text: str | None) -> str:
-    """Drop a leading <think>...</think> block (qwen3 may emit one even with think=false)."""
+    """Drop a leading <think>...</think> block (qwen3 may emit one even with reasoning_effort none)."""
     return re.sub(r"<think>.*?</think>\s*", "", text or "", flags=re.S).strip()
 
 
@@ -215,7 +215,7 @@ def call_model_fallback(request: dict[str, Any]) -> object:
     if "://" not in host:
         host = "http://" + host
     client = OpenAI(api_key="ollama", base_url=host.rstrip("/") + "/v1")
-    response = client.chat.completions.create(model=os.environ.get("MEDBILL_TEXT_MODEL") or "qwen3:8b", messages=[{"role": "user", "content": json.dumps(request)}], response_format={"type": "json_object"}, max_tokens=2048, extra_body={"think": False})
+    response = client.chat.completions.create(model=os.environ.get("MEDBILL_TEXT_MODEL") or "qwen3:8b", messages=[{"role": "user", "content": json.dumps(request)}], response_format={"type": "json_object"}, max_tokens=2048, extra_body={"reasoning_effort": "none"})
     return json.loads(strip_think(response.choices[0].message.content) or "{}")
 
 

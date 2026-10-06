@@ -631,7 +631,7 @@ def call_draft(letter_kind: str, template_key: str,
             {"role": "user", "content": user},
         ],
         max_tokens=6144,
-        extra_body={"think": False},
+        extra_body={"reasoning_effort": "none"},
     )
     text = (resp.choices[0].message.content or "").strip()
     return re.sub(r"<think>.*?</think>\s*", "", text, flags=re.S).strip()

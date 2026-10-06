@@ -188,7 +188,7 @@ def call_vision(client, deployment: str, images: list[bytes]) -> dict:
             {"role": "user", "content": content},
         ],
         max_tokens=4096,
-        extra_body={"think": False},
+        extra_body={"reasoning_effort": "none"},
         response_format={"type": "json_object"},
     )
     raw = re.sub(r"<think>.*?</think>\s*", "", resp.choices[0].message.content or "", flags=re.S).strip()

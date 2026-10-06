@@ -192,7 +192,7 @@ def pdf_request(path: Path) -> dict[str, Any]:
 
 
 def strip_think(text: str | None) -> str:
-    """Drop a leading <think>...</think> block (qwen3 may emit one even with think=false)."""
+    """Drop a leading <think>...</think> block (qwen3 may emit one even with reasoning_effort none)."""
     return re.sub(r"<think>.*?</think>\s*", "", text or "", flags=re.S).strip()
 
 
@@ -202,7 +202,7 @@ def call_pdf_model(request: dict[str, Any]) -> dict[str, Any]:
     if "://" not in host:
         host = "http://" + host
     client = OpenAI(api_key="ollama", base_url=host.rstrip("/") + "/v1")
-    response = client.chat.completions.create(model=os.environ.get("MEDBILL_TEXT_MODEL") or "qwen3:8b", messages=[{"role": "user", "content": json.dumps(request)}], response_format={"type": "json_object"}, max_tokens=4096, extra_body={"think": False})
+    response = client.chat.completions.create(model=os.environ.get("MEDBILL_TEXT_MODEL") or "qwen3:8b", messages=[{"role": "user", "content": json.dumps(request)}], response_format={"type": "json_object"}, max_tokens=4096, extra_body={"reasoning_effort": "none"})
     candidate = json.loads(strip_think(response.choices[0].message.content) or "{}")
     if not isinstance(candidate, dict):
         raise ValueError("PDF model response was not a JSON object")

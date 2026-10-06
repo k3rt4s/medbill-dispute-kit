@@ -33,7 +33,7 @@ def test_index_parse_survives_a_leading_think_block():
     mod = load("index_bills_and_claims")
     client = FakeClient(THINK + '```json\n{"ok": 1}\n```')
     assert mod.call_vision_text(client, "qwen3:8b", "sys", "body") == {"ok": 1}
-    assert client.kwargs["extra_body"] == {"think": False}
+    assert client.kwargs["extra_body"] == {"reasoning_effort": "none"}
 
 
 def test_match_parse_survives_a_leading_think_block(monkeypatch):

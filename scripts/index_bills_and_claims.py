@@ -215,7 +215,7 @@ def make_client():
 
 
 def strip_think(text: str | None) -> str:
-    """Drop a leading <think>...</think> block (qwen3 may emit one even with think=false)."""
+    """Drop a leading <think>...</think> block (qwen3 may emit one even with reasoning_effort none)."""
     return re.sub(r"<think>.*?</think>\s*", "", text or "", flags=re.S).strip()
 
 
@@ -314,7 +314,7 @@ def call_vision_text(client, deployment: str, system: str,
             ],
             max_tokens=4096,
             response_format={"type": "json_object"},
-            extra_body={"think": False},
+            extra_body={"reasoning_effort": "none"},
         )
     except Exception as exc:
         print(f"  [api error] {exc}", flush=True)
