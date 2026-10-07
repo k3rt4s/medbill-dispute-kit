@@ -10,6 +10,8 @@ This project follows [Keep a Changelog](https://keepachangelog.com) conventions.
 
 ### Added
 
+- **Dependabot cooldown config.** `.github\dependabot.yml` (pip and github-actions, weekly, 7-day cooldown, grouped pip
+  updates) so a freshly published release is not auto-proposed inside its first week (SC8).
 - **AI-01 eval harness for the intake classifier.** `evals\classify_rename\` holds six synthetic
   fixtures (invented patient, provider, dates, and amounts) for
   `scripts\classify_rename_medical_bills.py`, the vision model that classifies and renames
